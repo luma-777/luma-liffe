@@ -11,8 +11,12 @@ export const CONFIG = {
   //     »Kdor koli s povezavo: ogledovalec«.
   // csv ima prednost. Vse prazno = stran bere samo data/luma.json.
   luma: {
-    csv: { priporocila: "", skupne: "", pridruzeni: "" },
-    sheetId: "15VJlwoEo1KPfKAyiwHojf7GvGDcZEVlBYMMTJHgPOi8",
+    csv: {
+      priporocila: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiu_vyDoPj_2cpXRphRlZDGbcmfZ0mR7OnMFrfCVVtKO5kthiL9UM7r_hBdomeKVjtpEdb08pedqI8/pub?gid=1939340657&single=true&output=csv",
+      skupne: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiu_vyDoPj_2cpXRphRlZDGbcmfZ0mR7OnMFrfCVVtKO5kthiL9UM7r_hBdomeKVjtpEdb08pedqI8/pub?gid=450507378&single=true&output=csv",
+      pridruzeni: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiu_vyDoPj_2cpXRphRlZDGbcmfZ0mR7OnMFrfCVVtKO5kthiL9UM7r_hBdomeKVjtpEdb08pedqI8/pub?gid=775650030&single=true&output=csv",
+    },
+    sheetId: "",
     tabs: {
       priporocila: "luma_priporocila",
       skupne: "luma_skupne_projekcije",

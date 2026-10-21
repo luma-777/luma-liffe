@@ -17,10 +17,13 @@ Alternativa brez GitHuba: [Netlify Drop](https://app.netlify.com/drop) – povle
 
 Sheet **LuMa × LIFFe 2026 – uredniški podatki** je v mapi *Kino in film / Liffe 2026*.
 
-Enkratna nastavitev:
-1. V Sheetu **Deli → Splošni dostop → Kdor koli s povezavo → Ogledovalec**. (Sheet je zato javno berljiv – vanj ne
-   piši zasebnih podatkov. Urejanje ostane samo tebi.)
-2. V `site/config.js` vpiši `sheetId: "15VJlwoEo1KPfKAyiwHojf7GvGDcZEVlBYMMTJHgPOi8"`.
+Nastavitev (narejeno 21. 10. 2026):
+- Sheet je **zaseben** (Deli → Omejeno). Javni so samo podatki zavihkov, objavljenih z
+  **Datoteka → Deli → Objavi v spletu** (CSV). Kdor ima objavljeno povezavo, lahko te zavihke prebere,
+  zato vanje ne piši zasebnih podatkov.
+- Povezave CSV so v `site/config.js` pod `luma.csv`. Če kdaj ustaviš objavo, stran uporabi zadnji urni posnetek
+  (`site/data/luma.json`).
+- Objavljen je tudi zavihek `navodila`; ni občutljiv, a ga lahko pod »Objavljena vsebina in nastavitve« odkljukaš.
 
 Urejanje (brez kode):
 - **ID-ji**: odpri stran z `?urednik` na koncu, npr. `…/#/film/3926?urednik`. Pri filmu se izpiše `film_id`, pri vsakem
@@ -30,8 +33,8 @@ Urejanje (brez kode):
 - `luma_potrjeni_pridruzeni`: samo pregledani vzdevki z izrecnim soglasjem, `objavi` = DA.
 - Vrstice s `primer` = DA se nikoli ne prikažejo. Stolpci »za lažje branje« so le zate.
 
-Spremembe so vidne ob naslednjem nalaganju strani (stran bere Sheet neposredno); če Google ne odgovori,
-stran uporabi urni posnetek.
+Spremembe so na strani vidne v nekaj minutah (Google objavljene podatke osveži približno na 5 minut), brez Pusha.
+Če Google ne odgovori, stran uporabi urni posnetek.
 
 ## 3. »Pridem tudi jaz« (možnost C, brez strežnika)
 

@@ -1,7 +1,14 @@
 {
- "_opomba": "Posnetek LuMa Google Sheeta (scripts/fetch_luma.py). Stran ga uporabi, če Sheet ni nastavljen ali dosegljiv.",
- "updated_at": "2026-10-21T21:45+02:00",
+ "_opomba": "Posnetek LuMa Google Sheeta (scripts/fetch_luma.py).",
+ "updated_at": "2026-10-21T19:21+00:00",
  "priporocila": [
+  {
+   "film_id": "3926",
+   "aktivno": "NE",
+   "komentar": "PRIMER – to ni resnično priporočilo. Vrstico izbriši ali prepiši.",
+   "vrstni_red": "1",
+   "primer": "DA"
+  },
   {
    "film_id": "3960",
    "aktivno": "DA",
@@ -19,6 +26,14 @@
  ],
  "skupne": [
   {
+   "screening_id": "t227379",
+   "gremo": "NE",
+   "povabilo": "PRIMER – to ni resničen skupni ogled.",
+   "zbirno_mesto": "",
+   "prijava_url": "",
+   "primer": "DA"
+  },
+  {
    "screening_id": "t227220",
    "gremo": "DA",
    "povabilo": "Greva na Minotavra – pridruži se nama v Linhartovi dvorani!",
@@ -27,5 +42,12 @@
    "primer": ""
   }
  ],
- "pridruzeni": []
+ "pridruzeni": [
+  {
+   "screening_id": "t227379",
+   "vzdevek": "PrimerVzdevek",
+   "objavi": "NE",
+   "primer": "DA"
+  }
+ ]
 }
