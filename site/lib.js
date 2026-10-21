@@ -152,10 +152,13 @@ function write() {
 }
 
 const listeners = new Set();
+const externalListeners = new Set();
 export const store = {
   get: () => mem,
   init: read,
   onChange: (fn) => listeners.add(fn),
+  // sprememba v drugem zavihku istega brskalnika
+  onExternalChange: (fn) => externalListeners.add(fn),
   isFav: (id) => mem.fav.includes(id),
   inPlan: (id) => mem.plan.includes(id),
   toggleFav(id) {
@@ -181,7 +184,12 @@ export const store = {
     write();
   },
 };
-window.addEventListener("storage", (e) => { if (e.key === KEY) { read(); listeners.forEach((fn) => fn(mem)); } });
+window.addEventListener("storage", (e) => {
+  if (e.key !== KEY) return;
+  read();
+  listeners.forEach((fn) => fn(mem));
+  externalListeners.forEach((fn) => fn(mem));
+});
 
 /* ------------------------------------------------------------ deljenje */
 
@@ -345,16 +353,19 @@ export async function loadLuma() {
     const r = await fetch("data/luma.json", { cache: "no-cache" });
     if (r.ok) snapshot = await r.json();
   } catch (_) {}
-  const { sheetId, tabs } = CONFIG.luma;
-  if (sheetId) {
+  const { sheetId, tabs, csv = {} } = CONFIG.luma;
+  const published = csv.priporocila && csv.skupne && csv.pridruzeni;
+  if (published || sheetId) {
     try {
-      const get = async (tab) => {
-        const u = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(sheetId)}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tab)}`;
+      const get = async (key) => {
+        const u = published
+          ? csv[key]
+          : `https://docs.google.com/spreadsheets/d/${encodeURIComponent(sheetId)}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabs[key])}`;
         const r = await fetch(u, { cache: "no-store" });
-        if (!r.ok) throw new Error(tab + " " + r.status);
+        if (!r.ok || !/csv/.test(r.headers.get("content-type") || "")) throw new Error(key + " " + r.status);
         return parseCsv(await r.text());
       };
-      const [priporocila, skupne, pridruzeni] = await Promise.all([get(tabs.priporocila), get(tabs.skupne), get(tabs.pridruzeni)]);
+      const [priporocila, skupne, pridruzeni] = await Promise.all([get("priporocila"), get("skupne"), get("pridruzeni")]);
       return { ...cleanLuma({ priporocila, skupne, pridruzeni }), live: true };
     } catch (e) {
       console.warn("LuMa Sheet ni dosegljiv, uporabljam data/luma.json:", e);

@@ -1,0 +1,16 @@
+{
+ "_navodila": "Kratki lastni opisi uradnih LIFFe sekcij (prikazani pri filtrih). Uradni opisi: https://www.liffe.si/sl/program/festivalske-sekcije. Kjer je kaj potrjeno na liffe.si, je navedeno v _vir.",
+ "Perspektive": {"opis": "Tekmovalni program novih imen: prvi in drugi celovečerci, ki tekmujejo za nagrado vodomec.", "_vir": "liffe.si/sl/program/festivalske-sekcije (nagrada vodomec za najboljši film iz Perspektiv)"},
+ "Predpremiere": {"opis": "Odmevni novi filmi, ki jih na LIFFu vidiš med prvimi v Sloveniji."},
+ "Kralji in kraljice": {"opis": "Novi filmi uveljavljenih avtoric in avtorjev svetovnega filma."},
+ "Panorama": {"opis": "Pregled svetovnega filma: festivalski filmi letošnje sezone z vseh koncev sveta."},
+ "Ekstravaganca": {"opis": "Žanrski, drzni in čudaški filmi – od pošasti do črnega humorja. Za tiste, ki imajo radi kaj nenavadnega."},
+ "Fokus: Avstrija": {"opis": "Poseben poudarek na avstrijskem filmu, od novih del do starejših filmov."},
+ "Jadranska mreža": {"opis": "Filmi iz regije, izbrani v sodelovanju festivalov Jadranske mreže (Sarajevo, Zagreb, Herceg Novi, Beograd, Bitola, Ljubljana).", "_vir": "liffe.si/sl/festival/jadranska-mreza"},
+ "Kinobalon": {"opis": "Filmi za otroke in mlade; pri vsakem je navedena priporočena starost in ali je film podnaslovljen ali sinhroniziran."},
+ "Kino-integral": {"opis": "Nemi film z glasbo v živo; vstopnice imajo posebno ceno.", "_vir": "liffe.si/sl/vstopnice/vstopnice (Propad hiše Usher z glasbeno spremljavo v živo)"},
+ "Retro: Commedia all'italiana": {"opis": "Retrospektiva klasične italijanske komedije iz petdesetih do sedemdesetih let: Monicelli, Risi, Germi, Scola, Wertmüller."},
+ "Posvečeno: Paweł Pawlikowski": {"opis": "Pregled filmov Pawła Pawlikowskega, od Zadnjega zatočišča do Hladne vojne; njegov novi film Očetnjava je med Predpremierami.", "_vir": "liffe.si/sl/program/festivalske-sekcije"},
+ "Posvečeno: Ivica Matić": {"opis": "Kratki eksperimentalni filmi in edini celovečerec sarajevskega režiserja Ivice Matića."},
+ "Evropa na kratko": {"opis": "Evropski kratki filmi v treh sklopih – vsak sklop je ena projekcija z več kratkimi filmi."}
+}

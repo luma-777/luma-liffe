@@ -4,10 +4,14 @@ export const CONFIG = {
   // da jih smemo uporabljati; stran ima tipografske nadomestke.
   showPosters: false,
 
-  // LuMa uredniški Google Sheet (samo neobčutljivi podatki).
-  // sheetId = del povezave med /d/ in /edit. Sheet mora biti deljen kot
-  // »Kdor koli s povezavo: ogledovalec«. Prazno = stran bere samo data/luma.json.
+  // LuMa uredniški Google Sheet (samo neobčutljivi podatki). Dve možnosti:
+  //  A) priporočeno – Sheet ostane zaseben, zavihki so »Objavljeni v splet« kot CSV:
+  //     v csv vpiši tri povezave (Datoteka → Deli → Objavi v splet → zavihek → CSV).
+  //  B) sheetId (del povezave med /d/ in /edit), Sheet deljen kot
+  //     »Kdor koli s povezavo: ogledovalec«.
+  // csv ima prednost. Vse prazno = stran bere samo data/luma.json.
   luma: {
+    csv: { priporocila: "", skupne: "", pridruzeni: "" },
     sheetId: "15VJlwoEo1KPfKAyiwHojf7GvGDcZEVlBYMMTJHgPOi8",
     tabs: {
       priporocila: "luma_priporocila",

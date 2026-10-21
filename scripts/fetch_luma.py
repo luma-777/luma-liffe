@@ -6,8 +6,9 @@ Stran Sheet bere tudi neposredno (če je v config.js nastavljen sheetId). Ta
 posnetek je rezerva: če Google ni dosegljiv, ali če se odločiš, da Sheet bere
 samo samodejna objava (GitHub Actions), ne pa obiskovalci.
 
-Sheet mora biti deljen »Kdor koli s povezavo: ogledovalec«. Vsebuje samo
-neobčutljive uredniške podatke – odgovori obrazca so v ločenem, zasebnem listu.
+Bere povezave »Objavi v splet« (luma.csv v config.js), sicer Sheet, deljen
+»Kdor koli s povezavo: ogledovalec« (luma.sheetId). Vsebuje samo neobčutljive
+uredniške podatke – odgovori obrazca so v ločenem, zasebnem listu.
 
 Uporaba:  python3 scripts/fetch_luma.py [SHEET_ID]
           (brez argumenta vzame sheetId iz site/config.js ali okolja LUMA_SHEET_ID)
@@ -52,8 +53,18 @@ def key(h):
     return re.sub(r"[^a-z0-9]+", "_", h).strip("_")
 
 
-def fetch(sid, tab):
-    url = "https://docs.google.com/spreadsheets/d/%s/gviz/tq?tqx=out:csv&sheet=%s" % (sid, urllib.parse.quote(tab))
+def published_csv():
+    """Povezave »Objavi v splet« (CSV) iz site/config.js → luma.csv, če so vpisane."""
+    cfg = open(os.path.join(ROOT, "site", "config.js"), encoding="utf-8").read()
+    m = re.search(r"csv:\s*\{([^}]*)\}", cfg)
+    if not m:
+        return {}
+    found = dict(re.findall(r'(\w+):\s*"([^"]*)"', m.group(1)))
+    return found if all(found.get(k) for k in TABS) else {}
+
+
+def fetch(sid, tab, url=None):
+    url = url or "https://docs.google.com/spreadsheets/d/%s/gviz/tq?tqx=out:csv&sheet=%s" % (sid, urllib.parse.quote(tab))
     try:
         with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "LuMa-LIFFe"}), timeout=30) as r:
             ctype = r.headers.get("Content-Type", "")
@@ -72,13 +83,14 @@ def fetch(sid, tab):
 
 
 def main():
+    pub = published_csv()
     sid = sheet_id()
-    if not sid:
-        raise SystemExit("Ni sheetId (site/config.js → luma.sheetId).")
+    if not pub and not sid:
+        raise SystemExit("Ni ne luma.csv ne luma.sheetId v site/config.js.")
     out = {"_opomba": "Posnetek LuMa Google Sheeta (scripts/fetch_luma.py).",
            "updated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes")}
     for k, tab in TABS.items():
-        rows = fetch(sid, tab)
+        rows = fetch(sid, tab, pub.get(k))
         out[k] = [{c: (r.get(c) or "").strip() for c in KEEP[k]} for r in rows]
         print("%-12s %d vrstic" % (k, len(out[k])))
     with open(OUT, "w", encoding="utf-8") as f:

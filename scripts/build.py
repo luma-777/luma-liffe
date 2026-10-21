@@ -5,6 +5,7 @@ Združi uvožene podatke v eno datoteko za spletno stran.
   data/liffe.json        (import_liffe.py)  uradni program, samo Ljubljana
   data/links.json        (match_imdb.py)    preverjene zunanje povezave
   data/povzetki.json     (ročno/Claude)     kratki lastni povzetki
+  data/sekcije.json      (ročno/Claude)     kratki opisi sekcij
         ↓
   site/data/program.json
 
@@ -30,6 +31,7 @@ def main():
     liffe = load("liffe.json")
     links = load("links.json", {})
     povzetki = {k: v for k, v in load("povzetki.json", {}).items() if not k.startswith("_")}
+    sekcije = {k: v for k, v in load("sekcije.json", {}).items() if not k.startswith("_")}
 
     films = []
     for f in liffe["films"]:
@@ -70,6 +72,7 @@ def main():
         "source": liffe["source"],
         "venues": liffe["venues"],
         "sections": liffe["sections"],
+        "section_info": {s: sekcije[s]["opis"] for s in liffe["sections"] if s in sekcije},
         "films": films,
         "screenings": liffe["screenings"],
         "notes": {

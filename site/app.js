@@ -177,18 +177,19 @@ function afterRender(r) {
 
 function viewHome() {
   const today = ljNow();
-  const during = today.date >= P.festival.start && today.date <= P.festival.end;
-  const evDay = during ? today.date : P.days[0];
-  const nightHref = `#/odkrij?tab=cas&d=${evDay}&od=17:30&do=23:59`;
-  let upcoming;
-  if (during) {
-    upcoming = P.screenings.filter((s) => s.date === today.date && startMin(s) >= today.min).slice(0, 6);
-  } else if (today.date < P.festival.start) {
-    upcoming = P.screenings.filter((s) => s.date === P.days[0]).slice(0, 6);
-  } else upcoming = [];
-  const upTitle = during ? "Še danes na sporedu" : "Prvi festivalski dan";
   const recs = L.priporocila.filter((r) => P.filmById.has(r.film_id));
   const tg = L.skupne.filter((r) => P.screeningById.has(r.screening_id));
+  const [sy, , sd] = P.festival.start.split("-").map(Number);
+  const [, , ed] = P.festival.end.split("-").map(Number);
+  const dayIdx = P.days.indexOf(today.date);
+  const utc = (d) => { const [y, m, dd] = d.split("-").map(Number); return Date.UTC(y, m - 1, dd); };
+  const dayDiff = Math.round((utc(P.festival.start) - utc(today.date)) / 86400000);
+  let when;
+  if (dayIdx >= 0) when = `Danes je ${dayIdx + 1}. festivalski dan`;
+  else if (dayDiff > 0) when = dayDiff === 1 ? "Začne se jutri!" : `Začne se čez ${dayDiff} ${plural(dayDiff, "dan", "dneva", "dni", "dni")}`;
+  else when = "Letošnji festival je mimo – se vidimo prihodnje leto";
+  const during = dayIdx >= 0;
+  const nightHref = `#/odkrij?tab=cas&d=${during ? today.date : P.days[0]}&od=17:30&do=23:59`;
 
   return `
   <section class="hero">
@@ -200,6 +201,11 @@ function viewHome() {
       <span class="ht-mid">Tvoj <em>prvi.<svg class="ht-squiggle" aria-hidden="true"><use href="#i-squiggle"/></svg></em></span>
       <span class="ht-aside">Ali pa tudi ne.</span>
     </h1>
+    <p class="hero-date" aria-label="${esc(`Festival traja od ${sd}. do ${ed}. novembra ${sy} v Ljubljani. ${when}.`)}">
+      <span class="hd-days">${sd}.–${ed}.</span>
+      <span class="hd-month">november ${sy}</span>
+      <span class="hd-where">Ljubljana · ${esc(when)}</span>
+    </p>
     <p class="hero-lede">Več kot sto filmov, kup projekcij in ziher kaj dobrega zate. Malo pobrskaj, najdi svoj film, sestavi plan ali pa poglej, kaj je zamikalo naju. Če se ujamemo v isti dvorani, še toliko boljše. <span aria-hidden="true">🍿</span></p>
     <div class="hero-cta">
       <a class="btn btn-mustard" href="#/odkrij">Grem po film! <span aria-hidden="true">↗</span></a>
@@ -227,25 +233,48 @@ function viewHome() {
     </a>
   </div>
   <p class="stats" aria-label="Festival v številkah">
-    <span><b>${P.films.length}</b> filmov</span><span><b>${P.screenings.length}</b> projekcij</span><span><b>${P.venues.length}</b> ljubljanskih dvoran</span><span><b>${P.days.length}</b> dni · ${esc(festRange())}</span>
+    <span><b>${P.films.length}</b> filmov</span><span><b>${P.screenings.length}</b> projekcij</span><span><b>${P.venues.length}</b> ljubljanskih dvoran</span><span><b>${P.days.length}</b> dni</span>
   </p>
 
-  ${upcoming.length ? `
   <section class="section">
-    <div class="section-head"><div><p class="kicker">${during ? "Danes" : esc(dayLong(P.days[0]))}</p><h2>${upTitle}</h2></div>
-    <a class="btn btn-ghost btn-small" href="#/odkrij?tab=termini&d=${evDay}">Ves dan</a></div>
-    <ul class="rows">${upcoming.map((s) => rowHtml(s)).join("")}</ul>
-  </section>` : ""}
-
-  ${tg.length ? `
-  <section class="section">
-    <div class="section-head"><div><p class="kicker">Z LuMa v kino</p><h2>Pridruži se nam</h2></div><a class="btn btn-ghost btn-small" href="#/skupaj">Vsi skupni ogledi</a></div>
-    <div class="together">${tg.slice(0, 2).map(tgCard).join("")}</div>
-  </section>` : ""}
+    <div class="section-head"><div><p class="kicker">${ic("star")} Uredniški izbor</p><h2>LuMa priporoča</h2></div>${recs.length ? `<a class="btn btn-ghost btn-small" href="#/luma">Vsa priporočila</a>` : ""}</div>
+    ${recs.length ? `<div class="grid">${recs.slice(0, 3).map(homeRec).join("")}</div>`
+      : `<div class="empty empty-mini">${ic("eye", "motif")}<p><b>Najin izbor še nastaja.</b> Brskava po programu in kmalu tukaj objaviva, kaj naju je zamikalo.</p></div>`}
+  </section>
 
   <section class="section">
-    <div class="notice info">${ic("warn")}<p>Prvič na LIFFu? Vstopnice kupiš na uradni strani ali blagajnah (<a href="${esc(P.festival.tickets_url)}" target="_blank" rel="noopener">cene in prodajna mesta</a>). Ta vodič si izbire le zapomni v tvojem brskalniku – ne rezervira sedežev.</p></div>
+    <div class="section-head"><div><p class="kicker">${ic("people")} Skupni ogledi</p><h2>Z LuMa v kino</h2></div>${tg.length ? `<a class="btn btn-ghost btn-small" href="#/skupaj">Vsi skupni ogledi</a>` : ""}</div>
+    ${tg.length ? `<div class="together">${tg.slice(0, 2).map(tgCard).join("")}</div>`
+      : `<div class="empty empty-mini">${ic("people", "motif")}<p><b>Skupni ogledi še niso razpisani.</b> Ko izbereva projekcije, na katere greva, bodo tukaj – s povabilom, da se pridružiš.</p></div>`}
+  </section>
+
+  <section class="section firsttime" aria-labelledby="ft-h">
+    <div class="ft-icon" aria-hidden="true">${ic("ticket")}</div>
+    <div>
+      <h2 id="ft-h">Prvič na LIFFu? Dobro je vedeti</h2>
+      <ul>
+        <li><b>Ta vodič ne rezervira sedežev.</b> »Moj plan« si izbire le zapomni v tvojem brskalniku – vstopnico kupiš posebej.</li>
+        <li><b>Vstopnice</b> so na voljo na <a href="${esc(P.festival.tickets_url)}" target="_blank" rel="noopener">liffe.si</a> in na festivalskih blagajnah. Za Kino Bežigrad, Kino Šiška in dvorano AGRFT jih na prizorišču <b>ni mogoče kupiti</b> – kupi jih prej.</li>
+        <li><b>Spremembe programa</b> so mogoče; vedno velja <a href="https://urnik.liffe.si/urnik.aspx" target="_blank" rel="noopener">uradni urnik</a>.</li>
+      </ul>
+    </div>
   </section>`;
+}
+
+function homeRec(r) {
+  const f = P.filmById.get(r.film_id);
+  const t = titleBits(f);
+  return `<article class="card">
+    <a class="card-link" href="#/film/${f.id}">
+      ${art(f)}
+      <div class="card-body">
+        <h3 class="card-title">${t.main}</h3>
+        ${t.alt ? `<p class="alt-title">${t.alt}</p>` : ""}
+        ${r.komentar ? `<p class="rec-quote">»${esc(r.komentar)}«</p>` : `<p class="meta">${metaLine(f)}</p>`}
+      </div>
+    </a>
+    ${favBtn(f.id)}
+  </article>`;
 }
 
 function festRange() {
@@ -288,7 +317,8 @@ let D = null; // stanje filtrov
 function readDiscover(params) {
   const set = (k) => new Set((params.get(k) || "").split(",").filter(Boolean));
   return {
-    tab: ["filmi", "termini", "cas"].includes(params.get("tab")) ? params.get("tab") : "filmi",
+    tab: params.get("tab") === "cas" ? "cas" : "filmi",
+    view: params.get("tab") === "termini" || params.get("pogled") === "termini" ? "termini" : "filmi",
     q: params.get("q") || "",
     sec: set("sek"),
     d: set("d"),
@@ -304,6 +334,7 @@ function discoverQuery(st, over = {}) {
   const s = { ...st, ...over };
   const p = new URLSearchParams();
   if (s.tab !== "filmi") p.set("tab", s.tab);
+  else if (s.view === "termini") p.set("pogled", "termini");
   if (s.q) p.set("q", s.q);
   if (s.sec.size) p.set("sek", [...s.sec].join(","));
   if (s.d.size) p.set("d", [...s.d].join(","));
@@ -324,7 +355,7 @@ function syncUrl() {
 
 function viewDiscover(params) {
   D = readDiscover(params);
-  const tabs = [["filmi", "Filmi", "film"], ["termini", "Po terminih", "cal"], ["cas", "Imam prost čas", "clock"]];
+  const tabs = [["filmi", "Vsi filmi", "film"], ["cas", "Imam prost čas", "clock"]];
   return `
   <div class="page-head">
     <h1>Odkrij filme</h1>
@@ -371,24 +402,44 @@ function casControls() {
   </fieldset>`;
 }
 
+let secInfoOpen = false;
+
 function filterControls() {
-  const n = D.sec.size + D.v.size + (D.tab !== "cas" ? D.d.size + (D.od || D.do ? 1 : 0) : 0);
-  const open = n > 0 && matchMedia("(min-width: 761px)").matches;
+  const nMore = D.v.size;
   const active = [];
   for (const s of D.sec) { const name = P.sections.find((x) => slug(x) === s); if (name) active.push(["sek", s, name]); }
   if (D.tab !== "cas") for (const d of D.d) active.push(["d", d, dayShort(d)]);
   for (const v of D.v) active.push(["v", v, venueShort(v)]);
   if (D.tab !== "cas" && (D.od || D.do)) active.push(["time", "", `začetek ${D.od ? "od " + D.od.replace(":", ".") : ""}${D.do ? " do " + D.do.replace(":", ".") : ""}`]);
+  const info = P.section_info || {};
+  const count = (sec) => P.films.filter((f) => f.section === sec).length;
+  const infoBtn = (label) => `<button type="button" class="linkbtn secinfo-btn" data-act="secinfo" aria-expanded="${secInfoOpen}" aria-controls="secinfo">${label}</button>`;
+  const secBlock = `
+      <div class="chips chips-sec">${P.sections.map((s) => `<button type="button" class="chip" data-act="sec" data-val="${slug(s)}" aria-pressed="${D.sec.has(slug(s))}" title="${esc(info[s] || "")}"><span class="dot" style="--c:${secColor(s)}"></span>${esc(s)}</button>`).join("")}</div>
+      <div id="secinfo" class="secinfo" ${secInfoOpen ? "" : "hidden"}>
+        <dl>${P.sections.map((s) => `<div><dt><button type="button" class="linkbtn" data-act="sec" data-val="${slug(s)}" aria-pressed="${D.sec.has(slug(s))}"><span class="dot" style="--c:${secColor(s)}"></span>${esc(s)}</button> <span class="muted small">${count(s)} ${plural(count(s), "film", "filma", "filmi", "filmov")}</span></dt><dd>${esc(info[s] || "")}</dd></div>`).join("")}</dl>
+        <p class="small muted">Kratki opisi so naši. Uradni opisi sekcij: <a href="https://www.liffe.si/sl/program/festivalske-sekcije" target="_blank" rel="noopener">liffe.si</a>.</p>
+      </div>`;
+  // Pri »Imam prost čas« sta dan in ura že zgoraj, sekcija in dvorana pa zloženi.
+  const secHtml = D.tab === "cas"
+    ? `<details class="filters" data-key="sekcija" ${D.sec.size ? "open" : ""}>
+      <summary>Sekcija${D.sec.size ? ` <span class="badge">${D.sec.size}</span>` : ""}</summary>
+      <div class="filters-body"><p>${infoBtn("Kaj pomeni katera sekcija?")}</p>${secBlock}</div>
+    </details>`
+    : `<fieldset class="fgroup"><legend>${ic("film")} Sekcija ${infoBtn("Kaj pomeni katera?")}</legend>${secBlock}</fieldset>`;
   return `
-  <details class="filters" ${open ? "open" : ""}>
-    <summary>Filtri${n ? ` <span class="badge">${n}</span>` : ""}</summary>
-    <div class="filters-body">
-      <fieldset class="fgroup"><legend>Sekcija</legend><div class="chips">${P.sections.map((s) => `<button type="button" class="chip" data-act="sec" data-val="${slug(s)}" aria-pressed="${D.sec.has(slug(s))}"><span class="dot" style="--c:${secColor(s)}"></span>${esc(s)}</button>`).join("")}</div></fieldset>
-      ${D.tab !== "cas" ? `<fieldset class="fgroup"><legend>Dan</legend>${dayChips(D.d, "day")}</fieldset>` : ""}
-      <fieldset class="fgroup"><legend>Dvorana</legend><div class="chips">${P.venues.map((v) => `<button type="button" class="chip" data-act="venue" data-val="${v.id}" aria-pressed="${D.v.has(v.id)}">${esc(venueShort(v.id))}</button>`).join("")}</div></fieldset>
-      ${D.tab !== "cas" ? `<fieldset class="fgroup"><legend>Začetek projekcije</legend><div class="timepick">${timeSelect("od", "Od", D.od, "kadarkoli")}${timeSelect("do", "Do", D.do, "kadarkoli")}</div></fieldset>` : ""}
-    </div>
-  </details>
+  <div class="filterbox">
+    ${D.tab !== "cas" ? `
+    <div class="fg-row">
+      <fieldset class="fgroup"><legend>${ic("cal")} Dan</legend>${dayChips(D.d, "day")}</fieldset>
+      <fieldset class="fgroup fg-time"><legend>${ic("clock")} Začetek</legend><div class="timepick">${timeSelect("od", "Od", D.od, "kadarkoli")}${timeSelect("do", "Do", D.do, "kadarkoli")}</div></fieldset>
+    </div>` : ""}
+    ${secHtml}
+    <details class="filters" data-key="dvorana" ${nMore ? "open" : ""}>
+      <summary>Dvorana${nMore ? ` <span class="badge">${nMore}</span>` : ""}</summary>
+      <div class="filters-body"><div class="chips">${P.venues.map((v) => `<button type="button" class="chip" data-act="venue" data-val="${v.id}" aria-pressed="${D.v.has(v.id)}">${esc(venueShort(v.id))}</button>`).join("")}</div></div>
+    </details>
+  </div>
   ${active.length ? `<div class="active-filters"><span class="muted">Izbrano:</span>${active.map(([k, v, label]) => `<button type="button" class="chip" data-act="unset" data-key="${k}" data-val="${esc(v)}" aria-label="Odstrani filter ${esc(label)}">${esc(label)} ${ic("x")}</button>`).join("")}<button type="button" class="linkbtn small" data-act="clear">Počisti vse</button></div>` : ""}`;
 }
 
@@ -427,7 +478,11 @@ function renderDiscoverResults() {
   if (!box) return;
   const films = P.films.filter(filmPasses);
   const filmIds = new Set(films.map((f) => f.id));
-  if (D.tab === "filmi") {
+  const viewSwitch = D.tab === "filmi" ? `<div class="seg" role="group" aria-label="Prikaz">
+      <button type="button" class="seg-btn" data-act="view" data-val="filmi" aria-pressed="${D.view === "filmi"}">${ic("film")}Filmi</button>
+      <button type="button" class="seg-btn" data-act="view" data-val="termini" aria-pressed="${D.view === "termini"}">${ic("cal")}Termini</button>
+    </div>` : "";
+  if (D.tab === "filmi" && D.view === "filmi") {
     const hits = new Map();
     for (const s of P.screenings) if (filmIds.has(s.film_id) && screeningCheck(s)) {
       if (!hits.has(s.film_id)) hits.set(s.film_id, []);
@@ -439,7 +494,7 @@ function renderDiscoverResults() {
     else if (D.sort === "prvi") list.sort((a, b) => firstScreeningKey(a) - firstScreeningKey(b));
     else list.sort((a, b) => coll.compare(a.title_sl, b.title_sl));
     const head = `<div class="result-meta"><p><b>${list.length}</b> ${plural(list.length, "film", "filma", "filmi", "filmov")}</p>
-      <label class="check">Razvrsti <select data-act="sort" id="sort"><option value="abc" ${D.sort === "abc" ? "selected" : ""}>po abecedi</option><option value="sek" ${D.sort === "sek" ? "selected" : ""}>po sekcijah</option><option value="prvi" ${D.sort === "prvi" ? "selected" : ""}>po prvem terminu</option></select></label></div>`;
+      <div class="result-tools">${viewSwitch}<label class="check">Razvrsti <select data-act="sort" id="sort"><option value="abc" ${D.sort === "abc" ? "selected" : ""}>po abecedi</option><option value="sek" ${D.sort === "sek" ? "selected" : ""}>po sekcijah</option><option value="prvi" ${D.sort === "prvi" ? "selected" : ""}>po prvem terminu</option></select></label></div></div>`;
     if (!list.length) { box.innerHTML = head + noResults(); return; }
     let html = "";
     if (D.sort === "sek") {
@@ -463,7 +518,7 @@ function renderDiscoverResults() {
     rows.push([s, c]);
   }
   const lateToggle = D.tab === "cas" && D.do ? `<label class="check"><input type="checkbox" data-act="late" ${D.late ? "checked" : ""}> Pokaži tudi filme, ki se končajo po ${D.do === "23:59" ? "polnoči" : D.do.replace(":", ".")}${hiddenLate ? ` (${hiddenLate})` : ""}</label>` : "";
-  const head = `<div class="result-meta"><p><b>${rows.length}</b> ${plural(rows.length, "projekcija", "projekciji", "projekcije", "projekcij")}${D.tab === "cas" && D.do ? " se v celoti izide v tvojem oknu" + (D.late ? " ali se začne v njem" : "") : ""}</p>${lateToggle}</div>`;
+  const head = `<div class="result-meta"><p><b>${rows.length}</b> ${plural(rows.length, "projekcija", "projekciji", "projekcije", "projekcij")}${D.tab === "cas" && D.do ? " se v celoti izide v tvojem oknu" + (D.late ? " ali se začne v njem" : "") : ""}</p>${viewSwitch || lateToggle}</div>`;
   if (!rows.length) { box.innerHTML = head + noResults(hiddenLate); return; }
   let html = "";
   for (const day of P.days) {
@@ -565,7 +620,8 @@ function viewFilm(id) {
     <div class="film-top">
       <div>${art(f, true)}</div>
       <div class="film-titles">
-        <p class="section-tag"><span class="dot" style="--c:${secColor(f.section)}"></span>${esc(f.section)}</p>
+        <p class="section-tag"><a href="#/odkrij?sek=${slug(f.section)}" title="${esc((P.section_info || {})[f.section] || "")}"><span class="dot" style="--c:${secColor(f.section)}"></span>${esc(f.section)}</a></p>
+        ${(P.section_info || {})[f.section] ? `<p class="small muted sec-desc">${esc(P.section_info[f.section])}</p>` : ""}
         <h1 style="margin-top:8px">${esc(f.title_sl || f.title_en)}</h1>
         ${idTag("film_id", f.id)}
         ${altTitles.length ? `<p class="alt-title">${altTitles.join(" · ")}</p>` : ""}
@@ -705,7 +761,7 @@ function viewMine() {
   </div>
   <div id="share-out"></div>
   ${missing.length ? `<div class="notice" style="margin-top:12px">${ic("warn")}<div><p><b>${missing.length} ${plural(missing.length, "izbran termin ni", "izbrana termina nista", "izbrani termini niso", "izbranih terminov ni")} več v uradnem urniku.</b> Morda je LIFFe projekcijo prestavil ali odpovedal. Preveri na <a href="https://urnik.liffe.si/urnik.aspx" target="_blank" rel="noopener">urnik.liffe.si</a>.</p><button type="button" class="linkbtn small" data-act="dropmissing">Odstrani jih iz plana</button></div></div>` : ""}
-  ${valid.length ? planHtml : `<div class="notice info" style="margin-top:12px">${ic("cal")}<p>Izberi konkreten termin pri filmih spodaj ali v <a href="#/odkrij?tab=termini">urniku</a>.</p></div>`}
+  ${valid.length ? planHtml : `<div class="notice info" style="margin-top:12px">${ic("cal")}<p>Izberi konkreten termin pri filmih spodaj ali v <a href="#/odkrij?pogled=termini">urniku</a>.</p></div>`}
   ${favHtml}
   <p class="small muted" style="margin-top:28px">Izvoz .ics deluje z Google Koledarjem, Apple Koledarjem in Outlookom (časovni pas Europe/Ljubljana). Dogodek v koledarju ni vstopnica.</p>`;
 }
@@ -848,14 +904,19 @@ function viewAbout() {
 }
 
 function viewNotFound(title = "Te strani ni", text = "Morda je povezava zastarela.") {
-  return emptyBox({ title, text, actions: `<a class="btn" href="#/">Domov</a><a class="btn btn-ghost" href="#/odkrij">Vsi filmi</a>`, motif: "eye" });
+  return `<h1 class="sr">${esc(title)}</h1>` + emptyBox({ title, text, actions: `<a class="btn" href="#/">Domov</a><a class="btn btn-ghost" href="#/odkrij">Vsi filmi</a>`, motif: "eye" });
 }
 
 /* ================================================================ dogodki */
 
 function refreshDiscover() {
   const c = document.getElementById("controls");
-  if (c) c.innerHTML = filterControls();
+  if (c) {
+    // zložljivi filtri ostanejo odprti, če jih je obiskovalec odprl
+    const open = [...c.querySelectorAll("details[data-key]")].filter((d) => d.open).map((d) => d.dataset.key);
+    c.innerHTML = filterControls();
+    for (const k of open) { const d = c.querySelector(`details[data-key="${k}"]`); if (d) d.open = true; }
+  }
   const cc = document.getElementById("cas-controls");
   if (cc) cc.innerHTML = casControls();
   syncUrl();
@@ -922,6 +983,14 @@ $main.addEventListener("click", async (e) => {
       if (navCount > 1) { e.preventDefault(); history.back(); }
       break;
     case "sec": toggleIn(D.sec, el.dataset.val); refreshDiscover(); break;
+    case "view": D.view = el.dataset.val; syncUrl(); renderDiscoverResults(); break;
+    case "secinfo": {
+      secInfoOpen = !secInfoOpen;
+      const box = document.getElementById("secinfo");
+      if (box) box.hidden = !secInfoOpen;
+      el.setAttribute("aria-expanded", String(secInfoOpen));
+      break;
+    }
     case "day": toggleIn(D.d, el.dataset.val); refreshDiscover(); break;
     case "venue": toggleIn(D.v, el.dataset.val); refreshDiscover(); break;
     case "preset": D.od = el.dataset.od; D.do = el.dataset.do; refreshDiscover(); break;
@@ -1034,6 +1103,7 @@ async function boot() {
   document.getElementById("data-stamp").innerHTML =
     `Podatki preverjeni z uradnim programom: <b>${esc(fmtStamp(P.source.imported_at))}</b> · zadnja sprememba programa: ${esc(fmtStamp(P.source.changed_at || P.source.imported_at))} · vir: <a href="${esc(P.source.schedule)}">urnik.liffe.si</a>`;
   store.onChange(updateBadge);
+  store.onExternalChange(() => render(true)); // plan, spremenjen v drugem zavihku
   updateBadge();
   render();
   window.addEventListener("hashchange", render);
