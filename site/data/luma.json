@@ -1,7 +1,31 @@
 {
  "_opomba": "Posnetek LuMa Google Sheeta (scripts/fetch_luma.py). Stran ga uporabi, če Sheet ni nastavljen ali dosegljiv.",
- "updated_at": null,
- "priporocila": [],
- "skupne": [],
+ "updated_at": "2026-10-21T21:45+02:00",
+ "priporocila": [
+  {
+   "film_id": "3960",
+   "aktivno": "DA",
+   "komentar": "Pogledali sva ga v San Sebastianu in se nama je zdel odličen. Kar dolg, a vreden vsake minute – ostane s tabo še dolgo po gledanju.",
+   "vrstni_red": "1",
+   "primer": ""
+  },
+  {
+   "film_id": "3961",
+   "aktivno": "DA",
+   "komentar": "Bivša direktorica Slovenskega filmskega centra ga je označila za svoj favorit Cannesa – in tudi nama se zdi, da veliko obeta.",
+   "vrstni_red": "2",
+   "primer": ""
+  }
+ ],
+ "skupne": [
+  {
+   "screening_id": "t227220",
+   "gremo": "DA",
+   "povabilo": "Greva na Minotavra – pridruži se nama v Linhartovi dvorani!",
+   "zbirno_mesto": "",
+   "prijava_url": "",
+   "primer": ""
+  }
+ ],
  "pridruzeni": []
 }
