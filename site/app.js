@@ -1,0 +1,1045 @@
+import { CONFIG } from "./config.js";
+import {
+  loadProgram, loadLuma, norm, haystack, toMin, fmtMin, startMin, endMin, dayShort, dayLong, dayParts,
+  ljNow, fmtStamp, overlaps, store, shareUrl, parseShare, downloadIcs, gcalUrl, rsvpUrl, venueLabel, esc,
+} from "./lib.js";
+
+let P = null; // uradni program
+let L = { priporocila: [], skupne: [], pridruzeni: [] }; // LuMa uredniški podatki
+const $main = document.getElementById("main");
+const scrollMemo = new Map();
+let prevHash = "";
+let navCount = 0; // koliko pogledov smo že prikazali (za »Nazaj«)
+// Uredniški način (…?urednik v naslovu): izpiše ID-je za LuMa Sheet. Velja do zaprtja zavihka.
+let editor = (() => { try { return sessionStorage.getItem("luma-urednik") === "1"; } catch (_) { return false; } })();
+function setEditor(on) {
+  editor = on;
+  try { on ? sessionStorage.setItem("luma-urednik", "1") : sessionStorage.removeItem("luma-urednik"); } catch (_) {}
+}
+const idTag = (kind, id) => editor ? `<span class="idtag"><code>${kind}: ${esc(id)}</code><button type="button" class="linkbtn small" data-act="copyid" data-val="${esc(id)}">kopiraj</button></span>` : "";
+
+/* ================================================================ pomožno */
+
+const ic = (name, cls = "") => `<svg class="${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+const SEC_COLORS = ["#3b9a97", "#e0a53b", "#e58db4", "#c4532d", "#3b5fae", "#8f6bb3", "#5f8f3e", "#d7745a", "#2f6f8f", "#b9862a", "#a65d87", "#4d7f7a", "#7a6a55", "#6c4f9c"];
+const secColor = (name) => SEC_COLORS[Math.max(0, P.sections.indexOf(name)) % SEC_COLORS.length];
+const slug = (s) => norm(s).replace(/ /g, "-");
+
+function venueShort(id) {
+  const v = P.venueById.get(id);
+  if (!v) return id;
+  if (v.place === "Cankarjev dom") return "CD " + v.name.replace(" dvorana", "");
+  return v.name.replace("Slovenska ", "");
+}
+
+function hashCode(s) {
+  let h = 0;
+  for (const c of s) h = (h * 31 + c.charCodeAt(0)) | 0;
+  return Math.abs(h);
+}
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => t.classList.remove("show"), 2600);
+}
+
+const lumaRec = (filmId) => L.priporocila.find((r) => r.film_id === filmId);
+const lumaGoes = (sid) => L.skupne.find((r) => r.screening_id === sid);
+
+function titleBits(f, { withAlt = true } = {}) {
+  const alt = f.title_en || f.title_orig;
+  const dis = f.dupTitle ? ` <span class="muted">(${esc([f.director, f.year].filter(Boolean).join(", "))})</span>` : "";
+  return { main: esc(f.title_sl || f.title_en || f.title_orig || "Brez naslova") + dis, alt: withAlt && alt ? esc(alt) : "" };
+}
+
+function metaLine(f) {
+  return [f.director, f.countries && f.countries.length ? f.countries.join(", ") : null, f.year, f.runtime ? `${f.runtime} min` : null]
+    .filter(Boolean).map(esc).join(" · ");
+}
+
+function timeRange(s) {
+  const e = endMin(s, P);
+  return { start: fmtMin(startMin(s)), end: e != null ? fmtMin(e) : null };
+}
+
+/* tipografski nadomestek plakata — motivi iz Kinograda: oči, zvezde, kolut, trak, pike, vijuge */
+function art(f, large = false) {
+  const c = secColor(f.section);
+  const sec = `<span class="art-sec">${esc(f.section)}</span>`;
+  if (CONFIG.showPosters && f.image) {
+    return `<div class="art${large ? " large" : ""}" style="--c:${c}"><img src="${esc(f.image)}" alt="" loading="lazy" decoding="async">${sec}</div>`;
+  }
+  const h = hashCode(f.id);
+  const ink = "#1d1a2b", paper = "#f4eee2";
+  const motifs = [
+    `<svg viewBox="0 0 160 90" style="inset:0;width:100%;height:100%"><g transform="translate(92 18) rotate(-4)"><rect width="62" height="56" rx="4" fill="${ink}"/><path d="M6 18c8-10 42-10 50 0-8 10-42 10-50 0z" fill="${paper}"/><circle cx="31" cy="18" r="6" fill="${ink}"/><path d="M6 40c8-10 42-10 50 0-8 10-42 10-50 0z" fill="${paper}"/><circle cx="31" cy="40" r="6" fill="${ink}"/></g></svg>`,
+    `<svg viewBox="0 0 160 90" style="inset:0;width:100%;height:100%"><rect x="70" y="6" width="84" height="56" fill="${ink}" transform="rotate(3 112 34)"/><g stroke="#e0a53b" stroke-width="1.2" fill="none"><path d="M82 22l18 10 14-14 22 8 10 20"/><path d="M100 32l4 20 22 2"/></g><g fill="#e0a53b"><circle cx="82" cy="22" r="2.4"/><circle cx="100" cy="32" r="2.4"/><circle cx="114" cy="18" r="2.4"/><circle cx="136" cy="26" r="2.4"/><circle cx="146" cy="46" r="2.4"/><circle cx="104" cy="52" r="2.4"/><circle cx="126" cy="54" r="2.4"/></g></svg>`,
+    `<svg viewBox="0 0 160 90" style="inset:0;width:100%;height:100%"><g transform="translate(118 40)"><circle r="34" fill="${ink}"/><g fill="${paper}"><circle cy="-18" r="7"/><circle cy="18" r="7"/><circle cx="-18" r="7"/><circle cx="18" r="7"/><circle r="3"/></g></g></svg>`,
+    `<svg viewBox="0 0 160 90" style="inset:0;width:100%;height:100%"><g transform="translate(60 14) rotate(-8)"><rect width="110" height="34" fill="${ink}"/><g fill="${paper}">${[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => `<rect x="${4 + i * 12}" y="3" width="6" height="5" rx="1"/><rect x="${4 + i * 12}" y="26" width="6" height="5" rx="1"/>`).join("")}</g><rect x="8" y="10" width="28" height="14" fill="${c}" opacity=".9"/><rect x="42" y="10" width="28" height="14" fill="${paper}" opacity=".85"/><rect x="76" y="10" width="28" height="14" fill="${c}" opacity=".9"/></g></svg>`,
+    `<svg viewBox="0 0 160 90" style="inset:0;width:100%;height:100%"><g fill="${ink}" opacity=".85">${Array.from({ length: 30 }, (_, i) => `<circle cx="${84 + (i % 6) * 13}" cy="${10 + Math.floor(i / 6) * 13}" r="3.6"/>`).join("")}</g></svg>`,
+    `<svg viewBox="0 0 160 90" style="inset:0;width:100%;height:100%"><path d="M70 60c10-40 30 10 40-20s30 30 20 0-30-20-10-34 30 20 34 4" fill="none" stroke="${ink}" stroke-width="2.2" stroke-linecap="round"/><circle cx="132" cy="62" r="14" fill="${paper}"/><path d="M126 58h12l-2 14h-8z" fill="#c4532d"/></svg>`,
+  ];
+  const big = (f.title_sl || "?").replace(/^[^\p{L}\p{N}]+/u, "").charAt(0).toUpperCase();
+  return `<div class="art${large ? " large" : ""}" style="--c:${c}" aria-hidden="true">${motifs[h % motifs.length]}<span class="art-big">${esc(big)}</span>${sec}</div>`;
+}
+
+function planBtn(sid, small = true) {
+  const on = store.inPlan(sid);
+  return `<button type="button" class="btn ${small ? "btn-small" : ""} btn-soft planbtn" data-act="plan" data-id="${sid}" aria-pressed="${on}">${ic(on ? "check" : "plus")}<span>${on ? "V mojem planu" : "V moj plan"}</span></button>`;
+}
+
+function favBtn(fid) {
+  const on = store.isFav(fid);
+  return `<button type="button" class="iconbtn fav" data-act="fav" data-id="${fid}" aria-pressed="${on}" aria-label="${on ? "Odstrani iz »Zanima me«" : "Zanima me"}" title="${on ? "Zanima me ✓" : "Zanima me"}">${ic(on ? "heart-f" : "heart")}</button>`;
+}
+
+function ticketLink(s, small = true) {
+  if (s.ticket_url) {
+    return `<a class="btn ${small ? "btn-small" : ""} btn-ghost" href="${esc(s.ticket_url)}" target="_blank" rel="noopener" title="Odpre nakup na vstopnice.cd-cc.si (uradna prodaja Cankarjevega doma)">${ic("ticket")}<span>Vstopnice</span></a>`;
+  }
+  return `<a class="btn ${small ? "btn-small" : ""} btn-ghost" href="${esc(P.festival.tickets_url)}" target="_blank" rel="noopener">${ic("ticket")}<span>Info o vstopnicah</span></a>`;
+}
+
+function emptyBox({ title, text, actions = "", motif = "reel" }) {
+  return `<div class="empty">${ic(motif, "motif")}<h2>${title}</h2><p>${text}</p>${actions ? `<div class="btn-row">${actions}</div>` : ""}</div>`;
+}
+
+/* ================================================================ usmerjanje */
+
+function parseRoute() {
+  const h = location.hash.replace(/^#/, "") || "/";
+  const [path, qs] = h.split("?");
+  return { parts: path.split("/").filter(Boolean), params: new URLSearchParams(qs || "") };
+}
+
+function setNav(name) {
+  document.querySelectorAll("[data-nav]").forEach((a) => {
+    if (a.dataset.nav === name) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
+  });
+}
+
+function render(soft = false) {
+  const { parts, params } = parseRoute();
+  if (soft) {
+    // osvežitev istega pogleda (npr. ko prispejo LuMa podatki): brez skoka in premika fokusa
+    const y = window.scrollY;
+    const q = document.getElementById("q");
+    const typing = q && document.activeElement === q;
+    if (typing) return renderDiscoverResults();
+    prevHash = "";
+    navCount--;
+    render();
+    window.scrollTo(0, y);
+    return;
+  }
+  const [r, id] = parts;
+  if (params.has("urednik")) setEditor(params.get("urednik") !== "0");
+  const leaving = prevHash;
+  if (leaving) scrollMemo.set(leaving, window.scrollY);
+  const views = {
+    undefined: () => [viewHome(), ""],
+    odkrij: () => [viewDiscover(params), "odkrij"],
+    film: () => [viewFilm(id), "odkrij"],
+    moj: () => [viewMine(), "moj"],
+    deljeno: () => [viewShared(params), "moj"],
+    luma: () => [viewLuma(), "luma"],
+    skupaj: () => [viewTogether(), "skupaj"],
+    "o-strani": () => [viewAbout(), ""],
+  };
+  navCount++;
+  const fn = views[r] || (() => [viewNotFound(), ""]);
+  const [html, nav] = fn();
+  $main.innerHTML = (editor ? `<div class="notice info" style="margin-bottom:14px">${ic("warn")}<p><b>Uredniški način</b>: ob filmih in terminih so izpisani ID-ji za LuMa Sheet (film_id, screening_id). <button type="button" class="linkbtn" data-act="editoroff">Izklopi</button></p></div>` : "") + html;
+  setNav(nav);
+  afterRender(r, params);
+  const came = leaving.startsWith("#/film/");
+  const key = location.hash || "#/";
+  if (came && scrollMemo.has(key)) window.scrollTo(0, scrollMemo.get(key));
+  else window.scrollTo(0, 0);
+  if (leaving) {
+    const h1 = $main.querySelector("h1");
+    if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus({ preventScroll: true }); }
+  }
+  prevHash = key;
+  document.title = ($main.querySelector("h1")?.textContent?.trim() || "LuMa × LIFFe 2026") + (r ? " · LuMa × LIFFe 2026" : " – neuradni festivalski vodič");
+}
+
+function afterRender(r) {
+  if (r === "odkrij") renderDiscoverResults();
+  if (!r) startEyes();
+}
+
+/* ================================================================ domov */
+
+function viewHome() {
+  const today = ljNow();
+  const during = today.date >= P.festival.start && today.date <= P.festival.end;
+  const evDay = during ? today.date : P.days[0];
+  const nightHref = `#/odkrij?tab=cas&d=${evDay}&od=17:30&do=23:59`;
+  let upcoming;
+  if (during) {
+    upcoming = P.screenings.filter((s) => s.date === today.date && startMin(s) >= today.min).slice(0, 6);
+  } else if (today.date < P.festival.start) {
+    upcoming = P.screenings.filter((s) => s.date === P.days[0]).slice(0, 6);
+  } else upcoming = [];
+  const upTitle = during ? "Še danes na sporedu" : "Prvi festivalski dan";
+  const recs = L.priporocila.filter((r) => P.filmById.has(r.film_id));
+  const tg = L.skupne.filter((r) => P.screeningById.has(r.screening_id));
+
+  return `
+  <section class="hero">
+    ${skySvg()}
+    <div class="hero-eyes" aria-hidden="true"><span></span><span></span></div>
+    <p class="hero-tag">${ic("star")} <span>Neuradni festivalski vodič LuMa film kluba</span></p>
+    <h1 class="hero-title">
+      <span class="ht-big">LIFFe.</span>
+      <span class="ht-mid">Tvoj <em>prvi.<svg class="ht-squiggle" aria-hidden="true"><use href="#i-squiggle"/></svg></em></span>
+      <span class="ht-aside">Ali pa tudi ne.</span>
+    </h1>
+    <p class="hero-lede">Več kot sto filmov, kup projekcij in ziher kaj dobrega zate. Malo pobrskaj, najdi svoj film, sestavi plan ali pa poglej, kaj je zamikalo naju. Če se ujamemo v isti dvorani, še toliko boljše. <span aria-hidden="true">🍿</span></p>
+    <div class="hero-cta">
+      <a class="btn btn-mustard" href="#/odkrij">Grem po film! <span aria-hidden="true">↗</span></a>
+      <a class="btn btn-paper" href="#/luma">Kaj gledata LuMa? <span aria-hidden="true">👀</span></a>
+    </div>
+  </section>
+  <div class="entries">
+    <a class="entry e-mustard" href="${nightHref}">
+      ${ic("clock", "entry-motif")}
+      <h2>Imam prost večer</h2>
+      <p>Izberi dan in uro, pokažemo filme, ki se izidejo do konca tvojega okna.</p>
+      <span class="go">Kaj lahko vidim ${ic("arrow")}</span>
+    </a>
+    <a class="entry e-pink" href="#/odkrij">
+      ${ic("film", "entry-motif")}
+      <h2>Brskaj po filmih</h2>
+      <p>Po naslovu, režiserju, sekciji, dnevu ali dvorani.</p>
+      <span class="go">Vseh ${P.films.length} filmov ${ic("arrow")}</span>
+    </a>
+    <a class="entry e-teal" href="#/luma">
+      ${ic("eye", "entry-motif")}
+      <h2>Kaj gleda LuMa?</h2>
+      <p>${recs.length ? `${recs.length} ročno izbranih priporočil` : "Najina priporočila"}${tg.length ? ` in ${tg.length} skupnih ogledov` : " in skupni ogledi"}.</p>
+      <span class="go">Poglej izbor ${ic("arrow")}</span>
+    </a>
+  </div>
+  <p class="stats" aria-label="Festival v številkah">
+    <span><b>${P.films.length}</b> filmov</span><span><b>${P.screenings.length}</b> projekcij</span><span><b>${P.venues.length}</b> ljubljanskih dvoran</span><span><b>${P.days.length}</b> dni · ${esc(festRange())}</span>
+  </p>
+
+  ${upcoming.length ? `
+  <section class="section">
+    <div class="section-head"><div><p class="kicker">${during ? "Danes" : esc(dayLong(P.days[0]))}</p><h2>${upTitle}</h2></div>
+    <a class="btn btn-ghost btn-small" href="#/odkrij?tab=termini&d=${evDay}">Ves dan</a></div>
+    <ul class="rows">${upcoming.map((s) => rowHtml(s)).join("")}</ul>
+  </section>` : ""}
+
+  ${tg.length ? `
+  <section class="section">
+    <div class="section-head"><div><p class="kicker">Z LuMa v kino</p><h2>Pridruži se nam</h2></div><a class="btn btn-ghost btn-small" href="#/skupaj">Vsi skupni ogledi</a></div>
+    <div class="together">${tg.slice(0, 2).map(tgCard).join("")}</div>
+  </section>` : ""}
+
+  <section class="section">
+    <div class="notice info">${ic("warn")}<p>Prvič na LIFFu? Vstopnice kupiš na uradni strani ali blagajnah (<a href="${esc(P.festival.tickets_url)}" target="_blank" rel="noopener">cene in prodajna mesta</a>). Ta vodič si izbire le zapomni v tvojem brskalniku – ne rezervira sedežev.</p></div>
+  </section>`;
+}
+
+function festRange() {
+  const a = P.festival.start.split("-").map(Number), b = P.festival.end.split("-").map(Number);
+  return `${a[2]}.–${b[2]}. novembra ${b[0]}`;
+}
+
+function skySvg() {
+  const pts = [[8, 22], [17, 12], [27, 26], [38, 15], [49, 30], [61, 12], [70, 24], [82, 8], [91, 20], [12, 78], [24, 64], [33, 86], [58, 80], [66, 66], [78, 88], [88, 72]];
+  const lines = [[0, 1], [1, 2], [2, 3], [3, 4], [5, 6], [6, 7], [7, 8], [9, 10], [10, 11], [12, 13], [13, 14], [14, 15]];
+  return `<svg class="hero-sky" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <g stroke="#e0a53b" stroke-width=".18" opacity=".55">${lines.map(([a, b]) => `<line x1="${pts[a][0]}" y1="${pts[a][1]}" x2="${pts[b][0]}" y2="${pts[b][1]}"/>`).join("")}</g>
+    <g fill="#e0a53b">${pts.map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="${i % 3 ? 0.45 : 0.7}"/>`).join("")}</g>
+  </svg>`;
+}
+
+function startEyes() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const eyes = $main.querySelectorAll(".hero-eyes span");
+  if (!eyes.length) return;
+  const onMove = (e) => {
+    const x = (e.clientX / innerWidth - 0.5) * 2;
+    eyes.forEach((el) => el.style.setProperty("--look", `${(x * 26).toFixed(1)}%`));
+  };
+  window.removeEventListener("pointermove", startEyes._h || (() => {}));
+  startEyes._h = onMove;
+  window.addEventListener("pointermove", onMove, { passive: true });
+}
+
+/* ================================================================ odkrij */
+
+const TIMES = (() => {
+  const out = [];
+  for (let m = 10 * 60; m <= 23 * 60 + 30; m += 30) out.push(`${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`);
+  return out;
+})();
+
+let D = null; // stanje filtrov
+
+function readDiscover(params) {
+  const set = (k) => new Set((params.get(k) || "").split(",").filter(Boolean));
+  return {
+    tab: ["filmi", "termini", "cas"].includes(params.get("tab")) ? params.get("tab") : "filmi",
+    q: params.get("q") || "",
+    sec: set("sek"),
+    d: set("d"),
+    v: set("v"),
+    od: params.get("od") || "",
+    do: params.get("do") || "",
+    late: params.get("pozno") === "1",
+    sort: params.get("razvrsti") || "abc",
+  };
+}
+
+function discoverQuery(st, over = {}) {
+  const s = { ...st, ...over };
+  const p = new URLSearchParams();
+  if (s.tab !== "filmi") p.set("tab", s.tab);
+  if (s.q) p.set("q", s.q);
+  if (s.sec.size) p.set("sek", [...s.sec].join(","));
+  if (s.d.size) p.set("d", [...s.d].join(","));
+  if (s.v.size) p.set("v", [...s.v].join(","));
+  if (s.od) p.set("od", s.od);
+  if (s.do) p.set("do", s.do);
+  if (s.late) p.set("pozno", "1");
+  if (s.sort !== "abc") p.set("razvrsti", s.sort);
+  const qs = p.toString();
+  return "#/odkrij" + (qs ? "?" + qs : "");
+}
+
+function syncUrl() {
+  const h = discoverQuery(D);
+  history.replaceState(null, "", h);
+  prevHash = h;
+}
+
+function viewDiscover(params) {
+  D = readDiscover(params);
+  const tabs = [["filmi", "Filmi", "film"], ["termini", "Po terminih", "cal"], ["cas", "Imam prost čas", "clock"]];
+  return `
+  <div class="page-head">
+    <h1>Odkrij filme</h1>
+    <p class="lede">${D.tab === "cas" ? "Povej, kdaj imaš čas – pokažemo projekcije, ki se v tem oknu začnejo, in ali se film izteče pravočasno." : "Vsi filmi z vsaj eno projekcijo v Ljubljani. Iskanje deluje po slovenskem, angleškem in izvirnem naslovu ter po režiserju."}</p>
+  </div>
+  <nav class="tabs" aria-label="Način prikaza">
+    ${tabs.map(([k, label, icon]) => `<a href="${discoverQuery(D, { tab: k })}" ${D.tab === k ? 'aria-current="page"' : ""}>${ic(icon)}${label}</a>`).join("")}
+  </nav>
+  <div style="margin-top:16px" class="stack">
+    ${D.tab === "cas" ? `<div id="cas-controls">${casControls()}</div>` : ""}
+    <label class="searchbar">${ic("search")}<span class="sr">Iskanje</span>
+      <input id="q" type="search" placeholder="Naslov ali režiser …" value="${esc(D.q)}" autocomplete="off" enterkeyhint="search">
+    </label>
+  </div>
+  <div id="controls">${filterControls()}</div>
+  <div id="results" aria-live="polite"></div>`;
+}
+
+function dayChips(selected, act) {
+  const today = ljNow().date;
+  return `<div class="chips scroll" role="group" aria-label="Dnevi">${P.days.map((d) => {
+    const x = dayParts(d);
+    return `<button type="button" class="chip day${d === today ? " today" : ""}" data-act="${act}" data-val="${d}" aria-pressed="${selected.has(d)}" aria-label="${esc(dayLong(d))}"><small>${x.wd}</small><b>${x.d}.</b></button>`;
+  }).join("")}</div>`;
+}
+
+function timeSelect(id, label, val, emptyLabel) {
+  return `<label>${label}<select id="${id}" data-act="time"><option value="">${emptyLabel}</option>${TIMES.map((t) => `<option ${t === val ? "selected" : ""} value="${t}">${t.replace(":", ".")}</option>`).join("")}${id === "do" ? `<option value="23:59" ${val === "23:59" ? "selected" : ""}>do konca dneva</option>` : ""}</select></label>`;
+}
+
+function casControls() {
+  return `
+  <fieldset class="fgroup"><legend>1. Kateri dan? <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:400">(lahko več; brez izbire = vsi dnevi)</span></legend>${dayChips(D.d, "day")}</fieldset>
+  <fieldset class="fgroup" style="margin-top:14px"><legend>2. Kdaj imaš čas?</legend>
+    <div class="timepick">
+      ${timeSelect("od", "Od", D.od, "kadarkoli")}
+      ${timeSelect("do", "Do", D.do, "kadarkoli")}
+      <div class="btn-row">
+        <button type="button" class="btn btn-soft btn-small" data-act="preset" data-od="17:30" data-do="23:59">Zvečer</button>
+        <button type="button" class="btn btn-soft btn-small" data-act="preset" data-od="13:00" data-do="18:00">Popoldne</button>
+        <button type="button" class="btn btn-soft btn-small" data-act="preset" data-od="" data-do="">Ves dan</button>
+      </div>
+    </div>
+  </fieldset>`;
+}
+
+function filterControls() {
+  const n = D.sec.size + D.v.size + (D.tab !== "cas" ? D.d.size + (D.od || D.do ? 1 : 0) : 0);
+  const open = n > 0 && matchMedia("(min-width: 761px)").matches;
+  const active = [];
+  for (const s of D.sec) { const name = P.sections.find((x) => slug(x) === s); if (name) active.push(["sek", s, name]); }
+  if (D.tab !== "cas") for (const d of D.d) active.push(["d", d, dayShort(d)]);
+  for (const v of D.v) active.push(["v", v, venueShort(v)]);
+  if (D.tab !== "cas" && (D.od || D.do)) active.push(["time", "", `začetek ${D.od ? "od " + D.od.replace(":", ".") : ""}${D.do ? " do " + D.do.replace(":", ".") : ""}`]);
+  return `
+  <details class="filters" ${open ? "open" : ""}>
+    <summary>Filtri${n ? ` <span class="badge">${n}</span>` : ""}</summary>
+    <div class="filters-body">
+      <fieldset class="fgroup"><legend>Sekcija</legend><div class="chips">${P.sections.map((s) => `<button type="button" class="chip" data-act="sec" data-val="${slug(s)}" aria-pressed="${D.sec.has(slug(s))}"><span class="dot" style="--c:${secColor(s)}"></span>${esc(s)}</button>`).join("")}</div></fieldset>
+      ${D.tab !== "cas" ? `<fieldset class="fgroup"><legend>Dan</legend>${dayChips(D.d, "day")}</fieldset>` : ""}
+      <fieldset class="fgroup"><legend>Dvorana</legend><div class="chips">${P.venues.map((v) => `<button type="button" class="chip" data-act="venue" data-val="${v.id}" aria-pressed="${D.v.has(v.id)}">${esc(venueShort(v.id))}</button>`).join("")}</div></fieldset>
+      ${D.tab !== "cas" ? `<fieldset class="fgroup"><legend>Začetek projekcije</legend><div class="timepick">${timeSelect("od", "Od", D.od, "kadarkoli")}${timeSelect("do", "Do", D.do, "kadarkoli")}</div></fieldset>` : ""}
+    </div>
+  </details>
+  ${active.length ? `<div class="active-filters"><span class="muted">Izbrano:</span>${active.map(([k, v, label]) => `<button type="button" class="chip" data-act="unset" data-key="${k}" data-val="${esc(v)}" aria-label="Odstrani filter ${esc(label)}">${esc(label)} ${ic("x")}</button>`).join("")}<button type="button" class="linkbtn small" data-act="clear">Počisti vse</button></div>` : ""}`;
+}
+
+function filmPasses(f) {
+  if (D.q) {
+    const words = norm(D.q).split(" ").filter(Boolean);
+    const hay = haystack(f);
+    if (!words.every((w) => hay.includes(w))) return false;
+  }
+  if (D.sec.size && !D.sec.has(slug(f.section))) return false;
+  return true;
+}
+
+// Vrne null (izpade) ali {fit: 'yes'|'late'|'unknown'|null}
+function screeningCheck(s) {
+  if (D.d.size && !D.d.has(s.date)) return null;
+  if (D.v.size && !D.v.has(s.venue)) return null;
+  const st = startMin(s);
+  const from = D.od ? toMin(D.od) : 0;
+  const to = D.do ? toMin(D.do) : 48 * 60;
+  if (D.tab === "cas") {
+    if (st < from || st >= to) return null;
+    const e = endMin(s, P);
+    if (e == null) return { fit: "unknown" };
+    if (!D.do) return { fit: null };
+    return { fit: e <= to ? "yes" : "late" };
+  }
+  if (st < from || st > to) return null;
+  return { fit: null };
+}
+
+const screeningFilterActive = () => D.d.size || D.v.size || D.od || D.do || D.tab === "cas";
+
+function renderDiscoverResults() {
+  const box = document.getElementById("results");
+  if (!box) return;
+  const films = P.films.filter(filmPasses);
+  const filmIds = new Set(films.map((f) => f.id));
+  if (D.tab === "filmi") {
+    const hits = new Map();
+    for (const s of P.screenings) if (filmIds.has(s.film_id) && screeningCheck(s)) {
+      if (!hits.has(s.film_id)) hits.set(s.film_id, []);
+      hits.get(s.film_id).push(s.id);
+    }
+    let list = screeningFilterActive() ? films.filter((f) => hits.has(f.id)) : films;
+    const coll = new Intl.Collator("sl");
+    if (D.sort === "sek") list.sort((a, b) => P.sections.indexOf(a.section) - P.sections.indexOf(b.section) || coll.compare(a.title_sl, b.title_sl));
+    else if (D.sort === "prvi") list.sort((a, b) => firstScreeningKey(a) - firstScreeningKey(b));
+    else list.sort((a, b) => coll.compare(a.title_sl, b.title_sl));
+    const head = `<div class="result-meta"><p><b>${list.length}</b> ${plural(list.length, "film", "filma", "filmi", "filmov")}</p>
+      <label class="check">Razvrsti <select data-act="sort" id="sort"><option value="abc" ${D.sort === "abc" ? "selected" : ""}>po abecedi</option><option value="sek" ${D.sort === "sek" ? "selected" : ""}>po sekcijah</option><option value="prvi" ${D.sort === "prvi" ? "selected" : ""}>po prvem terminu</option></select></label></div>`;
+    if (!list.length) { box.innerHTML = head + noResults(); return; }
+    let html = "";
+    if (D.sort === "sek") {
+      for (const sec of P.sections) {
+        const part = list.filter((f) => f.section === sec);
+        if (part.length) html += `<h2 class="section-head" style="margin-top:28px;font-size:1.6rem"><span><span class="section-tag" style="font-size:.9rem"><span class="dot" style="--c:${secColor(sec)}"></span></span> ${esc(sec)}</span></h2><div class="grid">${part.map((f) => filmCard(f, hits.get(f.id))).join("")}</div>`;
+      }
+    } else html = `<div class="grid">${list.map((f) => filmCard(f, hits.get(f.id))).join("")}</div>`;
+    box.innerHTML = head + html;
+    return;
+  }
+
+  // termini in prost čas
+  const rows = [];
+  let hiddenLate = 0;
+  for (const s of P.screenings) {
+    if (!filmIds.has(s.film_id)) continue;
+    const c = screeningCheck(s);
+    if (!c) continue;
+    if (c.fit === "late" && !D.late) { hiddenLate++; continue; }
+    rows.push([s, c]);
+  }
+  const lateToggle = D.tab === "cas" && D.do ? `<label class="check"><input type="checkbox" data-act="late" ${D.late ? "checked" : ""}> Pokaži tudi filme, ki se končajo po ${D.do === "23:59" ? "polnoči" : D.do.replace(":", ".")}${hiddenLate ? ` (${hiddenLate})` : ""}</label>` : "";
+  const head = `<div class="result-meta"><p><b>${rows.length}</b> ${plural(rows.length, "projekcija", "projekciji", "projekcije", "projekcij")}${D.tab === "cas" && D.do ? " se v celoti izide v tvojem oknu" + (D.late ? " ali se začne v njem" : "") : ""}</p>${lateToggle}</div>`;
+  if (!rows.length) { box.innerHTML = head + noResults(hiddenLate); return; }
+  let html = "";
+  for (const day of P.days) {
+    const part = rows.filter(([s]) => s.date === day);
+    if (!part.length) continue;
+    html += `<section class="day-block"><div class="day-head"><h2>${esc(dayLong(day))}</h2><span class="count">${part.length}</span></div><ul class="rows">${part.map(([s, c]) => rowHtml(s, c.fit)).join("")}</ul></section>`;
+  }
+  const note = D.tab === "cas" ? `<p class="small muted" style="margin-top:14px">Konec je izračunan iz uradnega trajanja filma. Morebitnih uvodov, pogovorov z ustvarjalci in poti med dvoranami ne poznamo – računaj z rezervo.</p>` : "";
+  box.innerHTML = head + html + note;
+}
+
+function firstScreeningKey(f) {
+  const s = (P.screeningsByFilm.get(f.id) || [])[0];
+  return s ? Number(s.date.replace(/-/g, "")) * 10000 + startMin(s) : Infinity;
+}
+
+function plural(n, one, two, few, many) {
+  const m = n % 100;
+  if (m === 1) return one;
+  if (m === 2) return two;
+  if (m === 3 || m === 4) return few;
+  return many;
+}
+
+function noResults(hiddenLate = 0) {
+  const tips = [];
+  if (hiddenLate) tips.push(`<button type="button" class="btn btn-small" data-act="late-on">Pokaži ${hiddenLate} ${plural(hiddenLate, "film, ki se konča", "filma, ki se končata", "filme, ki se končajo", "filmov, ki se končajo")} pozneje</button>`);
+  if (D.od || D.do) tips.push(`<button type="button" class="btn btn-small btn-ghost" data-act="widen">Razširi časovno okno</button>`);
+  if (D.d.size) tips.push(`<button type="button" class="btn btn-small btn-ghost" data-act="alldays">Vsi dnevi</button>`);
+  tips.push(`<button type="button" class="btn btn-small btn-ghost" data-act="clear">Počisti filtre</button>`);
+  return emptyBox({ title: "Tu je tema kot v kinodvorani", text: "Za te pogoje ni nobene projekcije. Poskusi s širšim oknom ali drugim dnem.", actions: tips.join(""), motif: "eye" });
+}
+
+function filmCard(f, hitIds) {
+  const t = titleBits(f);
+  const ss = P.screeningsByFilm.get(f.id) || [];
+  const hit = new Set(hitIds || []);
+  const rec = lumaRec(f.id);
+  const terms = ss.map((s) => {
+    const cls = store.inPlan(s.id) ? "planned" : hit.has(s.id) && screeningFilterActive() ? "hit" : "";
+    return `<span class="term ${cls}" title="${esc(venueLabel(P.venueById.get(s.venue)))}">${esc(dayShort(s.date))} ${fmtMin(startMin(s))} · ${esc(venueShort(s.venue))}</span>`;
+  }).join("");
+  return `
+  <article class="card">
+    <a class="card-link" href="#/film/${f.id}">
+      ${art(f)}
+      <div class="card-body">
+        ${rec ? `<span class="luma-flag">${ic("star")} LuMa priporoča</span>` : ""}
+        <h3 class="card-title">${t.main}</h3>
+        ${t.alt ? `<p class="alt-title">${t.alt}</p>` : ""}
+        <p class="meta">${metaLine(f)}</p>
+      </div>
+    </a>
+    ${editor ? `<div class="card-body" style="padding-top:0;flex:0;position:relative;z-index:2">${idTag("film_id", f.id)}</div>` : ""}
+    ${favBtn(f.id)}
+    <div class="card-body" style="padding-top:0;flex:0"><div class="card-terms">${terms}</div></div>
+  </article>`;
+}
+
+function rowHtml(s, fit = null) {
+  const f = P.filmById.get(s.film_id);
+  const t = titleBits(f, { withAlt: false });
+  const r = timeRange(s);
+  const goes = lumaGoes(s.id);
+  let fitHtml = "";
+  if (fit === "yes") fitHtml = `<span class="fit yes">${ic("check")} Konec ob ${r.end}</span>`;
+  else if (fit === "late") fitHtml = `<span class="fit late">${ic("clock")} Konec ob ${r.end} – po tvojem oknu</span>`;
+  else if (fit === "unknown") fitHtml = `<span class="fit unknown">Trajanje ni znano</span>`;
+  return `
+  <li class="row">
+    <div class="row-time"><b>${r.start}</b>${r.end ? `<span>do ${r.end}</span>` : `<span>konec ni znan</span>`}</div>
+    <div class="row-main">
+      <a class="row-title" href="#/film/${f.id}">${t.main}</a>${goes ? `<span class="with-luma">${ic("people")} z LuMa</span>` : ""}
+      <p class="row-sub">${esc(venueShort(s.venue))} · ${esc(f.section)}${f.runtime ? ` · ${f.runtime} min` : ""}</p>
+      ${fitHtml}${idTag("screening_id", s.id)}
+    </div>
+    <div class="row-actions">${planBtn(s.id)}</div>
+  </li>`;
+}
+
+/* ================================================================ film */
+
+function viewFilm(id) {
+  const f = P.filmById.get(id);
+  if (!f) return viewNotFound("Tega filma ni v ljubljanskem programu", "Morda je bil umaknjen ali ima le projekcije izven Ljubljane.");
+  const t = titleBits(f);
+  const ss = P.screeningsByFilm.get(f.id) || [];
+  const rec = lumaRec(f.id);
+  const facts = [
+    ["Režija", f.director], ["Država", f.countries?.join(", ")], ["Leto", f.year], ["Trajanje", f.runtime ? `${f.runtime} min` : "ni podatka"],
+    ["Jezik", f.language], ["Podnapisi", f.subtitles], ["Sekcija", f.section],
+  ].filter(([, v]) => v);
+  const altTitles = [];
+  if (f.title_en) altTitles.push(`<span>${esc(f.title_en)}</span>`);
+  if (f.title_orig) altTitles.push(`<span lang="">${esc(f.title_orig)}</span> <span class="muted small">(izvirni naslov)</span>`);
+  return `
+  <a class="back" href="#/odkrij" data-act="back">${ic("back")} Nazaj</a>
+  <article>
+    <div class="film-top">
+      <div>${art(f, true)}</div>
+      <div class="film-titles">
+        <p class="section-tag"><span class="dot" style="--c:${secColor(f.section)}"></span>${esc(f.section)}</p>
+        <h1 style="margin-top:8px">${esc(f.title_sl || f.title_en)}</h1>
+        ${idTag("film_id", f.id)}
+        ${altTitles.length ? `<p class="alt-title">${altTitles.join(" · ")}</p>` : ""}
+        <dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
+        <div class="btn-row" style="margin-top:16px">
+          ${favBtn(f.id).replace('class="iconbtn fav"', 'class="iconbtn"')}
+          <span class="small muted" style="align-self:center">${store.isFav(f.id) ? "Med filmi, ki te zanimajo" : "Zanima me – shrani film"}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section stack" style="margin-top:28px">
+      ${f.summary ? `<p class="summary">${esc(f.summary)}</p>` : f.summary_status === "preveri" ? `<div class="notice">${ic("warn")}<p>Uradni opis tega filma na LIFFe je trenutno videti napačen (enak opisu drugega filma), zato povzetka ne prikazujemo. Preveri na strani LIFFe.</p></div>` : ""}
+      ${f.why ? `<div class="why"><b>Zakaj je zanimiv?</b>${esc(f.why)}</div>` : ""}
+      <p><a href="${esc(f.liffe_url)}" target="_blank" rel="noopener"><b>Celoten opis na LIFFe</b> ${ic("ext")}</a> ${f.summary ? `<span class="draft">· Kratek povzetek je naš, napisan po uradnem opisu.</span>` : ""}</p>
+      ${rec ? `<div class="luma-note"><p class="kicker">${ic("star")} LuMa priporoča</p>${rec.komentar ? `<blockquote>${esc(rec.komentar)}</blockquote>` : ""}</div>` : ""}
+    </div>
+
+    <section class="section">
+      <h2 style="margin-bottom:12px">Projekcije v Ljubljani</h2>
+      ${ss.length ? `<div class="screens">${ss.map((s) => screenCard(s)).join("")}</div>` : `<p class="muted">Ni projekcij v Ljubljani.</p>`}
+      <p class="small muted" style="margin-top:10px">»V moj plan« si termin le zapomni v tem brskalniku. Vstopnico kupiš posebej – gumb »Vstopnice« odpre uradno prodajo Cankarjevega doma.</p>
+    </section>
+
+    <section class="section">
+      <h2 style="margin-bottom:12px">Več o filmu</h2>
+      ${extLinks(f)}
+    </section>
+  </article>`;
+}
+
+function screenCard(s) {
+  const r = timeRange(s);
+  const v = P.venueById.get(s.venue);
+  const goes = lumaGoes(s.id);
+  return `
+  <div class="screen ${store.inPlan(s.id) ? "planned" : ""}">
+    <div>
+      <p class="screen-when">${esc(dayLong(s.date))}, ${r.start}${r.end ? ` <span class="muted">– ${r.end}</span>` : ""}${goes ? `<a class="with-luma" href="#/skupaj">${ic("people")} gre tudi LuMa</a>` : ""}</p>
+      <p class="screen-where">${esc(venueLabel(v))} · <a href="${esc(v.map_url)}" target="_blank" rel="noopener">zemljevid</a></p>
+      ${idTag("screening_id", s.id)}
+    </div>
+    <div class="screen-actions">
+      ${planBtn(s.id)}
+      ${ticketLink(s)}
+      <a class="btn btn-small btn-ghost" href="${esc(gcalUrl(s, P))}" target="_blank" rel="noopener" aria-label="Dodaj v Google Koledar">${ic("cal")}<span>Google</span></a>
+      <button type="button" class="btn btn-small btn-ghost" data-act="ics1" data-id="${s.id}" aria-label="Prenesi .ics za Apple ali drug koledar">${ic("cal")}<span>.ics</span></button>
+    </div>
+  </div>`;
+}
+
+function extLinks(f) {
+  const names = { IMDb: "s-imdb", LIFFe: "s-liffe", Metacritic: "s-metacritic", Letterboxd: "s-letterboxd" };
+  const anySearch = f.links.some((l) => l.search);
+  return `<div class="extlinks">${f.links.map((l) => `<a class="ext ${names[l.site]}${l.search ? " search" : ""}" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.site)}${l.search ? " <small>iskanje</small>" : ""} ${ic(l.search ? "search" : "ext")}</a>`).join("")}</div>
+  ${anySearch ? `<p class="small muted" style="margin-top:8px">Črtkane povezave so iskanja, ker točne strani filma nismo mogli zanesljivo potrditi.</p>` : ""}
+  ${f.program ? `<p class="small muted" style="margin-top:8px">To je sklop več kratkih filmov, zato v zunanjih bazah nima ene strani.</p>` : ""}`;
+}
+
+/* ================================================================ Moj LIFFe */
+
+function viewMine() {
+  const { fav, plan } = store.get();
+  const valid = plan.filter((id) => P.screeningById.has(id));
+  const missing = plan.filter((id) => !P.screeningById.has(id));
+  const favFilms = fav.map((id) => P.filmById.get(id)).filter(Boolean);
+  if (!valid.length && !favFilms.length && !missing.length) {
+    return `<div class="page-head"><h1>Moj LIFFe</h1></div>
+    ${emptyBox({ title: "Tvoj plan je še prazen platno", text: "Označi film s srčkom, če te zanima, ali dodaj konkreten termin v plan. Vse ostane samo v tem brskalniku – brez registracije.", actions: `<a class="btn" href="#/odkrij?tab=cas&od=17:30&do=23:59">Imam prost večer</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "eye" })}`;
+  }
+  const clash = overlaps(valid, P);
+  const byDay = new Map();
+  for (const id of valid) {
+    const s = P.screeningById.get(id);
+    if (!byDay.has(s.date)) byDay.set(s.date, []);
+    byDay.get(s.date).push(s);
+  }
+  const days = [...byDay.keys()].sort();
+  const scale = [10 * 60, 24 * 60 + 30];
+  const pct = (m) => Math.max(0, Math.min(100, ((m - scale[0]) / (scale[1] - scale[0])) * 100));
+
+  const planHtml = days.map((d) => {
+    const list = byDay.get(d).sort((a, b) => startMin(a) - startMin(b));
+    return `<section class="plan-day"><div class="day-head"><h2>${esc(dayLong(d))}</h2><span class="count">${list.length} ${plural(list.length, "film", "filma", "filmi", "filmov")}</span></div>
+    ${list.map((s) => {
+      const f = P.filmById.get(s.film_id);
+      const r = timeRange(s);
+      const e = endMin(s, P);
+      const others = (P.screeningsByFilm.get(f.id) || []).filter((x) => x.id !== s.id);
+      const c = clash.get(s.id) || [];
+      return `<div class="plan-item">
+        <div class="row-time"><b>${r.start}</b>${r.end ? `<span>do ${r.end}</span>` : `<span>konec ni znan</span>`}</div>
+        <div>
+          <a class="row-title" href="#/film/${f.id}">${titleBits(f, { withAlt: false }).main}</a>${lumaGoes(s.id) ? `<span class="with-luma">${ic("people")} z LuMa</span>` : ""}
+          <p class="row-sub">${esc(venueLabel(P.venueById.get(s.venue)))}${f.runtime ? ` · ${f.runtime} min` : ""}</p>
+          <div class="daybar" aria-hidden="true"><i class="${c.length ? "clash" : ""}" style="left:${pct(startMin(s))}%;width:${e ? pct(e) - pct(startMin(s)) : 1.5}%"></i></div>
+          <div class="daybar-scale" aria-hidden="true">${[10, 14, 18, 22].map((h) => `<span style="left:${pct(h * 60)}%">${h}</span>`).join("")}</div>
+          ${c.length ? `<p class="clash-msg">${ic("warn")}<span>Prekriva se z: ${c.map((oid) => { const o = P.screeningById.get(oid); const of = P.filmById.get(o.film_id); const or = timeRange(o); return `${esc(of.title_sl)} (${or.start}–${or.end})`; }).join(", ")}</span></p>` : ""}
+          ${!f.runtime ? `<p class="small muted">Trajanje ni znano, zato prekrivanja ne moremo preveriti.</p>` : ""}
+          <div class="btn-row" style="margin-top:8px">
+            ${others.length ? `<button type="button" class="btn btn-small btn-soft" data-act="swapopen" aria-expanded="false" aria-controls="sw-${s.id}">${ic("swap")}<span>Zamenjaj termin</span></button>` : ""}
+            ${ticketLink(s)}
+            <button type="button" class="btn btn-small btn-ghost" data-act="plan" data-id="${s.id}">${ic("x")}<span>Odstrani</span></button>
+          </div>
+          ${others.length ? `<div class="swap-list" id="sw-${s.id}" hidden>${others.map((o) => `<button type="button" class="btn btn-small btn-ghost" data-act="swap" data-from="${s.id}" data-to="${o.id}">${esc(dayShort(o.date))} ${fmtMin(startMin(o))} · ${esc(venueShort(o.venue))}${store.inPlan(o.id) ? " (že v planu)" : ""}</button>`).join("")}</div>` : ""}
+        </div>
+      </div>`;
+    }).join("")}</section>`;
+  }).join("");
+
+  const unscheduled = favFilms.filter((f) => !(P.screeningsByFilm.get(f.id) || []).some((s) => store.inPlan(s.id)));
+  const favHtml = favFilms.length ? `
+  <section class="section">
+    <div class="section-head"><div><h2>Zanima me</h2><p class="muted small">${favFilms.length} ${plural(favFilms.length, "film", "filma", "filmi", "filmov")}${unscheduled.length ? `, ${unscheduled.length} še brez izbranega termina` : ""}</p></div></div>
+    <div class="fav-list">${favFilms.map((f) => {
+      const ss = P.screeningsByFilm.get(f.id) || [];
+      const planned = ss.filter((s) => store.inPlan(s.id));
+      return `<div class="fav-item">
+        <div>
+          <a class="row-title" href="#/film/${f.id}">${titleBits(f, { withAlt: false }).main}</a>
+          <p class="row-sub">${planned.length ? `${ic("check")} V planu: ${planned.map((s) => `${esc(dayShort(s.date))} ${fmtMin(startMin(s))}`).join(", ")}` : "Še brez termina"}</p>
+          <details ${planned.length ? "" : ""}><summary>Termini (${ss.length})</summary><ul class="rows">${ss.map((s) => rowHtml(s)).join("")}</ul></details>
+        </div>
+        ${favBtn(f.id)}
+      </div>`;
+    }).join("")}</div>
+  </section>` : "";
+
+  return `
+  <div class="page-head"><h1>Moj LIFFe</h1>
+    <p class="lede">${valid.length ? `${valid.length} ${plural(valid.length, "termin", "termina", "termini", "terminov")} v planu${clash.size ? `, <b style="color:var(--rust-ink)">${clash.size} se prekrivajo</b>` : ""}.` : "V planu še ni terminov."} Shranjeno samo v tem brskalniku.</p>
+  </div>
+  <div class="toolbar">
+    ${valid.length ? `<button type="button" class="btn" data-act="icsall">${ic("cal")}<span>Izvozi v koledar (.ics)</span></button>` : ""}
+    <button type="button" class="btn btn-ghost" data-act="share">${ic("share")}<span>Deli moj LIFFe</span></button>
+    <button type="button" class="btn btn-ghost" data-act="wipe">${ic("x")}<span>Počisti vse</span></button>
+  </div>
+  <div id="share-out"></div>
+  ${missing.length ? `<div class="notice" style="margin-top:12px">${ic("warn")}<div><p><b>${missing.length} ${plural(missing.length, "izbran termin ni", "izbrana termina nista", "izbrani termini niso", "izbranih terminov ni")} več v uradnem urniku.</b> Morda je LIFFe projekcijo prestavil ali odpovedal. Preveri na <a href="https://urnik.liffe.si/urnik.aspx" target="_blank" rel="noopener">urnik.liffe.si</a>.</p><button type="button" class="linkbtn small" data-act="dropmissing">Odstrani jih iz plana</button></div></div>` : ""}
+  ${valid.length ? planHtml : `<div class="notice info" style="margin-top:12px">${ic("cal")}<p>Izberi konkreten termin pri filmih spodaj ali v <a href="#/odkrij?tab=termini">urniku</a>.</p></div>`}
+  ${favHtml}
+  <p class="small muted" style="margin-top:28px">Izvoz .ics deluje z Google Koledarjem, Apple Koledarjem in Outlookom (časovni pas Europe/Ljubljana). Dogodek v koledarju ni vstopnica.</p>`;
+}
+
+/* ================================================================ deljeno */
+
+function viewShared(params) {
+  const { plan, fav } = parseShare(params);
+  const vPlan = plan.filter((id) => P.screeningById.has(id));
+  const vFav = fav.filter((id) => P.filmById.has(id));
+  const lost = plan.length - vPlan.length + fav.length - vFav.length;
+  if (!vPlan.length && !vFav.length) {
+    return `<div class="page-head"><h1>Deljen LIFFe</h1></div>${emptyBox({ title: "Ta povezava je prazna", text: "V deljeni povezavi ni terminov ali filmov, ki bi bili v trenutnem programu.", actions: `<a class="btn" href="#/odkrij">Brskaj po filmih</a>` })}`;
+  }
+  const sorted = vPlan.map((id) => P.screeningById.get(id)).sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  const days = [...new Set(sorted.map((s) => s.date))];
+  const already = vPlan.filter((id) => store.inPlan(id)).length;
+  return `
+  <div class="page-head"><h1>Deljen LIFFe</h1>
+    <p class="lede">Nekdo je s tabo delil svoj festivalski plan: ${vPlan.length} ${plural(vPlan.length, "termin", "termina", "termine", "terminov")}${vFav.length ? ` in ${vFav.length} ${plural(vFav.length, "film", "filma", "filme", "filmov")}, ki ga zanimajo` : ""}. V povezavi so le ID-ji projekcij – nobenih imen ali osebnih podatkov.</p>
+  </div>
+  <div class="toolbar">
+    <button type="button" class="btn" data-act="mergeshared" data-plan="${vPlan.join(",")}" data-fav="${vFav.join(",")}">${ic("plus")}<span>Dodaj v moj LIFFe</span></button>
+    <a class="btn btn-ghost" href="#/moj">Moj LIFFe</a>
+  </div>
+  <p class="small muted">Tvoje obstoječe izbire ostanejo; dodamo le, česar še nimaš.${already ? ` ${already} od teh terminov že imaš.` : ""}</p>
+  ${lost ? `<div class="notice" style="margin-top:12px">${ic("warn")}<p>${lost} ${plural(lost, "izbira ni", "izbiri nista", "izbire niso", "izbir ni")} več v programu (morda spremenjen termin).</p></div>` : ""}
+  ${days.map((d) => `<section class="day-block"><div class="day-head"><h2>${esc(dayLong(d))}</h2></div><ul class="rows">${sorted.filter((s) => s.date === d).map((s) => rowHtml(s)).join("")}</ul></section>`).join("")}
+  ${vFav.length ? `<section class="section"><h2 style="margin-bottom:12px">Zanimajo ga/jo</h2><div class="grid">${vFav.map((id) => filmCard(P.filmById.get(id))).join("")}</div></section>` : ""}`;
+}
+
+/* ================================================================ LuMa */
+
+function viewLuma() {
+  const recs = L.priporocila.filter((r) => P.filmById.has(r.film_id));
+  const unknown = L.priporocila.length - recs.length;
+  return `
+  <section class="luma-hero">
+    ${ic("star", "motif")}
+    <p class="kicker">Uredniški izbor</p>
+    <h1>LuMa priporoča</h1>
+    <p class="lede" style="margin-top:10px;max-width:56ch">Filmi, ki sva jih ročno izbrali v LuMa film klubu – s kratkim komentarjem, zakaj. Priporočilo ne pomeni nujno, da greva na projekcijo; za to poglej <a href="#/skupaj">Z LuMa v kino</a>.</p>
+  </section>
+  <div class="section">
+    ${recs.length ? `<div class="stack">${recs.map((r, i) => {
+      const f = P.filmById.get(r.film_id);
+      const t = titleBits(f);
+      const next = (P.screeningsByFilm.get(f.id) || []).map((s) => `<span class="term ${store.inPlan(s.id) ? "planned" : ""}">${esc(dayShort(s.date))} ${fmtMin(startMin(s))} · ${esc(venueShort(s.venue))}</span>`).join("");
+      return `<article class="rec">
+        <span class="num" aria-hidden="true">${i + 1}</span>
+        <a href="#/film/${f.id}" aria-hidden="true" tabindex="-1">${art(f)}</a>
+        <div class="stack" style="--gap:6px">
+          <div><h2 style="font-size:1.7rem"><a href="#/film/${f.id}" style="text-decoration:none">${t.main}</a></h2>${t.alt ? `<p class="alt-title">${t.alt}</p>` : ""}<p class="meta">${metaLine(f)}</p></div>
+          ${r.komentar ? `<blockquote>${esc(r.komentar)}</blockquote>` : ""}
+          <div class="card-terms">${next}</div>
+          <div class="btn-row"><a class="btn btn-small" href="#/film/${f.id}">Termini in podrobnosti</a>${favBtn(f.id).replace('class="iconbtn fav"', 'class="iconbtn"')}</div>
+        </div>
+      </article>`;
+    }).join("")}</div>` : emptyBox({ title: "Izbor še nastaja", text: "Prav zdaj brskava po programu in izbirava. Priporočila bodo tu takoj, ko jih objaviva – brez izmišljenih seznamov do takrat.", actions: `<a class="btn" href="#/odkrij">Medtem: brskaj po filmih</a>`, motif: "eye" })}
+    ${unknown ? `<p class="small muted" style="margin-top:12px">${unknown} ${plural(unknown, "priporočilo se ne ujema", "priporočili se ne ujemata", "priporočila se ne ujemajo", "priporočil se ne ujema")} z nobenim filmom v programu (preveri film_id v Sheetu).</p>` : ""}
+  </div>`;
+}
+
+function tgCard(r) {
+  const s = P.screeningById.get(r.screening_id);
+  const f = P.filmById.get(s.film_id);
+  const v = P.venueById.get(s.venue);
+  const x = dayParts(s.date);
+  const tr = timeRange(s);
+  const joined = L.pridruzeni.filter((j) => j.screening_id === s.id);
+  const url = rsvpUrl(r);
+  const now = ljNow();
+  const past = s.date < now.date || (s.date === now.date && startMin(s) < now.min);
+  return `<article class="tg"${past ? ' style="opacity:.6"' : ""}>
+    <div class="tg-when">
+      <div class="tg-date"><small>${x.wd}</small><b>${x.d}. ${x.m}.</b></div>
+      <div><p class="screen-when">${tr.start}${tr.end ? ` <span class="muted">– ${tr.end}</span>` : ""} · ${esc(venueLabel(v))}</p>
+      <h3 style="font-size:1.5rem;margin-top:2px"><a href="#/film/${f.id}" style="text-decoration:none">${titleBits(f, { withAlt: false }).main}</a></h3>
+      <p class="meta">${metaLine(f)}</p></div>
+    </div>
+    <p class="tg-invite">${esc(r.povabilo || "Greva na to projekcijo – pridruži se!")}</p>
+    ${r.zbirno_mesto ? `<p class="small"><b>Dobimo se:</b> ${esc(r.zbirno_mesto)}</p>` : ""}
+    ${joined.length ? `<div class="joined"><span class="muted" style="background:none;padding:0">Pridružijo se:</span>${joined.map((j) => `<span>${esc(j.vzdevek)}</span>`).join("")}</div>` : ""}
+    ${past ? `<p class="small muted">Ta projekcija je že mimo.</p>` : `<div class="btn-row">
+      ${planBtn(s.id, false)}
+      ${url ? `<a class="btn btn-ghost" href="${esc(url)}" target="_blank" rel="noopener">${ic("people")}<span>Pridem tudi jaz</span> ${ic("ext")}</a>` : ""}
+      ${ticketLink(s, false)}
+    </div>
+    ${url ? `<p class="small muted">»Pridem tudi jaz« odpre kratek Google obrazec. Vpišeš le vzdevek; javno ga pokaževa samo, če to izrecno označiš, in šele po pregledu.${CONFIG.contactEmail ? ` Za odjavo piši na <a href="mailto:${esc(CONFIG.contactEmail)}">${esc(CONFIG.contactEmail)}</a>.` : " Odjavo oddaš v istem obrazcu."} Vstopnico kupi vsak sam.</p>` : `<p class="small muted">Vstopnico kupi vsak sam.</p>`}`}
+  </article>`;
+}
+
+function viewTogether() {
+  const rows = L.skupne.filter((r) => P.screeningById.has(r.screening_id))
+    .sort((a, b) => { const x = P.screeningById.get(a.screening_id), y = P.screeningById.get(b.screening_id); return (x.date + x.time).localeCompare(y.date + y.time); });
+  const unknown = L.skupne.length - rows.length;
+  return `
+  <section class="luma-hero teal">
+    ${ic("people", "motif")}
+    <p class="kicker" style="color:#eef8f7">Skupni ogledi</p>
+    <h1>Z LuMa v kino</h1>
+    <p class="lede" style="margin-top:10px;max-width:56ch">Natanko te projekcije bova obiskali. Če ti termin ustreza, pridi zraven – po filmu je vedno čas za pogovor.</p>
+  </section>
+  <div class="section">
+    ${rows.length ? `<div class="together">${rows.map(tgCard).join("")}</div>` : emptyBox({ title: "Skupni ogledi še niso razpisani", text: "Ko izbereva projekcije, na katere greva, bodo tukaj – z datumom, uro, dvorano in povabilom.", actions: `<a class="btn" href="#/luma">LuMa priporoča</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "people" })}
+    ${unknown ? `<p class="small muted" style="margin-top:12px">${unknown} ${plural(unknown, "vrstica se ne ujema", "vrstici se ne ujemata", "vrstice se ne ujemajo", "vrstic se ne ujema")} z nobeno projekcijo (preveri screening_id v Sheetu ali morebitno spremembo termina).</p>` : ""}
+  </div>`;
+}
+
+/* ================================================================ o strani */
+
+function viewAbout() {
+  const n = P.notes;
+  return `
+  <div class="page-head"><h1>O strani</h1><svg class="squiggle" aria-hidden="true"><use href="#i-squiggle"/></svg></div>
+  <div class="prose">
+    <p class="lede">LuMa × LIFFe 2026 je <b>neuradni, nepridobitni festivalski vodič LuMa film kluba</b>. Z LIFFe in Cankarjevim domom ni povezan. Za uradne informacije, nakup vstopnic in spremembe velja <a href="https://www.liffe.si/sl/">liffe.si</a>.</p>
+    <h2>Od kod so podatki</h2>
+    <ul>
+      <li>Filmi, sekcije, trajanja in projekcije: uradni program na <a href="${esc(P.source.films)}">urnik.liffe.si</a>, uvožen ${esc(fmtStamp(P.source.imported_at))}. Vsaka projekcija je preverjena tudi v <a href="${esc(P.source.schedule)}">uradnem urniku</a>.</li>
+      <li>Prikazujemo samo fizične projekcije v Ljubljani (${P.venues.map((v) => esc(v.name)).join(", ")}). Izpuščenih je ${n.excluded_screenings_outside_ljubljana} projekcij v Mariboru, Celju in Novem mestu ter spletni (VOD) program${n.excluded_films.length ? ` (${n.excluded_films.map((x) => esc(x.title_sl)).join(", ")})` : ""}.</li>
+      <li>Kratki povzetki so naši, napisani po uradnih opisih; celoten opis je vedno na strani LIFFe. »Zakaj je zanimiv?« navaja le dejstva iz uradnega opisa (npr. nagrade).</li>
+      <li>Povezave na IMDb in Letterboxd so potrjene prek IMDb identifikatorja (ujemanje naslova, leta in režiserja v uradnem IMDb naboru podatkov). Kjer ujemanja ni bilo mogoče potrditi, je povezava iskanje in je tako označena. Metacritic je vedno iskanje. Ocen ne prikazujemo.</li>
+      <li>Če se kaj ne ujema z uradnim programom, velja uradni program.</li>
+    </ul>
+    <h2>Zasebnost</h2>
+    <ul>
+      <li>Za »Zanima me« in »Moj plan« ne potrebuješ računa. Izbire ostanejo v tvojem brskalniku (localStorage) in ne pridejo do nas.</li>
+      <li>Deljena povezava vsebuje samo ID-je projekcij in filmov – nobenih imen ali e-naslovov.</li>
+      <li>»Pridem tudi jaz« (če je odprto) je Google obrazec. Vzdevek pokaževa javno le, če to izrecno označiš, in šele po ročnem pregledu. Odgovori obrazca niso javni.</li>
+      <li>Pisave nalaga Google Fonts; stran ne uporablja analitike ali piškotkov za sledenje.</li>
+    </ul>
+    <h2>Kako uporabljati</h2>
+    <ul>
+      <li><b>Imam prost čas</b>: izberi dan in okno, npr. petek od 18.00 do 22.30. »Konec« je izračunan iz uradnega trajanja; uvodov, pogovorov in poti med dvoranami ne poznamo.</li>
+      <li><b>Srček</b> = film te zanima. <b>V moj plan</b> = izbran konkreten termin. To nista rezervaciji.</li>
+      <li><b>Moj LIFFe</b> opozori na prekrivanja, omogoči hitro zamenjavo termina, izvoz v koledar in deljenje.</li>
+    </ul>
+  </div>`;
+}
+
+function viewNotFound(title = "Te strani ni", text = "Morda je povezava zastarela.") {
+  return emptyBox({ title, text, actions: `<a class="btn" href="#/">Domov</a><a class="btn btn-ghost" href="#/odkrij">Vsi filmi</a>`, motif: "eye" });
+}
+
+/* ================================================================ dogodki */
+
+function refreshDiscover() {
+  const c = document.getElementById("controls");
+  if (c) c.innerHTML = filterControls();
+  const cc = document.getElementById("cas-controls");
+  if (cc) cc.innerHTML = casControls();
+  syncUrl();
+  renderDiscoverResults();
+}
+
+function toggleIn(set, v) { set.has(v) ? set.delete(v) : set.add(v); }
+
+function refreshAfterStore(btn) {
+  const { parts } = parseRoute();
+  const r = parts[0];
+  if (r === "moj" || r === "skupaj" || r === "luma" || r === "film" || r === "deljeno") {
+    const focusSel = btn && btn.dataset.id ? `[data-act="${btn.dataset.act}"][data-id="${btn.dataset.id}"]` : null;
+    render(true);
+    if (focusSel) $main.querySelector(focusSel)?.focus({ preventScroll: true });
+  } else {
+    // seznami: osveži samo gumbe, da ostane fokus in položaj
+    document.querySelectorAll(`[data-act="plan"]`).forEach((b) => {
+      const on = store.inPlan(b.dataset.id);
+      b.setAttribute("aria-pressed", on);
+      b.innerHTML = `${ic(on ? "check" : "plus")}<span>${on ? "V mojem planu" : "V moj plan"}</span>`;
+    });
+    document.querySelectorAll(`[data-act="fav"]`).forEach((b) => {
+      const on = store.isFav(b.dataset.id);
+      b.setAttribute("aria-pressed", on);
+      b.setAttribute("aria-label", on ? "Odstrani iz »Zanima me«" : "Zanima me");
+      b.innerHTML = ic(on ? "heart-f" : "heart");
+    });
+  }
+}
+
+function updateBadge() {
+  const n = store.get().plan.filter((id) => P && P.screeningById.has(id)).length;
+  const b = document.getElementById("plan-badge");
+  b.hidden = !n;
+  b.textContent = n;
+}
+
+$main.addEventListener("click", async (e) => {
+  const el = e.target.closest("[data-act]");
+  if (!el || el.tagName === "SELECT" || el.tagName === "INPUT") return;
+  const act = el.dataset.act;
+  const id = el.dataset.id;
+  switch (act) {
+    case "plan": {
+      e.preventDefault();
+      const was = store.inPlan(id);
+      store.togglePlan(id);
+      const s = P.screeningById.get(id);
+      const f = s && P.filmById.get(s.film_id);
+      toast(was ? "Odstranjeno iz plana" : `Dodano v plan: ${f ? f.title_sl : ""} (vstopnico kupiš posebej)`);
+      refreshAfterStore(el);
+      break;
+    }
+    case "fav": {
+      e.preventDefault();
+      const was = store.isFav(id);
+      store.toggleFav(id);
+      toast(was ? "Odstranjeno iz »Zanima me«" : "Shranjeno med »Zanima me«");
+      refreshAfterStore(el);
+      break;
+    }
+    case "back":
+      if (navCount > 1) { e.preventDefault(); history.back(); }
+      break;
+    case "sec": toggleIn(D.sec, el.dataset.val); refreshDiscover(); break;
+    case "day": toggleIn(D.d, el.dataset.val); refreshDiscover(); break;
+    case "venue": toggleIn(D.v, el.dataset.val); refreshDiscover(); break;
+    case "preset": D.od = el.dataset.od; D.do = el.dataset.do; refreshDiscover(); break;
+    case "late-on": D.late = true; refreshDiscover(); break;
+    case "widen": D.od = ""; D.do = ""; refreshDiscover(); break;
+    case "alldays": D.d.clear(); refreshDiscover(); break;
+    case "unset": {
+      const k = el.dataset.key, v = el.dataset.val;
+      if (k === "sek") D.sec.delete(v);
+      if (k === "d") D.d.delete(v);
+      if (k === "v") D.v.delete(v);
+      if (k === "time") { D.od = ""; D.do = ""; }
+      refreshDiscover();
+      break;
+    }
+    case "clear": {
+      D.sec.clear(); D.d.clear(); D.v.clear(); D.od = ""; D.do = ""; D.q = "";
+      const q = document.getElementById("q"); if (q) q.value = "";
+      refreshDiscover();
+      break;
+    }
+    case "ics1": downloadIcs([id], P, `liffe-${id}.ics`); toast("Datoteka .ics je prenesena – odpri jo s koledarjem"); break;
+    case "icsall": {
+      const ids = store.get().plan.filter((x) => P.screeningById.has(x));
+      downloadIcs(ids, P);
+      toast(`Izvoženih ${ids.length} terminov`);
+      break;
+    }
+    case "share": {
+      const { fav, plan } = store.get();
+      const url = shareUrl(fav.filter((x) => P.filmById.has(x)), plan.filter((x) => P.screeningById.has(x)));
+      if (navigator.share && matchMedia("(pointer: coarse)").matches) {
+        try { await navigator.share({ title: "Moj LIFFe 2026", text: "Moj plan za LIFFe 2026", url }); return; } catch (_) { /* preklic */ }
+      }
+      const out = document.getElementById("share-out");
+      out.innerHTML = `<div class="share-box"><label class="sr" for="share-url">Povezava za deljenje</label><input id="share-url" class="input" readonly value="${esc(url)}"><button type="button" class="btn btn-small" data-act="copy">Kopiraj</button></div><p class="small muted" style="margin-top:6px">Povezava vsebuje le ID-je izbranih projekcij in filmov. Prejemnik jih lahko doda k svojim izbiram.</p>`;
+      const inp = document.getElementById("share-url"); inp.focus(); inp.select();
+      try { await navigator.clipboard.writeText(url); toast("Povezava je kopirana"); } catch (_) {}
+      break;
+    }
+    case "copy": {
+      const inp = document.getElementById("share-url");
+      try { await navigator.clipboard.writeText(inp.value); toast("Povezava je kopirana"); } catch (_) { inp.select(); document.execCommand && document.execCommand("copy"); toast("Povezava je kopirana"); }
+      break;
+    }
+    case "wipe":
+      if (confirm("Izbrišem vse izbire (plan in »Zanima me«) v tem brskalniku?")) { store.clear(); toast("Počiščeno"); render(); }
+      break;
+    case "dropmissing": {
+      const keep = store.get().plan.filter((x) => P.screeningById.has(x));
+      store.get().plan.filter((x) => !P.screeningById.has(x)).forEach((x) => store.togglePlan(x));
+      toast(`V planu ostane ${keep.length} terminov`);
+      render();
+      break;
+    }
+    case "swapopen": {
+      const list = document.getElementById(el.getAttribute("aria-controls"));
+      const open = list.hidden;
+      list.hidden = !open;
+      el.setAttribute("aria-expanded", String(open));
+      if (open) list.querySelector("button")?.focus();
+      break;
+    }
+    case "copyid":
+      try { await navigator.clipboard.writeText(el.dataset.val); toast(`Kopirano: ${el.dataset.val}`); } catch (_) { toast(el.dataset.val); }
+      break;
+    case "editoroff": setEditor(false); history.replaceState(null, "", location.hash.replace(/[?&]urednik(=[^&]*)?/, "")); render(); break;
+    case "swap": store.swap(el.dataset.from, el.dataset.to); toast("Termin zamenjan"); render(); break;
+    case "mergeshared": {
+      const plan = el.dataset.plan ? el.dataset.plan.split(",") : [];
+      const fav = el.dataset.fav ? el.dataset.fav.split(",") : [];
+      const newP = plan.filter((x) => !store.inPlan(x)).length;
+      const newF = fav.filter((x) => !store.isFav(x)).length;
+      if (!newP && !newF) { toast("Vse to že imaš v svojem LIFFu"); break; }
+      if (confirm(`Dodam ${newP} ${plural(newP, "termin", "termina", "termine", "terminov")} in ${newF} ${plural(newF, "film", "filma", "filme", "filmov")} k tvojim izbiram? Obstoječe izbire ostanejo.`)) {
+        store.merge(fav, plan);
+        toast("Dodano v Moj LIFFe");
+        location.hash = "#/moj";
+      }
+      break;
+    }
+  }
+});
+
+$main.addEventListener("input", (e) => {
+  if (e.target.id === "q") {
+    clearTimeout(refreshDiscover._t);
+    refreshDiscover._t = setTimeout(() => { D.q = e.target.value.trim(); refreshDiscover(); }, 140);
+  }
+});
+
+$main.addEventListener("change", (e) => {
+  const t = e.target;
+  if (t.dataset.act === "time") { D[t.id] = t.value; refreshDiscover(); }
+  if (t.dataset.act === "sort") { D.sort = t.value; syncUrl(); renderDiscoverResults(); }
+  if (t.dataset.act === "late") { D.late = t.checked; syncUrl(); renderDiscoverResults(); }
+});
+
+/* ================================================================ zagon */
+
+async function boot() {
+  store.init();
+  try {
+    P = await loadProgram();
+  } catch (err) {
+    $main.innerHTML = emptyBox({ title: "Programa ni bilo mogoče naložiti", text: "Preveri povezavo in osveži stran. Uradni urnik je vedno na urnik.liffe.si.", actions: `<a class="btn" href="https://urnik.liffe.si/urnik.aspx">Uradni urnik</a>` });
+    console.error(err);
+    return;
+  }
+  document.getElementById("data-stamp").innerHTML =
+    `Podatki preverjeni z uradnim programom: <b>${esc(fmtStamp(P.source.imported_at))}</b> · zadnja sprememba programa: ${esc(fmtStamp(P.source.changed_at || P.source.imported_at))} · vir: <a href="${esc(P.source.schedule)}">urnik.liffe.si</a>`;
+  store.onChange(updateBadge);
+  updateBadge();
+  render();
+  window.addEventListener("hashchange", render);
+  // LuMa podatki pridejo naknadno (Sheet je lahko počasnejši) – nato osvežimo pogled.
+  L = await loadLuma();
+  if (L.priporocila.length || L.skupne.length) render(true);
+}
+
+boot();

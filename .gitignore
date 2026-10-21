@@ -1,0 +1,4 @@
+scripts/.cache/
+data/opisi_uradni.json
+__pycache__/
+.DS_Store

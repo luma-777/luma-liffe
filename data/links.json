@@ -1,0 +1,1304 @@
+{
+ "3926": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=17%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/17/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/17/"
+  },
+  "imdb_id": "tt37775862",
+  "imdb_match": {
+   "title": "17",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3973": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=3%20nedelje%20posle%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/3%20Weeks%20After/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/3%20Weeks%20After/"
+  },
+  "imdb_id": "tt35351269",
+  "imdb_match": {
+   "title": "3 nedelje posle",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3941": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Atlasul%20Universului%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Atlas%20of%20the%20Universe/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Atlas%20of%20the%20Universe/"
+  },
+  "imdb_id": "tt28084471",
+  "imdb_match": {
+   "title": "Atlasul Universului",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3930": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Glavonja%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Extraordinary/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Extraordinary/"
+  },
+  "imdb_id": "tt33049085",
+  "imdb_match": {
+   "title": "Glavonja",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4002": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Bunker%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Bunker/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Bunker/"
+  },
+  "imdb_id": "tt36770512",
+  "imdb_match": {
+   "title": "Bunker",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3942": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=L%27uomo%20dei%20cinque%20palloni%201965&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Man%20with%20the%20Balloons/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Man%20with%20the%20Balloons/"
+  },
+  "imdb_id": "tt0059851",
+  "imdb_match": {
+   "title": "The Man with the Balloons",
+   "year": 1967,
+   "director_verified": true
+  }
+ },
+ "3968": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Dekle%20no%C4%8Di%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Girl%20in%20the%20Night/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Girl%20in%20the%20Night/"
+  },
+  "imdb_id": "tt37243036",
+  "imdb_match": {
+   "title": "Dekle noci",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3977": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Wild%20Horse%20Nine%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Wild%20Horse%20Nine/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Wild%20Horse%20Nine/"
+  },
+  "imdb_id": "tt15799564",
+  "imdb_match": {
+   "title": "Wild Horse Nine",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3920": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Le%20journal%20d%27une%20femme%20de%20chambre%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Diary%20of%20a%20Chambermaid/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Diary%20of%20a%20Chambermaid/"
+  },
+  "imdb_id": "tt38785098",
+  "imdb_match": {
+   "title": "Diary of a Chambermaid",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3939": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Le%20journal%20d%27une%20femme%20de%20chambre%201964&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Diary%20of%20a%20Chambermaid/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Diary%20of%20a%20Chambermaid/"
+  },
+  "imdb_id": "tt0058249",
+  "imdb_match": {
+   "title": "Diary of a Chambermaid",
+   "year": 1964,
+   "director_verified": true
+  }
+ },
+ "3994": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Do%20kraja%20dana%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Until%20the%20Day%20Ends/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Until%20the%20Day%20Ends/"
+  },
+  "imdb_id": "tt37919722",
+  "imdb_match": {
+   "title": "Do kraja dana",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4013": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Hopeu%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Hope/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Hope/"
+  },
+  "imdb_id": "tt27369017",
+  "imdb_match": {
+   "title": "Hope",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3970": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Dua%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Dua/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Dua/"
+  },
+  "imdb_id": "tt38765198",
+  "imdb_match": {
+   "title": "Dua",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3957": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=L%27Espece%20explosive%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Too%20Many%20Beasts/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Too%20Many%20Beasts/"
+  },
+  "imdb_id": "tt38841455",
+  "imdb_match": {
+   "title": "Too Many Beasts",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4018": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Evrope%20in%20Short%20-%201.%20Program&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Evrope%20in%20Short%20-%201.%20Program/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Evrope%20in%20Short%20-%201.%20Program/"
+  },
+  "kind": "program"
+ },
+ "4019": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Evrope%20in%20Short%20-%202.%20Program&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Evrope%20in%20Short%20-%202.%20Program/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Evrope%20in%20Short%20-%202.%20Program/"
+  },
+  "kind": "program"
+ },
+ "4020": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Evrope%20in%20Short%20-%203.%20Program&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Evrope%20in%20Short%20-%203.%20Program/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Evrope%20in%20Short%20-%203.%20Program/"
+  },
+  "kind": "program"
+ },
+ "4011": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Fackham%20Hall%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Fackham%20Hall/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Fackham%20Hall/"
+  },
+  "imdb_id": "tt29008225",
+  "imdb_match": {
+   "title": "Fackham Hall",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "3938": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Il%20federale%201961&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Fascist/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Fascist/"
+  },
+  "imdb_id": "tt0054870",
+  "imdb_match": {
+   "title": "The Fascist",
+   "year": 1961,
+   "director_verified": true
+  }
+ },
+ "4017": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Furies%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Furies/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Furies/"
+  },
+  "imdb_id": "tt36985382",
+  "imdb_match": {
+   "title": "Furies",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3933": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Truly%20Naked%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Truly%20Naked/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Truly%20Naked/"
+  },
+  "imdb_id": "tt8760666",
+  "imdb_match": {
+   "title": "Truly Naked",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3993": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Guria%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Guria/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Guria/"
+  },
+  "imdb_id": "tt29550106",
+  "imdb_match": {
+   "title": "Guria",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3923": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Heysel%2085%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Heysel%2085/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Heysel%2085/"
+  },
+  "imdb_id": "tt30135000",
+  "imdb_match": {
+   "title": "Heysel 85",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4003": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Zimna%20wojna%202018&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Cold%20War/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Cold%20War/"
+  },
+  "imdb_id": "tt6543652",
+  "imdb_match": {
+   "title": "Cold War",
+   "year": 2018,
+   "director_verified": true
+  }
+ },
+ "4004": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Ida&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Ida/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Ida/"
+  },
+  "imdb_id": "tt2718492",
+  "imdb_match": {
+   "title": "Ida",
+   "year": 2013,
+   "director_verified": true
+  }
+ },
+ "4001": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Isabel%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Isabel/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Isabel/"
+  },
+  "imdb_id": "tt35748025",
+  "imdb_match": {
+   "title": "Isabel",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4021": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Ivica%20Mati%C4%87%20-%20kratki%20filmi&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Ivica%20Mati%C4%87%20-%20short%20films/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Ivica%20Mati%C4%87%20-%20short%20films/"
+  },
+  "kind": "program"
+ },
+ "3971": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=I%27ll%20Be%20Gone%20in%20June%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/I%27ll%20Be%20Gone%20in%20June/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/I%27ll%20Be%20Gone%20in%20June/"
+  },
+  "imdb_id": "tt23143606",
+  "imdb_match": {
+   "title": "I'll Be Gone in June",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3982": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Kami%20nour%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/A%20Bit%20of%20Light/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/A%20Bit%20of%20Light/"
+  },
+  "imdb_id": "tt43704846",
+  "imdb_match": {
+   "title": "Kami nour",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3947": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Kota%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Hen/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Hen/"
+  },
+  "imdb_id": "tt29283995",
+  "imdb_match": {
+   "title": "Hen",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "4010": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Der%20K%C3%A4rntner%20spricht%20Deutsch%202006&s=tt",
+   "metacritic": "https://www.metacritic.com/search/With%20Death%20As%20the%20Only%20Certain%20Fate/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/With%20Death%20As%20the%20Only%20Certain%20Fate/"
+  },
+  "imdb_id": "tt2649494",
+  "imdb_match": {
+   "title": "Der Kärntner spricht Deutsch",
+   "year": 2006,
+   "director_verified": true
+  }
+ },
+ "3921": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Queen%20at%20Sea%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Queen%20at%20Sea/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Queen%20at%20Sea/"
+  },
+  "imdb_id": "tt27541205",
+  "imdb_match": {
+   "title": "Queen at Sea",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3940": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Chronovisor%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Chronovisor/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Chronovisor/"
+  },
+  "imdb_id": "tt39196981",
+  "imdb_match": {
+   "title": "Chronovisor",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3956": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Die%20Blutgr%C3%A4fin%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Blood%20Countess/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Blood%20Countess/"
+  },
+  "imdb_id": "tt28151657",
+  "imdb_match": {
+   "title": "The Blood Countess",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3990": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=La%20Gradiva%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/La%20Gradiva/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/La%20Gradiva/"
+  },
+  "imdb_id": "tt36107185",
+  "imdb_match": {
+   "title": "La Gradiva",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3927": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Koke%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Honey%20Bunny/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Honey%20Bunny/"
+  },
+  "imdb_id": "tt39904829",
+  "imdb_match": {
+   "title": "Koke",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3943": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Dramma%20della%20gelosia%201970&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Jealousy%2C%20Italian%20Style/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Jealousy%2C%20Italian%20Style/"
+  },
+  "imdb_id": "tt0065662",
+  "imdb_match": {
+   "title": "The Pizza Triangle",
+   "year": 1970,
+   "director_verified": true
+  }
+ },
+ "3945": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Romanzo%20popolare%201974&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Come%20Home%20and%20Meet%20My%20Wife/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Come%20Home%20and%20Meet%20My%20Wife/"
+  },
+  "imdb_id": "tt0072097",
+  "imdb_match": {
+   "title": "Come Home and Meet My Wife",
+   "year": 1974,
+   "director_verified": true
+  }
+ },
+ "3936": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Divorzio%20all%27italiana%201961&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Divorce%20Italian%20Style/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Divorce%20Italian%20Style/"
+  },
+  "imdb_id": "tt0055913",
+  "imdb_match": {
+   "title": "Divorce Italian Style",
+   "year": 1961,
+   "director_verified": true
+  }
+ },
+ "3946": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=London%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/London/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/London/"
+  },
+  "imdb_id": "tt39206699",
+  "imdb_match": {
+   "title": "London",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3983": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Manhunt%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Manhunt/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Manhunt/"
+  },
+  "imdb_id": "tt43637757",
+  "imdb_match": {
+   "title": "Manhunt",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3950": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Made%20in%20EU%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Made%20in%20EU/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Made%20in%20EU/"
+  },
+  "imdb_id": "tt37660486",
+  "imdb_match": {
+   "title": "Made in EU",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "3986": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Male%20stvari%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Small%20Things/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Small%20Things/"
+  },
+  "imdb_id": "tt43346448",
+  "imdb_match": {
+   "title": "Male stvari",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3984": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Mila/Marija%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Mila/Maria/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Mila/Maria/"
+  },
+  "imdb_id": "tt29355605",
+  "imdb_match": {
+   "title": "Mila/Marija",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3944": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Mimi%20metallurgico%20ferito%20nell%27onore%201972&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Seduction%20of%20Mimi/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Seduction%20of%20Mimi/"
+  },
+  "imdb_id": "tt0068950",
+  "imdb_match": {
+   "title": "The Seduction of Mimi",
+   "year": 1972,
+   "director_verified": true
+  }
+ },
+ "3961": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Minotaur%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Minotaur/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Minotaur/"
+  },
+  "imdb_id": "tt37118301",
+  "manual": true
+ },
+ "3934": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Mein%20Freund%20Barry%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Barry%20%26%20Me/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Barry%20%26%20Me/"
+  },
+  "imdb_id": "tt36230671",
+  "imdb_match": {
+   "title": "Barry & Me",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4006": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=My%20Summer%20of%20Love%202004&s=tt",
+   "metacritic": "https://www.metacritic.com/search/My%20Summer%20of%20Love/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/My%20Summer%20of%20Love/"
+  },
+  "imdb_id": "tt0382189",
+  "imdb_match": {
+   "title": "My Summer of Love",
+   "year": 2004,
+   "director_verified": true
+  }
+ },
+ "4014": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Jegyzeteim%20a%20Marsr%C3%B3l%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/My%20Notes%20on%20Mars/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/My%20Notes%20on%20Mars/"
+  },
+  "imdb_id": "tt33295642",
+  "imdb_match": {
+   "title": "My Notes on Mars",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3992": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=The%20Man%20I%20Love%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Man%20I%20Love/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Man%20I%20Love/"
+  },
+  "imdb_id": "tt37522972",
+  "imdb_match": {
+   "title": "The Man I Love",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3924": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=The%20Loneliest%20Man%20in%20Town%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Loneliest%20Man%20in%20Town/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Loneliest%20Man%20in%20Town/"
+  },
+  "imdb_id": "tt39382808",
+  "imdb_match": {
+   "title": "The Loneliest Man in Town",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3953": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Los%20domingos%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Sundays/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Sundays/"
+  },
+  "imdb_id": "tt35513027",
+  "imdb_match": {
+   "title": "Sundays",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "3960": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Soudain%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/All%20of%20a%20Sudden/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/All%20of%20a%20Sudden/"
+  },
+  "imdb_id": "tt36834996",
+  "imdb_match": {
+   "title": "All of a Sudden",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4008": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Il%20sorpasso%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Easy%20Life/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Easy%20Life/"
+  },
+  "imdb_id": "tt0056512",
+  "imdb_match": {
+   "title": "Il sorpasso",
+   "year": 1962,
+   "director_verified": true
+  }
+ },
+ "3998": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Kvinde%20Ukendt%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Woman%20Unknown/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Woman%20Unknown/"
+  },
+  "imdb_id": "tt34888026",
+  "imdb_match": {
+   "title": "Woman Unknown",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3978": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=La%20femme%20infidele%201969&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Unfaithful%20Wife/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Unfaithful%20Wife/"
+  },
+  "imdb_id": "tt0064323",
+  "imdb_match": {
+   "title": "The Unfaithful Wife",
+   "year": 1969,
+   "director_verified": true
+  }
+ },
+ "4015": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Tender%20Loving%20Care%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Tender%20Loving%20Care/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Tender%20Loving%20Care/"
+  },
+  "imdb_id": "tt35638092",
+  "imdb_match": {
+   "title": "Tender Loving Care",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3935": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=I%20soliti%20ignoti%201958&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Big%20Deal%20on%20Madonna%20Street/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Big%20Deal%20on%20Madonna%20Street/"
+  },
+  "imdb_id": "tt0052216",
+  "imdb_match": {
+   "title": "Big Deal on Madonna Street",
+   "year": 1958,
+   "director_verified": true
+  }
+ },
+ "3975": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Ojczyzna%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Fatherland/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Fatherland/"
+  },
+  "imdb_id": "tt37304295",
+  "imdb_match": {
+   "title": "Fatherland",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3952": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Take%20Me%20Home%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Take%20Me%20Home/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Take%20Me%20Home/"
+  },
+  "imdb_id": "tt37263549",
+  "imdb_match": {
+   "title": "Take Me Home",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3972": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Bu%20feng%20zhui%20ying%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Shadow%27s%20Edge/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Shadow%27s%20Edge/"
+  },
+  "imdb_id": "tt34610311",
+  "imdb_match": {
+   "title": "The Shadow's Edge",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "3991": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Paper%20Tiger%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Paper%20Tiger/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Paper%20Tiger/"
+  },
+  "imdb_id": "tt34385689",
+  "imdb_match": {
+   "title": "Paper Tiger",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3929": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Tajemstv%C3%AD%20d%C5%BEungle%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Born%20in%20the%20Jungle/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Born%20in%20the%20Jungle/"
+  },
+  "imdb_id": "tt29344898",
+  "imdb_match": {
+   "title": "Born in the Jungle",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3997": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Rukku%20Bakku%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Look%20Back/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Look%20Back/"
+  },
+  "imdb_id": "tt39094466",
+  "imdb_match": {
+   "title": "Look Back",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3948": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Prame%C5%88%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Only%20Beautiful%20Things%20to%20Look%20At/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Only%20Beautiful%20Things%20to%20Look%20At/"
+  },
+  "imdb_id": "tt42577282",
+  "imdb_match": {
+   "title": "Pramen",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4009": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=I%20mostri%201963&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Monsters/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Monsters/"
+  },
+  "imdb_id": "tt0057323",
+  "imdb_match": {
+   "title": "The Monsters",
+   "year": 1963,
+   "director_verified": true
+  }
+ },
+ "3932": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Shakwa%20raqam%20713317%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Complaint%20No.%20713317/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Complaint%20No.%20713317/"
+  },
+  "imdb_id": "tt38933481",
+  "imdb_match": {
+   "title": "Complaint No. 713317",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "3966": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=La%20chute%20de%20la%20maison%20Usher%201928&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Fall%20of%20the%20House%20of%20Usher/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Fall%20of%20the%20House%20of%20Usher/"
+  },
+  "imdb_id": "tt0018770",
+  "imdb_match": {
+   "title": "The Fall of the House of Usher",
+   "year": 1928,
+   "director_verified": true
+  }
+ },
+ "3954": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=La%20perra%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/La%20perra/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/La%20perra/"
+  },
+  "imdb_id": "tt38468551",
+  "imdb_match": {
+   "title": "La perra",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3974": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Das%20Getr%C3%A4umte%20Abenteuer%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Dreamed%20Adventure/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Dreamed%20Adventure/"
+  },
+  "imdb_id": "tt21188986",
+  "imdb_match": {
+   "title": "The Dreamed Adventure",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3976": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Les%20Roches%20rouges%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Red%20Rocks/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Red%20Rocks/"
+  },
+  "imdb_id": "tt31383175",
+  "imdb_match": {
+   "title": "Les roches rouges",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3985": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Hangar%20rojo%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Red%20Hangar/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Red%20Hangar/"
+  },
+  "imdb_id": "tt37664358",
+  "imdb_match": {
+   "title": "The Red Hangar",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3967": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Happy%20Birthday%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Happy%20Birthday/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Happy%20Birthday/"
+  },
+  "imdb_id": "tt36591512",
+  "imdb_match": {
+   "title": "Happy Birthday",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "3959": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Rose%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Rose/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Rose/"
+  },
+  "imdb_id": "tt25399154",
+  "imdb_match": {
+   "title": "Rose",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3922": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Gelbe%20Briefe%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Yellow%20Letters/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Yellow%20Letters/"
+  },
+  "imdb_id": "tt32888226",
+  "imdb_match": {
+   "title": "Yellow Letters",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3963": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Teenage%20Sex%20And%20Death%20At%20Camp%20Miasma%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Teenage%20Sex%20And%20Death%20At%20Camp%20Miasma/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Teenage%20Sex%20And%20Death%20At%20Camp%20Miasma/"
+  },
+  "imdb_id": "tt35298123",
+  "imdb_match": {
+   "title": "Teenage Sex and Death at Camp Miasma",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3931": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Mysteriepakken%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Mystery%20Package/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Mystery%20Package/"
+  },
+  "imdb_id": "tt38673337",
+  "imdb_match": {
+   "title": "The Mystery Package",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3962": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Soumsoum%2C%20la%20nuit%20des%20astres%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Soumsoum%2C%20the%20Night%20of%20the%20Stars/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Soumsoum%2C%20the%20Night%20of%20the%20Stars/"
+  },
+  "imdb_id": "tt39075020",
+  "imdb_match": {
+   "title": "Soumsoum, la nuit des astres",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3928": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Shame%20and%20Money%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Shame%20and%20Money/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Shame%20and%20Money/"
+  },
+  "imdb_id": "tt39140264",
+  "imdb_match": {
+   "title": "Shame and Money",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3951": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Gatillero%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Gunman/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Gunman/"
+  },
+  "imdb_id": "tt35974872",
+  "imdb_match": {
+   "title": "Gatillero",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "4000": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Ink%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Ink/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Ink/"
+  },
+  "imdb_id": "tt37967547",
+  "imdb_match": {
+   "title": "Ink",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3955": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Melt%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Melt/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Melt/"
+  },
+  "imdb_id": "tt38723373",
+  "imdb_match": {
+   "title": "Melt",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "3980": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Nu%20e%20locul%20tau%20aici%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/You%20Don%27t%20Belong%20Here/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/You%20Don%27t%20Belong%20Here/"
+  },
+  "imdb_id": "tt39228759",
+  "imdb_match": {
+   "title": "You Don't Belong Here",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3964": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Full%20Phil%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Full%20Phil/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Full%20Phil/"
+  },
+  "imdb_id": "tt38607959",
+  "imdb_match": {
+   "title": "Full Phil",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3989": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Primetime%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Primetime/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Primetime/"
+  },
+  "imdb_id": "tt34206385",
+  "imdb_match": {
+   "title": "Primetime",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3979": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Ulya%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Ulya/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Ulya/"
+  },
+  "imdb_id": "tt26751523",
+  "imdb_match": {
+   "title": "Ulya",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3949": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=%C4%8Cerni%20pari%20za%20beli%20no%C5%A1ti%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Black%20Money%20for%20White%20Nights/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Black%20Money%20for%20White%20Nights/"
+  },
+  "imdb_id": "tt38799410",
+  "imdb_match": {
+   "title": "Black Money for White Nights",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3925": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Flush%202025&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Flush/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Flush/"
+  },
+  "imdb_id": "tt37520267",
+  "imdb_match": {
+   "title": "Flush",
+   "year": 2025,
+   "director_verified": true
+  }
+ },
+ "3995": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=A%20veces%20me%20entra%20tristeza%2C%20otras%20veces%20rebeli%C3%B3n%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Sometimes%20Sadness%2C%20Sometimes%20Rebellion/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Sometimes%20Sadness%2C%20Sometimes%20Rebellion/"
+  },
+  "imdb_id": "tt43518701",
+  "imdb_match": {
+   "title": "A veces me entra tristeza, otras veces rebelión",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3937": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Il%20vedovo%201959&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Widower/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Widower/"
+  },
+  "imdb_id": "tt0131097",
+  "imdb_match": {
+   "title": "The Widower",
+   "year": 1959,
+   "director_verified": true
+  }
+ },
+ "3958": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=I%20See%20Buildings%20Fall%20Like%20Lightning%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/I%20See%20Buildings%20Fall%20Like%20Lightning/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/I%20See%20Buildings%20Fall%20Like%20Lightning/"
+  },
+  "imdb_id": "tt38991615",
+  "imdb_match": {
+   "title": "I See Buildings Fall Like Lightning",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3981": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Virus%20patolo%C5%A1ke%20dobrote%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Virus%20of%20Pathological%20Kindness/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Virus%20of%20Pathological%20Kindness/"
+  },
+  "imdb_id": "tt37545926",
+  "imdb_match": {
+   "title": "Virus patoloske dobrote",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4012": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Everytime%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Everytime/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Everytime/"
+  },
+  "imdb_id": "tt41592057",
+  "imdb_match": {
+   "title": "Everytime",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3969": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Vse%2C%20kar%20je%20narobe%20s%20tabo%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Everything%20That%27s%20Wrong%20With%20You/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Everything%20That%27s%20Wrong%20With%20You/"
+  },
+  "imdb_id": "tt37775832",
+  "imdb_match": {
+   "title": "Everything That's Wrong with You",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3988": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Everybody%20Digs%20Bill%20Evans%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Everybody%20Digs%20Bill%20Evans/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Everybody%20Digs%20Bill%20Evans/"
+  },
+  "imdb_id": "tt34347792",
+  "imdb_match": {
+   "title": "Everybody Digs Bill Evans",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4007": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Last%20Resort%202000&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Last%20Resort/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Last%20Resort/"
+  },
+  "imdb_id": "tt0258761",
+  "imdb_match": {
+   "title": "Last Resort",
+   "year": 2000,
+   "director_verified": true
+  }
+ },
+ "4016": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Arrested%20Memory%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Arrested%20Memory/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Arrested%20Memory/"
+  },
+  "imdb_id": "tt38893248",
+  "imdb_match": {
+   "title": "Arrested Memory",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3987": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Les%20Yeux%20Verts%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Green%20Eyes/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Green%20Eyes/"
+  },
+  "imdb_id": "tt34671488",
+  "imdb_match": {
+   "title": "Les Yeux Verts",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3996": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Succedera%20questa%20notte%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/It%20Will%20Happen%20Tonight/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/It%20Will%20Happen%20Tonight/"
+  },
+  "imdb_id": "tt37341481",
+  "imdb_match": {
+   "title": "It Will Happen Tonight",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "3999": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=Un%20bon%20petit%20soldat%202026&s=tt",
+   "metacritic": "https://www.metacritic.com/search/A%20Good%20Little%20Soldier/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/A%20Good%20Little%20Soldier/"
+  },
+  "imdb_id": "tt41802342",
+  "imdb_match": {
+   "title": "A Good Little Soldier",
+   "year": 2026,
+   "director_verified": true
+  }
+ },
+ "4005": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=La%20femme%20du%205eme%202011&s=tt",
+   "metacritic": "https://www.metacritic.com/search/The%20Woman%20in%20the%20Fifth/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/The%20Woman%20in%20the%20Fifth/"
+  },
+  "imdb_id": "tt1605777",
+  "imdb_match": {
+   "title": "The Woman in the Fifth",
+   "year": 2011,
+   "director_verified": true
+  }
+ },
+ "3965": {
+  "search": {
+   "imdb": "https://www.imdb.com/find/?q=%C5%BDena%20s%20krajolikom%201976&s=tt",
+   "metacritic": "https://www.metacritic.com/search/Landscape%20with%20a%20Woman/?category=2",
+   "letterboxd": "https://letterboxd.com/search/films/Landscape%20with%20a%20Woman/"
+  },
+  "imdb_id": "tt3340940",
+  "imdb_match": {
+   "title": "Zena s krajolikom",
+   "year": 1976,
+   "director_verified": true
+  }
+ }
+}

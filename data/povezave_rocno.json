@@ -1,0 +1,7 @@
+{
+ "_navodila": "Ročni popravki zunanjih povezav, ključ = LIFFe idF. Dovoljena polja: imdb_id, metacritic_url, letterboxd_url. Vpiši samo, kar si preverila (naslov + leto + režiser). Polja, ki se začnejo s _, se ne upoštevajo.",
+ "3961": {
+  "imdb_id": "tt37118301",
+  "_preverjeno": "2026-10-21: IMDb title.crew navaja režiserja nm1168657 = Andrey Zvyagintsev (LIFFe zapis: Andrej Zvjagincev), Minotaur (2026)."
+ }
+}

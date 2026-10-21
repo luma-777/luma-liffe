@@ -1,0 +1,4741 @@
+{
+ "festival": {
+  "name": "37. Ljubljanski mednarodni filmski festival",
+  "short": "LIFFe 2026",
+  "start": "2026-11-11",
+  "end": "2026-11-22",
+  "timezone": "Europe/Ljubljana",
+  "url": "https://www.liffe.si/sl/",
+  "tickets_url": "https://www.liffe.si/sl/vstopnice/vstopnice"
+ },
+ "source": {
+  "films": "https://urnik.liffe.si/filmi.aspx",
+  "schedule": "https://urnik.liffe.si/urnik.aspx",
+  "imported_at": "2026-10-21T17:52+02:00",
+  "checksum": "1653c1eabe39",
+  "changed_at": "2026-10-21T17:52+02:00"
+ },
+ "venues": [
+  {
+   "id": "cd-linhartova",
+   "name": "Linhartova dvorana",
+   "place": "Cankarjev dom",
+   "city": "Ljubljana"
+  },
+  {
+   "id": "cd-kosovelova",
+   "name": "Kosovelova dvorana",
+   "place": "Cankarjev dom",
+   "city": "Ljubljana"
+  },
+  {
+   "id": "kinodvor",
+   "name": "Kinodvor",
+   "place": "",
+   "city": "Ljubljana"
+  },
+  {
+   "id": "kinoteka",
+   "name": "Slovenska kinoteka",
+   "place": "",
+   "city": "Ljubljana"
+  },
+  {
+   "id": "kino-bezigrad",
+   "name": "Kino Bežigrad",
+   "place": "",
+   "city": "Ljubljana"
+  },
+  {
+   "id": "kino-siska",
+   "name": "Kino Šiška",
+   "place": "",
+   "city": "Ljubljana"
+  },
+  {
+   "id": "agrft",
+   "name": "Dvorana AGRFT",
+   "place": "UL AGRFT",
+   "city": "Ljubljana"
+  }
+ ],
+ "sections": [
+  "Perspektive",
+  "Predpremiere",
+  "Kralji in kraljice",
+  "Panorama",
+  "Ekstravaganca",
+  "Fokus: Avstrija",
+  "Jadranska mreža",
+  "Kinobalon",
+  "Kino-integral",
+  "Retro: Commedia all'italiana",
+  "Posvečeno: Paweł Pawlikowski",
+  "Posvečeno: Ivica Matić",
+  "Evropa na kratko"
+ ],
+ "films": [
+  {
+   "id": "3926",
+   "title_sl": "17",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "17",
+   "title_orig_raw": "17",
+   "section": "Perspektive",
+   "director": "Kosara Mitić",
+   "countries": [
+    "Severna Makedonija",
+    "Slovenija",
+    "Srbija"
+   ],
+   "year": 2026,
+   "runtime": 105,
+   "language": "makedonščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/17_KosaraMitic.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3926",
+   "screening_ids": [
+    "t227379",
+    "t227390",
+    "t227256",
+    "t227308"
+   ]
+  },
+  {
+   "id": "3973",
+   "title_sl": "3 tedne pozneje",
+   "title_en": "3 Weeks After",
+   "title_orig": "3 nedelje posle",
+   "title_en_raw": "3 Weeks After",
+   "title_orig_raw": "3 nedelje posle",
+   "section": "Panorama",
+   "director": "Miroslav Terzić",
+   "countries": [
+    "Srbija",
+    "Bolgarija",
+    "Hrvaška",
+    "Italija",
+    "Luksemburg"
+   ],
+   "year": 2026,
+   "runtime": 96,
+   "language": "srbščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/3_Weeks_After.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3973",
+   "screening_ids": [
+    "t227423",
+    "t227291"
+   ]
+  },
+  {
+   "id": "3941",
+   "title_sl": "Atlas vesolja",
+   "title_en": "Atlas of the Universe",
+   "title_orig": "Atlasul Universului",
+   "title_en_raw": "Atlas of the Universe",
+   "title_orig_raw": "Atlasul Universului",
+   "section": "Kinobalon",
+   "director": "Paul Negoescu",
+   "countries": [
+    "Romunija",
+    "Bolgarija"
+   ],
+   "year": 2026,
+   "runtime": 85,
+   "language": "romunščina, madžarščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Atlas_of_the_Universe.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3941",
+   "screening_ids": [
+    "t227245",
+    "t227297"
+   ]
+  },
+  {
+   "id": "3930",
+   "title_sl": "Bučko",
+   "title_en": "Extraordinary",
+   "title_orig": "Glavonja",
+   "title_en_raw": "Extraordinary",
+   "title_orig_raw": "Glavonja",
+   "section": "Kinobalon",
+   "director": "Marina Andree Škop, Vanda Raýmanová",
+   "countries": [
+    "Hrvaška",
+    "Slovaška",
+    "Slovenija",
+    "Srbija",
+    "Latvija"
+   ],
+   "year": 2026,
+   "runtime": 83,
+   "language": "hrvaščina",
+   "subtitles": "slovenska sinhronizacija",
+   "image": "https://liffe.si/images/movies/Extraordinary_Glavonja.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3930",
+   "screening_ids": [
+    "t227293",
+    "t227249"
+   ]
+  },
+  {
+   "id": "4002",
+   "title_sl": "Bunker",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Bunker",
+   "title_orig_raw": "Bunker",
+   "section": "Predpremiere",
+   "director": "Florian Zeller",
+   "countries": [
+    "Francija",
+    "Španija"
+   ],
+   "year": 2026,
+   "runtime": 126,
+   "language": "angleščina, španščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Bunker_Zeller.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4002",
+   "screening_ids": [
+    "t227341",
+    "t227227",
+    "t227234"
+   ]
+  },
+  {
+   "id": "3942",
+   "title_sl": "Človek s petimi baloni",
+   "title_en": "The Man with the Balloons",
+   "title_orig": "L'uomo dei cinque palloni",
+   "title_en_raw": "The Man with the Balloons",
+   "title_orig_raw": "L'uomo dei cinque palloni",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Marco Ferreri",
+   "countries": [
+    "Italija",
+    "Francija"
+   ],
+   "year": 1965,
+   "runtime": 85,
+   "language": "italijanščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Man_with_the_Balloons_Ferreri.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3942",
+   "screening_ids": [
+    "t227357",
+    "t227377"
+   ]
+  },
+  {
+   "id": "3968",
+   "title_sl": "Dekle noči",
+   "title_en": "Girl in the Night",
+   "title_orig": null,
+   "title_en_raw": "Girl in the Night",
+   "title_orig_raw": "Dekle noči",
+   "section": "Predpremiere",
+   "director": "Luka Marčetić",
+   "countries": [
+    "Slovenija"
+   ],
+   "year": 2026,
+   "runtime": 94,
+   "language": "slovenščina",
+   "subtitles": "angleščina",
+   "image": "https://liffe.si/images/movies/Dekle_noci_Marcectic.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3968",
+   "screening_ids": [
+    "t227207",
+    "t227295",
+    "t227445"
+   ]
+  },
+  {
+   "id": "3977",
+   "title_sl": "Divji konj številka devet",
+   "title_en": "Wild Horse Nine",
+   "title_orig": null,
+   "title_en_raw": "Wild Horse Nine",
+   "title_orig_raw": "Wild Horse Nine",
+   "section": "Predpremiere",
+   "director": "Martin McDonagh",
+   "countries": [
+    "VB",
+    "ZDA",
+    "Čile"
+   ],
+   "year": 2026,
+   "runtime": 117,
+   "language": "angleščina, španščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Wild_Horse_Nine.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3977",
+   "screening_ids": [
+    "t227114",
+    "t227209",
+    "t227333"
+   ]
+  },
+  {
+   "id": "3920",
+   "title_sl": "Dnevnik sobarice",
+   "title_en": "Diary of a Chambermaid",
+   "title_orig": "Le journal d'une femme de chambre",
+   "title_en_raw": "Diary of a Chambermaid",
+   "title_orig_raw": "Le journal d'une femme de chambre",
+   "section": "Kralji in kraljice",
+   "director": "Radu Jude",
+   "countries": [
+    "Romunija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 94,
+   "language": "romunščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Diary_of_Chambermaid_RaduJude.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3920",
+   "screening_ids": [
+    "t227420",
+    "t227212",
+    "t227403",
+    "t227276"
+   ]
+  },
+  {
+   "id": "3939",
+   "title_sl": "Dnevnik sobarice",
+   "title_en": "Diary of a Chambermaid",
+   "title_orig": "Le journal d'une femme de chambre",
+   "title_en_raw": "Diary of a Chambermaid",
+   "title_orig_raw": "Le journal d'une femme de chambre",
+   "section": "Kralji in kraljice",
+   "director": "Luis Bunuel",
+   "countries": [
+    "Francija",
+    "Italija"
+   ],
+   "year": 1964,
+   "runtime": 97,
+   "language": "francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Diary_of_Chambermaid_Bunuel.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3939",
+   "screening_ids": [
+    "t227110",
+    "t227274"
+   ]
+  },
+  {
+   "id": "3994",
+   "title_sl": "Do konca dneva",
+   "title_en": "Until the Day Ends",
+   "title_orig": "Do kraja dana",
+   "title_en_raw": "Until the Day Ends",
+   "title_orig_raw": "Do kraja dana",
+   "section": "Predpremiere",
+   "director": "Jelena Maksimović",
+   "countries": [
+    "Srbija",
+    "Hrvaška",
+    "Slovenija",
+    "Bolgarija",
+    "Črna gora"
+   ],
+   "year": 2026,
+   "runtime": 91,
+   "language": "srbščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Do_kraja_dana_Jelena_Maksimovic.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3994",
+   "screening_ids": [
+    "t227239",
+    "t227389",
+    "t227300"
+   ]
+  },
+  {
+   "id": "4013",
+   "title_sl": "Dobrodošli v Hope",
+   "title_en": "Hope",
+   "title_orig": "Hopeu",
+   "title_en_raw": "Hope",
+   "title_orig_raw": "Hopeu",
+   "section": "Ekstravaganca",
+   "director": "Na Hong-jin",
+   "countries": [
+    "Južna Koreja"
+   ],
+   "year": 2026,
+   "runtime": 160,
+   "language": "korejščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Hope_Na_Hongjin.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4013",
+   "screening_ids": [
+    "t227336",
+    "t227226",
+    "t227452"
+   ]
+  },
+  {
+   "id": "3970",
+   "title_sl": "Dua",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Dua",
+   "title_orig_raw": "Dua",
+   "section": "Panorama",
+   "director": "Blerta Basholli",
+   "countries": [
+    "Kosovo",
+    "Švica",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 101,
+   "language": "albanščina, srbščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Dua_Blerta_Basholli.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3970",
+   "screening_ids": [
+    "t227435",
+    "t227261",
+    "t227331"
+   ]
+  },
+  {
+   "id": "3957",
+   "title_sl": "Eksplozivna vrsta",
+   "title_en": "Too Many Beasts",
+   "title_orig": "L'Espece explosive",
+   "title_en_raw": "Too Many Beasts",
+   "title_orig_raw": "L'Espece explosive",
+   "section": "Perspektive",
+   "director": "Sarah Arnold",
+   "countries": [
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 95,
+   "language": "francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Too_Many_Beasts_Sarah_Arnold.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3957",
+   "screening_ids": [
+    "t227237",
+    "t227285",
+    "t227254"
+   ]
+  },
+  {
+   "id": "4018",
+   "title_sl": "Evropa na kratko - 1. sklop",
+   "title_en": "Evrope in Short - 1. Program",
+   "title_orig": null,
+   "title_en_raw": "Evrope in Short - 1. Program",
+   "title_orig_raw": null,
+   "section": "Evropa na kratko",
+   "director": null,
+   "countries": [],
+   "year": null,
+   "runtime": 103,
+   "language": null,
+   "subtitles": "slovenščina,angleščina",
+   "image": "https://liffe.si/images/movies/Cosmonauts.png",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4018",
+   "screening_ids": [
+    "t227356"
+   ]
+  },
+  {
+   "id": "4019",
+   "title_sl": "Evropa na kratko - 2. sklop",
+   "title_en": "Evrope in Short - 2. Program",
+   "title_orig": null,
+   "title_en_raw": "Evrope in Short - 2. Program",
+   "title_orig_raw": null,
+   "section": "Evropa na kratko",
+   "director": null,
+   "countries": [],
+   "year": null,
+   "runtime": 101,
+   "language": null,
+   "subtitles": "slovenščina,angleščina",
+   "image": "https://liffe.si/images/movies/Winter_in_March.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4019",
+   "screening_ids": [
+    "t227360"
+   ]
+  },
+  {
+   "id": "4020",
+   "title_sl": "Evropa na kratko - 3. sklop",
+   "title_en": "Evrope in Short - 3. Program",
+   "title_orig": null,
+   "title_en_raw": "Evrope in Short - 3. Program",
+   "title_orig_raw": null,
+   "section": "Evropa na kratko",
+   "director": null,
+   "countries": [],
+   "year": null,
+   "runtime": 110,
+   "language": null,
+   "subtitles": "slovenščina,angleščina",
+   "image": "https://liffe.si/images/movies/Shadows.png",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4020",
+   "screening_ids": [
+    "t227363"
+   ]
+  },
+  {
+   "id": "4011",
+   "title_sl": "Fackham Hall",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Fackham Hall",
+   "title_orig_raw": "Fackham Hall",
+   "section": "Panorama",
+   "director": "Jim O'Hanlon",
+   "countries": [
+    "VB"
+   ],
+   "year": 2025,
+   "runtime": 97,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/FackhamHall.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4011",
+   "screening_ids": [
+    "t227450",
+    "t227232",
+    "t227233"
+   ]
+  },
+  {
+   "id": "3938",
+   "title_sl": "Federalist",
+   "title_en": "The Fascist",
+   "title_orig": "Il federale",
+   "title_en_raw": "The Fascist",
+   "title_orig_raw": "Il federale",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Luciano Salce",
+   "countries": [
+    "Italija",
+    "Francija"
+   ],
+   "year": 1961,
+   "runtime": 102,
+   "language": "italijanščina, nemščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Fascist_LucianoSalce.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3938",
+   "screening_ids": [
+    "t227352",
+    "t227365"
+   ]
+  },
+  {
+   "id": "4017",
+   "title_sl": "Furijaste",
+   "title_en": "Furies",
+   "title_orig": null,
+   "title_en_raw": "Furies",
+   "title_orig_raw": "Furies",
+   "section": "Panorama",
+   "director": "Rami Kodeih",
+   "countries": [
+    "Libanon",
+    "Brazilija"
+   ],
+   "year": 2026,
+   "runtime": 132,
+   "language": "arabščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Furies.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4017",
+   "screening_ids": [
+    "t227424",
+    "t227216"
+   ]
+  },
+  {
+   "id": "3933",
+   "title_sl": "Goli goli",
+   "title_en": "Truly Naked",
+   "title_orig": null,
+   "title_en_raw": "Truly Naked",
+   "title_orig_raw": "Truly Naked",
+   "section": "Jadranska mreža",
+   "director": "Muriel d'Ansembourg",
+   "countries": [
+    "Nizozemska",
+    "Belgija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 102,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Truly_Naked_Muriel_Ansembourg.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3933",
+   "screening_ids": [
+    "t227439",
+    "t227275"
+   ]
+  },
+  {
+   "id": "3993",
+   "title_sl": "Gurija",
+   "title_en": "Guria",
+   "title_orig": null,
+   "title_en_raw": "Guria",
+   "title_orig_raw": "Guria",
+   "section": "Panorama",
+   "director": "Levan Koguashvili",
+   "countries": [
+    "Gruzija",
+    "Bolgarija",
+    "Turčija",
+    "Švica",
+    "Luksemburg",
+    "N"
+   ],
+   "year": 2026,
+   "runtime": 118,
+   "language": "gruzijščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/GuriaLevan_Koguashvili.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3993",
+   "screening_ids": [
+    "t227248",
+    "t227323"
+   ]
+  },
+  {
+   "id": "3923",
+   "title_sl": "Heysel 85",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Heysel 85",
+   "title_orig_raw": "Heysel 85",
+   "section": "Predpremiere",
+   "director": "Teodora Ana Mihai",
+   "countries": [
+    "Belgija",
+    "Nizozemska",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 91,
+   "language": "francoščina, nemščina, italijanščina, angleščina, nizo",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Heysel_85_Teodora_AnaMihai.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3923",
+   "screening_ids": [
+    "t227238",
+    "t227391",
+    "t227430",
+    "t227416"
+   ]
+  },
+  {
+   "id": "4003",
+   "title_sl": "Hladna vojna",
+   "title_en": "Cold War",
+   "title_orig": "Zimna wojna",
+   "title_en_raw": "Cold War",
+   "title_orig_raw": "Zimna wojna",
+   "section": "Posvečeno: Paweł Pawlikowski",
+   "director": "Pawel Pawlikowski",
+   "countries": [
+    "Poljska",
+    "VB",
+    "Belgija",
+    "Francija",
+    "Hrvaška"
+   ],
+   "year": 2018,
+   "runtime": 89,
+   "language": "poljščina, srbščina, hrvaščina, francoščina, ruščina, i",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Cold_War_Pawel_Pawlikowski.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4003",
+   "screening_ids": [
+    "t227343",
+    "t227351"
+   ]
+  },
+  {
+   "id": "4004",
+   "title_sl": "Ida",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Ida",
+   "title_orig_raw": "Ida",
+   "section": "Posvečeno: Paweł Pawlikowski",
+   "director": "Paweł Pawlikowski",
+   "countries": [],
+   "year": null,
+   "runtime": 82,
+   "language": "poljščina, latinščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Ida_Pawel_Pawlikowski.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4004",
+   "screening_ids": [
+    "t227348",
+    "t227373"
+   ]
+  },
+  {
+   "id": "4001",
+   "title_sl": "Isabel",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Isabel",
+   "title_orig_raw": "Isabel",
+   "section": "Panorama",
+   "director": "Gabe Klinger",
+   "countries": [
+    "Brazilija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 85,
+   "language": "portugalščina, angleščina, francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Isabel_Klinger.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4001",
+   "screening_ids": [
+    "t227255",
+    "t227312"
+   ]
+  },
+  {
+   "id": "4021",
+   "title_sl": "Ivica Matić - kratki filmi",
+   "title_en": "Ivica Matić - short films",
+   "title_orig": null,
+   "title_en_raw": "Ivica Matić - short films",
+   "title_orig_raw": "Ivica Matić - kratki filmi",
+   "section": "Posvečeno: Ivica Matić",
+   "director": "Ivica Matić",
+   "countries": [
+    "Jugoslavija",
+    "BiH"
+   ],
+   "year": null,
+   "runtime": 35,
+   "language": "srbohrvaščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/matic.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4021",
+   "screening_ids": [
+    "t227359"
+   ]
+  },
+  {
+   "id": "3971",
+   "title_sl": "Junija me ne bo več",
+   "title_en": "I'll Be Gone in June",
+   "title_orig": null,
+   "title_en_raw": "I'll Be Gone in June",
+   "title_orig_raw": "I'll Be Gone in June",
+   "section": "Panorama",
+   "director": "Katharina Rivilis",
+   "countries": [
+    "Nemčija",
+    "Švica",
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 125,
+   "language": "nemščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/I_ll_BeGone_in_June_Rivilis.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3971",
+   "screening_ids": [
+    "t227286",
+    "t227392",
+    "t227296",
+    "t227399"
+   ]
+  },
+  {
+   "id": "3982",
+   "title_sl": "Kanček svetlobe",
+   "title_en": "A Bit of Light",
+   "title_orig": "Kami nour",
+   "title_en_raw": "A Bit of Light",
+   "title_orig_raw": "Kami nour",
+   "section": "Panorama",
+   "director": "Ali Asgari",
+   "countries": [
+    "Iran",
+    "Turčija",
+    "Italija",
+    "Kanada",
+    "Švica"
+   ],
+   "year": 2026,
+   "runtime": 87,
+   "language": "perzijščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/A_Bit_of_Light_Asgari.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3982",
+   "screening_ids": [
+    "t227384",
+    "t227428",
+    "t227222",
+    "t227417"
+   ]
+  },
+  {
+   "id": "3947",
+   "title_sl": "Kokoš",
+   "title_en": "Hen",
+   "title_orig": "Kota",
+   "title_en_raw": "Hen",
+   "title_orig_raw": "Kota",
+   "section": "Jadranska mreža",
+   "director": "György Pálfi",
+   "countries": [
+    "Madžarska",
+    "Grčija",
+    "Nemčija"
+   ],
+   "year": 2025,
+   "runtime": 96,
+   "language": "grščina, italijanščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Hen_György_Pálfi.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3947",
+   "screening_ids": [
+    "t227240",
+    "t227438"
+   ]
+  },
+  {
+   "id": "4010",
+   "title_sl": "Korošec govori nemško",
+   "title_en": "With Death As the Only Certain Fate",
+   "title_orig": "Der Kärntner spricht Deutsch",
+   "title_en_raw": "With Death As the Only Certain Fate",
+   "title_orig_raw": "Der Kärntner spricht Deutsch",
+   "section": "Fokus: Avstrija",
+   "director": "Andrina Mračnikar",
+   "countries": [
+    "Avstrija"
+   ],
+   "year": 2006,
+   "runtime": 60,
+   "language": "nemščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/DerKarntner_sprichtDeutsch.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4010",
+   "screening_ids": [
+    "t227364"
+   ]
+  },
+  {
+   "id": "3921",
+   "title_sl": "Kraljica morja",
+   "title_en": "Queen at Sea",
+   "title_orig": null,
+   "title_en_raw": "Queen at Sea",
+   "title_orig_raw": "Queen at Sea",
+   "section": "Predpremiere",
+   "director": "Lance Hammer",
+   "countries": [
+    "VB",
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 121,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Queen_at_Sea_Lance_Hammer.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3921",
+   "screening_ids": [
+    "t227203",
+    "t227334",
+    "t227444"
+   ]
+  },
+  {
+   "id": "3940",
+   "title_sl": "Kronovizor",
+   "title_en": "Chronovisor",
+   "title_orig": null,
+   "title_en_raw": "Chronovisor",
+   "title_orig_raw": "Chronovisor",
+   "section": "Perspektive",
+   "director": "Kevin Walker, Jack Auen",
+   "countries": [
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 99,
+   "language": "angleščina, nemščina, italijanščina, francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Chronovisor.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3940",
+   "screening_ids": [
+    "t227243",
+    "t227448"
+   ]
+  },
+  {
+   "id": "3956",
+   "title_sl": "Krvava grofica",
+   "title_en": "The Blood Countess",
+   "title_orig": "Die Blutgräfin",
+   "title_en_raw": "The Blood Countess",
+   "title_orig_raw": "Die Blutgräfin",
+   "section": "Fokus: Avstrija",
+   "director": "Ulrike Ottinger",
+   "countries": [
+    "Avstrija",
+    "Luksemburg",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 118,
+   "language": "nemščina, ruščina, francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Blood_Countess_Ulrike_Ottinger.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3956",
+   "screening_ids": [
+    "t227303",
+    "t227264"
+   ]
+  },
+  {
+   "id": "3990",
+   "title_sl": "La Gradiva",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "La Gradiva",
+   "title_orig_raw": "La Gradiva",
+   "section": "Predpremiere",
+   "director": "Marine Atlan",
+   "countries": [
+    "Francija",
+    "Italija"
+   ],
+   "year": 2026,
+   "runtime": 145,
+   "language": "francoščina, italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/La_gradiva.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3990",
+   "screening_ids": [
+    "t227289",
+    "t227395",
+    "t227411"
+   ]
+  },
+  {
+   "id": "3927",
+   "title_sl": "Ljubica",
+   "title_en": "Honey Bunny",
+   "title_orig": "Koke",
+   "title_en_raw": "Honey Bunny",
+   "title_orig_raw": "Koke",
+   "section": "Perspektive",
+   "director": "Igor Jelinović",
+   "countries": [
+    "Hrvaška",
+    "Srbija"
+   ],
+   "year": 2026,
+   "runtime": 97,
+   "language": "hrvaščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/HoneyBunny_IgorJelinović.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3927",
+   "screening_ids": [
+    "t227299",
+    "t227315",
+    "t227270"
+   ]
+  },
+  {
+   "id": "3943",
+   "title_sl": "Ljubosumnost po italijansko",
+   "title_en": "Jealousy, Italian Style",
+   "title_orig": "Dramma della gelosia",
+   "title_en_raw": "Jealousy, Italian Style",
+   "title_orig_raw": "Dramma della gelosia",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Ettore Scola",
+   "countries": [
+    "Italija",
+    "Španija"
+   ],
+   "year": 1970,
+   "runtime": 107,
+   "language": "italijanščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Jealousy_Italian_Style_Scola.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3943",
+   "screening_ids": [
+    "t227353",
+    "t227375"
+   ]
+  },
+  {
+   "id": "3945",
+   "title_sl": "Ljudska romanca",
+   "title_en": "Come Home and Meet My Wife",
+   "title_orig": "Romanzo popolare",
+   "title_en_raw": "Come Home and Meet My Wife",
+   "title_orig_raw": "Romanzo popolare",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Mario Monicelli",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1974,
+   "runtime": 106,
+   "language": "italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Come_Home_andMeet_My_Wife_Romanzo_popolare_Monicelli_rik.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3945",
+   "screening_ids": [
+    "t227367",
+    "t227378"
+   ]
+  },
+  {
+   "id": "3936",
+   "title_sl": "Ločitev po italijansko",
+   "title_en": "Divorce Italian Style",
+   "title_orig": "Divorzio all'italiana",
+   "title_en_raw": "Divorce Italian Style",
+   "title_orig_raw": "Divorzio all'italiana",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Pietro Germi",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1961,
+   "runtime": 104,
+   "language": "italijanščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/DivorceItalianStyle_rik.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3936",
+   "screening_ids": [
+    "t227371"
+   ]
+  },
+  {
+   "id": "3946",
+   "title_sl": "London",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "London",
+   "title_orig_raw": "London",
+   "section": "Perspektive",
+   "director": "Sebastian Brameshuber",
+   "countries": [
+    "Avstrija"
+   ],
+   "year": 2026,
+   "runtime": 122,
+   "language": "nemščina, romunščina, angleščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/London_Sebastian_Brameshuber.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3946",
+   "screening_ids": [
+    "t227242",
+    "t227301"
+   ]
+  },
+  {
+   "id": "3983",
+   "title_sl": "Lov na ljudi",
+   "title_en": "Manhunt",
+   "title_orig": null,
+   "title_en_raw": "Manhunt",
+   "title_orig_raw": "Manhunt",
+   "section": "Perspektive",
+   "director": "Wayne Wapeemukwa",
+   "countries": [
+    "Kanada"
+   ],
+   "year": 2026,
+   "runtime": 103,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Manhunt_WayneWapeemukwa.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3983",
+   "screening_ids": [
+    "t227241",
+    "t227246",
+    "t227449"
+   ]
+  },
+  {
+   "id": "3950",
+   "title_sl": "Made in EU",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Made in EU",
+   "title_orig_raw": "Made in EU",
+   "section": "Jadranska mreža",
+   "director": "Stephan Komandarev",
+   "countries": [
+    "Bolgarija",
+    "Češka rep.",
+    "Nemčija"
+   ],
+   "year": 2025,
+   "runtime": 102,
+   "language": "bolgarščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Made_in_EU_Komandarev.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3950",
+   "screening_ids": [
+    "t227443",
+    "t227271"
+   ]
+  },
+  {
+   "id": "3986",
+   "title_sl": "Male stvari",
+   "title_en": "Small Things",
+   "title_orig": null,
+   "title_en_raw": "Small Things",
+   "title_orig_raw": "Male stvari",
+   "section": "Kralji in kraljice",
+   "director": "Zvonimir Jurić",
+   "countries": [
+    "Hrvaška",
+    "Slovenija"
+   ],
+   "year": 2026,
+   "runtime": 80,
+   "language": "hrvaščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Small_Things_Zvonimir_Jurić.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3986",
+   "screening_ids": [
+    "t227287",
+    "t227263"
+   ]
+  },
+  {
+   "id": "3984",
+   "title_sl": "Mila Marija",
+   "title_en": "Mila/Maria",
+   "title_orig": "Mila/Marija",
+   "title_en_raw": "Mila/Maria",
+   "title_orig_raw": "Mila/Marija",
+   "section": "Predpremiere",
+   "director": "Andrina Mračnikar",
+   "countries": [
+    "Avstrija",
+    "Slovenija",
+    "Grčija"
+   ],
+   "year": 2026,
+   "runtime": 110,
+   "language": "slovenščina, nemščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Mila_Marija_AndrinaMračnikar.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3984",
+   "screening_ids": [
+    "t227221",
+    "t227316"
+   ]
+  },
+  {
+   "id": "3944",
+   "title_sl": "Mimi kovinar",
+   "title_en": "The Seduction of Mimi",
+   "title_orig": "Mimi metallurgico ferito nell'onore",
+   "title_en_raw": "The Seduction of Mimi",
+   "title_orig_raw": "Mimi metallurgico ferito nell'onore",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Lina Wertmüller",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1972,
+   "runtime": 121,
+   "language": "italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Mimi_metallurgico_ferito_nellONORE.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3944",
+   "screening_ids": [
+    "t227355",
+    "t227374"
+   ]
+  },
+  {
+   "id": "3961",
+   "title_sl": "Minotaver",
+   "title_en": "Minotaur",
+   "title_orig": null,
+   "title_en_raw": "Minotaur",
+   "title_orig_raw": "Minotaur",
+   "section": "Predpremiere",
+   "director": "Andrej Zvjagincev",
+   "countries": [
+    "Francija",
+    "Latvija",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 135,
+   "language": "ruščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Minotaur_Zvjagincev.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3961",
+   "screening_ids": [
+    "t227116",
+    "t227218",
+    "t227220"
+   ]
+  },
+  {
+   "id": "3934",
+   "title_sl": "Moj prijatelj Barry",
+   "title_en": "Barry & Me",
+   "title_orig": "Mein Freund Barry",
+   "title_en_raw": "Barry & Me",
+   "title_orig_raw": "Mein Freund Barry",
+   "section": "Kinobalon",
+   "director": "Markus Welter",
+   "countries": [
+    "Švica",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 97,
+   "language": "nemščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Barry_Me_Welter.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3934",
+   "screening_ids": [
+    "t227273",
+    "t227328"
+   ]
+  },
+  {
+   "id": "4006",
+   "title_sl": "Moje poletje ljubezni",
+   "title_en": "My Summer of Love",
+   "title_orig": null,
+   "title_en_raw": "My Summer of Love",
+   "title_orig_raw": "My Summer of Love",
+   "section": "Posvečeno: Paweł Pawlikowski",
+   "director": "Paweł Pawlikowski",
+   "countries": [
+    "VB"
+   ],
+   "year": 2004,
+   "runtime": 87,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/My_Summer_of_Love_Pawel_Pawlikowski.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4006",
+   "screening_ids": [
+    "t227346",
+    "t227370"
+   ]
+  },
+  {
+   "id": "4014",
+   "title_sl": "Moji zapiski o Marsu",
+   "title_en": "My Notes on Mars",
+   "title_orig": "Jegyzeteim a Marsról",
+   "title_en_raw": "My Notes on Mars",
+   "title_orig_raw": "Jegyzeteim a Marsról",
+   "section": "Panorama",
+   "director": "Lili Horvát",
+   "countries": [
+    "Madžarska",
+    "Avstrija",
+    "BiH"
+   ],
+   "year": 2026,
+   "runtime": 106,
+   "language": "angleščina, madžarščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/My_Notes_on_Mars_Horvat.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4014",
+   "screening_ids": [
+    "t227421",
+    "t227311",
+    "t227266"
+   ]
+  },
+  {
+   "id": "3992",
+   "title_sl": "Mož, ki ga ljubim",
+   "title_en": "The Man I Love",
+   "title_orig": null,
+   "title_en_raw": "The Man I Love",
+   "title_orig_raw": "The Man I Love",
+   "section": "Kralji in kraljice",
+   "director": "Ira Sachs",
+   "countries": [
+    "ZDA",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 95,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Man_I_Love_IraSachs.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3992",
+   "screening_ids": [
+    "t227434",
+    "t227223"
+   ]
+  },
+  {
+   "id": "3924",
+   "title_sl": "Najbolj osamljen človek v mestu",
+   "title_en": "The Loneliest Man in Town",
+   "title_orig": null,
+   "title_en_raw": "The Loneliest Man in Town",
+   "title_orig_raw": "The Loneliest Man in Town",
+   "section": "Fokus: Avstrija",
+   "director": "Tizza Covi, Rainer Frimmel",
+   "countries": [
+    "Avstrija"
+   ],
+   "year": 2026,
+   "runtime": 86,
+   "language": "nemščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Loneliest_Man_in_Town_Tizza_Covi_Rainer_Frimmel.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3924",
+   "screening_ids": [
+    "t227426",
+    "t227247",
+    "t227406"
+   ]
+  },
+  {
+   "id": "3953",
+   "title_sl": "Nedelje",
+   "title_en": "Sundays",
+   "title_orig": "Los domingos",
+   "title_en_raw": "Sundays",
+   "title_orig_raw": "Los domingos",
+   "section": "Panorama",
+   "director": "Alauda Ruiz de Azúa",
+   "countries": [
+    "Španija",
+    "Francija"
+   ],
+   "year": 2025,
+   "runtime": 115,
+   "language": "španščina, baskovščina, angleščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Sundays_Alauda_Ruiz_de_Azua.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3953",
+   "screening_ids": [
+    "t227433",
+    "t227229"
+   ]
+  },
+  {
+   "id": "3960",
+   "title_sl": "Nenadoma",
+   "title_en": "All of a Sudden",
+   "title_orig": "Soudain",
+   "title_en_raw": "All of a Sudden",
+   "title_orig_raw": "Soudain",
+   "section": "Predpremiere",
+   "director": "Ryusuke Hamaguchi",
+   "countries": [
+    "Japonska",
+    "Francija",
+    "Nemčija",
+    "Belgija"
+   ],
+   "year": 2026,
+   "runtime": 196,
+   "language": "japonščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/All_of_a_Sudden_Hamaguchi.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3960",
+   "screening_ids": [
+    "t227284",
+    "t227260",
+    "t227404",
+    "t227409"
+   ]
+  },
+  {
+   "id": "4008",
+   "title_sl": "Nevarni ovinki",
+   "title_en": "The Easy Life",
+   "title_orig": "Il sorpasso",
+   "title_en_raw": "The Easy Life",
+   "title_orig_raw": "Il sorpasso",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Dino Risi",
+   "countries": [
+    "Italija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 108,
+   "language": "italijanščina, nemščina, angleščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/EasyLife_Il_sorpasso_Dino_Risi.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4008",
+   "screening_ids": [
+    "t227350",
+    "t227366"
+   ]
+  },
+  {
+   "id": "3998",
+   "title_sl": "Neznanka",
+   "title_en": "Woman Unknown",
+   "title_orig": "Kvinde Ukendt",
+   "title_en_raw": "Woman Unknown",
+   "title_orig_raw": "Kvinde Ukendt",
+   "section": "Predpremiere",
+   "director": "May el-Toukhy",
+   "countries": [
+    "Danska",
+    "Švedska",
+    "Latvija"
+   ],
+   "year": 2026,
+   "runtime": 124,
+   "language": "danščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Woman_Unknown_May_el_Toukhy.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3998",
+   "screening_ids": [
+    "t227214",
+    "f3998-20261117-1600-kino-siska",
+    "t227313"
+   ]
+  },
+  {
+   "id": "3978",
+   "title_sl": "Nezvesta žena",
+   "title_en": "The Unfaithful Wife",
+   "title_orig": "La femme infidele",
+   "title_en_raw": "The Unfaithful Wife",
+   "title_orig_raw": "La femme infidele",
+   "section": "Kralji in kraljice",
+   "director": "Claude Chabrol",
+   "countries": [
+    "Francija",
+    "Italija"
+   ],
+   "year": 1969,
+   "runtime": 98,
+   "language": "francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Unfaithful_Wife_Chabrol.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3978",
+   "screening_ids": [
+    "t227344",
+    "t227262"
+   ]
+  },
+  {
+   "id": "4015",
+   "title_sl": "Nežna, ljubeča skrb",
+   "title_en": "Tender Loving Care",
+   "title_orig": null,
+   "title_en_raw": "Tender Loving Care",
+   "title_orig_raw": "Tender Loving Care",
+   "section": "Predpremiere",
+   "director": "Mike Leigh",
+   "countries": [
+    "VB",
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 107,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Tender_Loving_Care_Mike_Leigh.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4015",
+   "screening_ids": [
+    "t227338",
+    "t227267",
+    "t227235"
+   ]
+  },
+  {
+   "id": "3935",
+   "title_sl": "Običajni osumljenci",
+   "title_en": "Big Deal on Madonna Street",
+   "title_orig": "I soliti ignoti",
+   "title_en_raw": "Big Deal on Madonna Street",
+   "title_orig_raw": "I soliti ignoti",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Mario Monicelli",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1958,
+   "runtime": 106,
+   "language": "italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Big_Deal_on_Madonna_Street_rik.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3935",
+   "screening_ids": [
+    "t227347"
+   ]
+  },
+  {
+   "id": "3975",
+   "title_sl": "Očetnjava",
+   "title_en": "Fatherland",
+   "title_orig": "Ojczyzna",
+   "title_en_raw": "Fatherland",
+   "title_orig_raw": "Ojczyzna",
+   "section": "Predpremiere",
+   "director": "Pawel Pawlikowski",
+   "countries": [
+    "Poljska",
+    "Nemčija",
+    "Italija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 82,
+   "language": "nemščina, ruščina, francoščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/FatherlandPawlikowaki.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3975",
+   "screening_ids": [
+    "t227393",
+    "t227213",
+    "t227408",
+    "t227329"
+   ]
+  },
+  {
+   "id": "3952",
+   "title_sl": "Odpelji me domov",
+   "title_en": "Take Me Home",
+   "title_orig": null,
+   "title_en_raw": "Take Me Home",
+   "title_orig_raw": "Take Me Home",
+   "section": "Perspektive",
+   "director": "Liz Sargent",
+   "countries": [
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 91,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Take_Me_Home_LizSargent.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3952",
+   "screening_ids": [
+    "t227113",
+    "t227306"
+   ]
+  },
+  {
+   "id": "3972",
+   "title_sl": "Ostrina Sence",
+   "title_en": "The Shadow's Edge",
+   "title_orig": "Bu feng zhui ying",
+   "title_en_raw": "The Shadow's Edge",
+   "title_orig_raw": "Bu feng zhui ying",
+   "section": "Ekstravaganca",
+   "director": "Larry Yang",
+   "countries": [
+    "Hongkong",
+    "Kitajska"
+   ],
+   "year": 2025,
+   "runtime": 141,
+   "language": "mandarinščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Shadows_Edge.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3972",
+   "screening_ids": [
+    "t227211",
+    "t227451"
+   ]
+  },
+  {
+   "id": "3991",
+   "title_sl": "Papirnati tiger",
+   "title_en": "Paper Tiger",
+   "title_orig": null,
+   "title_en_raw": "Paper Tiger",
+   "title_orig_raw": "Paper Tiger",
+   "section": "Kralji in kraljice",
+   "director": "James Gray",
+   "countries": [
+    "ZDA",
+    "Brazilija",
+    "Italija"
+   ],
+   "year": 2026,
+   "runtime": 115,
+   "language": "angleščina, ruščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Paper_Tiger_Gray.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3991",
+   "screening_ids": [
+    "t227208",
+    "t227339",
+    "t227230"
+   ]
+  },
+  {
+   "id": "3929",
+   "title_sl": "Počitnice v džungli",
+   "title_en": "Born in the Jungle",
+   "title_orig": "Tajemství džungle",
+   "title_en_raw": "Born in the Jungle",
+   "title_orig_raw": "Tajemství džungle",
+   "section": "Kinobalon",
+   "director": "Edmunds Jansons",
+   "countries": [
+    "Latvija",
+    "Poljska",
+    "Češka rep."
+   ],
+   "year": 2026,
+   "runtime": 73,
+   "language": "latvijščina",
+   "subtitles": "slovenska sinhronizacija",
+   "image": "https://liffe.si/images/movies/Born_in_the_Jungle.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3929",
+   "screening_ids": [
+    "t227322",
+    "t227277"
+   ]
+  },
+  {
+   "id": "3997",
+   "title_sl": "Poglej nazaj",
+   "title_en": "Look Back",
+   "title_orig": "Rukku Bakku",
+   "title_en_raw": "Look Back",
+   "title_orig_raw": "Rukku Bakku",
+   "section": "Kralji in kraljice",
+   "director": "Hirokazu Kore-eda",
+   "countries": [
+    "Japonska"
+   ],
+   "year": 2026,
+   "runtime": 100,
+   "language": "japonščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/LookBack_Kore-eda.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3997",
+   "screening_ids": [
+    "t227282",
+    "t227202",
+    "t227397",
+    "t227413"
+   ]
+  },
+  {
+   "id": "3948",
+   "title_sl": "Pomlad",
+   "title_en": "Only Beautiful Things to Look At",
+   "title_orig": "Prameň",
+   "title_en_raw": "Only Beautiful Things to Look At",
+   "title_orig_raw": "Prameň",
+   "section": "Jadranska mreža",
+   "director": "Ivan Ostrochovsky",
+   "countries": [
+    "Slovaška",
+    "Češka rep.",
+    "Madžarska"
+   ],
+   "year": 2026,
+   "runtime": 88,
+   "language": "slovaščina, češčina, madžarščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Only_Beautiful_Things_to_LookAt.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3948",
+   "screening_ids": [
+    "t227318",
+    "t227281"
+   ]
+  },
+  {
+   "id": "4009",
+   "title_sl": "Pošasti",
+   "title_en": "The Monsters",
+   "title_orig": "I mostri",
+   "title_en_raw": "The Monsters",
+   "title_orig_raw": "I mostri",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Dino Risi",
+   "countries": [
+    "Italija",
+    "Francija"
+   ],
+   "year": 1963,
+   "runtime": 120,
+   "language": "italijanščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Monsters_DinoRisi.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4009",
+   "screening_ids": [
+    "t227354",
+    "t227372"
+   ]
+  },
+  {
+   "id": "3932",
+   "title_sl": "Pritožba št. 713317",
+   "title_en": "Complaint No. 713317",
+   "title_orig": "Shakwa raqam 713317",
+   "title_en_raw": "Complaint No. 713317",
+   "title_orig_raw": "Shakwa raqam 713317",
+   "section": "Panorama",
+   "director": "Yasser Shafiey",
+   "countries": [
+    "Egipt"
+   ],
+   "year": 2025,
+   "runtime": 80,
+   "language": "arabščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Complaint_No713317.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3932",
+   "screening_ids": [
+    "t227236",
+    "t227427"
+   ]
+  },
+  {
+   "id": "3966",
+   "title_sl": "Propad hiše Usher",
+   "title_en": "The Fall of the House of Usher",
+   "title_orig": "La chute de la maison Usher",
+   "title_en_raw": "The Fall of the House of Usher",
+   "title_orig_raw": "La chute de la maison Usher",
+   "section": "Kino-integral",
+   "director": "Jean Epstein",
+   "countries": [
+    "Francija"
+   ],
+   "year": 1928,
+   "runtime": 72,
+   "language": "francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Fall_of_theHouse_ Usher_Epstein.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3966",
+   "screening_ids": [
+    "t227152"
+   ]
+  },
+  {
+   "id": "3954",
+   "title_sl": "Psička",
+   "title_en": "La perra",
+   "title_orig": null,
+   "title_en_raw": "La perra",
+   "title_orig_raw": "La perra",
+   "section": "Panorama",
+   "director": "Dominga Sotomayor",
+   "countries": [
+    "Čile",
+    "Brazilija"
+   ],
+   "year": 2026,
+   "runtime": 112,
+   "language": "španščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/La_perra_Dominga_Sotomayor.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3954",
+   "screening_ids": [
+    "t227437",
+    "t227310"
+   ]
+  },
+  {
+   "id": "3974",
+   "title_sl": "Pustolovščina iz sanj",
+   "title_en": "The Dreamed Adventure",
+   "title_orig": "Das Geträumte Abenteuer",
+   "title_en_raw": "The Dreamed Adventure",
+   "title_orig_raw": "Das Geträumte Abenteuer",
+   "section": "Kralji in kraljice",
+   "director": "Valeska Grisebach",
+   "countries": [
+    "Nemčija",
+    "Bolgarija",
+    "Francija",
+    "Avstrija"
+   ],
+   "year": 2026,
+   "runtime": 167,
+   "language": "nemščina, bolgarščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/DreamedAdventure_Grisebach.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3974",
+   "screening_ids": [
+    "t227382",
+    "t227288",
+    "t227302"
+   ]
+  },
+  {
+   "id": "3976",
+   "title_sl": "Rdeče skale",
+   "title_en": "Red Rocks",
+   "title_orig": "Les Roches rouges",
+   "title_en_raw": "Red Rocks",
+   "title_orig_raw": "Les Roches rouges",
+   "section": "Kralji in kraljice",
+   "director": "Bruno Dumont",
+   "countries": [
+    "Francija",
+    "Portugalska",
+    "Italija",
+    "Španija",
+    "Katar"
+   ],
+   "year": 2026,
+   "runtime": 90,
+   "language": "francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Red_Rocks_Dumont.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3976",
+   "screening_ids": [
+    "t227201",
+    "t227398",
+    "t227405",
+    "t227320"
+   ]
+  },
+  {
+   "id": "3985",
+   "title_sl": "Rdeči hangar",
+   "title_en": "The Red Hangar",
+   "title_orig": "Hangar rojo",
+   "title_en_raw": "The Red Hangar",
+   "title_orig_raw": "Hangar rojo",
+   "section": "Perspektive",
+   "director": "Juan Pablo Sallato",
+   "countries": [
+    "Čile",
+    "Argentina",
+    "Italija"
+   ],
+   "year": 2026,
+   "runtime": 83,
+   "language": "španščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Red_Hangar_Juan_Pablo_Sallato.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3985",
+   "screening_ids": [
+    "t227380",
+    "t227251",
+    "t227314"
+   ]
+  },
+  {
+   "id": "3967",
+   "title_sl": "Rojstni dan",
+   "title_en": "Happy Birthday",
+   "title_orig": null,
+   "title_en_raw": "Happy Birthday",
+   "title_orig_raw": "Happy Birthday",
+   "section": "Kinobalon",
+   "director": "Sarah Goher",
+   "countries": [
+    "Egipt"
+   ],
+   "year": 2025,
+   "runtime": 91,
+   "language": "arabščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/HappyBirthday_SarahGoher.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3967",
+   "screening_ids": [
+    "t227250",
+    "t227324"
+   ]
+  },
+  {
+   "id": "3959",
+   "title_sl": "Rose",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Rose",
+   "title_orig_raw": "Rose",
+   "section": "Fokus: Avstrija",
+   "director": "Markus Schleinzer",
+   "countries": [
+    "Avstrija",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 94,
+   "language": "nemščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Rose_Markus_Schleinzer.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3959",
+   "screening_ids": [
+    "t227205",
+    "t227258",
+    "t227330"
+   ]
+  },
+  {
+   "id": "3922",
+   "title_sl": "Rumena pisma",
+   "title_en": "Yellow Letters",
+   "title_orig": "Gelbe Briefe",
+   "title_en_raw": "Yellow Letters",
+   "title_orig_raw": "Gelbe Briefe",
+   "section": "Predpremiere",
+   "director": "Ilker Çatak",
+   "countries": [
+    "Turčija",
+    "Nemčija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 127,
+   "language": "turščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Yellow.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3922",
+   "screening_ids": [
+    "t227385",
+    "t227290",
+    "t227215",
+    "t227402"
+   ]
+  },
+  {
+   "id": "3963",
+   "title_sl": "Seks in smrt v najstniškem taboru",
+   "title_en": "Teenage Sex And Death At Camp Miasma",
+   "title_orig": null,
+   "title_en_raw": "Teenage Sex And Death At Camp Miasma",
+   "title_orig_raw": "Teenage Sex And Death At Camp Miasma",
+   "section": "Ekstravaganca",
+   "director": "Jane Schoenbrun",
+   "countries": [
+    "ZDA",
+    "Kanada"
+   ],
+   "year": 2026,
+   "runtime": 105,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Teenage_Sex_and_Death_at_Camp_Miasma_Schoenbrunn.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3963",
+   "screening_ids": [
+    "t227429",
+    "t227332",
+    "t227228"
+   ]
+  },
+  {
+   "id": "3931",
+   "title_sl": "Skrivnostni paket",
+   "title_en": "The Mystery Package",
+   "title_orig": "Mysteriepakken",
+   "title_en_raw": "The Mystery Package",
+   "title_orig_raw": "Mysteriepakken",
+   "section": "Kinobalon",
+   "director": "Silje Evensmo Jacobsen",
+   "countries": [
+    "Norveška"
+   ],
+   "year": 2025,
+   "runtime": 80,
+   "language": "norveščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Mystery_Package.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3931",
+   "screening_ids": [
+    "t227292",
+    "t227279"
+   ]
+  },
+  {
+   "id": "3962",
+   "title_sl": "Soumsoum, noč zvezd",
+   "title_en": "Soumsoum, the Night of the Stars",
+   "title_orig": "Soumsoum, la nuit des astres",
+   "title_en_raw": "Soumsoum, the Night of the Stars",
+   "title_orig_raw": "Soumsoum, la nuit des astres",
+   "section": "Panorama",
+   "director": "Mahamat-Saleh Haroun",
+   "countries": [
+    "Čad",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 101,
+   "language": "arabščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Soumsoum_the_Night_of_the_Stars_Mahamat_SalehHaroun.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3962",
+   "screening_ids": [
+    "t227447",
+    "t227415",
+    "t227278"
+   ]
+  },
+  {
+   "id": "3928",
+   "title_sl": "Sramota in denar",
+   "title_en": "Shame and Money",
+   "title_orig": null,
+   "title_en_raw": "Shame and Money",
+   "title_orig_raw": "Shame and Money",
+   "section": "Panorama",
+   "director": "Visar Morina",
+   "countries": [
+    "Kosovo",
+    "Albanija",
+    "Slovenija",
+    "Severna Makedonija",
+    "N"
+   ],
+   "year": 2026,
+   "runtime": 129,
+   "language": "albanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Shame_and_Money_Visar_Morina.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3928",
+   "screening_ids": [
+    "t227253",
+    "t227307",
+    "t227412"
+   ]
+  },
+  {
+   "id": "3951",
+   "title_sl": "Strelec",
+   "title_en": "Gunman",
+   "title_orig": "Gatillero",
+   "title_en_raw": "Gunman",
+   "title_orig_raw": "Gatillero",
+   "section": "Panorama",
+   "director": "Cris Tapia Marchiori",
+   "countries": [
+    "Argentina"
+   ],
+   "year": 2025,
+   "runtime": 80,
+   "language": "španščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Gunman_Gatillero.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3951",
+   "screening_ids": [
+    "t227294",
+    "t227441"
+   ]
+  },
+  {
+   "id": "4000",
+   "title_sl": "Tabloid",
+   "title_en": "Ink",
+   "title_orig": null,
+   "title_en_raw": "Ink",
+   "title_orig_raw": "Ink",
+   "section": "Predpremiere",
+   "director": "Danny Boyle",
+   "countries": [
+    "VB",
+    "Francija",
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 116,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Ink_DannyBoyle.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4000",
+   "screening_ids": [
+    "t227217",
+    "t227442",
+    "t227342"
+   ]
+  },
+  {
+   "id": "3955",
+   "title_sl": "Taljenje",
+   "title_en": "Melt",
+   "title_orig": null,
+   "title_en_raw": "Melt",
+   "title_orig_raw": "Melt",
+   "section": "Jadranska mreža",
+   "director": "Nikolaus Geyrhalter",
+   "countries": [
+    "Avstrija"
+   ],
+   "year": 2025,
+   "runtime": 127,
+   "language": "nemščina, francoščina, japonščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Melt_NikolausGeyrhalter.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3955",
+   "screening_ids": [
+    "t227317",
+    "t227376"
+   ]
+  },
+  {
+   "id": "3980",
+   "title_sl": "Ti ne sodiš sem",
+   "title_en": "You Don't Belong Here",
+   "title_orig": "Nu e locul tau aici",
+   "title_en_raw": "You Don't Belong Here",
+   "title_orig_raw": "Nu e locul tau aici",
+   "section": "Panorama",
+   "director": "Florin Serban",
+   "countries": [
+    "Romunija"
+   ],
+   "year": 2026,
+   "runtime": 154,
+   "language": "romunščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/You_Dont_Belong_Here_Serban.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3980",
+   "screening_ids": [
+    "t227304",
+    "t227259"
+   ]
+  },
+  {
+   "id": "3964",
+   "title_sl": "Tipični Phil",
+   "title_en": "Full Phil",
+   "title_orig": null,
+   "title_en_raw": "Full Phil",
+   "title_orig_raw": "Full Phil",
+   "section": "Ekstravaganca",
+   "director": "Quentin Dupieux",
+   "countries": [
+    "Francija",
+    "Belgija",
+    "Luksemburg"
+   ],
+   "year": 2026,
+   "runtime": 78,
+   "language": "angleščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Full_PhilDupieux.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3964",
+   "screening_ids": [
+    "t227422",
+    "t227431",
+    "t227272"
+   ]
+  },
+  {
+   "id": "3989",
+   "title_sl": "Udarni termin",
+   "title_en": "Primetime",
+   "title_orig": null,
+   "title_en_raw": "Primetime",
+   "title_orig_raw": "Primetime",
+   "section": "Predpremiere",
+   "director": "Lance Oppenheim",
+   "countries": [
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 110,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Primetime_Oppenheim.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3989",
+   "screening_ids": [
+    "t227335",
+    "t227224",
+    "t227231"
+   ]
+  },
+  {
+   "id": "3979",
+   "title_sl": "Ulja",
+   "title_en": "Ulya",
+   "title_orig": null,
+   "title_en_raw": "Ulya",
+   "title_orig_raw": "Ulya",
+   "section": "Panorama",
+   "director": "Viesturs Kairišs",
+   "countries": [
+    "Latvija",
+    "Litva",
+    "Estonija",
+    "Poljska"
+   ],
+   "year": 2026,
+   "runtime": 102,
+   "language": "latvijščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Ulya_Kairišs.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3979",
+   "screening_ids": [
+    "t227436",
+    "t227269",
+    "t227327"
+   ]
+  },
+  {
+   "id": "3949",
+   "title_sl": "Umazan denar za bele noči",
+   "title_en": "Black Money for White Nights",
+   "title_orig": "Černi pari za beli nošti",
+   "title_en_raw": "Black Money for White Nights",
+   "title_orig_raw": "Černi pari za beli nošti",
+   "section": "Jadranska mreža",
+   "director": "Kristina Grozeva, Petar Valčanov",
+   "countries": [
+    "Bolgarija",
+    "Grčija"
+   ],
+   "year": 2025,
+   "runtime": 95,
+   "language": "bolgarščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Black_Money_forWhite_Nights.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3949",
+   "screening_ids": [
+    "t227112",
+    "t227257"
+   ]
+  },
+  {
+   "id": "3925",
+   "title_sl": "Usodni sekret",
+   "title_en": "Flush",
+   "title_orig": null,
+   "title_en_raw": "Flush",
+   "title_orig_raw": "Flush",
+   "section": "Ekstravaganca",
+   "director": "Grégory Morin",
+   "countries": [
+    "Francija"
+   ],
+   "year": 2025,
+   "runtime": 70,
+   "language": "francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Flush.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3925",
+   "screening_ids": [
+    "t227268",
+    "t227325"
+   ]
+  },
+  {
+   "id": "3995",
+   "title_sl": "Včasih čutim žalost, drugič upor",
+   "title_en": "Sometimes Sadness, Sometimes Rebellion",
+   "title_orig": "A veces me entra tristeza, otras veces rebelión",
+   "title_en_raw": "Sometimes Sadness, Sometimes Rebellion",
+   "title_orig_raw": "A veces me entra tristeza, otras veces rebelión",
+   "section": "Panorama",
+   "director": "Maria Aparicio",
+   "countries": [
+    "Argentina",
+    "Španija"
+   ],
+   "year": 2026,
+   "runtime": 100,
+   "language": "španščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Sometimes_Sadness_SometimesRebellion.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3995",
+   "screening_ids": [
+    "t227440",
+    "t227321",
+    "t227280"
+   ]
+  },
+  {
+   "id": "3937",
+   "title_sl": "Vdovec",
+   "title_en": "The Widower",
+   "title_orig": "Il vedovo",
+   "title_en_raw": "The Widower",
+   "title_orig_raw": "Il vedovo",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Dino Risi",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1959,
+   "runtime": 100,
+   "language": "italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Widower_Risi_1959.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3937",
+   "screening_ids": [
+    "t227349",
+    "t227362"
+   ]
+  },
+  {
+   "id": "3958",
+   "title_sl": "Vidim stavbe padati kot strele",
+   "title_en": "I See Buildings Fall Like Lightning",
+   "title_orig": null,
+   "title_en_raw": "I See Buildings Fall Like Lightning",
+   "title_orig_raw": "I See Buildings Fall Like Lightning",
+   "section": "Kralji in kraljice",
+   "director": "Clio Barnard",
+   "countries": [
+    "VB"
+   ],
+   "year": 2026,
+   "runtime": 109,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/I_See_BuildingsFall_LikeLightning_Barnard.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3958",
+   "screening_ids": [
+    "t227283",
+    "t227225",
+    "t227407",
+    "t227418"
+   ]
+  },
+  {
+   "id": "3981",
+   "title_sl": "Virus patološke dobrote",
+   "title_en": "The Virus of Pathological Kindness",
+   "title_orig": null,
+   "title_en_raw": "The Virus of Pathological Kindness",
+   "title_orig_raw": "Virus patološke dobrote",
+   "section": "Predpremiere",
+   "director": "Predrag Ličina",
+   "countries": [
+    "Srbija",
+    "Hrvaška",
+    "Slovenija",
+    "BiH"
+   ],
+   "year": 2026,
+   "runtime": 99,
+   "language": "srbščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Virus_patološke_dobrote.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3981",
+   "screening_ids": [
+    "t227206",
+    "t227432"
+   ]
+  },
+  {
+   "id": "4012",
+   "title_sl": "Vsakič",
+   "title_en": "Everytime",
+   "title_orig": null,
+   "title_en_raw": "Everytime",
+   "title_orig_raw": "Everytime",
+   "section": "Fokus: Avstrija",
+   "director": "Sandra Wollner",
+   "countries": [
+    "Avstrija",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 119,
+   "language": "nemščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Everytime_Wollner.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4012",
+   "screening_ids": [
+    "t227111",
+    "t227309",
+    "t227410"
+   ]
+  },
+  {
+   "id": "3969",
+   "title_sl": "Vse, kar je narobe s tabo",
+   "title_en": "Everything That's Wrong With You",
+   "title_orig": null,
+   "title_en_raw": "Everything That's Wrong With You",
+   "title_orig_raw": "Vse, kar je narobe s tabo",
+   "section": "Perspektive",
+   "director": "Urša Menart",
+   "countries": [
+    "Slovenija"
+   ],
+   "year": 2026,
+   "runtime": 97,
+   "language": "slovenščina, nemščina",
+   "subtitles": null,
+   "image": "https://liffe.si/images/movies/Vse_kar_je_narobe_s_tabo_Menart.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3969",
+   "screening_ids": [
+    "t227210",
+    "t227298",
+    "t227414"
+   ]
+  },
+  {
+   "id": "3988",
+   "title_sl": "Vsi imajo radi Billa Evansa",
+   "title_en": "Everybody Digs Bill Evans",
+   "title_orig": null,
+   "title_en_raw": "Everybody Digs Bill Evans",
+   "title_orig_raw": "Everybody Digs Bill Evans",
+   "section": "Kralji in kraljice",
+   "director": "Grant Gee",
+   "countries": [
+    "VB",
+    "Irska"
+   ],
+   "year": 2026,
+   "runtime": 102,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Everybody_Digs_Bill_EvansGrantGee.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3988",
+   "screening_ids": [
+    "t227252",
+    "t227340",
+    "t227326"
+   ]
+  },
+  {
+   "id": "4007",
+   "title_sl": "Zadnje zatočišče",
+   "title_en": "Last Resort",
+   "title_orig": null,
+   "title_en_raw": "Last Resort",
+   "title_orig_raw": "Last Resort",
+   "section": "Posvečeno: Paweł Pawlikowski",
+   "director": "Paweł Pawlikowski",
+   "countries": [
+    "VB"
+   ],
+   "year": 2000,
+   "runtime": 73,
+   "language": "angleščina, ruščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Last_Resort_Pawel_Pawlikowski.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4007",
+   "screening_ids": [
+    "t227345",
+    "t227368"
+   ]
+  },
+  {
+   "id": "4016",
+   "title_sl": "Založeni spomin",
+   "title_en": "Arrested Memory",
+   "title_orig": null,
+   "title_en_raw": "Arrested Memory",
+   "title_orig_raw": "Arrested Memory",
+   "section": "Ekstravaganca",
+   "director": "Sabu",
+   "countries": [
+    "Tajvan",
+    "Japonska"
+   ],
+   "year": 2026,
+   "runtime": 100,
+   "language": "mandarinščina, japonščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Arrested_Memory.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4016",
+   "screening_ids": [
+    "t227244",
+    "t227446"
+   ]
+  },
+  {
+   "id": "3987",
+   "title_sl": "Zelene oči",
+   "title_en": "The Green Eyes",
+   "title_orig": "Les Yeux Verts",
+   "title_en_raw": "The Green Eyes",
+   "title_orig_raw": "Les Yeux Verts",
+   "section": "Perspektive",
+   "director": "Fanny Liatard, Jérémy Trouilh",
+   "countries": [
+    "Francija",
+    "Švedska",
+    "Belgija"
+   ],
+   "year": 2026,
+   "runtime": 84,
+   "language": "arabščina, francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/GreenEyes_FannyLiatard.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3987",
+   "screening_ids": [
+    "t227381",
+    "t227396",
+    "t227305",
+    "t227265"
+   ]
+  },
+  {
+   "id": "3996",
+   "title_sl": "Zgodilo se bo nocoj",
+   "title_en": "It Will Happen Tonight",
+   "title_orig": "Succedera questa notte",
+   "title_en_raw": "It Will Happen Tonight",
+   "title_orig_raw": "Succedera questa notte",
+   "section": "Predpremiere",
+   "director": "Nanni Moretti",
+   "countries": [
+    "Italija",
+    "Španija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 103,
+   "language": "italijanščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/It_Will_Happen_Tonight_Moretti.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3996",
+   "screening_ids": [
+    "t227383",
+    "t227400",
+    "t227219",
+    "t227319"
+   ]
+  },
+  {
+   "id": "3999",
+   "title_sl": "Zvesta vojakinja",
+   "title_en": "A Good Little Soldier",
+   "title_orig": "Un bon petit soldat",
+   "title_en_raw": "A Good Little Soldier",
+   "title_orig_raw": "Un bon petit soldat",
+   "section": "Predpremiere",
+   "director": "Stéphane Brizé",
+   "countries": [
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 102,
+   "language": "francoščina, italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/A_GoodLittleSoldier_Brize.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3999",
+   "screening_ids": [
+    "t227419",
+    "t227204",
+    "t227394",
+    "t227401"
+   ]
+  },
+  {
+   "id": "4005",
+   "title_sl": "Ženska iz petega okrožja",
+   "title_en": "The Woman in the Fifth",
+   "title_orig": "La femme du 5eme",
+   "title_en_raw": "The Woman in the Fifth",
+   "title_orig_raw": "La femme du 5eme",
+   "section": "Posvečeno: Paweł Pawlikowski",
+   "director": "Paweł Pawlikowski",
+   "countries": [
+    "Francija",
+    "Poljska",
+    "VB"
+   ],
+   "year": 2011,
+   "runtime": 84,
+   "language": "angleščina, francoščina, poljščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Woman_from_the_Fifth_Pawel_Pawlikowski.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4005",
+   "screening_ids": [
+    "t227554"
+   ]
+  },
+  {
+   "id": "3965",
+   "title_sl": "Ženska s pokrajino",
+   "title_en": "Landscape with a Woman",
+   "title_orig": "Žena s krajolikom",
+   "title_en_raw": "Landscape with a Woman",
+   "title_orig_raw": "Žena s krajolikom",
+   "section": "Posvečeno: Ivica Matić",
+   "director": "Ivica Matić",
+   "countries": [
+    "Jugoslavija",
+    "BiH"
+   ],
+   "year": 1976,
+   "runtime": 66,
+   "language": "bosanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/LandscapeWithWoman.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3965",
+   "screening_ids": [
+    "t227555"
+   ]
+  }
+ ],
+ "screenings": [
+  {
+   "id": "t227380",
+   "film_id": "3985",
+   "date": "2026-11-11",
+   "time": "15:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227380"
+  },
+  {
+   "id": "t227379",
+   "film_id": "3926",
+   "date": "2026-11-11",
+   "time": "16:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227379"
+  },
+  {
+   "id": "t227111",
+   "film_id": "4012",
+   "date": "2026-11-11",
+   "time": "16:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227111"
+  },
+  {
+   "id": "t227112",
+   "film_id": "3949",
+   "date": "2026-11-11",
+   "time": "16:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227112"
+  },
+  {
+   "id": "t227110",
+   "film_id": "3939",
+   "date": "2026-11-11",
+   "time": "16:45",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227110"
+  },
+  {
+   "id": "t227113",
+   "film_id": "3952",
+   "date": "2026-11-11",
+   "time": "17:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227113"
+  },
+  {
+   "id": "t227381",
+   "film_id": "3987",
+   "date": "2026-11-11",
+   "time": "18:10",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227381"
+  },
+  {
+   "id": "t227282",
+   "film_id": "3997",
+   "date": "2026-11-11",
+   "time": "18:10",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227282"
+  },
+  {
+   "id": "t227236",
+   "film_id": "3932",
+   "date": "2026-11-11",
+   "time": "18:30",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227236"
+  },
+  {
+   "id": "t227419",
+   "film_id": "3999",
+   "date": "2026-11-11",
+   "time": "19:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227419"
+  },
+  {
+   "id": "t227343",
+   "film_id": "4003",
+   "date": "2026-11-11",
+   "time": "19:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227343"
+  },
+  {
+   "id": "t227114",
+   "film_id": "3977",
+   "date": "2026-11-11",
+   "time": "19:30",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227114"
+  },
+  {
+   "id": "t227382",
+   "film_id": "3974",
+   "date": "2026-11-11",
+   "time": "20:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227382"
+  },
+  {
+   "id": "t227283",
+   "film_id": "3958",
+   "date": "2026-11-11",
+   "time": "20:30",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227283"
+  },
+  {
+   "id": "t227237",
+   "film_id": "3957",
+   "date": "2026-11-11",
+   "time": "20:40",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227237"
+  },
+  {
+   "id": "t227420",
+   "film_id": "3920",
+   "date": "2026-11-11",
+   "time": "21:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227420"
+  },
+  {
+   "id": "t227344",
+   "film_id": "3978",
+   "date": "2026-11-11",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227344"
+  },
+  {
+   "id": "t227284",
+   "film_id": "3960",
+   "date": "2026-11-12",
+   "time": "11:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227284"
+  },
+  {
+   "id": "t227201",
+   "film_id": "3976",
+   "date": "2026-11-12",
+   "time": "14:30",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227201"
+  },
+  {
+   "id": "t227238",
+   "film_id": "3923",
+   "date": "2026-11-12",
+   "time": "15:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227238"
+  },
+  {
+   "id": "t227421",
+   "film_id": "4014",
+   "date": "2026-11-12",
+   "time": "15:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227421"
+  },
+  {
+   "id": "t227285",
+   "film_id": "3957",
+   "date": "2026-11-12",
+   "time": "15:10",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227285"
+  },
+  {
+   "id": "t227383",
+   "film_id": "3996",
+   "date": "2026-11-12",
+   "time": "16:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227383"
+  },
+  {
+   "id": "t227345",
+   "film_id": "4007",
+   "date": "2026-11-12",
+   "time": "16:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227345"
+  },
+  {
+   "id": "t227202",
+   "film_id": "3997",
+   "date": "2026-11-12",
+   "time": "16:30",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227202"
+  },
+  {
+   "id": "t227239",
+   "film_id": "3994",
+   "date": "2026-11-12",
+   "time": "17:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227239"
+  },
+  {
+   "id": "t227422",
+   "film_id": "3964",
+   "date": "2026-11-12",
+   "time": "17:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227422"
+  },
+  {
+   "id": "t227286",
+   "film_id": "3971",
+   "date": "2026-11-12",
+   "time": "17:30",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227286"
+  },
+  {
+   "id": "t227346",
+   "film_id": "4006",
+   "date": "2026-11-12",
+   "time": "17:45",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227346"
+  },
+  {
+   "id": "t227384",
+   "film_id": "3982",
+   "date": "2026-11-12",
+   "time": "18:15",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227384"
+  },
+  {
+   "id": "t227203",
+   "film_id": "3921",
+   "date": "2026-11-12",
+   "time": "18:40",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227203"
+  },
+  {
+   "id": "t227423",
+   "film_id": "3973",
+   "date": "2026-11-12",
+   "time": "18:45",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227423"
+  },
+  {
+   "id": "t227240",
+   "film_id": "3947",
+   "date": "2026-11-12",
+   "time": "19:15",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227240"
+  },
+  {
+   "id": "t227347",
+   "film_id": "3935",
+   "date": "2026-11-12",
+   "time": "20:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227347"
+  },
+  {
+   "id": "t227287",
+   "film_id": "3986",
+   "date": "2026-11-12",
+   "time": "20:30",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227287"
+  },
+  {
+   "id": "t227385",
+   "film_id": "3922",
+   "date": "2026-11-12",
+   "time": "20:40",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227385"
+  },
+  {
+   "id": "t227241",
+   "film_id": "3983",
+   "date": "2026-11-12",
+   "time": "21:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227241"
+  },
+  {
+   "id": "t227424",
+   "film_id": "4017",
+   "date": "2026-11-12",
+   "time": "21:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227424"
+  },
+  {
+   "id": "t227204",
+   "film_id": "3999",
+   "date": "2026-11-12",
+   "time": "21:10",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227204"
+  },
+  {
+   "id": "t227288",
+   "film_id": "3974",
+   "date": "2026-11-13",
+   "time": "11:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227288"
+  },
+  {
+   "id": "t227205",
+   "film_id": "3959",
+   "date": "2026-11-13",
+   "time": "14:30",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227205"
+  },
+  {
+   "id": "t227426",
+   "film_id": "3924",
+   "date": "2026-11-13",
+   "time": "15:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227426"
+  },
+  {
+   "id": "t227289",
+   "film_id": "3990",
+   "date": "2026-11-13",
+   "time": "15:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227289"
+  },
+  {
+   "id": "t227242",
+   "film_id": "3946",
+   "date": "2026-11-13",
+   "time": "16:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227242"
+  },
+  {
+   "id": "t227389",
+   "film_id": "3994",
+   "date": "2026-11-13",
+   "time": "16:15",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227389"
+  },
+  {
+   "id": "t227206",
+   "film_id": "3981",
+   "date": "2026-11-13",
+   "time": "16:30",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227206"
+  },
+  {
+   "id": "t227427",
+   "film_id": "3932",
+   "date": "2026-11-13",
+   "time": "17:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227427"
+  },
+  {
+   "id": "t227348",
+   "film_id": "4004",
+   "date": "2026-11-13",
+   "time": "17:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227348"
+  },
+  {
+   "id": "t227290",
+   "film_id": "3922",
+   "date": "2026-11-13",
+   "time": "18:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227290"
+  },
+  {
+   "id": "t227390",
+   "film_id": "3926",
+   "date": "2026-11-13",
+   "time": "18:40",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227390"
+  },
+  {
+   "id": "t227243",
+   "film_id": "3940",
+   "date": "2026-11-13",
+   "time": "18:50",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227243"
+  },
+  {
+   "id": "t227349",
+   "film_id": "3937",
+   "date": "2026-11-13",
+   "time": "18:50",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227349"
+  },
+  {
+   "id": "t227207",
+   "film_id": "3968",
+   "date": "2026-11-13",
+   "time": "19:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227207"
+  },
+  {
+   "id": "t227428",
+   "film_id": "3982",
+   "date": "2026-11-13",
+   "time": "19:10",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227428"
+  },
+  {
+   "id": "t227291",
+   "film_id": "3973",
+   "date": "2026-11-13",
+   "time": "20:40",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227291"
+  },
+  {
+   "id": "t227391",
+   "film_id": "3923",
+   "date": "2026-11-13",
+   "time": "21:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227391"
+  },
+  {
+   "id": "t227244",
+   "film_id": "4016",
+   "date": "2026-11-13",
+   "time": "21:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227244"
+  },
+  {
+   "id": "t227350",
+   "film_id": "4008",
+   "date": "2026-11-13",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227350"
+  },
+  {
+   "id": "t227429",
+   "film_id": "3963",
+   "date": "2026-11-13",
+   "time": "21:15",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227429"
+  },
+  {
+   "id": "t227208",
+   "film_id": "3991",
+   "date": "2026-11-13",
+   "time": "21:30",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227208"
+  },
+  {
+   "id": "t227292",
+   "film_id": "3931",
+   "date": "2026-11-14",
+   "time": "10:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227292"
+  },
+  {
+   "id": "t227245",
+   "film_id": "3941",
+   "date": "2026-11-14",
+   "time": "14:30",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227245"
+  },
+  {
+   "id": "t227392",
+   "film_id": "3971",
+   "date": "2026-11-14",
+   "time": "16:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227392"
+  },
+  {
+   "id": "t227209",
+   "film_id": "3977",
+   "date": "2026-11-14",
+   "time": "16:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227209"
+  },
+  {
+   "id": "t227293",
+   "film_id": "3930",
+   "date": "2026-11-14",
+   "time": "16:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227293"
+  },
+  {
+   "id": "t227246",
+   "film_id": "3983",
+   "date": "2026-11-14",
+   "time": "16:45",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227246"
+  },
+  {
+   "id": "t227351",
+   "film_id": "4003",
+   "date": "2026-11-14",
+   "time": "16:45",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227351"
+  },
+  {
+   "id": "t227430",
+   "film_id": "3923",
+   "date": "2026-11-14",
+   "time": "17:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227430"
+  },
+  {
+   "id": "t227294",
+   "film_id": "3951",
+   "date": "2026-11-14",
+   "time": "18:20",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227294"
+  },
+  {
+   "id": "t227210",
+   "film_id": "3969",
+   "date": "2026-11-14",
+   "time": "18:45",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227210"
+  },
+  {
+   "id": "t227352",
+   "film_id": "3938",
+   "date": "2026-11-14",
+   "time": "18:45",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227352"
+  },
+  {
+   "id": "t227393",
+   "film_id": "3975",
+   "date": "2026-11-14",
+   "time": "19:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227393"
+  },
+  {
+   "id": "t227431",
+   "film_id": "3964",
+   "date": "2026-11-14",
+   "time": "19:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227431"
+  },
+  {
+   "id": "t227247",
+   "film_id": "3924",
+   "date": "2026-11-14",
+   "time": "19:10",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227247"
+  },
+  {
+   "id": "t227295",
+   "film_id": "3968",
+   "date": "2026-11-14",
+   "time": "20:30",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227295"
+  },
+  {
+   "id": "t227394",
+   "film_id": "3999",
+   "date": "2026-11-14",
+   "time": "21:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227394"
+  },
+  {
+   "id": "t227248",
+   "film_id": "3993",
+   "date": "2026-11-14",
+   "time": "21:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227248"
+  },
+  {
+   "id": "t227432",
+   "film_id": "3981",
+   "date": "2026-11-14",
+   "time": "21:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227432"
+  },
+  {
+   "id": "t227353",
+   "film_id": "3943",
+   "date": "2026-11-14",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227353"
+  },
+  {
+   "id": "t227211",
+   "film_id": "3972",
+   "date": "2026-11-14",
+   "time": "21:15",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227211"
+  },
+  {
+   "id": "t227249",
+   "film_id": "3930",
+   "date": "2026-11-15",
+   "time": "11:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227249"
+  },
+  {
+   "id": "t227296",
+   "film_id": "3971",
+   "date": "2026-11-15",
+   "time": "11:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227296"
+  },
+  {
+   "id": "t227297",
+   "film_id": "3941",
+   "date": "2026-11-15",
+   "time": "14:15",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227297"
+  },
+  {
+   "id": "t227250",
+   "film_id": "3967",
+   "date": "2026-11-15",
+   "time": "15:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227250"
+  },
+  {
+   "id": "t227212",
+   "film_id": "3920",
+   "date": "2026-11-15",
+   "time": "15:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227212"
+  },
+  {
+   "id": "t227395",
+   "film_id": "3990",
+   "date": "2026-11-15",
+   "time": "15:45",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227395"
+  },
+  {
+   "id": "t227116",
+   "film_id": "3961",
+   "date": "2026-11-15",
+   "time": "16:00",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227116"
+  },
+  {
+   "id": "t227354",
+   "film_id": "4009",
+   "date": "2026-11-15",
+   "time": "16:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227354"
+  },
+  {
+   "id": "t227298",
+   "film_id": "3969",
+   "date": "2026-11-15",
+   "time": "16:40",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227298"
+  },
+  {
+   "id": "t227251",
+   "film_id": "3985",
+   "date": "2026-11-15",
+   "time": "17:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227251"
+  },
+  {
+   "id": "t227213",
+   "film_id": "3975",
+   "date": "2026-11-15",
+   "time": "17:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227213"
+  },
+  {
+   "id": "t227433",
+   "film_id": "3953",
+   "date": "2026-11-15",
+   "time": "17:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227433"
+  },
+  {
+   "id": "t227355",
+   "film_id": "3944",
+   "date": "2026-11-15",
+   "time": "18:30",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227355"
+  },
+  {
+   "id": "t227332",
+   "film_id": "3963",
+   "date": "2026-11-15",
+   "time": "18:40",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227332"
+  },
+  {
+   "id": "t227396",
+   "film_id": "3987",
+   "date": "2026-11-15",
+   "time": "18:45",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227396"
+  },
+  {
+   "id": "t227214",
+   "film_id": "3998",
+   "date": "2026-11-15",
+   "time": "18:45",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227214"
+  },
+  {
+   "id": "t227252",
+   "film_id": "3988",
+   "date": "2026-11-15",
+   "time": "18:50",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227252"
+  },
+  {
+   "id": "t227299",
+   "film_id": "3927",
+   "date": "2026-11-15",
+   "time": "19:10",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227299"
+  },
+  {
+   "id": "t227434",
+   "film_id": "3992",
+   "date": "2026-11-15",
+   "time": "19:15",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227434"
+  },
+  {
+   "id": "t227397",
+   "film_id": "3997",
+   "date": "2026-11-15",
+   "time": "20:45",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227397"
+  },
+  {
+   "id": "t227253",
+   "film_id": "3928",
+   "date": "2026-11-15",
+   "time": "21:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227253"
+  },
+  {
+   "id": "t227333",
+   "film_id": "3977",
+   "date": "2026-11-15",
+   "time": "21:00",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227333"
+  },
+  {
+   "id": "t227356",
+   "film_id": "4018",
+   "date": "2026-11-15",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227356"
+  },
+  {
+   "id": "t227435",
+   "film_id": "3970",
+   "date": "2026-11-15",
+   "time": "21:10",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227435"
+  },
+  {
+   "id": "t227215",
+   "film_id": "3922",
+   "date": "2026-11-15",
+   "time": "21:15",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227215"
+  },
+  {
+   "id": "t227300",
+   "film_id": "3994",
+   "date": "2026-11-15",
+   "time": "21:20",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227300"
+  },
+  {
+   "id": "t227301",
+   "film_id": "3946",
+   "date": "2026-11-16",
+   "time": "11:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227301"
+  },
+  {
+   "id": "t227254",
+   "film_id": "3957",
+   "date": "2026-11-16",
+   "time": "14:30",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227254"
+  },
+  {
+   "id": "t227302",
+   "film_id": "3974",
+   "date": "2026-11-16",
+   "time": "14:50",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227302"
+  },
+  {
+   "id": "t227216",
+   "film_id": "4017",
+   "date": "2026-11-16",
+   "time": "15:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227216"
+  },
+  {
+   "id": "t227436",
+   "film_id": "3979",
+   "date": "2026-11-16",
+   "time": "15:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227436"
+  },
+  {
+   "id": "t227334",
+   "film_id": "3921",
+   "date": "2026-11-16",
+   "time": "16:15",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227334"
+  },
+  {
+   "id": "t227398",
+   "film_id": "3976",
+   "date": "2026-11-16",
+   "time": "16:30",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227398"
+  },
+  {
+   "id": "t227255",
+   "film_id": "4001",
+   "date": "2026-11-16",
+   "time": "16:30",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227255"
+  },
+  {
+   "id": "t227357",
+   "film_id": "3942",
+   "date": "2026-11-16",
+   "time": "16:30",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227357"
+  },
+  {
+   "id": "t227437",
+   "film_id": "3954",
+   "date": "2026-11-16",
+   "time": "17:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227437"
+  },
+  {
+   "id": "t227217",
+   "film_id": "4000",
+   "date": "2026-11-16",
+   "time": "17:40",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227217"
+  },
+  {
+   "id": "t227303",
+   "film_id": "3956",
+   "date": "2026-11-16",
+   "time": "18:10",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227303"
+  },
+  {
+   "id": "t227399",
+   "film_id": "3971",
+   "date": "2026-11-16",
+   "time": "18:30",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227399"
+  },
+  {
+   "id": "t227555",
+   "film_id": "3965",
+   "date": "2026-11-16",
+   "time": "18:30",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227555"
+  },
+  {
+   "id": "t227256",
+   "film_id": "3926",
+   "date": "2026-11-16",
+   "time": "18:45",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227256"
+  },
+  {
+   "id": "t227335",
+   "film_id": "3989",
+   "date": "2026-11-16",
+   "time": "18:45",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227335"
+  },
+  {
+   "id": "t227438",
+   "film_id": "3947",
+   "date": "2026-11-16",
+   "time": "19:15",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227438"
+  },
+  {
+   "id": "t227359",
+   "film_id": "4021",
+   "date": "2026-11-16",
+   "time": "20:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227359"
+  },
+  {
+   "id": "t227218",
+   "film_id": "3961",
+   "date": "2026-11-16",
+   "time": "20:45",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227218"
+  },
+  {
+   "id": "t227400",
+   "film_id": "3996",
+   "date": "2026-11-16",
+   "time": "21:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227400"
+  },
+  {
+   "id": "t227336",
+   "film_id": "4013",
+   "date": "2026-11-16",
+   "time": "21:00",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227336"
+  },
+  {
+   "id": "t227304",
+   "film_id": "3980",
+   "date": "2026-11-16",
+   "time": "21:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227304"
+  },
+  {
+   "id": "t227360",
+   "film_id": "4019",
+   "date": "2026-11-16",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227360"
+  },
+  {
+   "id": "t227257",
+   "film_id": "3949",
+   "date": "2026-11-16",
+   "time": "21:15",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227257"
+  },
+  {
+   "id": "t227439",
+   "film_id": "3933",
+   "date": "2026-11-16",
+   "time": "21:15",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227439"
+  },
+  {
+   "id": "t227305",
+   "film_id": "3987",
+   "date": "2026-11-17",
+   "time": "11:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227305"
+  },
+  {
+   "id": "t227258",
+   "film_id": "3959",
+   "date": "2026-11-17",
+   "time": "15:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227258"
+  },
+  {
+   "id": "t227440",
+   "film_id": "3995",
+   "date": "2026-11-17",
+   "time": "15:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227440"
+  },
+  {
+   "id": "t227306",
+   "film_id": "3952",
+   "date": "2026-11-17",
+   "time": "15:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227306"
+  },
+  {
+   "id": "t227219",
+   "film_id": "3996",
+   "date": "2026-11-17",
+   "time": "15:10",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227219"
+  },
+  {
+   "id": "t227401",
+   "film_id": "3999",
+   "date": "2026-11-17",
+   "time": "16:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227401"
+  },
+  {
+   "id": "f3998-20261117-1600-kino-siska",
+   "film_id": "3998",
+   "date": "2026-11-17",
+   "time": "16:00",
+   "venue": "kino-siska",
+   "ticket_url": null
+  },
+  {
+   "id": "t227554",
+   "film_id": "4005",
+   "date": "2026-11-17",
+   "time": "16:45",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227554"
+  },
+  {
+   "id": "t227259",
+   "film_id": "3980",
+   "date": "2026-11-17",
+   "time": "17:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227259"
+  },
+  {
+   "id": "t227441",
+   "film_id": "3951",
+   "date": "2026-11-17",
+   "time": "17:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227441"
+  },
+  {
+   "id": "t227307",
+   "film_id": "3928",
+   "date": "2026-11-17",
+   "time": "17:10",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227307"
+  },
+  {
+   "id": "t227220",
+   "film_id": "3961",
+   "date": "2026-11-17",
+   "time": "17:15",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227220"
+  },
+  {
+   "id": "t227402",
+   "film_id": "3922",
+   "date": "2026-11-17",
+   "time": "18:15",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227402"
+  },
+  {
+   "id": "t227442",
+   "film_id": "4000",
+   "date": "2026-11-17",
+   "time": "18:40",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227442"
+  },
+  {
+   "id": "t227338",
+   "film_id": "4015",
+   "date": "2026-11-17",
+   "time": "18:40",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227338"
+  },
+  {
+   "id": "t227362",
+   "film_id": "3937",
+   "date": "2026-11-17",
+   "time": "18:45",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227362"
+  },
+  {
+   "id": "t227221",
+   "film_id": "3984",
+   "date": "2026-11-17",
+   "time": "20:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227221"
+  },
+  {
+   "id": "t227308",
+   "film_id": "3926",
+   "date": "2026-11-17",
+   "time": "20:15",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227308"
+  },
+  {
+   "id": "t227260",
+   "film_id": "3960",
+   "date": "2026-11-17",
+   "time": "20:30",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227260"
+  },
+  {
+   "id": "t227403",
+   "film_id": "3920",
+   "date": "2026-11-17",
+   "time": "21:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227403"
+  },
+  {
+   "id": "t227443",
+   "film_id": "3950",
+   "date": "2026-11-17",
+   "time": "21:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227443"
+  },
+  {
+   "id": "t227339",
+   "film_id": "3991",
+   "date": "2026-11-17",
+   "time": "21:00",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227339"
+  },
+  {
+   "id": "t227363",
+   "film_id": "4020",
+   "date": "2026-11-17",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227363"
+  },
+  {
+   "id": "t227309",
+   "film_id": "4012",
+   "date": "2026-11-18",
+   "time": "11:15",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227309"
+  },
+  {
+   "id": "t227261",
+   "film_id": "3970",
+   "date": "2026-11-18",
+   "time": "15:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227261"
+  },
+  {
+   "id": "t227222",
+   "film_id": "3982",
+   "date": "2026-11-18",
+   "time": "15:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227222"
+  },
+  {
+   "id": "t227404",
+   "film_id": "3960",
+   "date": "2026-11-18",
+   "time": "15:15",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227404"
+  },
+  {
+   "id": "t227444",
+   "film_id": "3921",
+   "date": "2026-11-18",
+   "time": "16:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227444"
+  },
+  {
+   "id": "t227340",
+   "film_id": "3988",
+   "date": "2026-11-18",
+   "time": "16:00",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227340"
+  },
+  {
+   "id": "t227310",
+   "film_id": "3954",
+   "date": "2026-11-18",
+   "time": "16:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227310"
+  },
+  {
+   "id": "t227364",
+   "film_id": "4010",
+   "date": "2026-11-18",
+   "time": "16:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227364"
+  },
+  {
+   "id": "t227262",
+   "film_id": "3978",
+   "date": "2026-11-18",
+   "time": "17:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227262"
+  },
+  {
+   "id": "t227223",
+   "film_id": "3992",
+   "date": "2026-11-18",
+   "time": "17:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227223"
+  },
+  {
+   "id": "t227341",
+   "film_id": "4002",
+   "date": "2026-11-18",
+   "time": "18:20",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227341"
+  },
+  {
+   "id": "t227445",
+   "film_id": "3968",
+   "date": "2026-11-18",
+   "time": "18:30",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227445"
+  },
+  {
+   "id": "t227311",
+   "film_id": "4014",
+   "date": "2026-11-18",
+   "time": "18:30",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227311"
+  },
+  {
+   "id": "t227365",
+   "film_id": "3938",
+   "date": "2026-11-18",
+   "time": "18:50",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227365"
+  },
+  {
+   "id": "t227405",
+   "film_id": "3976",
+   "date": "2026-11-18",
+   "time": "19:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227405"
+  },
+  {
+   "id": "t227263",
+   "film_id": "3986",
+   "date": "2026-11-18",
+   "time": "19:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227263"
+  },
+  {
+   "id": "t227224",
+   "film_id": "3989",
+   "date": "2026-11-18",
+   "time": "19:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227224"
+  },
+  {
+   "id": "t227446",
+   "film_id": "4016",
+   "date": "2026-11-18",
+   "time": "20:50",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227446"
+  },
+  {
+   "id": "t227406",
+   "film_id": "3924",
+   "date": "2026-11-18",
+   "time": "21:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227406"
+  },
+  {
+   "id": "t227264",
+   "film_id": "3956",
+   "date": "2026-11-18",
+   "time": "21:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227264"
+  },
+  {
+   "id": "t227342",
+   "film_id": "4000",
+   "date": "2026-11-18",
+   "time": "21:00",
+   "venue": "kino-siska",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227342"
+  },
+  {
+   "id": "t227312",
+   "film_id": "4001",
+   "date": "2026-11-18",
+   "time": "21:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227312"
+  },
+  {
+   "id": "t227366",
+   "film_id": "4008",
+   "date": "2026-11-18",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227366"
+  },
+  {
+   "id": "t227225",
+   "film_id": "3958",
+   "date": "2026-11-18",
+   "time": "21:15",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227225"
+  },
+  {
+   "id": "t227313",
+   "film_id": "3998",
+   "date": "2026-11-19",
+   "time": "11:15",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227313"
+  },
+  {
+   "id": "t227265",
+   "film_id": "3987",
+   "date": "2026-11-19",
+   "time": "14:45",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227265"
+  },
+  {
+   "id": "t227407",
+   "film_id": "3958",
+   "date": "2026-11-19",
+   "time": "15:20",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227407"
+  },
+  {
+   "id": "t227447",
+   "film_id": "3962",
+   "date": "2026-11-19",
+   "time": "15:30",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227447"
+  },
+  {
+   "id": "t227226",
+   "film_id": "4013",
+   "date": "2026-11-19",
+   "time": "16:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227226"
+  },
+  {
+   "id": "t227314",
+   "film_id": "3985",
+   "date": "2026-11-19",
+   "time": "16:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227314"
+  },
+  {
+   "id": "t227367",
+   "film_id": "3945",
+   "date": "2026-11-19",
+   "time": "16:15",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227367"
+  },
+  {
+   "id": "t227266",
+   "film_id": "4014",
+   "date": "2026-11-19",
+   "time": "16:40",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227266"
+  },
+  {
+   "id": "t227408",
+   "film_id": "3975",
+   "date": "2026-11-19",
+   "time": "17:45",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227408"
+  },
+  {
+   "id": "t227448",
+   "film_id": "3940",
+   "date": "2026-11-19",
+   "time": "17:45",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227448"
+  },
+  {
+   "id": "t227315",
+   "film_id": "3927",
+   "date": "2026-11-19",
+   "time": "18:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227315"
+  },
+  {
+   "id": "t227368",
+   "film_id": "4007",
+   "date": "2026-11-19",
+   "time": "18:30",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227368"
+  },
+  {
+   "id": "t227227",
+   "film_id": "4002",
+   "date": "2026-11-19",
+   "time": "19:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227227"
+  },
+  {
+   "id": "t227267",
+   "film_id": "4015",
+   "date": "2026-11-19",
+   "time": "19:10",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227267"
+  },
+  {
+   "id": "t227409",
+   "film_id": "3960",
+   "date": "2026-11-19",
+   "time": "19:40",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227409"
+  },
+  {
+   "id": "t227316",
+   "film_id": "3984",
+   "date": "2026-11-19",
+   "time": "20:30",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227316"
+  },
+  {
+   "id": "t227152",
+   "film_id": "3966",
+   "date": "2026-11-19",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227152"
+  },
+  {
+   "id": "t227268",
+   "film_id": "3925",
+   "date": "2026-11-19",
+   "time": "21:15",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227268"
+  },
+  {
+   "id": "t227228",
+   "film_id": "3963",
+   "date": "2026-11-19",
+   "time": "21:20",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227228"
+  },
+  {
+   "id": "t227317",
+   "film_id": "3955",
+   "date": "2026-11-20",
+   "time": "11:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227317"
+  },
+  {
+   "id": "t227269",
+   "film_id": "3979",
+   "date": "2026-11-20",
+   "time": "14:45",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227269"
+  },
+  {
+   "id": "t227318",
+   "film_id": "3948",
+   "date": "2026-11-20",
+   "time": "15:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227318"
+  },
+  {
+   "id": "t227410",
+   "film_id": "4012",
+   "date": "2026-11-20",
+   "time": "15:30",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227410"
+  },
+  {
+   "id": "t227449",
+   "film_id": "3983",
+   "date": "2026-11-20",
+   "time": "15:45",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227449"
+  },
+  {
+   "id": "t227229",
+   "film_id": "3953",
+   "date": "2026-11-20",
+   "time": "16:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227229"
+  },
+  {
+   "id": "t227370",
+   "film_id": "4006",
+   "date": "2026-11-20",
+   "time": "16:45",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227370"
+  },
+  {
+   "id": "t227270",
+   "film_id": "3927",
+   "date": "2026-11-20",
+   "time": "16:50",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227270"
+  },
+  {
+   "id": "t227319",
+   "film_id": "3996",
+   "date": "2026-11-20",
+   "time": "17:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227319"
+  },
+  {
+   "id": "t227411",
+   "film_id": "3990",
+   "date": "2026-11-20",
+   "time": "18:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227411"
+  },
+  {
+   "id": "t227450",
+   "film_id": "4011",
+   "date": "2026-11-20",
+   "time": "18:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227450"
+  },
+  {
+   "id": "t227230",
+   "film_id": "3991",
+   "date": "2026-11-20",
+   "time": "18:30",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227230"
+  },
+  {
+   "id": "t227371",
+   "film_id": "3936",
+   "date": "2026-11-20",
+   "time": "18:45",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227371"
+  },
+  {
+   "id": "t227271",
+   "film_id": "3950",
+   "date": "2026-11-20",
+   "time": "19:15",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227271"
+  },
+  {
+   "id": "t227320",
+   "film_id": "3976",
+   "date": "2026-11-20",
+   "time": "19:15",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227320"
+  },
+  {
+   "id": "t227412",
+   "film_id": "3928",
+   "date": "2026-11-20",
+   "time": "21:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227412"
+  },
+  {
+   "id": "t227231",
+   "film_id": "3989",
+   "date": "2026-11-20",
+   "time": "21:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227231"
+  },
+  {
+   "id": "t227372",
+   "film_id": "4009",
+   "date": "2026-11-20",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227372"
+  },
+  {
+   "id": "t227272",
+   "film_id": "3964",
+   "date": "2026-11-20",
+   "time": "21:15",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227272"
+  },
+  {
+   "id": "t227321",
+   "film_id": "3995",
+   "date": "2026-11-20",
+   "time": "21:15",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227321"
+  },
+  {
+   "id": "t227322",
+   "film_id": "3929",
+   "date": "2026-11-21",
+   "time": "10:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227322"
+  },
+  {
+   "id": "t227323",
+   "film_id": "3993",
+   "date": "2026-11-21",
+   "time": "14:45",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227323"
+  },
+  {
+   "id": "t227273",
+   "film_id": "3934",
+   "date": "2026-11-21",
+   "time": "15:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227273"
+  },
+  {
+   "id": "t227413",
+   "film_id": "3997",
+   "date": "2026-11-21",
+   "time": "16:30",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227413"
+  },
+  {
+   "id": "t227373",
+   "film_id": "4004",
+   "date": "2026-11-21",
+   "time": "16:30",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227373"
+  },
+  {
+   "id": "t227274",
+   "film_id": "3939",
+   "date": "2026-11-21",
+   "time": "17:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227274"
+  },
+  {
+   "id": "t227451",
+   "film_id": "3972",
+   "date": "2026-11-21",
+   "time": "17:15",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227451"
+  },
+  {
+   "id": "t227324",
+   "film_id": "3967",
+   "date": "2026-11-21",
+   "time": "17:15",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227324"
+  },
+  {
+   "id": "t227374",
+   "film_id": "3944",
+   "date": "2026-11-21",
+   "time": "18:30",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227374"
+  },
+  {
+   "id": "t227414",
+   "film_id": "3969",
+   "date": "2026-11-21",
+   "time": "18:45",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227414"
+  },
+  {
+   "id": "t227275",
+   "film_id": "3933",
+   "date": "2026-11-21",
+   "time": "19:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227275"
+  },
+  {
+   "id": "t227325",
+   "film_id": "3925",
+   "date": "2026-11-21",
+   "time": "19:15",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227325"
+  },
+  {
+   "id": "t227232",
+   "film_id": "4011",
+   "date": "2026-11-21",
+   "time": "19:30",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227232"
+  },
+  {
+   "id": "t227415",
+   "film_id": "3962",
+   "date": "2026-11-21",
+   "time": "21:00",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227415"
+  },
+  {
+   "id": "t227375",
+   "film_id": "3943",
+   "date": "2026-11-21",
+   "time": "21:00",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227375"
+  },
+  {
+   "id": "t227276",
+   "film_id": "3920",
+   "date": "2026-11-21",
+   "time": "21:10",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227276"
+  },
+  {
+   "id": "t227326",
+   "film_id": "3988",
+   "date": "2026-11-21",
+   "time": "21:15",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227326"
+  },
+  {
+   "id": "t227277",
+   "film_id": "3929",
+   "date": "2026-11-22",
+   "time": "11:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227277"
+  },
+  {
+   "id": "t227327",
+   "film_id": "3979",
+   "date": "2026-11-22",
+   "time": "11:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227327"
+  },
+  {
+   "id": "t227376",
+   "film_id": "3955",
+   "date": "2026-11-22",
+   "time": "14:30",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227376"
+  },
+  {
+   "id": "t227328",
+   "film_id": "3934",
+   "date": "2026-11-22",
+   "time": "14:50",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227328"
+  },
+  {
+   "id": "t227278",
+   "film_id": "3962",
+   "date": "2026-11-22",
+   "time": "15:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227278"
+  },
+  {
+   "id": "t227233",
+   "film_id": "4011",
+   "date": "2026-11-22",
+   "time": "15:15",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227233"
+  },
+  {
+   "id": "t227416",
+   "film_id": "3923",
+   "date": "2026-11-22",
+   "time": "16:30",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227416"
+  },
+  {
+   "id": "t227279",
+   "film_id": "3931",
+   "date": "2026-11-22",
+   "time": "17:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227279"
+  },
+  {
+   "id": "t227452",
+   "film_id": "4013",
+   "date": "2026-11-22",
+   "time": "17:00",
+   "venue": "kino-bezigrad",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227452"
+  },
+  {
+   "id": "t227329",
+   "film_id": "3975",
+   "date": "2026-11-22",
+   "time": "17:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227329"
+  },
+  {
+   "id": "t227234",
+   "film_id": "4002",
+   "date": "2026-11-22",
+   "time": "17:20",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227234"
+  },
+  {
+   "id": "t227417",
+   "film_id": "3982",
+   "date": "2026-11-22",
+   "time": "18:30",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227417"
+  },
+  {
+   "id": "t227280",
+   "film_id": "3995",
+   "date": "2026-11-22",
+   "time": "18:50",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227280"
+  },
+  {
+   "id": "t227377",
+   "film_id": "3942",
+   "date": "2026-11-22",
+   "time": "18:50",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227377"
+  },
+  {
+   "id": "t227330",
+   "film_id": "3959",
+   "date": "2026-11-22",
+   "time": "19:00",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227330"
+  },
+  {
+   "id": "t227235",
+   "film_id": "4015",
+   "date": "2026-11-22",
+   "time": "20:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227235"
+  },
+  {
+   "id": "t227418",
+   "film_id": "3958",
+   "date": "2026-11-22",
+   "time": "20:30",
+   "venue": "agrft",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227418"
+  },
+  {
+   "id": "t227378",
+   "film_id": "3945",
+   "date": "2026-11-22",
+   "time": "20:45",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227378"
+  },
+  {
+   "id": "t227281",
+   "film_id": "3948",
+   "date": "2026-11-22",
+   "time": "21:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227281"
+  },
+  {
+   "id": "t227331",
+   "film_id": "3970",
+   "date": "2026-11-22",
+   "time": "21:10",
+   "venue": "kinodvor",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227331"
+  }
+ ],
+ "excluded": {
+  "films_without_ljubljana_screening": [
+   {
+    "id": "4022",
+    "title_sl": "VOD - filmi Urše Menart"
+   }
+  ],
+  "screenings_outside_ljubljana": 38
+ },
+ "warnings": [
+  "Film 4022 (VOD - filmi Urše Menart) nima podatka o trajanju"
+ ]
+}

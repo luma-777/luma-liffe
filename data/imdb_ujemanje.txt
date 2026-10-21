@@ -1,0 +1,103 @@
+OK (prej) 3926 17 → tt37775862
+OK (prej) 3973 3 tedne pozneje → tt35351269
+OK (prej) 3941 Atlas vesolja → tt28084471
+OK (prej) 3930 Bučko → tt33049085
+OK (prej) 4002 Bunker → tt36770512
+OK (prej) 3942 Človek s petimi baloni → tt0059851
+OK (prej) 3968 Dekle noči → tt37243036
+OK (prej) 3977 Divji konj številka devet → tt15799564
+OK (prej) 3920 Dnevnik sobarice → tt38785098
+OK (prej) 3939 Dnevnik sobarice → tt0058249
+OK (prej) 3994 Do konca dneva → tt37919722
+OK (prej) 4013 Dobrodošli v Hope → tt27369017
+OK (prej) 3970 Dua → tt38765198
+OK (prej) 3957 Eksplozivna vrsta → tt38841455
+PROGRAM  4018 Evropa na kratko - 1. sklop
+PROGRAM  4019 Evropa na kratko - 2. sklop
+PROGRAM  4020 Evropa na kratko - 3. sklop
+OK (prej) 4011 Fackham Hall → tt29008225
+OK (prej) 3938 Federalist → tt0054870
+OK (prej) 4017 Furijaste → tt36985382
+OK (prej) 3933 Goli goli → tt8760666
+OK (prej) 3993 Gurija → tt29550106
+OK (prej) 3923 Heysel 85 → tt30135000
+OK (prej) 4003 Hladna vojna → tt6543652
+OK (prej) 4004 Ida → tt2718492
+OK (prej) 4001 Isabel → tt35748025
+PROGRAM  4021 Ivica Matić - kratki filmi
+OK (prej) 3971 Junija me ne bo več → tt23143606
+OK (prej) 3982 Kanček svetlobe → tt43704846
+OK (prej) 3947 Kokoš → tt29283995
+OK (prej) 4010 Korošec govori nemško → tt2649494
+OK (prej) 3921 Kraljica morja → tt27541205
+OK (prej) 3940 Kronovizor → tt39196981
+OK (prej) 3956 Krvava grofica → tt28151657
+OK (prej) 3990 La Gradiva → tt36107185
+OK (prej) 3927 Ljubica → tt39904829
+OK (prej) 3943 Ljubosumnost po italijansko → tt0065662
+OK (prej) 3945 Ljudska romanca → tt0072097
+OK (prej) 3936 Ločitev po italijansko → tt0055913
+OK (prej) 3946 London → tt39206699
+OK (prej) 3983 Lov na ljudi → tt43637757
+OK (prej) 3950 Made in EU → tt37660486
+OK (prej) 3986 Male stvari → tt43346448
+OK (prej) 3984 Mila Marija → tt29355605
+OK (prej) 3944 Mimi kovinar → tt0068950
+NI       3961 Minotaver (režiser nm: —, kandidatov: 10)
+  ročno: {'imdb_id': 'tt37118301', '_preverjeno': '2026-10-21: IMDb title.crew navaja režiserja nm1168657 = Andrey Zvyagintsev (LIFFe zapis: Andrej Zvjagincev), Minotaur (2026).'}
+OK (prej) 3934 Moj prijatelj Barry → tt36230671
+OK (prej) 4006 Moje poletje ljubezni → tt0382189
+OK (prej) 4014 Moji zapiski o Marsu → tt33295642
+OK (prej) 3992 Mož, ki ga ljubim → tt37522972
+OK (prej) 3924 Najbolj osamljen človek v mestu → tt39382808
+OK (prej) 3953 Nedelje → tt35513027
+OK (prej) 3960 Nenadoma → tt36834996
+OK (prej) 4008 Nevarni ovinki → tt0056512
+OK (prej) 3998 Neznanka → tt34888026
+OK (prej) 3978 Nezvesta žena → tt0064323
+OK (prej) 4015 Nežna, ljubeča skrb → tt35638092
+OK (prej) 3935 Običajni osumljenci → tt0052216
+OK (prej) 3975 Očetnjava → tt37304295
+OK (prej) 3952 Odpelji me domov → tt37263549
+OK (prej) 3972 Ostrina Sence → tt34610311
+OK (prej) 3991 Papirnati tiger → tt34385689
+OK (prej) 3929 Počitnice v džungli → tt29344898
+OK (prej) 3997 Poglej nazaj → tt39094466
+OK (prej) 3948 Pomlad → tt42577282
+OK (prej) 4009 Pošasti → tt0057323
+OK (prej) 3932 Pritožba št. 713317 → tt38933481
+OK (prej) 3966 Propad hiše Usher → tt0018770
+OK (prej) 3954 Psička → tt38468551
+OK (prej) 3974 Pustolovščina iz sanj → tt21188986
+OK (prej) 3976 Rdeče skale → tt31383175
+OK (prej) 3985 Rdeči hangar → tt37664358
+OK (prej) 3967 Rojstni dan → tt36591512
+OK (prej) 3959 Rose → tt25399154
+OK (prej) 3922 Rumena pisma → tt32888226
+OK (prej) 3963 Seks in smrt v najstniškem taboru → tt35298123
+OK (prej) 3931 Skrivnostni paket → tt38673337
+OK (prej) 3962 Soumsoum, noč zvezd → tt39075020
+OK (prej) 3928 Sramota in denar → tt39140264
+OK (prej) 3951 Strelec → tt35974872
+OK (prej) 4000 Tabloid → tt37967547
+OK (prej) 3955 Taljenje → tt38723373
+OK (prej) 3980 Ti ne sodiš sem → tt39228759
+OK (prej) 3964 Tipični Phil → tt38607959
+OK (prej) 3989 Udarni termin → tt34206385
+OK (prej) 3979 Ulja → tt26751523
+OK (prej) 3949 Umazan denar za bele noči → tt38799410
+OK (prej) 3925 Usodni sekret → tt37520267
+OK (prej) 3995 Včasih čutim žalost, drugič upor → tt43518701
+OK (prej) 3937 Vdovec → tt0131097
+OK (prej) 3958 Vidim stavbe padati kot strele → tt38991615
+OK (prej) 3981 Virus patološke dobrote → tt37545926
+OK (prej) 4012 Vsakič → tt41592057
+OK (prej) 3969 Vse, kar je narobe s tabo → tt37775832
+OK (prej) 3988 Vsi imajo radi Billa Evansa → tt34347792
+OK (prej) 4007 Zadnje zatočišče → tt0258761
+OK (prej) 4016 Založeni spomin → tt38893248
+OK (prej) 3987 Zelene oči → tt34671488
+OK (prej) 3996 Zgodilo se bo nocoj → tt37341481
+OK (prej) 3999 Zvesta vojakinja → tt41802342
+OK (prej) 4005 Ženska iz petega okrožja → tt1605777
+OK (prej) 3965 Ženska s pokrajino → tt3340940

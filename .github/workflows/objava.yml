@@ -1,0 +1,71 @@
+# Samodejna objava na GitHub Pages (brezplačno).
+#  - ob vsaki spremembi v repozitoriju
+#  - vsako uro: posnetek LuMa Google Sheeta (rezerva, če ga brskalnik ne more brati)
+#  - vsak dan ob ~6.15 po slovenskem času: ponovni uvoz uradnega LIFFe programa
+name: Objava
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "7 * * * *"     # LuMa Sheet
+    - cron: "17 4 * * *"    # LIFFe program (UTC)
+  workflow_dispatch:
+    inputs:
+      liffe:
+        description: "Ponovno uvozi LIFFe program"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: objava
+  cancel-in-progress: false
+
+jobs:
+  objava:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Uvoz LIFFe programa
+        if: github.event.schedule == '17 4 * * *' || (github.event_name == 'workflow_dispatch' && inputs.liffe)
+        continue-on-error: true
+        run: |
+          python3 -I scripts/import_liffe.py
+          python3 -I scripts/match_imdb.py
+          cat data/spremembe.md
+
+      - name: Posnetek LuMa Sheeta
+        continue-on-error: true
+        run: python3 -I scripts/fetch_luma.py
+
+      - name: Sestavi in preveri
+        run: |
+          python3 -I scripts/build.py
+          python3 -I scripts/check.py
+
+      - name: Shrani spremenjene podatke
+        run: |
+          git config user.name "LuMa robot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/liffe.json data/links.json data/spremembe.md site/data docs/kontrolni_seznam.md
+          git diff --cached --quiet || git commit -m "Samodejna posodobitev podatkov" && git push || true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
