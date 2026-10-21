@@ -1,8 +1,6 @@
-# Spremembe ob uvozu 2026-10-21T17:52+02:00
+# Spremembe ob uvozu 2026-10-21T18:14+00:00
 
-- ~ film 4018 Evropa na kratko - 1. sklop: director '/' → None
-- ~ film 4019 Evropa na kratko - 2. sklop: director '/' → None
-- ~ film 4020 Evropa na kratko - 3. sklop: director '/' → None
+- Brez sprememb.
 
 ## Opozorila
 
