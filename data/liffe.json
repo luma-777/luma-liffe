@@ -11,9 +11,9 @@
  "source": {
   "films": "https://urnik.liffe.si/filmi.aspx",
   "schedule": "https://urnik.liffe.si/urnik.aspx",
-  "imported_at": "2026-10-22T04:52+00:00",
-  "checksum": "1653c1eabe39",
-  "changed_at": "2026-10-21T17:52+02:00"
+  "imported_at": "2026-10-23T04:52+00:00",
+  "checksum": "5ff675db2076",
+  "changed_at": "2026-10-23T04:52+00:00"
  },
  "venues": [
   {
@@ -1158,7 +1158,8 @@
    "director": "Zvonimir Jurić",
    "countries": [
     "Hrvaška",
-    "Slovenija"
+    "Slovenija",
+    "Srbija"
    ],
    "year": 2026,
    "runtime": 80,
@@ -4736,6 +4737,7 @@
   "screenings_outside_ljubljana": 38
  },
  "warnings": [
+  "Neznana dvorana »KD Cerknica« (film 3930, 2026-11-10 17:00) — izpuščeno, preveri ročno",
   "Film 4022 (VOD - filmi Urše Menart) nima podatka o trajanju"
  ]
 }
