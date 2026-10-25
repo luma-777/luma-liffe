@@ -148,12 +148,14 @@ main { flex: 1; width: 100%; max-width: 1160px; margin: 0 auto; padding: 20px 16
 .hero-title em { font-style: italic; color: var(--mustard); position: relative; display: inline-block; padding-right: .04em; white-space: nowrap; }
 .ht-squiggle { position: absolute; left: 0; right: 0; bottom: -.12em; width: 100%; height: .18em; color: var(--pink); }
 .ht-pop { font-size: .78em; }
-.ht-liffe { color: var(--paper); }
+/* manjša vrstica nad naslovom: polno ime festivala */
+.ht-pre { display: block; font-family: var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: .2em; font-size: clamp(.78rem, 1.5vw, 1rem); line-height: 1.45; color: var(--paper); margin-bottom: .7em; text-wrap: balance; }
 @media (max-width: 560px) {
-  .ht-liffe { display: block; } .hero-title { font-size: clamp(2.3rem, 11vw, 2.8rem); }
+  .hero-title { font-size: clamp(2.3rem, 11vw, 2.8rem); }
+  .ht-pre { margin-top: 10px; font-size: .78rem; letter-spacing: .16em; max-width: calc(100% - 70px); }
   .hero .hero-tag { margin-bottom: 12px; } .hero-lead { margin-top: 14px; font-size: 1.2rem; } .hero-lede { line-height: 1.5; } .hero-cta { margin-top: 18px; }
 }
-.hero-lead { margin-top: 20px; font-family: var(--serif); font-size: clamp(1.25rem, 3vw, 1.55rem); line-height: 1.25; color: var(--paper); max-width: 34ch; }
+.hero-lead { margin-top: 20px; font-family: var(--serif); font-size: clamp(1.25rem, 3vw, 1.55rem); line-height: 1.25; color: var(--paper); max-width: 40ch; }
 .hero-lead + .hero-lede { margin-top: 8px; }
 /* datum kot festivalska vstopnica */
 .hero-date {
@@ -375,14 +377,10 @@ a.term:hover { border-color: var(--ink); }
 .why { border-left: 4px solid var(--mustard); padding: 8px 0 8px 14px; background: linear-gradient(90deg, rgba(224, 165, 59, .14), transparent); border-radius: 0 8px 8px 0; }
 .why b { display: block; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 2px; }
 .extlinks { display: flex; flex-wrap: wrap; gap: 8px; }
-.ext { display: inline-flex; align-items: center; gap: 7px; padding: 8px 13px; border-radius: 10px; border: 1.5px solid var(--ink); text-decoration: none; font-weight: 700; font-size: .92rem; background: #fffdf8; min-height: 42px; }
-.ext svg { width: 15px; height: 15px; }
-.ext small { font-weight: 500; color: var(--ink-2); }
-.ext.s-imdb { background: #f5c518; border-color: #b18c00; color: #1d1a2b; }
-.ext.s-liffe { background: var(--rust); border-color: var(--rust-ink); color: #fff; }
-.ext.s-metacritic { background: #fffdf8; }
-.ext.s-letterboxd { background: #202830; border-color: #202830; color: #fff; }
-.ext.s-letterboxd small, .ext.s-liffe small { color: #f1e8da; }
+.ext { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 99px; border: 1.5px solid var(--line-2); text-decoration: none; font-weight: 600; font-size: .88rem; background: transparent; color: var(--ink); min-height: 36px; }
+.ext:hover { border-color: var(--ink); }
+.ext svg { width: 13px; height: 13px; color: var(--ink-3); }
+.ext small { font-weight: 400; color: var(--ink-3); }
 .ext.search { border-style: dashed; }
 .luma-note { background: var(--mustard) var(--grain); border: 2px solid var(--ink); border-radius: var(--radius); padding: 16px 18px; }
 .luma-note blockquote { margin: 6px 0 0; font-family: var(--serif); font-size: 1.3rem; line-height: 1.25; }
@@ -425,12 +423,6 @@ a.term:hover { border-color: var(--ink); }
 .fav-item details summary { cursor: pointer; font-weight: 600; font-size: .9rem; margin-top: 6px; }
 
 /* ---------- LuMa ---------- */
-.luma-hero { background: var(--pink) var(--grain); border: 2px solid var(--ink); border-radius: 22px; padding: clamp(22px, 5vw, 40px); position: relative; overflow: hidden; }
-.luma-hero.teal { background: var(--teal) var(--grain); color: var(--ink); } /* temno besedilo: kontrast 5 : 1 */
-.luma-hero.teal .lede, .luma-hero.teal .kicker { color: var(--ink); }
-.luma-hero .lede { color: var(--ink); }
-.luma-hero .motif { position: absolute; right: 16px; top: 16px; width: 120px; height: 120px; opacity: .9; }
-@media (max-width: 600px) { .luma-hero .motif { width: 70px; height: 70px; opacity: .5; } }
 .rec { display: grid; grid-template-columns: minmax(0, 260px) 1fr; gap: 18px; background: #fffdf8; border: 1.5px solid var(--line-2); border-radius: var(--radius); padding: 14px; position: relative; }
 @media (max-width: 640px) { .rec { grid-template-columns: 1fr; } }
 .rec .num { position: absolute; top: -12px; left: -8px; background: var(--ink); color: var(--paper); font-family: var(--serif); width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-size: 1.2rem; z-index: 3; }
@@ -523,7 +515,7 @@ html.modal-open { overflow: hidden; }
 .award svg { width: 14px; height: 14px; margin-top: 2px; flex: none; }
 .seen { display: inline-flex; font-size: .74rem; font-weight: 700; border-radius: 99px; padding: 2px 9px; background: var(--paper-2); color: var(--ink-2); vertical-align: middle; font-family: var(--sans); letter-spacing: 0; text-transform: none; }
 .seen.yes { background: #d9efed; color: var(--teal-ink); }
-.zswitch { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+.zswitch { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 10px; margin-top: 4px; }
 .zopt { display: grid; gap: 2px; padding: 12px 16px; border: 2px solid var(--ink); border-radius: var(--radius); background: #fffdf8; text-decoration: none; }
 .zopt b { display: inline-flex; align-items: center; gap: 7px; font-size: 1rem; }
 .zopt b svg { width: 17px; height: 17px; }
@@ -552,15 +544,14 @@ html.modal-open { overflow: hidden; }
 }
 
 /* povezave na odzive publike in kritikov (kartice Ziherc) */
-.reviews { position: relative; z-index: 2; margin-top: 2px; padding-top: 10px; border-top: 1px dashed var(--line-2); display: grid; gap: 7px; }
-.reviews-label { font-size: .78rem; font-weight: 700; color: var(--ink-2); }
-.reviews-links { display: flex; flex-wrap: wrap; gap: 5px; }
-.rv { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; padding: 4px 9px; border-radius: 99px; font-size: .78rem; font-weight: 700; text-decoration: none; border: 1.5px solid var(--ink); background: #fffdf8; color: var(--ink); white-space: nowrap; }
-.rv svg { width: 10px; height: 10px; }
-.rv:hover { transform: translateY(-1px); }
-.rv-imdb { background: #f5c518; border-color: #b18c00; }
-.rv-letterboxd { background: #202830; border-color: #202830; color: #fff; }
-.rv.search { border-style: dashed; }
+/* povezave na odzive: diskretne besedilne povezave, ne gumbi */
+.reviews { position: relative; z-index: 2; margin-top: 2px; padding-top: 8px; border-top: 1px dashed var(--line); display: flex; flex-wrap: wrap; align-items: center; gap: 0 10px; }
+.reviews-label { font-size: .76rem; color: var(--ink-3); width: 100%; }
+.reviews-links { display: flex; flex-wrap: wrap; gap: 0 12px; }
+.rv { display: inline-flex; align-items: center; gap: 3px; min-height: 26px; font-size: .8rem; font-weight: 600; color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; white-space: nowrap; }
+.rv:hover { color: var(--ink); text-decoration-color: currentColor; }
+.rv svg { width: 10px; height: 10px; color: var(--ink-3); }
+.rv.search { text-decoration-style: dashed; }
 .card-body .reviews + .card-terms { margin-top: 10px; }
 .grid.grid-wide { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
 @media (max-width: 560px) { .grid.grid-wide { grid-template-columns: 1fr; } }
@@ -627,3 +618,67 @@ html.modal-open { overflow: hidden; }
 .steps-note { display: flex; align-items: center; gap: 7px; margin: 12px 2px 0; font-size: .88rem; color: var(--ink-2); }
 .steps-note svg { width: 16px; height: 16px; color: var(--teal-ink); }
 .section-lede { margin-top: 8px; max-width: 64ch; color: var(--ink-2); }
+/* Moj LIFFe: seznam / časovnica */
+.mine-view { margin-top: 18px; }
+a.seg-btn { text-decoration: none; color: inherit; }
+.seg-btn[aria-current="true"] { background: var(--ink); color: var(--paper); }
+/* časovnica: dnevi od leve proti desni, čas navpično */
+.tl { margin-top: 14px; }
+.tl-sum { font-size: .92rem; color: var(--ink-2); }
+.tl-toggle { margin-top: 8px; font-size: .9rem; }
+.tl-scroll { margin-top: 10px; overflow-x: auto; overscroll-behavior-x: contain; border: 1.5px solid var(--line-2); border-radius: var(--radius); background: #fffdf8; scroll-snap-type: x proximity; scroll-padding-left: 40px; }
+.tl-grid { --hour: 46px; display: grid; grid-template-columns: 40px repeat(var(--n), minmax(84px, 1fr)); min-width: calc(40px + var(--n) * 84px); }
+.tl-head { height: 42px; display: flex; align-items: center; justify-content: center; gap: 4px; font-size: .82rem; background: var(--paper-2); border-bottom: 1.5px solid var(--line-2); white-space: nowrap; }
+.tl-head b { text-transform: uppercase; letter-spacing: .06em; font-size: .74rem; }
+.tl-day { border-left: 1px solid var(--line); scroll-snap-align: start; min-width: 0; }
+.tl-day.today .tl-head { background: var(--mustard); }
+.tl-day:not(.has) .tl-head { color: var(--ink-3); }
+.tl-body { position: relative; height: calc(var(--span) * var(--hour)); background-image: repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px var(--hour)); }
+.tl-axis { position: sticky; left: 0; z-index: 4; background: #fffdf8; border-right: 1px solid var(--line-2); }
+.tl-axis .tl-body { background: none; }
+.tl-axis span { position: absolute; right: 6px; margin-top: 2px; font-size: .72rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.tl-item { position: absolute; z-index: 2; display: flex; flex-direction: column; gap: 1px; padding: 4px 5px; overflow: hidden; border-radius: 7px; background: var(--teal); border: 1.5px solid var(--teal-ink); color: var(--ink); text-decoration: none; line-height: 1.15; }
+.tl-item:hover, .tl-item:focus-visible { z-index: 3; box-shadow: 0 0 0 2px var(--ink); }
+.tl-item.clash { background: #fbe1d6; border-color: var(--rust-ink); }
+.tl-item.ghost { z-index: 1; background: rgba(255, 253, 248, .92); border: 1.5px dashed var(--ink-3); color: var(--ink-2); }
+.tl-item.unknown { border-bottom-style: dashed; }
+.tl-t { font-size: .7rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tl-n { font-family: var(--serif); font-size: .9rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.tl-v { font-size: .68rem; opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl-gap { position: absolute; left: 3px; right: 3px; z-index: 1; display: flex; align-items: center; justify-content: center; }
+.tl-gap span { font-size: .66rem; line-height: 1.2; text-align: center; white-space: nowrap; color: var(--ink-2); background: #fffdf8; border: 1px dashed var(--line-2); border-radius: 99px; padding: 1px 6px; }
+.tl-gap.tight span { color: var(--rust-ink); border-color: var(--rust); font-weight: 700; }
+.tl-free { position: absolute; top: 38%; left: 0; right: 0; text-align: center; font-size: .78rem; color: var(--ink-3); }
+.tl-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-size: .82rem; color: var(--ink-2); }
+.tl-legend i { display: inline-block; width: 16px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.lg-mine { background: var(--teal); border: 1.5px solid var(--teal-ink); }
+.lg-clash { background: #fbe1d6; border: 1.5px solid var(--rust-ink); }
+.lg-ghost { border: 1.5px dashed var(--ink-3); }
+.lg-gap { border: 1px dashed var(--line-2); border-radius: 99px !important; }
+@media (max-width: 560px) { .tl-scroll { scroll-padding-left: 34px; } .tl-grid { --hour: 42px; grid-template-columns: 34px repeat(var(--n), minmax(108px, 1fr)); min-width: calc(34px + var(--n) * 108px); } }
+/* lastna oznaka »Imam vstopnico« */
+.tixbtn[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.has-ticket { display: inline-flex; gap: 4px; align-items: center; font-size: .76rem; font-weight: 700; background: var(--mustard); color: var(--ink); border-radius: 99px; padding: 2px 9px; margin-left: 6px; vertical-align: middle; font-family: var(--sans); }
+.has-ticket svg { width: 13px; height: 13px; }
+.tl-item.ticket { border: 2px solid var(--ink); }
+.tl-t svg { width: 11px; height: 11px; vertical-align: -1px; margin-right: 2px; }
+.lg-ticket { background: var(--teal); border: 2px solid var(--ink); }
+/* barvne glave zavihkov (LuMa slog): vsak zavihek svoja barva in motiv */
+.luma-hero { --bg: var(--pink); background: var(--bg) var(--grain); color: var(--ink); border: 2px solid var(--ink); border-radius: 22px; padding: clamp(18px, 4vw, 36px) clamp(18px, 4vw, 40px); position: relative; overflow: hidden; margin: 4px 0 18px; }
+.luma-hero > :not(.motif) { position: relative; }
+.luma-hero .kicker { color: var(--ink); margin-bottom: 6px; }
+.luma-hero .lede { color: var(--ink); margin-top: 10px; max-width: 60ch; }
+.luma-hero .lede a { color: var(--ink); font-weight: 700; }
+.luma-hero .motif { position: absolute; right: 18px; top: 18px; width: 116px; height: 116px; color: var(--ink); opacity: .85; transform: rotate(-8deg); }
+.c-mustard { --bg: var(--mustard); }
+.c-pink { --bg: var(--pink); }
+.c-teal { --bg: var(--teal); }
+.c-coral { --bg: #f4775f; } /* temno besedilo 6,2 : 1 */
+.c-blue { --bg: #4fb8d8; } /* zelenkasto modra; temno besedilo 7,4 : 1 */
+.c-paper { --bg: var(--paper-3); }
+@media (max-width: 600px) {
+  .luma-hero { border-radius: 18px; }
+  .luma-hero .motif { width: 60px; height: 60px; right: 12px; top: 12px; opacity: .55; }
+  .luma-hero .kicker, .luma-hero h1 { padding-right: 58px; }
+  .luma-hero .lede { font-size: 1rem; }
+}

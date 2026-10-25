@@ -149,6 +149,15 @@ Zahtevnost: S = do ure, M = nekaj ur, L = dan ali več.
 - **Rešitev:** profil je v `site/config.js` (`club.instagram`); povabilo je zdaj ena diskretna vrstica.
 - **Status:** izvedeno
 
+### 20. Ni bilo videti prostih dni in pavz med filmi
+- **Rešitev:** Moj LIFFe ima pogled **Časovnica**: vsi festivalski dnevi so stolpci od leve proti desni, čas navpično; prosti dnevi so označeni, med filmoma je napisana pavza (rdeče, če je manj kot 20 min ali 30 min ob menjavi dvorane). Po želji se pokažejo še termini filmov iz »Zanima me« (črtkano), da najdeš, kaj zapolni luknjo. Status: izvedeno.
+
+### 21. Ni bilo mogoče označiti kupljene vstopnice
+- **Rešitev:** pri terminu v koledarju gumb »Imam vstopnico?« (lastna oznaka; stran nakupa ne preveri). Z oznako se skrije gumb za nakup, termin dobi značko, na časovnici je obrobljen. Opozorilo, če odstraniš ali zamenjaš termin z vstopnico. Status: izvedeno.
+
+### 22. Glave zavihkov niso bile enotne
+- **Rešitev:** vsi zavihki imajo enako barvno glavo v LuMa slogu (nadvrstica, naslov, uvod, motiv): Odkrij filme gorčična, Ziherce rožnata, Zanima me lososova, Moj LIFFe sivkasta, Z LuMa v kino turkizna; Deljen LIFFe in O strani enako. Status: izvedeno.
+
 ## Kar deluje dobro (namenoma ohranjeno)
 
 - **Stanje v naslovu (URL):** filtri, iskanje, razvrščanje in pogled so v povezavi; deliti jih je mogoče, osvežitev jih ohrani.

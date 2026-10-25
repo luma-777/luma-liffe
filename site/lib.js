@@ -221,6 +221,27 @@ export const exported = {
   },
 };
 
+// Lastna oznaka »Imam vstopnico« pri terminu v koledarju (stran nakupa ne more preveriti).
+const TICKET_KEY = "luma-liffe-vstopnice";
+let ticketMem = null;
+export const tickets = {
+  all() {
+    if (!ticketMem) { try { ticketMem = JSON.parse(localStorage.getItem(TICKET_KEY)) || {}; } catch (_) { ticketMem = {}; } }
+    return ticketMem;
+  },
+  has: (id) => !!tickets.all()[id],
+  toggle(id) {
+    const all = tickets.all();
+    if (all[id]) delete all[id]; else all[id] = new Date().toISOString();
+    try { localStorage.setItem(TICKET_KEY, JSON.stringify(all)); } catch (_) {}
+    return !!all[id];
+  },
+  clear() {
+    ticketMem = {};
+    try { localStorage.removeItem(TICKET_KEY); } catch (_) {}
+  },
+};
+
 export function shareUrl(fav, plan) {
   const p = new URLSearchParams();
   if (plan.length) p.set("t", plan.map(encId).join("."));
