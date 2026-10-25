@@ -228,15 +228,10 @@ function viewHome() {
   <section class="hero" aria-labelledby="hero-h">
     ${skySvg()}
     <div class="hero-eyes" aria-hidden="true"><span></span><span></span></div>
-    <p class="hero-tag">LuMa × LIFFe ${sy} · Neuradni filmski vodič</p>
     <h1 class="hero-title" id="hero-h"><span class="ht-pre">Ljubljanski mednarodni filmski festival<span class="sr">: </span></span>Manj brskanja,<br> <em>več kina.<svg class="ht-squiggle" aria-hidden="true"><use href="#i-squiggle"/></svg></em><span class="ht-pop" aria-hidden="true"> 🍿</span></h1>
     <p class="hero-lead">LIFFe je ena lepših stvari, ki jih prinese jesen.</p>
     <p class="hero-lede">Ogromno filmov, novih zgodb in dobrih razlogov za večer v kinu. Da se med vso to izbiro ne izgubimo, sva pripravila mali filmski vodič, ki ti pomaga izbrati pravi film.</p>
-    <div class="hero-cta">
-      <a class="btn btn-mustard btn-lg" href="#/odkrij">Odkrij filme ${ic("arrow")}</a>
-      <a class="btn btn-paper" href="#/ziherce">${ic("star")}<span>Poglej ziherce</span></a>
-    </div>
-    <p class="hero-micro">Za filmske navdušence in čisto običajne radovedneže – filmsko predznanje ni potrebno.</p>
+    <p class="hero-micro">Neuradni vodič LuMa film kluba – za filmske navdušence in čisto običajne radovedneže.</p>
     <p class="hero-date" aria-label="${esc(`Festival traja od ${sd}. do ${ed}. novembra ${sy} v Ljubljani. ${when}.`)}">
       <span class="hd-days">${sd}.–${ed}.</span>
       <span class="hd-month">november ${sy}</span>
@@ -632,21 +627,31 @@ function filmCard(f, hitIds, { extra = "", reviews = false } = {}) {
     </a>
     ${editor ? `<div class="card-body" style="padding-top:0;flex:0;position:relative;z-index:2">${idTag("film_id", f.id)}</div>` : ""}
     ${favBtn(f.id)}
-    <div class="card-body" style="padding-top:0;flex:0">${cardDesc(f)}${reviews ? reviewLinks(f) : ""}<div class="card-terms">${terms}</div></div>
+    <div class="card-body" style="padding-top:0;flex:0">${cardMore(f, terms, ss.filter((s) => hit.has(s.id)).length, !!hitIds && screeningFilterActive())}${reviews ? reviewLinks(f) : ""}</div>
   </article>`;
 }
 
-// Kratek opis na kartici: skrit za gumbom »Opis«, odprti ostanejo odprti tudi po ponovnem izrisu.
-const openDesc = new Set();
-let descSeq = 0;
-function cardDesc(f) {
-  if (!f.summary) return "";
-  const on = openDesc.has(f.id);
-  const id = "opis-" + ++descSeq;
-  return `<div class="card-desc${on ? " open" : ""}">
-    <button type="button" class="desc-toggle" data-act="desc" data-id="${f.id}" aria-expanded="${on}" aria-controls="${id}">Opis ${ic("chev")}</button>
-    <div class="desc-wrap" id="${id}"><div><p class="card-sum">${esc(f.summary)}</p></div></div>
-  </div>`;
+// Opis in termini na kartici: skrita za gumboma »Opis« in »Termini«; odprti ostanejo odprti tudi po ponovnem izrisu.
+const openMore = { opis: new Set(), termini: new Set() };
+let moreSeq = 0;
+function termsNote(f, nHit, filtered) {
+  if ((P.screeningsByFilm.get(f.id) || []).some((s) => store.inPlan(s.id))) return `<span class="more-note"><span class="sr">, </span>${ic("check")}v koledarju</span>`;
+  return filtered ? `<span class="more-note hit"><span class="sr">, </span>${nHit} ${plural(nHit, "ustreza", "ustrezata", "ustrezajo", "ustreza")}</span>` : "";
+}
+function cardMore(f, terms, nHit, filtered) {
+  const n = (P.screeningsByFilm.get(f.id) || []).length;
+  const part = (kind, label, body) => {
+    const on = openMore[kind].has(f.id);
+    const id = `${kind}-${++moreSeq}`;
+    return { btn: `<button type="button" class="desc-toggle" data-act="more" data-kind="${kind}" data-id="${f.id}" aria-expanded="${on}" aria-controls="${id}">${label} ${ic("chev")}</button>`,
+      panel: `<div class="more-panel${on ? " open" : ""}" id="${id}"><div>${body}</div></div>` };
+  };
+  const parts = [
+    f.summary ? part("opis", "Opis", `<p class="card-sum">${esc(f.summary)}</p>`) : null,
+    n ? part("termini", `Termini · ${n}${termsNote(f, nHit, filtered).replace("<span", `<span data-hit="${nHit}" data-filtered="${filtered ? 1 : 0}"`)}`, `<div class="card-terms">${terms}</div>`) : null,
+  ].filter(Boolean);
+  if (!parts.length) return "";
+  return `<div class="card-more"><div class="more-btns">${parts.map((x) => x.btn).join("")}</div>${parts.map((x) => x.panel).join("")}</div>`;
 }
 
 function rowHtml(s, fit = null) {
@@ -746,15 +751,14 @@ function screenCard(s) {
 }
 
 function calButtons(s) {
-  return `<a class="btn btn-small btn-ghost" href="${esc(gcalUrl(s, P))}" target="_blank" rel="noopener" data-act="gcal" data-id="${s.id}" aria-label="Dodaj v Google Koledar (odpre se v novem zavihku)">${ic("cal")}<span>Google</span></a>
-      <button type="button" class="btn btn-small btn-ghost" data-act="ics1" data-id="${s.id}" aria-label="Prenesi .ics za Apple ali drug koledar">${ic("cal")}<span>.ics</span></button>`;
+  return `<a class="btn btn-small btn-ghost" href="${esc(gcalUrl(s, P))}" target="_blank" rel="noopener" data-act="gcal" data-id="${s.id}" aria-label="Dodaj v Google Koledar (odpre se v novem zavihku)">${ic("cal")}<span>Google</span></a>`;
 }
 
 // Le dejstvo, da je bil izvoz narejen – ne trdimo, da je dogodek v koledarju.
 function exportTag(sid) {
   const x = exported.get(sid);
   if (!x) return "";
-  return `<p class="exported">${ic("check")}<span>${x.how === "google" ? "Odprto v Google Koledarju" : "Izvoženo v Apple/Outlook/Google (.ics)"}</span></p>`;
+  return `<p class="exported">${ic("check")}<span>${x.how === "google" ? "Odprto v Google Koledarju" : "Izvoženo v koledar"}</span></p>`;
 }
 
 function extLinks(f) {
@@ -834,9 +838,9 @@ function viewMine(params) {
     </ul>
   </div>
   <div class="toolbar">
-    ${!valid.length ? "" : notExp.length === valid.length ? `<button type="button" class="btn" data-act="icsall">${ic("cal")}<span>Izvozi v Google/Apple koledar (.ics)</span></button>`
-      : notExp.length ? `<button type="button" class="btn" data-act="icsnew">${ic("cal")}<span>Izvozi ${notExp.length} ${plural(notExp.length, "nov termin", "nova termina", "nove termine", "novih terminov")} (.ics)</span></button><button type="button" class="btn btn-ghost" data-act="icsall">Izvozi vse znova</button>`
-      : `<button type="button" class="btn btn-ghost" data-act="icsall">${ic("cal")}<span>Izvozi vse znova (.ics)</span></button>`}
+    ${!valid.length ? "" : notExp.length === valid.length ? `<button type="button" class="btn" data-act="icsall">${ic("cal")}<span>Izvozi vse v koledar</span></button>`
+      : notExp.length ? `<button type="button" class="btn" data-act="icsnew">${ic("cal")}<span>Izvozi ${notExp.length} ${plural(notExp.length, "nov termin", "nova termina", "nove termine", "novih terminov")}</span></button><button type="button" class="btn btn-ghost" data-act="icsall">Izvozi vse znova</button>`
+      : `<button type="button" class="btn btn-ghost" data-act="icsall">${ic("cal")}<span>Izvozi vse znova</span></button>`}
     <button type="button" class="btn btn-ghost" data-act="share">${ic("share")}<span>Deli moj LIFFe</span></button>
   </div>
   ${valid.length && notExp.length < valid.length ? `<p class="small muted" style="margin-top:8px">${notExp.length ? `${notExp.length} ${plural(notExp.length, "termin še ni izvožen", "termina še nista izvožena", "termini še niso izvoženi", "terminov še ni izvoženih")}; »Izvozi nove« doda le te, da se v tvojem Google/Apple koledarju nič ne podvoji.` : "Vsi termini so izvoženi."} Oznaka pove le, da je bil izvoz narejen – ali je dogodek res v tvojem Google/Apple koledarju, stran ne more preveriti.</p>` : ""}
@@ -848,7 +852,7 @@ function viewMine(params) {
     <a class="seg-btn" href="#/moj?pogled=casovnica" ${tlView ? 'aria-current="true"' : ""}>${ic("clock")}Časovnica</a>
   </div>` : ""}
   ${valid.length ? (tlView ? timelineHtml(valid, clash, params.get("zanima") === "1") : planHtml) : `<div class="notice info" style="margin-top:12px">${ic("cal")}<p>Izberi konkreten termin pri filmu ali v <a href="#/odkrij?pogled=termini">urniku</a>.</p></div>`}
-  <p class="small muted" style="margin-top:28px">Izvoz .ics deluje z Google Koledarjem, Apple Koledarjem in Outlookom (časovni pas Europe/Ljubljana). Dogodek v koledarju ni vstopnica.</p>
+  <p class="small muted" style="margin-top:28px">Izvoz vseh terminov prenese datoteko, ki jo odpreš z Apple Koledarjem, Google Koledarjem ali Outlookom (časovni pas Europe/Ljubljana). Posamezen termin dodaš v Google Koledar z gumbom »Google«. Dogodek v koledarju ni vstopnica.</p>
   ${valid.length ? `<p class="small" style="margin-top:12px"><button type="button" class="linkbtn" data-act="wipeplan">Počisti koledar</button> <span class="muted">(filmi pod »Zanima me« ostanejo)</span></p>` : ""}`;
 }
 
@@ -1256,6 +1260,15 @@ function refreshAfterStore(btn) {
       b.setAttribute("aria-pressed", on);
       b.innerHTML = `${ic(on ? "check" : "plus")}<span>${on ? "V mojem koledarju" : "V moj koledar"}</span>`;
     });
+    // gumb »Termini«: oznaka »v koledarju« sledi spremembam
+    $main.querySelectorAll('[data-act="more"][data-kind="termini"]').forEach((b) => {
+      const f = P.filmById.get(b.dataset.id);
+      const old = b.querySelector(".more-note");
+      const nHit = old ? Number(old.dataset.hit || 0) : 0, filtered = old ? old.dataset.filtered === "1" : false;
+      if (old) old.remove();
+      const note = termsNote(f, nHit, filtered);
+      if (note) b.querySelector("svg:last-of-type").insertAdjacentHTML("beforebegin", note.replace("<span", `<span data-hit="${nHit}" data-filtered="${filtered ? 1 : 0}"`));
+    });
     // termini na karticah (obarvani, če so v koledarju)
     $main.querySelectorAll("a.term[data-sid]").forEach((t) => {
       const on = store.inPlan(t.dataset.sid);
@@ -1331,12 +1344,13 @@ async function onClick(e) {
       break;
     case "sec": toggleIn(D.sec, el.dataset.val); refreshDiscover(); break;
     case "view": D.view = el.dataset.val; syncUrl(); renderDiscoverResults(); break;
-    case "desc": {
-      const box = el.closest(".card-desc");
-      const on = !box.classList.contains("open");
-      box.classList.toggle("open", on);
+    case "more": {
+      const panel = document.getElementById(el.getAttribute("aria-controls"));
+      const on = !panel.classList.contains("open");
+      panel.classList.toggle("open", on);
       el.setAttribute("aria-expanded", String(on));
-      if (on) openDesc.add(id); else openDesc.delete(id);
+      const set = openMore[el.dataset.kind];
+      if (on) set.add(id); else set.delete(id);
       break;
     }
     case "secinfo": {
@@ -1367,7 +1381,6 @@ async function onClick(e) {
       refreshDiscover();
       break;
     }
-    case "ics1": downloadIcs([id], P, `liffe-${id}.ics`); exported.mark([id], "ics"); toast("Datoteka .ics je prenesena – odpri jo s koledarjem"); afterExport(el); break;
     case "gcal": exported.mark([id], "google"); afterExport(el); break; // povezava se odpre sama
     case "icsall":
     case "icsnew": {

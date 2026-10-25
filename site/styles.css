@@ -65,7 +65,7 @@ svg { width: 1em; height: 1em; flex: none; }
 .top-inner { max-width: 1160px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 24px; min-height: 58px; }
 .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; }
 .brand-eye { width: 34px; height: 20px; color: var(--paper); }
-.brand-word { font-family: var(--serif); font-size: 1.45rem; letter-spacing: .01em; }
+.brand-word { font-family: var(--serif); font-size: 1.45rem; letter-spacing: .01em; white-space: nowrap; }
 .brand-x { color: var(--mustard); }
 .brand-year { font-size: .72rem; font-weight: 700; letter-spacing: .12em; border: 1.5px solid currentColor; border-radius: 99px; padding: 1px 7px; opacity: .85; }
 .nav { margin-left: auto; display: flex; gap: 4px; }
@@ -76,8 +76,8 @@ svg { width: 1em; height: 1em; flex: none; }
 .badge[hidden] { display: none; }
 .badge { background: var(--mustard); color: var(--ink); font-size: .72rem; min-width: 20px; height: 20px; border-radius: 99px; display: inline-grid; place-items: center; padding: 0 5px; font-weight: 700; }
 
-/* pet zavihkov se v glavo zvrsti od ~960 px naprej; ožje je navigacija spodaj */
-@media (max-width: 959px) {
+/* pet zavihkov se v glavo zvrsti od ~1024 px naprej; ožje je navigacija spodaj */
+@media (max-width: 1023px) {
   .top-inner { justify-content: center; min-height: 52px; padding: 8px 16px; }
   .nav {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; margin: 0;
@@ -141,8 +141,6 @@ main { flex: 1; width: 100%; max-width: 1160px; margin: 0 auto; padding: 20px 16
   color: var(--paper); padding: clamp(26px, 6vw, 60px) clamp(20px, 5vw, 56px) clamp(36px, 6vw, 64px);
   isolation: isolate;
 }
-.hero-tag { display: inline-flex; gap: 8px; align-items: center; font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mustard); margin-bottom: 18px; }
-.hero-tag svg { width: 14px; height: 14px; }
 /* naslov: »Manj brskanja, več kina.« – drugi del v gorčični kurzivi z rožnato vijugo */
 .hero-title { font-size: clamp(2.55rem, 7.6vw, 5.4rem); line-height: .98; letter-spacing: -.02em; color: var(--paper); }
 .hero-title em { font-style: italic; color: var(--mustard); position: relative; display: inline-block; padding-right: .04em; white-space: nowrap; }
@@ -152,14 +150,15 @@ main { flex: 1; width: 100%; max-width: 1160px; margin: 0 auto; padding: 20px 16
 .ht-pre { display: block; font-family: var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: .2em; font-size: clamp(.78rem, 1.5vw, 1rem); line-height: 1.45; color: var(--paper); margin-bottom: .7em; text-wrap: balance; }
 @media (max-width: 560px) {
   .hero-title { font-size: clamp(2.3rem, 11vw, 2.8rem); }
-  .ht-pre { margin-top: 10px; font-size: .78rem; letter-spacing: .16em; max-width: calc(100% - 70px); }
-  .hero .hero-tag { margin-bottom: 12px; } .hero-lead { margin-top: 14px; font-size: 1.2rem; } .hero-lede { line-height: 1.5; } .hero-cta { margin-top: 18px; }
+  .ht-pre { font-size: .78rem; letter-spacing: .16em; max-width: calc(100% - 80px); }
+  .hero-lead { margin-top: 14px; font-size: 1.2rem; } .hero-lede { line-height: 1.5; }
 }
 .hero-lead { margin-top: 20px; font-family: var(--serif); font-size: clamp(1.25rem, 3vw, 1.55rem); line-height: 1.25; color: var(--paper); max-width: 40ch; }
 .hero-lead + .hero-lede { margin-top: 8px; }
 /* datum kot festivalska vstopnica */
 .hero-date {
-  display: inline-grid; grid-template-columns: auto auto; align-items: baseline; column-gap: 12px;
+  display: grid; width: max-content; max-width: 100%; margin-left: auto; /* vstopnica z datumom vedno desno */
+  grid-template-columns: auto auto; align-items: baseline; column-gap: 12px;
   margin-top: 22px; padding: 10px 18px 10px 16px; background: var(--mustard) var(--grain); color: var(--ink);
   border-radius: 10px; position: relative; transform: rotate(1.5deg); box-shadow: 3px 3px 0 rgba(0, 0, 0, .35);
   -webkit-mask: radial-gradient(circle 7px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat,
@@ -170,20 +169,19 @@ main { flex: 1; width: 100%; max-width: 1160px; margin: 0 auto; padding: 20px 16
 .hd-days { font-family: var(--serif); font-size: clamp(1.7rem, 5vw, 3rem); line-height: 1; letter-spacing: -.01em; }
 .hd-month { font-family: var(--serif); font-size: clamp(1.05rem, 3vw, 1.5rem); font-style: italic; }
 .hd-where { grid-column: 1 / -1; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-top: 5px; padding-top: 5px; border-top: 2px dashed rgba(29, 26, 43, .45); }
-@media (min-width: 900px) {
-  .hero-date { position: absolute; right: clamp(40px, 5vw, 72px); bottom: clamp(56px, 7vw, 84px); margin: 0; transform: rotate(3deg); }
+/* širok zaslon: besedilo levo, vstopnica v svojem stolpcu desno (brez prekrivanja) */
+@media (min-width: 1000px) {
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 40px; }
+  .hero > .hero-title { grid-column: 1 / -1; }
+  .hero > .hero-lead, .hero > .hero-lede, .hero > .hero-micro { grid-column: 1; }
+  .hero > .hero-date { grid-column: 2; grid-row: 2 / span 3; align-self: end; justify-self: end; margin: 0 8px 6px 0; transform: rotate(3deg); }
 }
 .hero-lede { color: #d8d1c2; margin-top: 20px; max-width: 50ch; font-size: clamp(1rem, 2.3vw, 1.1rem); line-height: 1.6; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-.btn-lg { min-height: 52px; padding: 12px 24px; font-size: 1.05rem; }
-.hero-micro { margin-top: 12px; font-size: .88rem; color: #b9b1a2; }
+.hero-micro { margin-top: 16px; font-size: .88rem; color: #b9b1a2; }
 .btn-mustard { background: var(--mustard); border-color: var(--mustard); color: var(--ink); }
 .btn-mustard:hover { background: #ebb653; }
-.btn-paper { background: transparent; border-color: var(--paper); color: var(--paper); }
-.btn-paper:hover { background: var(--paper); color: var(--night); }
 @media (max-width: 480px) {
   .hero { padding-bottom: 26px; }
-  .hero-cta .btn { flex: 1 1 100%; }
   .hero-date { margin-top: 18px; padding: 8px 16px 8px 14px; }
 }
 .hero-sky { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
@@ -192,7 +190,7 @@ main { flex: 1; width: 100%; max-width: 1160px; margin: 0 auto; padding: 20px 16
 .hero-eyes span::after { content: ""; width: 34%; aspect-ratio: 1; background: var(--ink); border-radius: 50%; transform: translateX(var(--look, 0)); transition: transform .6s ease; }
 .hero-eyes span:nth-child(2) { animation-delay: .08s; }
 @keyframes blink { 0%, 94%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.08); } }
-@media (max-width: 600px) { .hero-eyes { width: 70px; right: 14px; top: 14px; } .hero .hero-tag { max-width: calc(100% - 80px); } }
+@media (max-width: 600px) { .hero-eyes { width: 70px; right: 14px; top: 14px; } }
 
 /* trije koraki: Odkrij → Shrani → Načrtuj (vsak z enim dejanjem) */
 .steps { margin-top: 26px; }
@@ -335,7 +333,7 @@ a.term:hover { border-color: var(--ink); }
 /* ---------- seznam terminov ---------- */
 .day-block { margin-top: 22px; }
 .day-head { display: flex; align-items: baseline; gap: 12px; position: sticky; top: 58px; background: var(--paper) var(--grain); padding: 10px 0 8px; z-index: 5; border-bottom: 2px solid var(--ink); }
-@media (max-width: 959px) { .day-head { top: 52px; } }
+@media (max-width: 1023px) { .day-head { top: 52px; } }
 .day-head h2, .day-head h3 { font-size: 1.5rem; }
 .day-head .count { color: var(--ink-3); font-size: .88rem; }
 .rows { list-style: none; margin: 0; padding: 0; }
@@ -555,18 +553,22 @@ html.modal-open { overflow: hidden; }
 .card-body .reviews + .card-terms { margin-top: 10px; }
 .grid.grid-wide { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
 @media (max-width: 560px) { .grid.grid-wide { grid-template-columns: 1fr; } }
-/* kratek opis na kartici: skrit za gumbom »Opis« */
-.card-desc { position: relative; z-index: 2; margin-bottom: 2px; }
+/* opis in termini na kartici: skrita za gumboma »Opis« in »Termini« */
+.card-more { position: relative; z-index: 2; margin-bottom: 2px; }
+.more-btns { display: flex; flex-wrap: wrap; gap: 6px; }
 .desc-toggle { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; padding: 4px 10px 4px 12px; margin-left: -2px; border: 1.5px solid var(--line-2); border-radius: 99px; background: transparent; color: var(--ink); font: inherit; font-size: .84rem; font-weight: 700; cursor: pointer; }
 .desc-toggle:hover { border-color: var(--ink); }
-.desc-toggle svg { width: 16px; height: 16px; transition: transform .2s ease; }
-.card-desc.open .desc-toggle svg { transform: rotate(180deg); }
-.desc-wrap { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .22s ease, visibility .22s; }
-.card-desc.open .desc-wrap { grid-template-rows: 1fr; visibility: visible; }
-.desc-wrap > div { overflow: hidden; min-height: 0; }
+.desc-toggle > svg:last-child { width: 16px; height: 16px; transition: transform .2s ease; }
+.desc-toggle[aria-expanded="true"] > svg:last-child { transform: rotate(180deg); }
+.more-note { display: inline-flex; align-items: center; gap: 3px; margin-left: 4px; font-size: .74rem; font-weight: 700; color: var(--teal-ink); }
+.more-note svg { width: 12px; height: 12px; }
+.more-note.hit { color: var(--warn); }
+.more-panel { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .22s ease, visibility .22s; }
+.more-panel.open { grid-template-rows: 1fr; visibility: visible; }
+.more-panel > div { overflow: hidden; min-height: 0; }
 .card-sum { font-size: .9rem; line-height: 1.45; color: var(--ink-2); padding-top: 8px; }
-.card-desc + .reviews { margin-top: 8px; }
-@media (prefers-reduced-motion: reduce) { .desc-wrap, .desc-toggle svg { transition: none; } }
+.card-more + .reviews { margin-top: 8px; }
+@media (prefers-reduced-motion: reduce) { .more-panel, .desc-toggle > svg { transition: none; } }
 /* dolgo navodilo v iskalnem polju se na ozkem zaslonu ne odreže */
 .searchbar input { text-overflow: ellipsis; }
 @media (max-width: 560px) { .searchbar input::placeholder { font-size: .84rem; } }
