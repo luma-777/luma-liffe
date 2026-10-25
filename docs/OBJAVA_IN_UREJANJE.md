@@ -36,22 +36,26 @@ Urejanje (brez kode):
 Spremembe so na strani vidne v nekaj minutah (Google objavljene podatke osveži približno na 5 minut), brez Pusha.
 Če Google ne odgovori, stran uporabi urni posnetek.
 
-## 3. »Pridem tudi jaz« (možnost C, brez strežnika)
+## 3. »Pridem tudi jaz« (obrazec na strani, odgovori v Google obrazcu)
 
-1. forms.google.com → nov obrazec *Pridem tudi jaz – LuMa × LIFFe*. Vprašanja:
-   - **ID projekcije** (kratek odgovor, obvezno)
-   - **Vzdevek** (kratek odgovor, obvezno; opis: »ne uporabljaj polnega imena«)
-   - **Ali sme LuMa vzdevek javno pokazati pri tej projekciji?** (Da / Ne, obvezno)
-   - **Želim se odjaviti** (potrditveno polje, neobvezno)
-2. Nastavitve: **ne** zbiraj e-naslovov. Odgovori ostanejo zasebni (če jih povežeš s Sheetom, naj bo to
-   ločen, nedeljen Sheet – nikoli uredniški).
-3. ⋮ → **Pridobi predizpolnjeno povezavo** → v »ID projekcije« vpiši `X` → **Kopiraj povezavo**. V povezavi je del
-   `entry.123456789=X`. V `site/config.js` vpiši `formUrl` (del do `viewform`) in `screeningEntry: "entry.123456789"`.
-   Gumb se nato pokaže pri vsakem skupnem ogledu in sam vpiše ID projekcije.
-4. Moderacija: v odgovorih preglej vzdevke; tiste z »Da« (in primerne) prepiši v `luma_potrjeni_pridruzeni`.
-   Odjava: izbriši vrstico.
+Obiskovalec pri skupnem ogledu vpiše ime ali vzdevek in klikne »Pošlji«. Stran prijavo pošlje v Google obrazec LuMa;
+odgovori so zasebni in jih vidita samo lastnika obrazca. Dokler obrazec ni povezan, gumba na strani ni.
 
-Dokler obrazec ni nastavljen, stran pokaže le povabilo (možnost A) – nikoli gumba, ki ne bi ničesar zabeležil.
+Enkratna nastavitev:
+1. forms.google.com → prazen obrazec *Pridem tudi jaz – LuMa × LIFFe*. Štiri vprašanja, vsa obvezna:
+   - **ID projekcije** (kratek odgovor)
+   - **Ime ali vzdevek** (kratek odgovor)
+   - **Javni prikaz imena** (izbira med več možnostmi): točno `Da` in `Ne`
+   - **Pridem ali odjava** (izbira med več možnostmi): točno `Pridem` in `Odjava`
+2. Nastavitve → Odgovori: e-naslovov **ne** zbiraj, »Omeji na 1 odgovor« pusti izklopljeno (sicer obrazec zahteva prijavo).
+3. ⋮ → **Pridobi predizpolnjeno povezavo** → izpolni vsa štiri polja (npr. `test`, `test`, `Da`, `Pridem`) →
+   **Pridobi povezavo** → **Kopiraj povezavo**. Iz nje se v `site/config.js` vpišeta `rsvp.formUrl` (del do `viewform`)
+   in štiri številke `entry.…` (`screening`, `name`, `publish`, `action`).
+4. Odgovorov **ne** povezuj z uredniškim Sheetom (ta je delno objavljen). Če jih želiš v tabeli, naj bo to ločen, zaseben Sheet.
+
+Moderacija: v odgovorih preglej imena; tista z »Da« (in primerna) prepiši v `luma_potrjeni_pridruzeni` z `objavi = DA`.
+Pri »Odjava« vrstico izbriši. Stran ne more preveriti, ali je Google prijavo sprejel, zato po spremembi obrazca naredi
+eno testno prijavo in jo nato izbriši.
 
 ## 4. Kaj je preverjeno in kakšne so omejitve
 

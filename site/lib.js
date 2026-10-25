@@ -374,17 +374,68 @@ export async function loadLuma() {
   return { ...cleanLuma(snapshot), live: false, updated_at: snapshot.updated_at };
 }
 
+// Zunanja povezava za prijavo iz stolpca prijava_url (če LuMa uporabi drug obrazec).
 export function rsvpUrl(row) {
-  if (row.prijava_url && /^https:\/\//.test(row.prijava_url)) return row.prijava_url;
-  const { formUrl, screeningEntry } = CONFIG.rsvp;
-  if (formUrl && screeningEntry) {
-    const u = new URL(formUrl);
-    u.searchParams.set("usp", "pp_url");
-    u.searchParams.set(screeningEntry, row.screening_id);
-    return u.toString();
-  }
-  return null;
+  return row.prijava_url && /^https:\/\//.test(row.prijava_url) ? row.prijava_url : null;
 }
+
+// Obrazec »Pridem tudi jaz« na strani: nastavljen, ko so v config.js vsa štiri polja.
+export function rsvpForm() {
+  const { formUrl = "", entries = {} } = CONFIG.rsvp || {};
+  const ok = /^https:\/\/docs\.google\.com\/forms\/d\/e\/[\w-]+\/viewform/.test(formUrl)
+    && ["screening", "name", "publish", "action"].every((k) => /^entry\.\d+$/.test(entries[k] || ""));
+  const values = { yes: "Da", no: "Ne", come: "Pridem", cancel: "Odjava", ...(CONFIG.rsvp.values || {}) };
+  return ok ? { action: formUrl.replace(/\/viewform.*$/, "/formResponse"), entries, values } : null;
+}
+
+// Pošlje prijavo v Google obrazec prek skritega okvirja. Google odgovora ne
+// pokaže drugi strani, zato je »poslano« = Google je vrnil stran po oddaji.
+export function sendRsvp(values) {
+  const cfg = rsvpForm();
+  if (!cfg) return Promise.reject(new Error("obrazec ni nastavljen"));
+  if (!navigator.onLine) return Promise.reject(new Error("brez povezave"));
+  return new Promise((resolve, reject) => {
+    const target = "rsvp-" + Date.now();
+    const frame = document.createElement("iframe");
+    frame.name = target;
+    frame.title = "Pošiljanje prijave";
+    frame.hidden = true;
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = cfg.action;
+    form.target = target;
+    form.hidden = true;
+    for (const [k, v] of Object.entries(values)) {
+      const i = document.createElement("input");
+      i.type = "hidden";
+      i.name = cfg.entries[k];
+      i.value = v;
+      form.appendChild(i);
+    }
+    const cleanup = () => setTimeout(() => { frame.remove(); form.remove(); }, 1000);
+    const timer = setTimeout(() => { cleanup(); reject(new Error("ni odgovora")); }, 15000);
+    document.body.append(frame, form);
+    // prazen okvir se najprej naloži sam; šele nato oddamo obrazec
+    setTimeout(() => {
+      frame.addEventListener("load", () => { clearTimeout(timer); cleanup(); resolve(); }, { once: true });
+      form.submit();
+    }, 50);
+  });
+}
+
+const RSVP_KEY = "luma-liffe-prijave";
+export const rsvpLog = {
+  get(sid) {
+    try { return (JSON.parse(localStorage.getItem(RSVP_KEY)) || {})[sid] || null; } catch (_) { return null; }
+  },
+  set(sid, rec) {
+    try {
+      const all = JSON.parse(localStorage.getItem(RSVP_KEY)) || {};
+      if (rec) all[sid] = rec; else delete all[sid];
+      localStorage.setItem(RSVP_KEY, JSON.stringify(all));
+    } catch (_) {}
+  },
+};
 
 /* ------------------------------------------------------------ html */
 

@@ -1,7 +1,8 @@
 import { CONFIG } from "./config.js";
 import {
   loadProgram, loadLuma, norm, haystack, toMin, fmtMin, startMin, endMin, dayShort, dayLong, dayParts,
-  ljNow, fmtStamp, overlaps, store, shareUrl, parseShare, downloadIcs, gcalUrl, rsvpUrl, venueLabel, esc,
+  ljNow, fmtStamp, overlaps, store, shareUrl, parseShare, downloadIcs, gcalUrl, rsvpUrl, rsvpForm, sendRsvp, rsvpLog,
+  venueLabel, esc,
 } from "./lib.js";
 
 let P = null; // uradni program
@@ -82,8 +83,7 @@ function art(f, large = false) {
     `<svg viewBox="0 0 160 90" style="inset:0;width:100%;height:100%"><g fill="${ink}" opacity=".85">${Array.from({ length: 30 }, (_, i) => `<circle cx="${84 + (i % 6) * 13}" cy="${10 + Math.floor(i / 6) * 13}" r="3.6"/>`).join("")}</g></svg>`,
     `<svg viewBox="0 0 160 90" style="inset:0;width:100%;height:100%"><path d="M70 60c10-40 30 10 40-20s30 30 20 0-30-20-10-34 30 20 34 4" fill="none" stroke="${ink}" stroke-width="2.2" stroke-linecap="round"/><circle cx="132" cy="62" r="14" fill="${paper}"/><path d="M126 58h12l-2 14h-8z" fill="#c4532d"/></svg>`,
   ];
-  const big = (f.title_sl || "?").replace(/^[^\p{L}\p{N}]+/u, "").charAt(0).toUpperCase();
-  return `<div class="art${large ? " large" : ""}" style="--c:${c}" aria-hidden="true">${motifs[h % motifs.length]}<span class="art-big">${esc(big)}</span>${sec}</div>`;
+  return `<div class="art${large ? " large" : ""}" style="--c:${c}" aria-hidden="true">${motifs[h % motifs.length]}${sec}</div>`;
 }
 
 function planBtn(sid, small = true) {
@@ -803,7 +803,7 @@ function viewLuma() {
     ${ic("star", "motif")}
     <p class="kicker">Uredniški izbor</p>
     <h1>LuMa priporoča</h1>
-    <p class="lede" style="margin-top:10px;max-width:56ch">Filmi, ki sva jih ročno izbrali v LuMa film klubu – s kratkim komentarjem, zakaj. Priporočilo ne pomeni nujno, da greva na projekcijo; za to poglej <a href="#/skupaj">Z LuMa v kino</a>.</p>
+    <p class="lede" style="margin-top:10px;max-width:56ch">Filmi, ki sva jih ročno izbrala v LuMa film klubu – s kratkim komentarjem, zakaj. Priporočilo ne pomeni nujno, da greva na projekcijo; za to poglej <a href="#/skupaj">Z LuMa v kino</a>.</p>
   </section>
   <div class="section">
     ${recs.length ? `<div class="stack">${recs.map((r, i) => {
@@ -847,11 +847,30 @@ function tgCard(r) {
     ${joined.length ? `<div class="joined"><span class="muted" style="background:none;padding:0">Pridružijo se:</span>${joined.map((j) => `<span>${esc(j.vzdevek)}</span>`).join("")}</div>` : ""}
     ${past ? `<p class="small muted">Ta projekcija je že mimo.</p>` : `<div class="btn-row">
       ${planBtn(s.id, false)}
-      ${url ? `<a class="btn btn-ghost" href="${esc(url)}" target="_blank" rel="noopener">${ic("people")}<span>Pridem tudi jaz</span> ${ic("ext")}</a>` : ""}
+      ${!rsvpForm() && url ? `<a class="btn btn-ghost" href="${esc(url)}" target="_blank" rel="noopener">${ic("people")}<span>Pridem tudi jaz</span> ${ic("ext")}</a>` : ""}
       ${ticketLink(s, false)}
     </div>
-    ${url ? `<p class="small muted">»Pridem tudi jaz« odpre kratek Google obrazec. Vpišeš le vzdevek; javno ga pokaževa samo, če to izrecno označiš, in šele po pregledu.${CONFIG.contactEmail ? ` Za odjavo piši na <a href="mailto:${esc(CONFIG.contactEmail)}">${esc(CONFIG.contactEmail)}</a>.` : " Odjavo oddaš v istem obrazcu."} Vstopnico kupi vsak sam.</p>` : `<p class="small muted">Vstopnico kupi vsak sam.</p>`}`}
+    ${rsvpForm() ? rsvpBox(s) : ""}
+    <p class="small muted">Vstopnico kupi vsak sam.</p>`}
   </article>`;
+}
+
+function rsvpBox(s) {
+  const done = rsvpLog.get(s.id);
+  return `<details class="rsvp">
+    <summary class="btn ${done ? "btn-soft" : "btn-mustard"}">${ic(done ? "check" : "people")}<span>${done ? `Prijava poslana: ${esc(done.name)}` : "Pridem tudi jaz"}</span></summary>
+    <form class="rsvp-form" data-form="rsvp" data-sid="${s.id}" novalidate>
+      <label class="rsvp-label" for="rn-${s.id}">Tvoje ime ali vzdevek</label>
+      <input id="rn-${s.id}" name="name" class="input" required maxlength="40" autocomplete="nickname" value="${esc(done ? done.name : "")}">
+      <label class="check"><input type="checkbox" name="publish" ${done && done.publish ? "checked" : ""}> Drugi lahko vidijo, da pridem (ime pokaževa pri tej projekciji)</label>
+      <div class="btn-row">
+        <button type="submit" class="btn" value="Pridem">${ic("check")}<span>Pošlji</span></button>
+        ${done ? `<button type="submit" class="btn btn-ghost btn-small" value="Odjava">Ne morem priti (odjava)</button>` : ""}
+      </div>
+      <p class="rsvp-status small" role="status" aria-live="polite"></p>
+      <p class="small muted">Prijavo vidiva samo midva. Ime pokaževa na strani le, če to označiš, in šele ko ga pregledava. E-naslova ne potrebujeva.</p>
+    </form>
+  </details>`;
 }
 
 function viewTogether() {
@@ -863,7 +882,7 @@ function viewTogether() {
     ${ic("people", "motif")}
     <p class="kicker" style="color:#eef8f7">Skupni ogledi</p>
     <h1>Z LuMa v kino</h1>
-    <p class="lede" style="margin-top:10px;max-width:56ch">Natanko te projekcije bova obiskali. Če ti termin ustreza, pridi zraven – po filmu je vedno čas za pogovor.</p>
+    <p class="lede" style="margin-top:10px;max-width:56ch">Natanko te projekcije bova obiskala. Če ti termin ustreza, pridi zraven in se lahko malo podružimo pred ali po filmu.</p>
   </section>
   <div class="section">
     ${rows.length ? `<div class="together">${rows.map(tgCard).join("")}</div>` : emptyBox({ title: "Skupni ogledi še niso razpisani", text: "Ko izbereva projekcije, na katere greva, bodo tukaj – z datumom, uro, dvorano in povabilom.", actions: `<a class="btn" href="#/luma">LuMa priporoča</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "people" })}
@@ -1072,6 +1091,39 @@ $main.addEventListener("click", async (e) => {
       }
       break;
     }
+  }
+});
+
+$main.addEventListener("submit", async (e) => {
+  const form = e.target.closest('form[data-form="rsvp"]');
+  if (!form) return;
+  e.preventDefault();
+  const sid = form.dataset.sid;
+  const status = form.querySelector(".rsvp-status");
+  const input = form.querySelector('input[name="name"]');
+  const name = input.value.trim().replace(/\s+/g, " ").slice(0, 40);
+  const action = (e.submitter && e.submitter.value) || "Pridem";
+  if (!name) { status.textContent = "Vpiši ime ali vzdevek."; input.focus(); return; }
+  const publish = form.querySelector('input[name="publish"]').checked;
+  const buttons = form.querySelectorAll("button");
+  buttons.forEach((b) => (b.disabled = true));
+  status.textContent = "Pošiljam …";
+  try {
+    const val = rsvpForm().values;
+    await sendRsvp({ screening: sid, name, publish: publish ? val.yes : val.no, action: action === "Odjava" ? val.cancel : val.come });
+    if (action === "Odjava") {
+      rsvpLog.set(sid, null);
+      toast("Odjava je poslana");
+    } else {
+      rsvpLog.set(sid, { name, publish, at: new Date().toISOString() });
+      toast(`Hvala, ${name}! Se vidimo v kinu.`);
+      if (!store.inPlan(sid)) store.togglePlan(sid);
+    }
+    render(true);
+  } catch (err) {
+    console.warn("Prijava ni bila poslana:", err);
+    status.textContent = "Pošiljanje ni uspelo. Preveri povezavo in poskusi znova.";
+    buttons.forEach((b) => (b.disabled = false));
   }
 });
 

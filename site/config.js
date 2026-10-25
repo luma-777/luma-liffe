@@ -24,12 +24,21 @@ export const CONFIG = {
     },
   },
 
-  // Neobvezno: Google Form za »Pridem tudi jaz«. Če je nastavljen, gumb
-  // samodejno predizpolni ID projekcije. Povezava v stolpcu prijava_url
-  // v Sheetu ima prednost.
-  //   formUrl:        https://docs.google.com/forms/d/e/…/viewform
-  //   screeningEntry: entry.123456789  (polje »ID projekcije«)
-  rsvp: { formUrl: "", screeningEntry: "" },
+  // »Pridem tudi jaz«: obrazec na strani pošlje prijavo v Google obrazec LuMa
+  // (odgovori ostanejo zasebni). Dokler polja niso izpolnjena, obrazca na strani ni.
+  //   formUrl: https://docs.google.com/forms/d/e/…/viewform
+  //   entries: številke polj iz »Vnaprejšnje izpolnjevanje obrazca« (entry.123…)
+  //   values:  odgovori pri izbirnih vprašanjih, natanko kot so zapisani v obrazcu
+  rsvp: {
+    formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc7x3zGuYuoGZuBBUMl_CxhWFhDoPWhFptjwQzi4Q1e35Km6g/viewform",
+    entries: {
+      screening: "entry.1791748099", // Projekcija
+      name: "entry.1355861651", // Ime
+      publish: "entry.1822844989", // Želiš, da drugi vedo, da prideš
+      action: "entry.1455908761", // Pridem ali odjava
+    },
+    values: { yes: "Da", no: "Ne", come: "Pridem", cancel: "Odjavljam udeležbo :(" },
+  },
 
   // Kontakt za odjavo/izbris vzdevka (prikazan pri prijavah).
   contactEmail: "",
