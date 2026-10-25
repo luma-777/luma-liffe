@@ -93,7 +93,7 @@ function art(f, large = false) {
 
 function planBtn(sid, small = true) {
   const on = store.inPlan(sid);
-  return `<button type="button" class="btn ${small ? "btn-small" : ""} btn-soft planbtn" data-act="plan" data-id="${sid}" aria-pressed="${on}">${ic(on ? "check" : "plus")}<span>${on ? "V mojem koledarju" : "V moj koledar"}</span></button>`;
+  return `<button type="button" class="btn ${small ? "btn-small" : ""} btn-soft planbtn" data-act="plan" data-id="${sid}" aria-pressed="${on}">${ic(on ? "check" : "plus")}<span>${on ? "V mojem LIFFe planu" : "Dodaj v moj LIFFe plan"}</span></button>`;
 }
 
 function ticketBtn(sid) {
@@ -719,7 +719,7 @@ function viewFilm(id) {
     <section class="section">
       <h2 style="margin-bottom:12px">Projekcije v Ljubljani</h2>
       ${ss.length ? `<div class="screens">${ss.map((s) => screenCard(s)).join("")}</div>` : `<p class="muted">Ni projekcij v Ljubljani.</p>`}
-      <p class="small muted" style="margin-top:10px">»V moj koledar« si termin le zapomni v tem brskalniku. Vstopnico kupiš posebej – gumb »Vstopnice« odpre uradno prodajo Cankarjevega doma.</p>
+      <p class="small muted" style="margin-top:10px">»Dodaj v moj LIFFe plan« si termin le zapomni v tem brskalniku. Vstopnico kupiš posebej – gumb »Vstopnice« odpre uradno prodajo Cankarjevega doma.</p>
     </section>
 
     <section class="section">
@@ -744,7 +744,6 @@ function screenCard(s) {
       ${planBtn(s.id)}
       ${store.inPlan(s.id) ? ticketBtn(s.id) : ""}
       ${store.inPlan(s.id) && tickets.has(s.id) ? "" : ticketLink(s)}
-      ${calButtons(s)}
     </div>
     ${exportTag(s.id)}
   </div>`;
@@ -781,7 +780,7 @@ function viewMine(params) {
   const favLink = favFilms.length ? `<a class="mine-link" href="#/zanima">${ic("heart")}<span><b>Zanima me</b> · ${favFilms.length} ${plural(favFilms.length, "film", "filma", "filmi", "filmov")}${unscheduled.length ? `, ${unscheduled.length} še brez termina` : ""}</span>${ic("arrow")}</a>` : "";
   if (!valid.length && !missing.length) {
     return `${banner({ c: "blue", icon: "cal", kicker: "Tvoj festivalski koledar", title: "Moj LIFFe", lede: "Termini, ki jih nameravaš obiskati." })}
-    ${emptyBox({ title: "Koledar je še prazno platno", text: favFilms.length ? "Pri filmih, ki te zanimajo, izberi termin z gumbom »V moj koledar« – pojavil se bo tukaj, razvrščen po dnevih." : "Ko pri filmu izbereš termin z gumbom »V moj koledar«, se pojavi tukaj, razvrščen po dnevih. Vse ostane samo v tem brskalniku – brez registracije.", actions: `${favFilms.length ? `<a class="btn" href="#/zanima">${ic("heart")}<span>Zanima me (${favFilms.length})</span></a>` : ""}<a class="btn ${favFilms.length ? "btn-ghost" : ""}" href="#/odkrij?tab=cas&od=17:30&do=23:59">Imam prost večer</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "eye" })}`;
+    ${emptyBox({ title: "Koledar je še prazno platno", text: favFilms.length ? "Pri filmih, ki te zanimajo, izberi termin z gumbom »Dodaj v moj LIFFe plan« – pojavil se bo tukaj, razvrščen po dnevih." : "Ko pri filmu izbereš termin z gumbom »Dodaj v moj LIFFe plan«, se pojavi tukaj, razvrščen po dnevih. Vse ostane samo v tem brskalniku – brez registracije.", actions: `${favFilms.length ? `<a class="btn" href="#/zanima">${ic("heart")}<span>Zanima me (${favFilms.length})</span></a>` : ""}<a class="btn ${favFilms.length ? "btn-ghost" : ""}" href="#/odkrij?tab=cas&od=17:30&do=23:59">Imam prost večer</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "eye" })}`;
   }
   const clash = overlaps(valid, P);
   const notExp = valid.filter((id) => !exported.get(id));
@@ -808,7 +807,7 @@ function viewMine(params) {
       return `<div class="plan-item">
         <div class="row-time"><b>${r.start}</b>${r.end ? `<span>do ${r.end}</span>` : `<span>konec ni znan</span>`}</div>
         <div>
-          <a class="row-title" href="#/film/${f.id}">${titleBits(f, { withAlt: false }).main}</a>${lumaGoes(s.id) ? `<span class="with-luma">${ic("people")} z LuMa</span>` : ""}${ticketTag(s.id)}
+          <a class="row-title" href="#/film/${f.id}" data-film="${f.id}" data-sid="${s.id}">${titleBits(f, { withAlt: false }).main}</a>${lumaGoes(s.id) ? `<span class="with-luma">${ic("people")} z LuMa</span>` : ""}${ticketTag(s.id)}
           <p class="row-sub">${esc(venueLabel(P.venueById.get(s.venue)))}${f.runtime ? ` · ${f.runtime} min` : ""}</p>
           <div class="daybar" aria-hidden="true"><i class="${c.length ? "clash" : ""}" style="left:${pct(startMin(s))}%;width:${e ? pct(e) - pct(startMin(s)) : 1.5}%"></i></div>
           <div class="daybar-scale" aria-hidden="true">${[10, 14, 18, 22].map((h) => `<span style="left:${pct(h * 60)}%">${h}</span>`).join("")}</div>
@@ -852,7 +851,7 @@ function viewMine(params) {
     <a class="seg-btn" href="#/moj?pogled=casovnica" ${tlView ? 'aria-current="true"' : ""}>${ic("clock")}Časovnica</a>
   </div>` : ""}
   ${valid.length ? (tlView ? timelineHtml(valid, clash, params.get("zanima") === "1") : planHtml) : `<div class="notice info" style="margin-top:12px">${ic("cal")}<p>Izberi konkreten termin pri filmu ali v <a href="#/odkrij?pogled=termini">urniku</a>.</p></div>`}
-  <p class="small muted" style="margin-top:28px">Izvoz vseh terminov prenese datoteko, ki jo odpreš z Apple Koledarjem, Google Koledarjem ali Outlookom (časovni pas Europe/Ljubljana). Posamezen termin dodaš v Google Koledar z gumbom »Google«. Dogodek v koledarju ni vstopnica.</p>
+  <p class="small muted" style="margin-top:28px">Izvoz vseh terminov prenese datoteko, ki jo odpreš z Apple Koledarjem, Google Koledarjem ali Outlookom (časovni pas Europe/Ljubljana). Posamezen termin dodaš v Google Koledar z gumbom »Google« pri terminu. Dogodek v koledarju ni vstopnica.</p>
   ${valid.length ? `<p class="small" style="margin-top:12px"><button type="button" class="linkbtn" data-act="wipeplan">Počisti koledar</button> <span class="muted">(filmi pod »Zanima me« ostanejo)</span></p>` : ""}`;
 }
 
@@ -944,7 +943,7 @@ function viewFavs() {
     <button type="button" class="btn btn-ghost" data-act="share">${ic("share")}<span>Deli</span></button>
   </div>
   <div id="share-out"></div>
-  ${todo.length ? `<section class="section" style="margin-top:22px"><h2 class="fav-h">Še brez termina <span class="count">${todo.length}</span></h2><p class="small muted" style="margin:-4px 0 12px">Klikni termin na kartici in izberi »V moj koledar«.</p>${grid(todo)}</section>` : ""}
+  ${todo.length ? `<section class="section" style="margin-top:22px"><h2 class="fav-h">Še brez termina <span class="count">${todo.length}</span></h2><p class="small muted" style="margin:-4px 0 12px">Klikni termin na kartici in izberi »Dodaj v moj LIFFe plan«.</p>${grid(todo)}</section>` : ""}
   ${done.length ? `<section class="section" style="margin-top:28px"><h2 class="fav-h">Že v Mojem LIFFu <span class="count">${done.length}</span></h2>${grid(done, plannedNote)}</section>` : ""}
   <p class="small" style="margin-top:24px"><button type="button" class="linkbtn" data-act="wipefav">Počisti seznam</button> <span class="muted">(termini v koledarju ostanejo)</span></p>`;
 }
@@ -1107,7 +1106,7 @@ function viewAbout() {
     <h2>Kako uporabljati</h2>
     <ul>
       <li><b>Imam prost čas</b>: izberi dan in okno, npr. petek od 18.00 do 22.30. »Konec« je izračunan iz uradnega trajanja; uvodov, pogovorov in poti med dvoranami ne poznamo.</li>
-      <li><b>Srček</b> = film te zanima; najdeš ga pod <b>Zanima me</b>. <b>V moj koledar</b> = izbran konkreten termin; najdeš ga v <b>Mojem LIFFu</b>. To nista rezervaciji.</li>
+      <li><b>Srček</b> = film te zanima; najdeš ga pod <b>Zanima me</b>. <b>Dodaj v moj LIFFe plan</b> = izbran konkreten termin; najdeš ga v <b>Mojem LIFFu</b>. To nista rezervaciji.</li>
       <li><b>Moj LIFFe</b> je tvoj koledar: opozori na prekrivanja, omogoči hitro zamenjavo termina, izvoz v Google ali Apple koledar in deljenje.</li>
     </ul>
   </div>`;
@@ -1160,7 +1159,7 @@ function filmModalHtml(f) {
     <p><a href="${esc(f.liffe_url)}" target="_blank" rel="noopener"><b>Preberi celoten opis na LIFFu</b> ${ic("ext")}</a></p>
     <h3 class="modal-h">Projekcije v Ljubljani</h3>
     ${ss.length ? `<div class="screens">${ss.map((s) => screenCard(s)).join("")}</div>` : `<p class="muted">Ni projekcij v Ljubljani.</p>`}
-    <p class="small muted">»V moj koledar« si termin le zapomni v tem brskalniku; vstopnico kupiš posebej.</p>
+    <p class="small muted">»Dodaj v moj LIFFe plan« si termin le zapomni v tem brskalniku; vstopnico kupiš posebej.</p>
     <h3 class="modal-h">Več o filmu</h3>
     ${extLinks(f)}
     <p class="small" style="margin-top:16px"><a href="#/film/${f.id}">Odpri na svoji strani</a> <span class="muted">(za deljenje povezave)</span></p>
@@ -1183,7 +1182,7 @@ function openFilm(id, opener, sid) {
   modalPicked = sid || null;
   const scr = sid && $modal.querySelector(`.screen[data-sid="${sid}"]`);
   if (scr) {
-    // s termina na kartici: pokaži prav ta termin in postavi fokus na »V moj koledar«
+    // s termina na kartici: pokaži prav ta termin in postavi fokus na »Dodaj v moj LIFFe plan«
     scr.classList.add("picked");
     requestAnimationFrame(() => scr.scrollIntoView({ block: "center" }));
     scr.querySelector('[data-act="plan"]').focus({ preventScroll: true });
@@ -1258,7 +1257,7 @@ function refreshAfterStore(btn) {
     document.querySelectorAll(`[data-act="plan"]`).forEach((b) => {
       const on = store.inPlan(b.dataset.id);
       b.setAttribute("aria-pressed", on);
-      b.innerHTML = `${ic(on ? "check" : "plus")}<span>${on ? "V mojem koledarju" : "V moj koledar"}</span>`;
+      b.innerHTML = `${ic(on ? "check" : "plus")}<span>${on ? "V mojem LIFFe planu" : "Dodaj v moj LIFFe plan"}</span>`;
     });
     // gumb »Termini«: oznaka »v koledarju« sledi spremembam
     $main.querySelectorAll('[data-act="more"][data-kind="termini"]').forEach((b) => {
@@ -1327,7 +1326,7 @@ async function onClick(e) {
       const s = P.screeningById.get(id);
       const f = s && P.filmById.get(s.film_id);
       const when = s ? `${dayLong(s.date)}, ${fmtMin(startMin(s))}` : "";
-      toast(was && tickets.has(id) ? `Odstranjeno iz koledarja (${when}). Za ta termin imaš označeno vstopnico.` : was ? (exported.get(id) ? `Odstranjeno iz koledarja (${when}). Termin je bil izvožen – izbriši ga še v Google/Apple koledarju.` : `Odstranjeno iz koledarja: ${when}`) : `Dodano v Moj koledar: ${f ? f.title_sl : ""}, ${when} (vstopnico kupiš posebej)`);
+      toast(was && tickets.has(id) ? `Odstranjeno iz koledarja (${when}). Za ta termin imaš označeno vstopnico.` : was ? (exported.get(id) ? `Odstranjeno iz koledarja (${when}). Termin je bil izvožen – izbriši ga še v Google/Apple koledarju.` : `Odstranjeno iz koledarja: ${when}`) : `Dodano v moj LIFFe plan: ${f ? f.title_sl : ""}, ${when} (vstopnico kupiš posebej)`);
       refreshAfterStore(el);
       break;
     }
