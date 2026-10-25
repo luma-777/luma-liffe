@@ -297,7 +297,7 @@ select, .input {
   border-radius: var(--radius); overflow: hidden; transition: transform .15s ease, box-shadow .15s ease;
 }
 .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-.card-link { text-decoration: none; display: flex; flex-direction: column; flex: 1; }
+.card-link { text-decoration: none; display: flex; flex-direction: column; flex: none; } /* vsebina teče od vrha: razprt opis ne premakne sosednjih kartic */
 .card-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
 .card-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
 .card-title { font-family: var(--serif); font-size: 1.38rem; line-height: 1.1; padding-right: 44px; }
@@ -562,8 +562,21 @@ html.modal-open { overflow: hidden; }
 .card-body .reviews + .card-terms { margin-top: 10px; }
 .grid.grid-wide { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
 @media (max-width: 560px) { .grid.grid-wide { grid-template-columns: 1fr; } }
-/* kratek opis na kartici (dva stavka, v celoti) */
-.card-sum { font-size: .9rem; line-height: 1.45; color: var(--ink-2); margin-top: 6px; }
+/* kratek opis na kartici: skrit za gumbom »Opis« */
+.card-desc { position: relative; z-index: 2; margin-bottom: 2px; }
+.desc-toggle { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; padding: 4px 10px 4px 12px; margin-left: -2px; border: 1.5px solid var(--line-2); border-radius: 99px; background: transparent; color: var(--ink); font: inherit; font-size: .84rem; font-weight: 700; cursor: pointer; }
+.desc-toggle:hover { border-color: var(--ink); }
+.desc-toggle svg { width: 16px; height: 16px; transition: transform .2s ease; }
+.card-desc.open .desc-toggle svg { transform: rotate(180deg); }
+.desc-wrap { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows .22s ease, visibility .22s; }
+.card-desc.open .desc-wrap { grid-template-rows: 1fr; visibility: visible; }
+.desc-wrap > div { overflow: hidden; min-height: 0; }
+.card-sum { font-size: .9rem; line-height: 1.45; color: var(--ink-2); padding-top: 8px; }
+.card-desc + .reviews { margin-top: 8px; }
+@media (prefers-reduced-motion: reduce) { .desc-wrap, .desc-toggle svg { transition: none; } }
+/* dolgo navodilo v iskalnem polju se na ozkem zaslonu ne odreže */
+.searchbar input { text-overflow: ellipsis; }
+@media (max-width: 560px) { .searchbar input::placeholder { font-size: .84rem; } }
 /* fotografije filmov (razmerje uradnih slik LIFFe 12:5) */
 .art.photo { aspect-ratio: 12/5; background: var(--ink); }
 .art.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }

@@ -368,15 +368,15 @@ function viewDiscover(params) {
   return `
   <div class="page-head">
     <h1>Odkrij filme</h1>
-    <p class="lede">${D.tab === "cas" ? "Povej, kdaj imaš čas – pokažemo projekcije, ki se v tem oknu začnejo, in ali se film izteče pravočasno." : "Vsi filmi z vsaj eno projekcijo v Ljubljani. Iskanje deluje po slovenskem, angleškem in izvirnem naslovu ter po režiserju."}</p>
+    <p class="lede">${D.tab === "cas" ? "Povej, kdaj imaš čas – pokažemo projekcije, ki se v tem oknu začnejo, in ali se film izteče pravočasno." : "Vsi filmi z vsaj eno projekcijo v Ljubljani."}</p>
   </div>
   <nav class="tabs" aria-label="Način prikaza">
     ${tabs.map(([k, label, icon]) => `<a href="${discoverQuery(D, { tab: k })}" ${D.tab === k ? 'aria-current="page"' : ""}>${ic(icon)}${label}</a>`).join("")}
   </nav>
   <div style="margin-top:16px" class="stack">
     ${D.tab === "cas" ? `<div id="cas-controls">${casControls()}</div>` : ""}
-    <label class="searchbar">${ic("search")}<span class="sr">Iskanje</span>
-      <input id="q" type="search" placeholder="Naslov ali režiser …" value="${esc(D.q)}" autocomplete="off" enterkeyhint="search">
+    <label class="searchbar">${ic("search")}<span class="sr">Iskanje po slovenskem, angleškem ali izvirnem naslovu ali po režiserju</span>
+      <input id="q" type="search" placeholder="${matchMedia("(max-width: 560px)").matches ? "Slovenski, angleški, izvirni naslov ali režiser" : "Išči po slovenskem, angleškem ali izvirnem naslovu ali po režiserju"}" value="${esc(D.q)}" autocomplete="off" enterkeyhint="search">
     </label>
   </div>
   <div id="controls">${filterControls()}</div>
@@ -587,14 +587,26 @@ function filmCard(f, hitIds, { extra = "", reviews = false } = {}) {
         <h3 class="card-title">${t.main}</h3>
         ${t.alt ? `<p class="alt-title">${t.alt}</p>` : ""}
         <p class="meta">${metaLine(f)}</p>
-        ${f.summary ? `<p class="card-sum">${esc(f.summary)}</p>` : ""}
         ${extra}
       </div>
     </a>
     ${editor ? `<div class="card-body" style="padding-top:0;flex:0;position:relative;z-index:2">${idTag("film_id", f.id)}</div>` : ""}
     ${favBtn(f.id)}
-    <div class="card-body" style="padding-top:0;flex:0">${reviews ? reviewLinks(f) : ""}<div class="card-terms">${terms}</div></div>
+    <div class="card-body" style="padding-top:0;flex:0">${cardDesc(f)}${reviews ? reviewLinks(f) : ""}<div class="card-terms">${terms}</div></div>
   </article>`;
+}
+
+// Kratek opis na kartici: skrit za gumbom »Opis«, odprti ostanejo odprti tudi po ponovnem izrisu.
+const openDesc = new Set();
+let descSeq = 0;
+function cardDesc(f) {
+  if (!f.summary) return "";
+  const on = openDesc.has(f.id);
+  const id = "opis-" + ++descSeq;
+  return `<div class="card-desc${on ? " open" : ""}">
+    <button type="button" class="desc-toggle" data-act="desc" data-id="${f.id}" aria-expanded="${on}" aria-controls="${id}">Opis ${ic("chev")}</button>
+    <div class="desc-wrap" id="${id}"><div><p class="card-sum">${esc(f.summary)}</p></div></div>
+  </div>`;
 }
 
 function rowHtml(s, fit = null) {
@@ -1145,6 +1157,14 @@ async function onClick(e) {
       break;
     case "sec": toggleIn(D.sec, el.dataset.val); refreshDiscover(); break;
     case "view": D.view = el.dataset.val; syncUrl(); renderDiscoverResults(); break;
+    case "desc": {
+      const box = el.closest(".card-desc");
+      const on = !box.classList.contains("open");
+      box.classList.toggle("open", on);
+      el.setAttribute("aria-expanded", String(on));
+      if (on) openDesc.add(id); else openDesc.delete(id);
+      break;
+    }
     case "secinfo": {
       secInfoOpen = !secInfoOpen;
       const box = document.getElementById("secinfo");
