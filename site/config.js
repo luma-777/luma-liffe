@@ -4,6 +4,9 @@ export const CONFIG = {
   // false = povsod tipografski nadomestki z motivi.
   showPosters: true,
 
+  // Povabilo v LuMa film klub v nogi strani: Instagram profil brez @. Prazno = povabila ni.
+  club: { instagram: "lumafilmklub" },
+
   // LuMa uredniški Google Sheet (samo neobčutljivi podatki). Dve možnosti:
   //  A) priporočeno – Sheet ostane zaseben, zavihki so »Objavljeni v splet« kot CSV:
   //     v csv vpiši tri povezave (Datoteka → Deli → Objavi v splet → zavihek → CSV).

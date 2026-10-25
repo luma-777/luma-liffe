@@ -83,7 +83,7 @@ export function dayLong(d) {
 
 export function dayParts(d) {
   const x = ymd(d);
-  return { wd: WD[x.wd].replace(".", ""), d: x.d, m: x.m };
+  return { wd: WD[x.wd].replace(".", ""), wdLong: WD_LONG[x.wd], d: x.d, m: x.m };
 }
 
 // Datum in ura v Ljubljani, ne glede na časovni pas naprave.
@@ -183,6 +183,8 @@ export const store = {
     mem = { fav: [], plan: [] };
     write();
   },
+  clearPlan() { mem.plan = []; write(); },
+  clearFav() { mem.fav = []; write(); },
 };
 window.addEventListener("storage", (e) => {
   if (e.key !== KEY) return;
@@ -196,6 +198,28 @@ window.addEventListener("storage", (e) => {
 // V povezavi so SAMO ID-ji: t227379 → »4vfv« (base36), drugi ID-ji dobesedno.
 const encId = (id) => (/^t\d+$/.test(id) ? Number(id.slice(1)).toString(36) : "~" + id);
 const decId = (x) => (x.startsWith("~") ? x.slice(1) : "t" + parseInt(x, 36));
+
+// Kateri termini so bili izvoženi v koledar (.ics ali Google). Stran ne more preveriti, ali je dogodek
+// v koledarju res shranjen – beleži le, da je bil izvoz narejen. Ločeno od plana, da deljenje ostane enako.
+const EXPORT_KEY = "luma-liffe-izvoz";
+let exportMem = null;
+export const exported = {
+  all() {
+    if (!exportMem) { try { exportMem = JSON.parse(localStorage.getItem(EXPORT_KEY)) || {}; } catch (_) { exportMem = {}; } }
+    return exportMem;
+  },
+  get: (id) => exported.all()[id] || null,
+  mark(ids, how) {
+    const all = exported.all();
+    const at = new Date().toISOString();
+    for (const id of ids) all[id] = { how, at };
+    try { localStorage.setItem(EXPORT_KEY, JSON.stringify(all)); } catch (_) {}
+  },
+  clear() {
+    exportMem = {};
+    try { localStorage.removeItem(EXPORT_KEY); } catch (_) {}
+  },
+};
 
 export function shareUrl(fav, plan) {
   const p = new URLSearchParams();
@@ -354,12 +378,14 @@ function cleanLuma(raw) {
   return { priporocila, skupne, pridruzeni, ziherce };
 }
 
-export async function loadLuma() {
+// onSnapshot: posnetek z istega strežnika pride takoj, Sheet (sveže) nekoliko pozneje.
+export async function loadLuma(onSnapshot) {
   let snapshot = { priporocila: [], skupne: [], pridruzeni: [], ziherce: [] };
   try {
     const r = await fetch("data/luma.json", { cache: "no-cache" });
     if (r.ok) snapshot = await r.json();
   } catch (_) {}
+  if (onSnapshot) onSnapshot({ ...cleanLuma(snapshot), live: false, updated_at: snapshot.updated_at });
   const { sheetId, tabs, csv = {} } = CONFIG.luma;
   const published = csv.priporocila && csv.skupne && csv.pridruzeni;
   if (published || sheetId) {

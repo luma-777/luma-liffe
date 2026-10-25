@@ -1,12 +1,14 @@
 import { CONFIG } from "./config.js";
 import {
   loadProgram, loadLuma, norm, haystack, toMin, fmtMin, startMin, endMin, dayShort, dayLong, dayParts,
-  ljNow, fmtStamp, overlaps, store, shareUrl, parseShare, downloadIcs, gcalUrl, rsvpUrl, rsvpForm, sendRsvp, rsvpLog,
+  ljNow, fmtStamp, overlaps, store, exported, shareUrl, parseShare, downloadIcs, gcalUrl, rsvpUrl, rsvpForm, sendRsvp, rsvpLog,
   venueLabel, esc,
 } from "./lib.js";
 
 let P = null; // uradni program
 let L = { priporocila: [], skupne: [], pridruzeni: [], ziherce: [] }; // LuMa uredniški podatki
+let lumaReady = false; // dokler LuMa podatki ne pridejo, ne kažemo »še nastaja«
+const lumaWait = () => `<p class="luma-wait" role="status">${ic("reel", "spin")}<span>Nalagam najin izbor …</span></p>`;
 const $main = document.getElementById("main");
 const scrollMemo = new Map();
 let prevHash = "";
@@ -151,6 +153,7 @@ function render(soft = false) {
     odkrij: () => [viewDiscover(params), "odkrij"],
     film: () => [viewFilm(id), "odkrij"],
     moj: () => [viewMine(), "moj"],
+    zanima: () => [viewFavs(), "zanima"],
     deljeno: () => [viewShared(params), "moj"],
     luma: () => [viewZiherce(params), "luma"],
     ziherce: () => [viewZiherce(params), "luma"],
@@ -163,7 +166,7 @@ function render(soft = false) {
   $main.innerHTML = (editor ? `<div class="notice info" style="margin-bottom:14px">${ic("warn")}<p><b>Uredniški način</b>: ob filmih in terminih so izpisani ID-ji za LuMa Sheet (film_id, screening_id). <button type="button" class="linkbtn" data-act="editoroff">Izklopi</button></p></div>` : "") + html;
   setNav(nav);
   afterRender(r, params);
-  const came = leaving.startsWith("#/film/");
+  const came = leaving.startsWith("#/film/") || r === "odkrij"; // nazaj na seznam: tja, kjer si ostal
   const key = location.hash || "#/";
   if (came && scrollMemo.has(key)) window.scrollTo(0, scrollMemo.get(key));
   else window.scrollTo(0, 0);
@@ -172,11 +175,11 @@ function render(soft = false) {
     if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus({ preventScroll: true }); }
   }
   prevHash = key;
-  document.title = ($main.querySelector("h1")?.textContent?.trim() || "LuMa × LIFFe 2026") + (r ? " · LuMa × LIFFe 2026" : " – neuradni festivalski vodič");
+  document.title = r ? ($main.querySelector("h1")?.textContent?.trim() || "LuMa × LIFFe 2026") + " · LuMa × LIFFe 2026" : "LIFFe: Manj brskanja, več kina · LuMa × LIFFe 2026";
 }
 
 function afterRender(r) {
-  if (r === "odkrij") renderDiscoverResults();
+  if (r === "odkrij") { renderDiscoverResults(); rememberDiscover(location.hash); }
   if (!r) startEyes();
 }
 
@@ -198,61 +201,64 @@ function viewHome() {
   const during = dayIdx >= 0;
   const nightHref = `#/odkrij?tab=cas&d=${during ? today.date : P.days[0]}&od=17:30&do=23:59`;
 
+  const { fav, plan } = store.get();
+  const nFav = fav.filter((id) => P.filmById.has(id)).length;
+  const nPlan = plan.filter((id) => P.screeningById.has(id)).length;
+
   return `
-  <section class="hero">
+  <section class="hero" aria-labelledby="hero-h">
     ${skySvg()}
     <div class="hero-eyes" aria-hidden="true"><span></span><span></span></div>
-    <p class="hero-tag">${ic("star")} <span>Neuradni festivalski vodič LuMa film kluba</span></p>
-    <h1 class="hero-title">
-      <span class="ht-big">LIFFe.</span>
-      <span class="ht-mid">Tvoj <em>prvi.<svg class="ht-squiggle" aria-hidden="true"><use href="#i-squiggle"/></svg></em></span>
-      <span class="ht-aside">Ali pa tudi ne.</span>
-    </h1>
+    <p class="hero-tag">LuMa × LIFFe ${sy} · Neuradni filmski vodič</p>
+    <h1 class="hero-title" id="hero-h"><span class="ht-liffe">LIFFe: </span>Manj brskanja,<br> <em>več kina.<svg class="ht-squiggle" aria-hidden="true"><use href="#i-squiggle"/></svg></em><span class="ht-pop" aria-hidden="true"> 🍿</span></h1>
+    <p class="hero-lead">LIFFe je ena lepših stvari, ki jih prinese jesen.</p>
+    <p class="hero-lede">Ogromno filmov, novih zgodb in dobrih razlogov za večer v kinu. Da se med vso to izbiro ne izgubimo, sva pripravila mali filmski vodič, ki ti pomaga izbrati pravi film.</p>
+    <div class="hero-cta">
+      <a class="btn btn-mustard btn-lg" href="#/odkrij">Odkrij filme ${ic("arrow")}</a>
+      <a class="btn btn-paper" href="#/ziherce">${ic("star")}<span>Poglej ziherce</span></a>
+    </div>
+    <p class="hero-micro">Za filmske navdušence in čisto običajne radovedneže – filmsko predznanje ni potrebno.</p>
     <p class="hero-date" aria-label="${esc(`Festival traja od ${sd}. do ${ed}. novembra ${sy} v Ljubljani. ${when}.`)}">
       <span class="hd-days">${sd}.–${ed}.</span>
       <span class="hd-month">november ${sy}</span>
       <span class="hd-where">Ljubljana · ${esc(when)}</span>
     </p>
-    <p class="hero-lede">Več kot sto filmov, kup projekcij in ziher kaj dobrega zate. Malo pobrskaj, najdi svoj film, sestavi plan ali pa poglej, kaj je zamikalo naju. Če se ujamemo v isti dvorani, še toliko boljše. <span aria-hidden="true">🍿</span></p>
-    <div class="hero-cta">
-      <a class="btn btn-mustard" href="#/odkrij">Grem po film! <span aria-hidden="true">↗</span></a>
-      <a class="btn btn-paper" href="#/skupaj">Kaj gledata LuMa? <span aria-hidden="true">👀</span></a>
-    </div>
   </section>
-  <div class="entries">
-    <a class="entry e-mustard" href="${nightHref}">
-      ${ic("clock", "entry-motif")}
-      <h2>Imam prost večer</h2>
-      <p>Izberi dan in uro, pokažemo filme, ki se izidejo do konca tvojega okna.</p>
-      <span class="go">Kaj lahko vidim ${ic("arrow")}</span>
-    </a>
-    <a class="entry e-pink" href="#/odkrij">
-      ${ic("film", "entry-motif")}
-      <h2>Brskaj po filmih</h2>
-      <p>Po naslovu, režiserju, sekciji, dnevu ali dvorani.</p>
-      <span class="go">Vseh ${P.films.length} filmov ${ic("arrow")}</span>
-    </a>
-    <a class="entry e-teal" href="#/skupaj">
-      ${ic("eye", "entry-motif")}
-      <h2>Kaj gleda LuMa?</h2>
-      <p>${tg.length ? `${tg.length} ${plural(tg.length, "projekcija", "projekciji", "projekcije", "projekcij")}, na ${plural(tg.length, "katero", "kateri", "katere", "katere")} greva – pridruži se.` : "Projekcije, na katere greva – pridruži se."}</p>
-      <span class="go">Z LuMa v kino ${ic("arrow")}</span>
-    </a>
-  </div>
-  <p class="stats" aria-label="Festival v številkah">
-    <span><b>${P.films.length}</b> filmov</span><span><b>${P.screenings.length}</b> projekcij</span><span><b>${P.venues.length}</b> ljubljanskih dvoran</span><span><b>${P.days.length}</b> dni</span>
-  </p>
+
+  <section class="steps" aria-labelledby="steps-h">
+    <h2 id="steps-h" class="kicker">Kako deluje</h2>
+    <ol class="steps-list">
+      <li class="step s-mustard">
+        <span class="step-n" aria-hidden="true">1</span>
+        <div><h3>${ic("compass")} Odkrij</h3><p>Pobrskaj po filmih in najdi nekaj po svojem okusu.</p>
+        <a class="step-go" href="#/odkrij">Vseh ${P.films.length} filmov ${ic("arrow")}</a></div>
+      </li>
+      <li class="step s-pink">
+        <span class="step-n" aria-hidden="true">2</span>
+        <div><h3>${ic("heart")} Shrani</h3><p>Označi filme, ki te zamikajo, da jih ne izgubiš med ostalimi.</p>
+        <a class="step-go" href="#/zanima">${nFav ? `Zanima me · ${nFav} ${plural(nFav, "film", "filma", "filmi", "filmov")}` : "Zanima me"} ${ic("arrow")}</a></div>
+      </li>
+      <li class="step s-teal">
+        <span class="step-n" aria-hidden="true">3</span>
+        <div><h3>${ic("cal")} Načrtuj</h3><p>Izberi projekcije in sestavi svoj LIFFe.</p>
+        ${nPlan ? `<a class="step-go" href="#/moj">Moj LIFFe · ${nPlan} ${plural(nPlan, "termin", "termina", "termini", "terminov")} ${ic("arrow")}</a>` : `<a class="step-go" href="${nightHref}">Imam prost večer ${ic("arrow")}</a>`}</div>
+      </li>
+    </ol>
+    <p class="steps-note">${ic("check")}<span>Tvoje izbire se shranijo samo v tem brskalniku – brez registracije in brez računa.</span></p>
+  </section>
 
   <section class="section">
-    <div class="section-head"><div><p class="kicker">${ic("star")} Ne veš, kje začet?</p><h2>Ziherce</h2></div><a class="btn btn-ghost btn-small" href="#/ziherce">Vse ziherce</a></div>
+    <div class="section-head"><div><p class="kicker">${ic("star")} Ne veš, kje začet?</p><h2>Ziherce</h2><p class="section-lede">${ZIHERCE_IS}</p></div><a class="btn btn-ghost btn-small" href="#/ziherce">Vse ziherce</a></div>
     ${zihercaList("ocene").length ? `<div class="grid grid-wide">${zihercaList("ocene").slice(0, 3).map((z) => filmCard(P.filmById.get(z.film_id), null, { reviews: true })).join("")}</div>`
       : recs.length ? `<div class="grid">${recs.slice(0, 3).map(homeRec).join("")}</div>`
+      : !lumaReady ? lumaWait()
       : `<div class="empty empty-mini">${ic("eye", "motif")}<p><b>Najin izbor še nastaja.</b> Brskava po programu in kmalu tukaj objaviva, kaj naju je zamikalo.</p></div>`}
   </section>
 
   <section class="section">
-    <div class="section-head"><div><p class="kicker">${ic("people")} Skupni ogledi</p><h2>Z LuMa v kino</h2></div>${tg.length ? `<a class="btn btn-ghost btn-small" href="#/skupaj">Vsi skupni ogledi</a>` : ""}</div>
+    <div class="section-head"><div><p class="kicker">${ic("people")} Skupni ogledi</p><h2>Z LuMa v kino</h2><p class="section-lede"><b>Vabljeni v kino z nama!</b> Na te projekcije greva midva – če ti termin ustreza, pridi zraven in se malo podružimo pred ali po filmu.</p></div>${tg.length ? `<a class="btn btn-ghost btn-small" href="#/skupaj">Vsi skupni ogledi</a>` : ""}</div>
     ${tg.length ? `<div class="together">${tg.slice(0, 2).map(tgCard).join("")}</div>`
+      : !lumaReady ? lumaWait()
       : `<div class="empty empty-mini">${ic("people", "motif")}<p><b>Skupni ogledi še niso razpisani.</b> Ko izbereva projekcije, na katere greva, bodo tukaj – s povabilom, da se pridružiš.</p></div>`}
   </section>
 
@@ -360,6 +366,13 @@ function syncUrl() {
   const h = discoverQuery(D);
   history.replaceState(null, "", h);
   prevHash = h;
+  rememberDiscover(h);
+}
+
+// »Odkrij filme« v navigaciji odpre zadnje izbrane filtre (velja v tem zavihku brskalnika)
+function rememberDiscover(h) {
+  document.querySelector('[data-nav="odkrij"]')?.setAttribute("href", h);
+  try { sessionStorage.setItem("luma-odkrij", h); } catch (_) {}
 }
 
 function viewDiscover(params) {
@@ -448,6 +461,7 @@ function filterControls() {
       <summary>Dvorana${nMore ? ` <span class="badge">${nMore}</span>` : ""}</summary>
       <div class="filters-body"><div class="chips">${P.venues.map((v) => `<button type="button" class="chip" data-act="venue" data-val="${v.id}" aria-pressed="${D.v.has(v.id)}">${esc(venueShort(v.id))}</button>`).join("")}</div></div>
     </details>
+    <div class="fb-foot"><button type="button" class="btn btn-small" data-act="toresults" id="fb-count">Pokaži rezultate ${ic("chev")}</button></div>
   </div>
   ${active.length ? `<div class="active-filters"><span class="muted">Izbrano:</span>${active.map(([k, v, label]) => `<button type="button" class="chip" data-act="unset" data-key="${k}" data-val="${esc(v)}" aria-label="Odstrani filter ${esc(label)}">${esc(label)} ${ic("x")}</button>`).join("")}<button type="button" class="linkbtn small" data-act="clear">Počisti vse</button></div>` : ""}`;
 }
@@ -504,6 +518,7 @@ function renderDiscoverResults() {
     else list.sort((a, b) => coll.compare(a.title_sl, b.title_sl));
     const head = `<div class="result-meta"><p><b>${list.length}</b> ${plural(list.length, "film", "filma", "filmi", "filmov")}</p>
       <div class="result-tools">${viewSwitch}<label class="check">Razvrsti <select data-act="sort" id="sort"><option value="abc" ${D.sort === "abc" ? "selected" : ""}>po abecedi</option><option value="sek" ${D.sort === "sek" ? "selected" : ""}>po sekcijah</option><option value="prvi" ${D.sort === "prvi" ? "selected" : ""}>po prvem terminu</option></select></label></div></div>`;
+    setJump(list.length, "film", "filma", "filme", "filmov");
     if (!list.length) { box.innerHTML = head + noResults(); return; }
     let html = "";
     if (D.sort === "sek") {
@@ -528,6 +543,7 @@ function renderDiscoverResults() {
   }
   const lateToggle = D.tab === "cas" && D.do ? `<label class="check"><input type="checkbox" data-act="late" ${D.late ? "checked" : ""}> Pokaži tudi filme, ki se končajo po ${D.do === "23:59" ? "polnoči" : D.do.replace(":", ".")}${hiddenLate ? ` (${hiddenLate})` : ""}</label>` : "";
   const head = `<div class="result-meta"><p><b>${rows.length}</b> ${plural(rows.length, "projekcija", "projekciji", "projekcije", "projekcij")}${D.tab === "cas" && D.do ? " se v celoti izide v tvojem oknu" + (D.late ? " ali se začne v njem" : "") : ""}</p>${viewSwitch || lateToggle}</div>`;
+  setJump(rows.length, "projekcijo", "projekciji", "projekcije", "projekcij");
   if (!rows.length) { box.innerHTML = head + noResults(hiddenLate); return; }
   let html = "";
   for (const day of P.days) {
@@ -537,6 +553,12 @@ function renderDiscoverResults() {
   }
   const note = D.tab === "cas" ? `<p class="small muted" style="margin-top:14px">Konec je izračunan iz uradnega trajanja filma. Morebitnih uvodov, pogovorov z ustvarjalci in poti med dvoranami ne poznamo – računaj z rezervo.</p>` : "";
   box.innerHTML = head + html + note;
+}
+
+// gumb na dnu filtrov (viden le na ozkem zaslonu): sproti pove, koliko je zadetkov
+function setJump(n, ...forms) {
+  const b = document.getElementById("fb-count");
+  if (b) b.innerHTML = n ? `Pokaži ${n} ${plural(n, ...forms)} ${ic("chev")}` : `Ni zadetkov – poglej namige ${ic("chev")}`;
 }
 
 function firstScreeningKey(f) {
@@ -576,7 +598,9 @@ function filmCard(f, hitIds, { extra = "", reviews = false } = {}) {
   const rec = lumaRec(f.id);
   const terms = ss.map((s) => {
     const cls = store.inPlan(s.id) ? "planned" : hit.has(s.id) && screeningFilterActive() ? "hit" : "";
-    return `<span class="term ${cls}" title="${esc(venueLabel(P.venueById.get(s.venue)))}">${esc(dayShort(s.date))} ${fmtMin(startMin(s))} · ${esc(venueShort(s.venue))}</span>`;
+    const [wd, ...dm] = dayShort(s.date).split(" ");
+    const label = `${dayLong(s.date)}, ${fmtMin(startMin(s))}, ${venueShort(s.venue)}`;
+    return `<a class="term ${cls}" href="#/film/${f.id}" data-film="${f.id}" data-sid="${s.id}" title="${esc(venueLabel(P.venueById.get(s.venue)))}" aria-label="${esc(`${label}${cls === "planned" ? ", v tvojem planu" : ""} – odpri termin`)}"><b>${esc(wd)}</b> ${esc(dm.join(" "))} · ${fmtMin(startMin(s))} · ${esc(venueShort(s.venue))}</a>`;
   }).join("");
   return `
   <article class="card">
@@ -689,7 +713,7 @@ function screenCard(s) {
   const v = P.venueById.get(s.venue);
   const goes = lumaGoes(s.id);
   return `
-  <div class="screen ${store.inPlan(s.id) ? "planned" : ""}">
+  <div class="screen ${store.inPlan(s.id) ? "planned" : ""}" data-sid="${s.id}">
     <div>
       <p class="screen-when">${esc(dayLong(s.date))}, ${r.start}${r.end ? ` <span class="muted">– ${r.end}</span>` : ""}${goes ? `<a class="with-luma" href="#/skupaj">${ic("people")} gre tudi LuMa</a>` : ""}</p>
       <p class="screen-where">${esc(venueLabel(v))} · <a href="${esc(v.map_url)}" target="_blank" rel="noopener">zemljevid</a></p>
@@ -698,10 +722,22 @@ function screenCard(s) {
     <div class="screen-actions">
       ${planBtn(s.id)}
       ${ticketLink(s)}
-      <a class="btn btn-small btn-ghost" href="${esc(gcalUrl(s, P))}" target="_blank" rel="noopener" aria-label="Dodaj v Google Koledar">${ic("cal")}<span>Google</span></a>
-      <button type="button" class="btn btn-small btn-ghost" data-act="ics1" data-id="${s.id}" aria-label="Prenesi .ics za Apple ali drug koledar">${ic("cal")}<span>.ics</span></button>
+      ${calButtons(s)}
     </div>
+    ${exportTag(s.id)}
   </div>`;
+}
+
+function calButtons(s) {
+  return `<a class="btn btn-small btn-ghost" href="${esc(gcalUrl(s, P))}" target="_blank" rel="noopener" data-act="gcal" data-id="${s.id}" aria-label="Dodaj v Google Koledar (odpre se v novem zavihku)">${ic("cal")}<span>Google</span></a>
+      <button type="button" class="btn btn-small btn-ghost" data-act="ics1" data-id="${s.id}" aria-label="Prenesi .ics za Apple ali drug koledar">${ic("cal")}<span>.ics</span></button>`;
+}
+
+// Le dejstvo, da je bil izvoz narejen – ne trdimo, da je dogodek v koledarju.
+function exportTag(sid) {
+  const x = exported.get(sid);
+  if (!x) return "";
+  return `<p class="exported">${ic("check")}<span>${x.how === "google" ? "Odprto v Google Koledarju" : "Izvoženo v koledar (.ics)"}</span></p>`;
 }
 
 function extLinks(f) {
@@ -719,11 +755,15 @@ function viewMine() {
   const valid = plan.filter((id) => P.screeningById.has(id));
   const missing = plan.filter((id) => !P.screeningById.has(id));
   const favFilms = fav.map((id) => P.filmById.get(id)).filter(Boolean);
-  if (!valid.length && !favFilms.length && !missing.length) {
-    return `<div class="page-head"><h1>Moj LIFFe</h1></div>
-    ${emptyBox({ title: "Tvoj plan je še prazen platno", text: "Označi film s srčkom, če te zanima, ali dodaj konkreten termin v plan. Vse ostane samo v tem brskalniku – brez registracije.", actions: `<a class="btn" href="#/odkrij?tab=cas&od=17:30&do=23:59">Imam prost večer</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "eye" })}`;
+  const unscheduled = favFilms.filter((f) => !(P.screeningsByFilm.get(f.id) || []).some((s) => store.inPlan(s.id)));
+  // povezava na shranjene filme: od tam izbereš termine
+  const favLink = favFilms.length ? `<a class="mine-link" href="#/zanima">${ic("heart")}<span><b>Zanima me</b> · ${favFilms.length} ${plural(favFilms.length, "film", "filma", "filmi", "filmov")}${unscheduled.length ? `, ${unscheduled.length} še brez termina` : ""}</span>${ic("arrow")}</a>` : "";
+  if (!valid.length && !missing.length) {
+    return `<div class="page-head"><h1>Moj LIFFe</h1><p class="lede">Tvoj festivalski koledar: termini, ki jih nameravaš obiskati.</p></div>
+    ${emptyBox({ title: "Koledar je še prazno platno", text: favFilms.length ? "Pri filmih, ki te zanimajo, izberi termin z gumbom »V moj plan« – pojavil se bo tukaj, razvrščen po dnevih." : "Ko pri filmu izbereš termin z gumbom »V moj plan«, se pojavi tukaj, razvrščen po dnevih. Vse ostane samo v tem brskalniku – brez registracije.", actions: `${favFilms.length ? `<a class="btn" href="#/zanima">${ic("heart")}<span>Zanima me (${favFilms.length})</span></a>` : ""}<a class="btn ${favFilms.length ? "btn-ghost" : ""}" href="#/odkrij?tab=cas&od=17:30&do=23:59">Imam prost večer</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "eye" })}`;
   }
   const clash = overlaps(valid, P);
+  const notExp = valid.filter((id) => !exported.get(id));
   const byDay = new Map();
   for (const id of valid) {
     const s = P.screeningById.get(id);
@@ -755,46 +795,64 @@ function viewMine() {
           <div class="btn-row" style="margin-top:8px">
             ${others.length ? `<button type="button" class="btn btn-small btn-soft" data-act="swapopen" aria-expanded="false" aria-controls="sw-${s.id}">${ic("swap")}<span>Zamenjaj termin</span></button>` : ""}
             ${ticketLink(s)}
+            ${calButtons(s)}
             <button type="button" class="btn btn-small btn-ghost" data-act="plan" data-id="${s.id}">${ic("x")}<span>Odstrani</span></button>
           </div>
+          ${exportTag(s.id) || `<p class="exported no">${ic("cal")}<span>Še ni izvoženo v koledar</span></p>`}
           ${others.length ? `<div class="swap-list" id="sw-${s.id}" hidden>${others.map((o) => `<button type="button" class="btn btn-small btn-ghost" data-act="swap" data-from="${s.id}" data-to="${o.id}">${esc(dayShort(o.date))} ${fmtMin(startMin(o))} · ${esc(venueShort(o.venue))}${store.inPlan(o.id) ? " (že v planu)" : ""}</button>`).join("")}</div>` : ""}
         </div>
       </div>`;
     }).join("")}</section>`;
   }).join("");
 
-  const unscheduled = favFilms.filter((f) => !(P.screeningsByFilm.get(f.id) || []).some((s) => store.inPlan(s.id)));
-  const favHtml = favFilms.length ? `
-  <section class="section">
-    <div class="section-head"><div><h2>Zanima me</h2><p class="muted small">${favFilms.length} ${plural(favFilms.length, "film", "filma", "filmi", "filmov")}${unscheduled.length ? `, ${unscheduled.length} še brez izbranega termina` : ""}</p></div></div>
-    <div class="fav-list">${favFilms.map((f) => {
-      const ss = P.screeningsByFilm.get(f.id) || [];
-      const planned = ss.filter((s) => store.inPlan(s.id));
-      return `<div class="fav-item">
-        <div>
-          <a class="row-title" href="#/film/${f.id}">${titleBits(f, { withAlt: false }).main}</a>
-          <p class="row-sub">${planned.length ? `${ic("check")} V planu: ${planned.map((s) => `${esc(dayShort(s.date))} ${fmtMin(startMin(s))}`).join(", ")}` : "Še brez termina"}</p>
-          <details ${planned.length ? "" : ""}><summary>Termini (${ss.length})</summary><ul class="rows">${ss.map((s) => rowHtml(s)).join("")}</ul></details>
-        </div>
-        ${favBtn(f.id)}
-      </div>`;
-    }).join("")}</div>
-  </section>` : "";
-
   return `
   <div class="page-head"><h1>Moj LIFFe</h1>
-    <p class="lede">${valid.length ? `${valid.length} ${plural(valid.length, "termin", "termina", "termini", "terminov")} v planu${clash.size ? `, <b style="color:var(--rust-ink)">${clash.size} se prekrivajo</b>` : ""}.` : "V planu še ni terminov."} Shranjeno samo v tem brskalniku.</p>
+    <p class="lede">Tvoj festivalski koledar: ${valid.length ? `${valid.length} ${plural(valid.length, "termin", "termina", "termini", "terminov")} v planu${clash.size ? `, <b style="color:var(--rust-ink)">${clash.size} se prekrivajo</b>` : ""}.` : "v planu še ni terminov."} Shranjeno samo v tem brskalniku.</p>
+    <ul class="mine-states" aria-label="Stanje koledarja">
+      <li>${ic("check")}<span>V planu</span><b>${valid.length}</b></li>
+      <li>${ic("cal")}<span>Izvoženo v koledar</span><b>${valid.length - notExp.length}</b></li>
+    </ul>
   </div>
   <div class="toolbar">
-    ${valid.length ? `<button type="button" class="btn" data-act="icsall">${ic("cal")}<span>Izvozi v koledar (.ics)</span></button>` : ""}
+    ${!valid.length ? "" : notExp.length === valid.length ? `<button type="button" class="btn" data-act="icsall">${ic("cal")}<span>Izvozi v koledar (.ics)</span></button>`
+      : notExp.length ? `<button type="button" class="btn" data-act="icsnew">${ic("cal")}<span>Izvozi ${notExp.length} ${plural(notExp.length, "nov termin", "nova termina", "nove termine", "novih terminov")} (.ics)</span></button><button type="button" class="btn btn-ghost" data-act="icsall">Izvozi vse znova</button>`
+      : `<button type="button" class="btn btn-ghost" data-act="icsall">${ic("cal")}<span>Izvozi vse znova (.ics)</span></button>`}
     <button type="button" class="btn btn-ghost" data-act="share">${ic("share")}<span>Deli moj LIFFe</span></button>
-    <button type="button" class="btn btn-ghost" data-act="wipe">${ic("x")}<span>Počisti vse</span></button>
   </div>
+  ${valid.length && notExp.length < valid.length ? `<p class="small muted" style="margin-top:8px">${notExp.length ? `${notExp.length} ${plural(notExp.length, "termin še ni izvožen", "termina še nista izvožena", "termini še niso izvoženi", "terminov še ni izvoženih")}; »Izvozi nove« doda le te, da se v koledarju nič ne podvoji.` : "Vsi termini so izvoženi."} Oznaka pove le, da je bil izvoz narejen – ali je dogodek res v koledarju, stran ne more preveriti.</p>` : ""}
   <div id="share-out"></div>
   ${missing.length ? `<div class="notice" style="margin-top:12px">${ic("warn")}<div><p><b>${missing.length} ${plural(missing.length, "izbran termin ni", "izbrana termina nista", "izbrani termini niso", "izbranih terminov ni")} več v uradnem urniku.</b> Morda je LIFFe projekcijo prestavil ali odpovedal. Preveri na <a href="https://urnik.liffe.si/urnik.aspx" target="_blank" rel="noopener">urnik.liffe.si</a>.</p><button type="button" class="linkbtn small" data-act="dropmissing">Odstrani jih iz plana</button></div></div>` : ""}
-  ${valid.length ? planHtml : `<div class="notice info" style="margin-top:12px">${ic("cal")}<p>Izberi konkreten termin pri filmih spodaj ali v <a href="#/odkrij?pogled=termini">urniku</a>.</p></div>`}
-  ${favHtml}
-  <p class="small muted" style="margin-top:28px">Izvoz .ics deluje z Google Koledarjem, Apple Koledarjem in Outlookom (časovni pas Europe/Ljubljana). Dogodek v koledarju ni vstopnica.</p>`;
+  ${favLink}
+  ${valid.length ? planHtml : `<div class="notice info" style="margin-top:12px">${ic("cal")}<p>Izberi konkreten termin pri filmu ali v <a href="#/odkrij?pogled=termini">urniku</a>.</p></div>`}
+  <p class="small muted" style="margin-top:28px">Izvoz .ics deluje z Google Koledarjem, Apple Koledarjem in Outlookom (časovni pas Europe/Ljubljana). Dogodek v koledarju ni vstopnica.</p>
+  ${valid.length ? `<p class="small" style="margin-top:12px"><button type="button" class="linkbtn" data-act="wipeplan">Počisti koledar</button> <span class="muted">(filmi pod »Zanima me« ostanejo)</span></p>` : ""}`;
+}
+
+/* ================================================================ Zanima me */
+
+function viewFavs() {
+  const { fav } = store.get();
+  const films = fav.map((id) => P.filmById.get(id)).filter(Boolean);
+  const plannedOf = (f) => (P.screeningsByFilm.get(f.id) || []).filter((s) => store.inPlan(s.id));
+  const nPlan = store.get().plan.filter((id) => P.screeningById.has(id)).length;
+  const head = `<div class="page-head"><h1>Zanima me</h1>
+    <p class="lede">Filmi, označeni s srčkom. Ko pri filmu izbereš termin, gre v <a href="#/moj">Moj LIFFe</a> – tvoj koledar.</p></div>`;
+  if (!films.length) {
+    return head + emptyBox({ title: "Tu še ni nobenega filma", text: "Ko te kak film zamika, klikni srček na kartici. Shrani se sem, da ga ne izgubiš med ostalimi.", actions: `<a class="btn" href="#/ziherce">${ic("star")}<span>Poglej ziherce</span></a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "eye" });
+  }
+  const todo = films.filter((f) => !plannedOf(f).length);
+  const done = films.filter((f) => plannedOf(f).length);
+  const plannedNote = (f) => `<p class="planned-note">${ic("check")}<span>V koledarju: ${plannedOf(f).map((s) => `${esc(dayLong(s.date))}, ${fmtMin(startMin(s))}`).join("; ")}</span></p>`;
+  const grid = (list, extra) => `<div class="grid">${list.map((f) => filmCard(f, null, { extra: extra ? extra(f) : "" })).join("")}</div>`;
+  return `${head}
+  <div class="toolbar">
+    <a class="btn btn-ghost" href="#/moj">${ic("cal")}<span>Moj LIFFe${nPlan ? ` · ${nPlan} ${plural(nPlan, "termin", "termina", "termini", "terminov")}` : ""}</span></a>
+    <button type="button" class="btn btn-ghost" data-act="share">${ic("share")}<span>Deli</span></button>
+  </div>
+  <div id="share-out"></div>
+  ${todo.length ? `<section class="section" style="margin-top:22px"><h2 class="fav-h">Še brez termina <span class="count">${todo.length}</span></h2><p class="small muted" style="margin:-4px 0 12px">Klikni termin na kartici in ga dodaj v plan.</p>${grid(todo)}</section>` : ""}
+  ${done.length ? `<section class="section" style="margin-top:28px"><h2 class="fav-h">Že v Mojem LIFFu <span class="count">${done.length}</span></h2>${grid(done, plannedNote)}</section>` : ""}
+  <p class="small" style="margin-top:24px"><button type="button" class="linkbtn" data-act="wipefav">Počisti seznam</button> <span class="muted">(termini v koledarju ostanejo)</span></p>`;
 }
 
 /* ================================================================ deljeno */
@@ -828,6 +886,7 @@ function viewShared(params) {
 
 // Ziherce: uredniški izbor LuMa (Sheet »luma_ziherce«) – brez številk tretjih virov.
 // Ocene IMDb, Metascore ipd. sta pogledala sami zase; na strani je le njun izbor in vrstni red.
+const ZIHERCE_IS = "Ziherce so filmi, pri katerih je najmanj možnosti, da usekaš mimo: novi filmi, ki so jih gledalci in kritiki najbolje sprejeli, nagrajenci velikih festivalov in preverjene klasike.";
 const ZVIEWS = [
   ["ocene", "people", "Ocene publike in kritikov", "Ocene", "Novi filmi, ki so jih gledalci in kritiki najbolje sprejeli."],
   ["festivali", "star", "Odmevni filmi velikih festivalov", "Festivali", "Letošnji nagrajenci Cannesa, Benetk, Berlina, San Sebastiána, Locarna in Sundancea."],
@@ -852,20 +911,24 @@ function viewZiherce(params) {
     const extra = z.nagrada ? `<p class="award">${ic("star")} ${esc(z.nagrada)}</p>` : "";
     return filmCard(f, null, { extra, reviews: true });
   }).join("")}</div>` : "";
-  const none = !avail.length ? emptyBox({ title: "Ziherce še nastajajo", text: "Brskava po programu in izbirava. Filmi bodo tu, ko jih objaviva – brez izmišljenih seznamov do takrat.", actions: `<a class="btn" href="#/odkrij">Medtem: brskaj po filmih</a>`, motif: "eye" }) : "";
-  const note = view === "ocene" ? `<p class="small muted" style="margin-top:14px">Izbrala sva jih po ocenah gledalcev in kritikov (IMDb, Metacritic), ki sva jih pregledala sama. Ocen ne objavljamo – pri vsakem filmu je povezava, kjer jih vidiš.</p>`
-    : view === "festivali" ? `<p class="small muted" style="margin-top:14px">Nagrade so preverjene v uradnih opisih LIFFe in poročilih festivalov.</p>` : "";
+  const none = !avail.length && !lumaReady ? lumaWait() : !avail.length ? emptyBox({ title: "Ziherce še nastajajo", text: "Brskava po programu in izbirava. Filmi bodo tu, ko jih objaviva – brez izmišljenih seznamov do takrat.", actions: `<a class="btn" href="#/odkrij">Medtem: brskaj po filmih</a>`, motif: "eye" }) : "";
+  // Kako je seznam nastal: nad seznamom, da je logika jasna, preden začneš brati.
+  const how = view === "ocene" ? "Vrstni red temelji na ocenah gledalcev in kritikov (IMDb, Metacritic), ki sva jih pregledala sama. Filmom z malo glasovi sva zaupala manj. Številk ne objavljava – pri vsakem filmu je povezava do pravih ocen."
+    : view === "festivali" ? "Nagrade so preverjene v uradnih opisih LIFFe in poročilih festivalov."
+    : "Izbor ni festivalska novost: to so preverjeni starejši filmi, ki jih LIFFe vrti v retrospektivah in posvetilih.";
+  const anyRec = list.some((z) => lumaRec(z.film_id));
+  const note = `<p class="zhow">${esc(how)}${anyRec ? ` <span class="zlegend"><span class="luma-flag">${ic("star")} LuMa priporoča</span> pomeni, da film priporočava midva osebno.</span>` : ""}</p>`;
   return `
   <section class="luma-hero">
     ${ic("star", "motif")}
     <p class="kicker">Za prvi LIFFe in vse naslednje</p>
     <h1>Ziherce</h1>
-    <p class="lede" style="margin-top:10px;max-width:56ch">Ne veš, kje začet? Tule je nekaj filmov, ki imajo dobre možnosti, da zadenejo v polno. Brez garancije, seveda. Ampak nekje je treba začet.</p>
+    <p class="lede" style="margin-top:10px;max-width:60ch">${ZIHERCE_IS} Brez garancije, seveda – ampak nekje je treba začet.</p>
   </section>
   ${sw}
   <div class="section" style="margin-top:22px">
-    ${avail.length ? `<p class="zhint">${ic(meta[1])} ${esc(meta[4])}</p>` : ""}
-    ${body}${none}${note}
+    ${avail.length ? `<p class="zhint">${ic(meta[1])} ${esc(meta[4])}</p>${note}` : ""}
+    ${body}${none}
   </div>`;
 }
 
@@ -881,7 +944,7 @@ function tgCard(r) {
   const past = s.date < now.date || (s.date === now.date && startMin(s) < now.min);
   return `<article class="tg"${past ? ' style="opacity:.6"' : ""}>
     <div class="tg-when">
-      <div class="tg-date"><small>${x.wd}</small><b>${x.d}. ${x.m}.</b></div>
+      <div class="tg-date"><small>${x.wdLong}</small><b>${x.d}. ${x.m}.</b></div>
       <div><p class="screen-when">${tr.start}${tr.end ? ` <span class="muted">– ${tr.end}</span>` : ""} · ${esc(venueLabel(v))}</p>
       <h3 style="font-size:1.5rem;margin-top:2px"><a href="#/film/${f.id}" style="text-decoration:none">${titleBits(f, { withAlt: false }).main}</a></h3>
       <p class="meta">${metaLine(f)}</p></div>
@@ -924,12 +987,12 @@ function viewTogether() {
   return `
   <section class="luma-hero teal">
     ${ic("people", "motif")}
-    <p class="kicker" style="color:#eef8f7">Skupni ogledi</p>
+    <p class="kicker">Vabljeni v kino z nama</p>
     <h1>Z LuMa v kino</h1>
     <p class="lede" style="margin-top:10px;max-width:56ch">Natanko te projekcije bova obiskala. Če ti termin ustreza, pridi zraven in se lahko malo podružimo pred ali po filmu.</p>
   </section>
   <div class="section">
-    ${rows.length ? `<div class="together">${rows.map(tgCard).join("")}</div>` : emptyBox({ title: "Skupni ogledi še niso razpisani", text: "Ko izbereva projekcije, na katere greva, bodo tukaj – z datumom, uro, dvorano in povabilom.", actions: `<a class="btn" href="#/luma">LuMa priporoča</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "people" })}
+    ${rows.length ? `<div class="together">${rows.map(tgCard).join("")}</div>` : !lumaReady ? lumaWait() : emptyBox({ title: "Skupni ogledi še niso razpisani", text: "Ko izbereva projekcije, na katere greva, bodo tukaj – z datumom, uro, dvorano in povabilom.", actions: `<a class="btn" href="#/ziherce">Ziherce</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "people" })}
     ${unknown ? `<p class="small muted" style="margin-top:12px">${unknown} ${plural(unknown, "vrstica se ne ujema", "vrstici se ne ujemata", "vrstice se ne ujemajo", "vrstic se ne ujema")} z nobeno projekcijo (preveri screening_id v Sheetu ali morebitno spremembo termina).</p>` : ""}
   </div>`;
 }
@@ -962,8 +1025,8 @@ function viewAbout() {
     <h2>Kako uporabljati</h2>
     <ul>
       <li><b>Imam prost čas</b>: izberi dan in okno, npr. petek od 18.00 do 22.30. »Konec« je izračunan iz uradnega trajanja; uvodov, pogovorov in poti med dvoranami ne poznamo.</li>
-      <li><b>Srček</b> = film te zanima. <b>V moj plan</b> = izbran konkreten termin. To nista rezervaciji.</li>
-      <li><b>Moj LIFFe</b> opozori na prekrivanja, omogoči hitro zamenjavo termina, izvoz v koledar in deljenje.</li>
+      <li><b>Srček</b> = film te zanima; najdeš ga pod <b>Zanima me</b>. <b>V moj plan</b> = izbran konkreten termin; najdeš ga v <b>Mojem LIFFu</b>. To nista rezervaciji.</li>
+      <li><b>Moj LIFFe</b> je tvoj koledar: opozori na prekrivanja, omogoči hitro zamenjavo termina, izvoz v koledar in deljenje.</li>
     </ul>
   </div>`;
 }
@@ -976,6 +1039,7 @@ function viewNotFound(title = "Te strani ni", text = "Morda je povezava zastarel
 
 const $modal = document.getElementById("film-modal");
 let modalFilm = null;
+let modalPicked = null; // termin, s katerim je bil predogled odprt (ostane poudarjen)
 let modalOpener = null;
 let skipPop = false;
 let modalPageY = 0; // položaj seznama pod predogledom
@@ -1021,7 +1085,7 @@ function filmModalHtml(f) {
   </div>`;
 }
 
-function openFilm(id, opener) {
+function openFilm(id, opener, sid) {
   const f = P.filmById.get(id);
   if (!f) return;
   modalFilm = id;
@@ -1034,7 +1098,14 @@ function openFilm(id, opener) {
     history.pushState({ lumaModal: id }, "", location.href); // »Nazaj« na telefonu zapre predogled
   }
   $modal.scrollTop = 0;
-  $modal.querySelector("#fm-title").focus({ preventScroll: true });
+  modalPicked = sid || null;
+  const scr = sid && $modal.querySelector(`.screen[data-sid="${sid}"]`);
+  if (scr) {
+    // s termina na kartici: pokaži prav ta termin in postavi fokus na »V moj plan«
+    scr.classList.add("picked");
+    requestAnimationFrame(() => scr.scrollIntoView({ block: "center" }));
+    scr.querySelector('[data-act="plan"]').focus({ preventScroll: true });
+  } else $modal.querySelector("#fm-title").focus({ preventScroll: true });
 }
 
 function refreshModal(btn) {
@@ -1042,6 +1113,7 @@ function refreshModal(btn) {
   const sel = btn && btn.dataset.id ? `[data-act="${btn.dataset.act}"][data-id="${btn.dataset.id}"]` : null;
   const y = $modal.scrollTop;
   $modal.innerHTML = filmModalHtml(P.filmById.get(modalFilm));
+  if (modalPicked) $modal.querySelector(`.screen[data-sid="${modalPicked}"]`)?.classList.add("picked");
   $modal.scrollTop = y;
   if (sel) $modal.querySelector(sel)?.focus({ preventScroll: true });
 }
@@ -1056,6 +1128,7 @@ function modalClosed() {
   document.documentElement.classList.remove("modal-open");
   const op = modalOpener;
   modalFilm = null;
+  modalPicked = null;
   modalOpener = null;
   if (history.state && history.state.lumaModal) { skipPop = true; history.back(); }
   window.scrollTo(0, modalPageY);
@@ -1092,7 +1165,7 @@ function toggleIn(set, v) { set.has(v) ? set.delete(v) : set.add(v); }
 function refreshAfterStore(btn) {
   const { parts } = parseRoute();
   const r = parts[0];
-  if (r === "moj" || r === "skupaj" || r === "luma" || r === "ziherce" || r === "film" || r === "deljeno") {
+  if (r === "moj" || r === "zanima" || r === "skupaj" || r === "luma" || r === "ziherce" || r === "film" || r === "deljeno") {
     const inModal = btn && $modal.contains(btn);
     const focusSel = btn && btn.dataset.id ? `[data-act="${btn.dataset.act}"][data-id="${btn.dataset.id}"]` : null;
     render(true);
@@ -1105,6 +1178,15 @@ function refreshAfterStore(btn) {
       b.setAttribute("aria-pressed", on);
       b.innerHTML = `${ic(on ? "check" : "plus")}<span>${on ? "V mojem planu" : "V moj plan"}</span>`;
     });
+    // termini na karticah (obarvani, če so v planu)
+    $main.querySelectorAll("a.term[data-sid]").forEach((t) => {
+      const on = store.inPlan(t.dataset.sid);
+      if (on !== t.classList.contains("planned")) {
+        t.classList.toggle("planned", on);
+        if (on) t.classList.remove("hit");
+        t.setAttribute("aria-label", t.getAttribute("aria-label").replace(/(, v tvojem planu)? – odpri termin$/, `${on ? ", v tvojem planu" : ""} – odpri termin`));
+      }
+    });
     document.querySelectorAll(`[data-act="fav"]`).forEach((b) => {
       const on = store.isFav(b.dataset.id);
       b.setAttribute("aria-pressed", on);
@@ -1115,18 +1197,31 @@ function refreshAfterStore(btn) {
   }
 }
 
+// po izvozu osveži oznake (po kliku, da se povezava na Google še odpre)
+function afterExport(el) {
+  setTimeout(() => {
+    const r = parseRoute().parts[0];
+    if (r === "moj" || r === "film") render(true);
+    if ($modal.open) refreshModal($modal.contains(el) ? el : null);
+  }, 0);
+}
+
 function updateBadge() {
   const n = store.get().plan.filter((id) => P && P.screeningById.has(id)).length;
   const b = document.getElementById("plan-badge");
   b.hidden = !n;
   b.textContent = n;
+  const nf = store.get().fav.filter((id) => P && P.filmById.has(id)).length;
+  const bf = document.getElementById("fav-badge");
+  bf.hidden = !nf;
+  bf.textContent = nf;
 }
 
 async function onClick(e) {
   const fl = e.target.closest("a[data-film]");
   if (fl && e.button === 0 && !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey)) {
     e.preventDefault(); // ⌘/Ctrl + klik še vedno odpre film v novem zavihku
-    openFilm(fl.dataset.film, fl);
+    openFilm(fl.dataset.film, fl, fl.dataset.sid);
     return;
   }
   const el = e.target.closest("[data-act]");
@@ -1140,7 +1235,8 @@ async function onClick(e) {
       store.togglePlan(id);
       const s = P.screeningById.get(id);
       const f = s && P.filmById.get(s.film_id);
-      toast(was ? "Odstranjeno iz plana" : `Dodano v plan: ${f ? f.title_sl : ""} (vstopnico kupiš posebej)`);
+      const when = s ? `${dayLong(s.date)}, ${fmtMin(startMin(s))}` : "";
+      toast(was ? (exported.get(id) ? `Odstranjeno iz plana (${when}). Termin je bil izvožen – izbriši ga še v koledarju.` : `Odstranjeno iz plana: ${when}`) : `Dodano v plan: ${f ? f.title_sl : ""}, ${when} (vstopnico kupiš posebej)`);
       refreshAfterStore(el);
       break;
     }
@@ -1148,7 +1244,7 @@ async function onClick(e) {
       e.preventDefault();
       const was = store.isFav(id);
       store.toggleFav(id);
-      toast(was ? "Odstranjeno iz »Zanima me«" : "Shranjeno med »Zanima me«");
+      toast(was ? "Odstranjeno iz »Zanima me«" : "Shranjeno med »Zanima me« ♡");
       refreshAfterStore(el);
       break;
     }
@@ -1193,11 +1289,16 @@ async function onClick(e) {
       refreshDiscover();
       break;
     }
-    case "ics1": downloadIcs([id], P, `liffe-${id}.ics`); toast("Datoteka .ics je prenesena – odpri jo s koledarjem"); break;
-    case "icsall": {
-      const ids = store.get().plan.filter((x) => P.screeningById.has(x));
+    case "ics1": downloadIcs([id], P, `liffe-${id}.ics`); exported.mark([id], "ics"); toast("Datoteka .ics je prenesena – odpri jo s koledarjem"); afterExport(el); break;
+    case "gcal": exported.mark([id], "google"); afterExport(el); break; // povezava se odpre sama
+    case "icsall":
+    case "icsnew": {
+      let ids = store.get().plan.filter((x) => P.screeningById.has(x));
+      if (act === "icsnew") ids = ids.filter((x) => !exported.get(x));
       downloadIcs(ids, P);
-      toast(`Izvoženih ${ids.length} terminov`);
+      exported.mark(ids, "ics");
+      toast(`${ids.length} ${plural(ids.length, "termin je izvožen", "termina sta izvožena", "termini so izvoženi", "terminov je izvoženih")} – odpri datoteko s koledarjem`);
+      afterExport(el);
       break;
     }
     case "share": {
@@ -1217,8 +1318,11 @@ async function onClick(e) {
       try { await navigator.clipboard.writeText(inp.value); toast("Povezava je kopirana"); } catch (_) { inp.select(); document.execCommand && document.execCommand("copy"); toast("Povezava je kopirana"); }
       break;
     }
-    case "wipe":
-      if (confirm("Izbrišem vse izbire (plan in »Zanima me«) v tem brskalniku?")) { store.clear(); toast("Počiščeno"); render(); }
+    case "wipeplan":
+      if (confirm("Odstranim vse termine iz Mojega LIFFa? Filmi pod »Zanima me« ostanejo. Dogodkov, ki so že v tvojem koledarju, to ne izbriše.")) { store.clearPlan(); exported.clear(); toast("Koledar je počiščen"); render(); }
+      break;
+    case "wipefav":
+      if (confirm("Odstranim vse filme s seznama »Zanima me«? Termini v Mojem LIFFu ostanejo.")) { store.clearFav(); toast("Seznam je počiščen"); render(); }
       break;
     case "dropmissing": {
       const keep = store.get().plan.filter((x) => P.screeningById.has(x));
@@ -1236,11 +1340,12 @@ async function onClick(e) {
       break;
     }
     case "closemodal": closeModal(); break;
+    case "toresults": document.getElementById("results")?.scrollIntoView({ block: "start" }); break;
     case "copyid":
       try { await navigator.clipboard.writeText(el.dataset.val); toast(`Kopirano: ${el.dataset.val}`); } catch (_) { toast(el.dataset.val); }
       break;
     case "editoroff": setEditor(false); history.replaceState(null, "", location.hash.replace(/[?&]urednik(=[^&]*)?/, "")); render(); break;
-    case "swap": store.swap(el.dataset.from, el.dataset.to); toast("Termin zamenjan"); render(); break;
+    case "swap": store.swap(el.dataset.from, el.dataset.to); toast(exported.get(el.dataset.from) ? "Termin zamenjan. Starega izbriši še v koledarju in izvozi novega." : "Termin zamenjan"); render(); break;
     case "mergeshared": {
       const plan = el.dataset.plan ? el.dataset.plan.split(",") : [];
       const fav = el.dataset.fav ? el.dataset.fav.split(",") : [];
@@ -1306,6 +1411,17 @@ $main.addEventListener("change", (e) => {
   if (t.dataset.act === "late") { D.late = t.checked; syncUrl(); renderDiscoverResults(); }
 });
 
+// Povabilo v LuMa film klub: pokaže se le, ko je v config.js vpisan Instagram profil.
+function showClub() {
+  const h = (CONFIG.club && CONFIG.club.instagram || "").replace(/^@/, "").trim();
+  if (!h) return;
+  const a = document.getElementById("club-link");
+  a.href = `https://www.instagram.com/${encodeURIComponent(h)}/`;
+  a.textContent = `@${h}`;
+  a.setAttribute("aria-label", `@${h} na Instagramu (odpre se v novem zavihku)`);
+  document.getElementById("club").hidden = false;
+}
+
 /* ================================================================ zagon */
 
 async function boot() {
@@ -1319,14 +1435,17 @@ async function boot() {
   }
   document.getElementById("data-stamp").innerHTML =
     `Podatki preverjeni z uradnim programom: <b>${esc(fmtStamp(P.source.imported_at))}</b> · zadnja sprememba programa: ${esc(fmtStamp(P.source.changed_at || P.source.imported_at))} · vir: <a href="${esc(P.source.schedule)}">urnik.liffe.si</a> · fotografije: LIFFe`;
+  showClub();
   store.onChange(updateBadge);
   store.onExternalChange(() => render(true)); // plan, spremenjen v drugem zavihku (osveži tudi predogled)
   updateBadge();
+  try { const h = sessionStorage.getItem("luma-odkrij"); if (h && h.startsWith("#/odkrij")) rememberDiscover(h); } catch (_) {}
   render();
   window.addEventListener("hashchange", render);
-  // LuMa podatki pridejo naknadno (Sheet je lahko počasnejši) – nato osvežimo pogled.
-  L = await loadLuma();
-  if (L.priporocila.length || L.skupne.length || L.ziherce.length) render(true);
+  // LuMa podatki pridejo naknadno: najprej posnetek s strežnika strani, nato sveže iz Sheeta.
+  const same = (a, b) => ["priporocila", "skupne", "pridruzeni", "ziherce"].every((k) => JSON.stringify(a[k]) === JSON.stringify(b[k]));
+  const live = await loadLuma((snap) => { L = snap; lumaReady = true; render(true); });
+  if (!same(live, L)) { L = live; render(true); }
 }
 
 boot();
