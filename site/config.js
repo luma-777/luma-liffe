@@ -1,8 +1,8 @@
 // Nastavitve strani. To je edina datoteka, ki jo je treba urediti ob objavi.
 export const CONFIG = {
-  // Uradne slike filmov z liffe.si. Izklopljeno, dokler LIFFe ne potrdi,
-  // da jih smemo uporabljati; stran ima tipografske nadomestke.
-  showPosters: false,
+  // Fotografije filmov (uradne slike LIFFe, gostimo jih sami v site/img/; scripts/fetch_images.py).
+  // false = povsod tipografski nadomestki z motivi.
+  showPosters: true,
 
   // LuMa uredniški Google Sheet (samo neobčutljivi podatki). Dve možnosti:
   //  A) priporočeno – Sheet ostane zaseben, zavihki so »Objavljeni v splet« kot CSV:

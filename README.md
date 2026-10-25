@@ -12,10 +12,12 @@ site/                 objavljena stran (HTML, CSS, JS – brez build koraka)
   config.js           EDINA datoteka z nastavitvami (Sheet, obrazec, slike)
   data/program.json   uradni program (sestavi scripts/build.py)
   data/luma.json      posnetek LuMa Sheeta (rezerva)
+  img/s, img/l        fotografije filmov (640 px za kartice, 960 px za predogled)
 scripts/
   import_liffe.py     uvoz z urnik.liffe.si (samo Ljubljana) + zaznavanje sprememb
   match_imdb.py       preverjene povezave IMDb/Letterboxd (uradni IMDb dataset, brez scrapinga)
   build.py            združi vse v site/data/program.json
+  fetch_images.py     uradne fotografije LIFFe → site/img (samo macOS, lokalno)
   fetch_luma.py       posnetek LuMa Sheeta → site/data/luma.json
   check.py            kontrolni seznam → docs/kontrolni_seznam.md
   serve.py            lokalni predogled (http://127.0.0.1:8765)
@@ -37,5 +39,8 @@ Na GitHubu to samodejno teče vsak dan (glej `.github/workflows/objava.yml`). Iz
 ker so vezane na stabilne ID-je projekcij iz LIFFe sistema vstopnic (npr. `t227379`). Če LIFFe projekcijo
 odstrani, jo »Moj LIFFe« označi kot »ni več v uradnem urniku«. Novi filmi nimajo povzetka, dokler ga ne dodaš
 v `data/povzetki.json` (stran deluje tudi brez njega).
+
+Novi filmi dobijo fotografijo, ko na svojem Macu zaženeš `python3 scripts/fetch_images.py && python3 scripts/build.py`
+in narediš Push. Do takrat imajo na kartici barvni nadomestek.
 
 Podrobnosti o virih, licencah, ocenah in prijavah: [docs/OBJAVA_IN_UREJANJE.md](docs/OBJAVA_IN_UREJANJE.md).

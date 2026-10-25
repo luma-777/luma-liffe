@@ -72,8 +72,9 @@ function timeRange(s) {
 function art(f, large = false) {
   const c = secColor(f.section);
   const sec = `<span class="art-sec">${esc(f.section)}</span>`;
-  if (CONFIG.showPosters && f.image) {
-    return `<div class="art${large ? " large" : ""}" style="--c:${c}"><img src="${esc(f.image)}" alt="" loading="lazy" decoding="async">${sec}</div>`;
+  if (CONFIG.showPosters && f.img) {
+    const sizes = large ? "(max-width: 640px) 100vw, 860px" : "(max-width: 560px) 100vw, 380px";
+    return `<div class="art photo${large ? " large" : ""}" style="--c:${c}"><img src="${esc(large ? f.img.l : f.img.s)}" srcset="${esc(f.img.s)} 640w, ${esc(f.img.l)} 960w" sizes="${sizes}" width="640" height="265" alt="" ${large ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">${sec}</div>`;
   }
   const h = hashCode(f.id);
   const ink = "#1d1a2b", paper = "#f4eee2";
@@ -935,6 +936,7 @@ function viewAbout() {
       <li>Prikazujemo samo fizične projekcije v Ljubljani (${P.venues.map((v) => esc(v.name)).join(", ")}). Izpuščenih je ${n.excluded_screenings_outside_ljubljana} projekcij v Mariboru, Celju in Novem mestu ter spletni (VOD) program${n.excluded_films.length ? ` (${n.excluded_films.map((x) => esc(x.title_sl)).join(", ")})` : ""}.</li>
       <li>Kratki povzetki so naši, napisani po uradnih opisih; celoten opis je vedno na strani LIFFe. »Zakaj je zanimiv?« navaja le dejstva iz uradnega opisa (npr. nagrade).</li>
       <li>Povezave na IMDb in Letterboxd so potrjene prek IMDb identifikatorja (ujemanje naslova, leta in režiserja v uradnem IMDb naboru podatkov). Kjer ujemanja ni bilo mogoče potrditi, je povezava iskanje in je tako označena. Metacritic je vedno iskanje.</li>
+      <li>Fotografije filmov so uradne slike LIFFe oziroma distributerjev filmov.</li>
       <li>Ocen ne prikazujemo, ker pogoji IMDb, Letterboxda in Metacritica tega ne dovolijo. »Ziherce« izbereva midva iz LuMa, tudi po ocenah, ki sva jih pregledala zase; nagrade festivalov so preverjene v uradnih opisih LIFFe in poročilih festivalov.</li>
       <li>Če se kaj ne ujema z uradnim programom, velja uradni program.</li>
     </ul>
@@ -973,14 +975,16 @@ function filmModalHtml(f) {
   const rec = lumaRec(f.id);
   const alt = [f.title_orig, f.title_en].filter(Boolean).map(esc).join(" · ");
   const info = (P.section_info || {})[f.section];
+  const hasPhoto = !!(CONFIG.showPosters && f.img);
   return `
   <div class="modal-bar">
     <span class="modal-grip" aria-hidden="true"></span>
     <button type="button" class="iconbtn modal-close" data-act="closemodal" aria-label="Zapri predogled">${ic("x")}</button>
   </div>
   <div class="modal-inner">
-    <div class="modal-top">
-      ${art(f, true)}
+    ${hasPhoto ? `<div class="modal-hero">${art(f, true)}</div>` : ""}
+    <div class="modal-top${hasPhoto ? " solo" : ""}">
+      ${hasPhoto ? "" : art(f, true)}
       <div class="modal-head">
         <p class="section-tag" title="${esc(info || "")}"><span class="dot" style="--c:${secColor(f.section)}"></span>${esc(f.section)}</p>
         <h2 id="fm-title" tabindex="-1">${esc(f.title_sl || f.title_en)}</h2>
@@ -1294,7 +1298,7 @@ async function boot() {
     return;
   }
   document.getElementById("data-stamp").innerHTML =
-    `Podatki preverjeni z uradnim programom: <b>${esc(fmtStamp(P.source.imported_at))}</b> · zadnja sprememba programa: ${esc(fmtStamp(P.source.changed_at || P.source.imported_at))} · vir: <a href="${esc(P.source.schedule)}">urnik.liffe.si</a>`;
+    `Podatki preverjeni z uradnim programom: <b>${esc(fmtStamp(P.source.imported_at))}</b> · zadnja sprememba programa: ${esc(fmtStamp(P.source.changed_at || P.source.imported_at))} · vir: <a href="${esc(P.source.schedule)}">urnik.liffe.si</a> · fotografije: LIFFe`;
   store.onChange(updateBadge);
   store.onExternalChange(() => render(true)); // plan, spremenjen v drugem zavihku (osveži tudi predogled)
   updateBadge();

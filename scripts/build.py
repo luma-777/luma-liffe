@@ -53,6 +53,10 @@ def main():
             ext = [e for e in ext if e and e["site"] == "LIFFe"]
             f["program"] = True
         f["links"] = [e for e in ext if e]
+        if os.path.exists(os.path.join(ROOT, "site", "img", "s", f["id"] + ".jpg")) and \
+                os.path.exists(os.path.join(ROOT, "site", "img", "l", f["id"] + ".jpg")):
+            f["img"] = {"s": "img/s/%s.jpg" % f["id"], "l": "img/l/%s.jpg" % f["id"]}
+        f.pop("image", None)  # slik s strežnika LIFFe ne nalagamo neposredno
         p = povzetki.get(f["id"])
         if p and p.get("povzetek"):
             f["summary"] = p["povzetek"]

@@ -77,7 +77,9 @@ Stolpci: `film_id`, `naslov` (za lažje branje), `razlog`, `nagrada`, `vrstni_re
   povezava gre prek `letterboxd.com/imdb/<tt-ID>/`. Metacritic je iskanje.
 - **Ocene** IMDb, Letterboxd in Metacritic niso prikazane: IMDb dovoli le osebno rabo, Letterboxd in Metacritic
   prepovedujeta samodejno zbiranje. Vajina tabela z ocenami na Drive ostaja zasebni pripomoček za izbor Ziherc.
-- **Plakati**: izklopljeni (`showPosters: false`), dokler LIFFe ne potrdi, da jih smemo uporabljati.
+- **Fotografije filmov**: uradne slike LIFFe (iste kot v mapah *LIFFE 2026 thumbnaili* in *LIFFE 2026 slike velike* na Drive).
+  Stran jih gosti sama (`site/img`, ~9 MB), ne nalaga jih s strežnika LIFFe. Na strani »O strani« in v nogi piše
+  »fotografije: LIFFe«. Če bi LIFFe prosil, da jih umaknemo: v `site/config.js` nastavi `showPosters: false`.
 - **Vstopnice**: gumb odpre uradno prodajo Cankarjevega doma za ta termin. Razprodanosti ne prikazujemo.
 - **Napaka v uradnih podatkih**: opis filma *Ljudska romanca* (idF 3945) je na LIFFe enak opisu *Običajni osumljenci*;
   povzetka zato ni. Ko LIFFe popravi, dopolni `data/povzetki.json`.

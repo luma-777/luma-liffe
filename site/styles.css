@@ -564,3 +564,13 @@ html.modal-open { overflow: hidden; }
 @media (max-width: 560px) { .grid.grid-wide { grid-template-columns: 1fr; } }
 /* kratek opis na kartici (dva stavka, v celoti) */
 .card-sum { font-size: .9rem; line-height: 1.45; color: var(--ink-2); margin-top: 6px; }
+/* fotografije filmov (razmerje uradnih slik LIFFe 12:5) */
+.art.photo { aspect-ratio: 12/5; background: var(--ink); }
+.art.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.art.photo .art-sec { z-index: 1; }
+.art.photo.large .art-sec { display: none; } /* sekcija je že v vrstici pod sliko */
+.art.photo.large { aspect-ratio: 12/5; }
+.modal .art.photo.large { aspect-ratio: 12/5; border-radius: 14px; }
+.modal-hero { margin-right: 52px; }
+.modal-top.solo { grid-template-columns: 1fr; padding-right: 0; }
+@media (max-width: 640px) { .modal-hero { margin-right: 0; margin-top: 40px; } .modal .art.photo.large { aspect-ratio: 12/5; } }
