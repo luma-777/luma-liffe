@@ -28,7 +28,8 @@ Nastavitev (narejeno 21. 10. 2026):
 Urejanje (brez kode):
 - **ID-ji**: odpri stran z `?urednik` na koncu, npr. `…/#/film/3926?urednik`. Pri filmu se izpiše `film_id`, pri vsakem
   terminu `screening_id` z gumbom »kopiraj«. Uredniški način velja do zaprtja zavihka.
-- `luma_priporocila`: `film_id`, `aktivno` = DA, `komentar`, `vrstni_red`.
+- `luma_priporocila` (na strani »Ziherce → LuMa izbor«): `film_id`, `aktivno` = DA, `komentar`, `vrstni_red`,
+  `videla_sva` = DA (film sta že videla) ali NE (»Na radarju«).
 - `luma_skupne_projekcije`: `screening_id`, `gremo` = DA, `povabilo`, neobvezno `zbirno_mesto` in `prijava_url`.
 - `luma_potrjeni_pridruzeni`: samo pregledani vzdevki z izrecnim soglasjem, `objavi` = DA.
 - Vrstice s `primer` = DA se nikoli ne prikažejo. Stolpci »za lažje branje« so le zate.
@@ -57,6 +58,15 @@ Moderacija: v odgovorih preglej imena; tista z »Da« (in primerna) prepiši v `
 Pri »Odjava« vrstico izbriši. Stran ne more preveriti, ali je Google prijavo sprejel, zato po spremembi obrazca naredi
 eno testno prijavo in jo nato izbriši.
 
+## 3a. Ziherce (`luma_ziherce`)
+
+Stolpci: `film_id`, `naslov` (za lažje branje), `razlog`, `nagrada`, `vrstni_red`, `aktivno` = DA, `primer`.
+- `razlog` = `ocene` (ocene publike in kritikov), `festivali` (odmevni filmi velikih festivalov; v `nagrada` vpiši
+  nagrado, npr. »Zlati lev, Benetke 2026«) ali `starejsi` (starejše klasike). Film je lahko v več vrsticah z različnim razlogom.
+- Ocen (IMDb, Letterboxd, Metacritic) na strani ne objavljamo: njihovi pogoji tega ne dovolijo. Uporabita jih zase
+  (zasebna tabela *LIFFe 2026 – vsi filmi, IMDb in Metascore*, zavihek »Predlog Ziherc«), na stran gre le vajin izbor.
+- Uredniški Sheet je objavljen v celoti: **vsak nov zavihek je takoj javen**. Zasebnih podatkov vanj ne dodajaj.
+
 ## 4. Kaj je preverjeno in kakšne so omejitve
 
 - **Program**: urnik.liffe.si nima API-ja; `robots.txt` ne prepoveduje dostopa. Uvoz je vljuden (ena zahteva naenkrat,
@@ -65,8 +75,8 @@ eno testno prijavo in jo nato izbriši.
   dodaš v `VENUES` v `scripts/import_liffe.py` (uvoz te opozori).
 - **IMDb/Letterboxd**: povezava je neposredna le, če se v uradnem IMDb datasetu ujemata režiser in leto. Letterboxd
   povezava gre prek `letterboxd.com/imdb/<tt-ID>/`. Metacritic je iskanje.
-- **Ocene** (IMDb, Metascore) niso prikazane: IMDb podatki so licencirani za osebno, nekomercialno rabo, Metacritic
-  za ponovno objavo nima odprte licence. Tvoja tabela z ocenami na Drive ostaja zasebni pripomoček.
+- **Ocene** IMDb, Letterboxd in Metacritic niso prikazane: IMDb dovoli le osebno rabo, Letterboxd in Metacritic
+  prepovedujeta samodejno zbiranje. Vajina tabela z ocenami na Drive ostaja zasebni pripomoček za izbor Ziherc.
 - **Plakati**: izklopljeni (`showPosters: false`), dokler LIFFe ne potrdi, da jih smemo uporabljati.
 - **Vstopnice**: gumb odpre uradno prodajo Cankarjevega doma za ta termin. Razprodanosti ne prikazujemo.
 - **Napaka v uradnih podatkih**: opis filma *Ljudska romanca* (idF 3945) je na LIFFe enak opisu *Običajni osumljenci*;

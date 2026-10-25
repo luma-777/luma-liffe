@@ -27,12 +27,14 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site", "data", "luma.json")
-TABS = {"priporocila": "luma_priporocila", "skupne": "luma_skupne_projekcije", "pridruzeni": "luma_potrjeni_pridruzeni"}
+TABS = {"priporocila": "luma_priporocila", "skupne": "luma_skupne_projekcije", "pridruzeni": "luma_potrjeni_pridruzeni",
+        "ziherce": "luma_ziherce"}
 # Javno gredo samo ti stolpci – vse drugo (npr. opombe) ostane v Sheetu.
 KEEP = {
-    "priporocila": ["film_id", "aktivno", "komentar", "vrstni_red", "primer"],
+    "priporocila": ["film_id", "aktivno", "komentar", "vrstni_red", "videla_sva", "primer"],
     "skupne": ["screening_id", "gremo", "povabilo", "zbirno_mesto", "prijava_url", "primer"],
     "pridruzeni": ["screening_id", "vzdevek", "objavi", "primer"],
+    "ziherce": ["film_id", "razlog", "nagrada", "vrstni_red", "aktivno", "primer"],
 }
 
 
@@ -93,6 +95,12 @@ def main():
         rows = fetch(sid, tab, pub.get(k))
         out[k] = [{c: (r.get(c) or "").strip() for c in KEEP[k]} for r in rows]
         print("%-12s %d vrstic" % (k, len(out[k])))
+    # Brez sprememb v Sheetu datoteke ne prepišemo, da robot ne dela praznih commitov vsako uro.
+    if os.path.exists(OUT):
+        old = json.load(open(OUT, encoding="utf-8"))
+        if all(old.get(k) == out[k] for k in TABS):
+            print("brez sprememb")
+            return
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
     print("→", os.path.relpath(OUT, ROOT))

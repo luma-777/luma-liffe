@@ -1,12 +1,13 @@
 {
  "_opomba": "Posnetek LuMa Google Sheeta (scripts/fetch_luma.py).",
- "updated_at": "2026-10-25T09:57+00:00",
+ "updated_at": "2026-10-25T10:38+00:00",
  "priporocila": [
   {
    "film_id": "3926",
    "aktivno": "NE",
    "komentar": "PRIMER – to ni resnično priporočilo. Vrstico izbriši ali prepiši.",
    "vrstni_red": "1",
+   "videla_sva": "NE",
    "primer": "DA"
   },
   {
@@ -14,6 +15,7 @@
    "aktivno": "DA",
    "komentar": "Pogledala sva ga v San Sebastianu in se nama je zdel odličen. Kar dolg, a vreden vsake minute – ostane s tabo še dolgo po gledanju.",
    "vrstni_red": "1",
+   "videla_sva": "DA",
    "primer": ""
   },
   {
@@ -21,6 +23,7 @@
    "aktivno": "DA",
    "komentar": "Bivša direktorica Slovenskega filmskega centra ga je označila za svoj favorit Cannesa – in tudi nama se zdi, da veliko obeta.",
    "vrstni_red": "2",
+   "videla_sva": "NE",
    "primer": ""
   }
  ],
@@ -48,6 +51,280 @@
    "vzdevek": "PrimerVzdevek",
    "objavi": "NE",
    "primer": "DA"
+  }
+ ],
+ "ziherce": [
+  {
+   "film_id": "3926",
+   "razlog": "ocene",
+   "nagrada": "PRIMER – vrstica se ne prikaže",
+   "vrstni_red": "1",
+   "aktivno": "NE",
+   "primer": "DA"
+  },
+  {
+   "film_id": "3961",
+   "razlog": "ocene",
+   "nagrada": "",
+   "vrstni_red": "1",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3921",
+   "razlog": "ocene",
+   "nagrada": "",
+   "vrstni_red": "2",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3990",
+   "razlog": "ocene",
+   "nagrada": "",
+   "vrstni_red": "3",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3960",
+   "razlog": "ocene",
+   "nagrada": "",
+   "vrstni_red": "4",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3959",
+   "razlog": "ocene",
+   "nagrada": "",
+   "vrstni_red": "5",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3975",
+   "razlog": "ocene",
+   "nagrada": "",
+   "vrstni_red": "6",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "4015",
+   "razlog": "ocene",
+   "nagrada": "",
+   "vrstni_red": "7",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3977",
+   "razlog": "ocene",
+   "nagrada": "",
+   "vrstni_red": "8",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3981",
+   "razlog": "ocene",
+   "nagrada": "",
+   "vrstni_red": "9",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3998",
+   "razlog": "festivali",
+   "nagrada": "Zlati lev, Benetke 2026",
+   "vrstni_red": "1",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3922",
+   "razlog": "festivali",
+   "nagrada": "Zlati medved, Berlinale 2026",
+   "vrstni_red": "2",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "4015",
+   "razlog": "festivali",
+   "nagrada": "Zlata školjka, San Sebastián 2026",
+   "vrstni_red": "3",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3980",
+   "razlog": "festivali",
+   "nagrada": "Zlati leopard, Locarno 2026",
+   "vrstni_red": "4",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3961",
+   "razlog": "festivali",
+   "nagrada": "Velika nagrada žirije, Cannes 2026",
+   "vrstni_red": "5",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3928",
+   "razlog": "festivali",
+   "nagrada": "Velika nagrada žirije (svetovni igrani film), Sundance 2026",
+   "vrstni_red": "6",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3953",
+   "razlog": "festivali",
+   "nagrada": "Zlata školjka, San Sebastián 2025; goya za najboljši film",
+   "vrstni_red": "7",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3975",
+   "razlog": "festivali",
+   "nagrada": "Nagrada za najboljšo režijo, Cannes 2026",
+   "vrstni_red": "8",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3974",
+   "razlog": "festivali",
+   "nagrada": "Nagrada žirije, Cannes 2026",
+   "vrstni_red": "9",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3921",
+   "razlog": "festivali",
+   "nagrada": "Srebrni medved – nagrada žirije, Berlinale 2026",
+   "vrstni_red": "10",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3960",
+   "razlog": "festivali",
+   "nagrada": "Nagrada za najboljšo igralko (Virginie Efira, Tao Okamoto), Cannes 2026",
+   "vrstni_red": "11",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3988",
+   "razlog": "festivali",
+   "nagrada": "Srebrni medved za režijo, Berlinale 2026",
+   "vrstni_red": "12",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3959",
+   "razlog": "festivali",
+   "nagrada": "Srebrni medved za glavno vlogo (Sandra Hüller), Berlinale 2026",
+   "vrstni_red": "13",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3977",
+   "razlog": "festivali",
+   "nagrada": "Volpijev pokal za najboljšega igralca (John Malkovich), Benetke 2026",
+   "vrstni_red": "14",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3999",
+   "razlog": "festivali",
+   "nagrada": "Nagrada za najboljši scenarij, Benetke 2026",
+   "vrstni_red": "15",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3958",
+   "razlog": "festivali",
+   "nagrada": "Nagrada občinstva, Štirinajst dni režiserjev, Cannes 2026",
+   "vrstni_red": "16",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "4004",
+   "razlog": "starejsi",
+   "nagrada": "",
+   "vrstni_red": "1",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "4008",
+   "razlog": "starejsi",
+   "nagrada": "",
+   "vrstni_red": "2",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "4003",
+   "razlog": "starejsi",
+   "nagrada": "",
+   "vrstni_red": "3",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3936",
+   "razlog": "starejsi",
+   "nagrada": "",
+   "vrstni_red": "4",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3935",
+   "razlog": "starejsi",
+   "nagrada": "",
+   "vrstni_red": "5",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "4009",
+   "razlog": "starejsi",
+   "nagrada": "",
+   "vrstni_red": "6",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3938",
+   "razlog": "starejsi",
+   "nagrada": "",
+   "vrstni_red": "7",
+   "aktivno": "DA",
+   "primer": ""
+  },
+  {
+   "film_id": "3944",
+   "razlog": "starejsi",
+   "nagrada": "",
+   "vrstni_red": "8",
+   "aktivno": "DA",
+   "primer": ""
   }
  ]
 }

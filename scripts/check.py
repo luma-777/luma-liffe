@@ -69,7 +69,7 @@ for f in films.values():
 check("Vrstni red povezav IMDb → LIFFe → Metacritic → Letterboxd", order_ok)
 direct = sum(1 for f in films.values() for l in f["links"] if l["site"] == "IMDb" and not l["search"])
 check("IMDb povezave v pravilni obliki", not bad_imdb, "%d neposrednih (preverjen režiser), ostalo iskanje ali sklop" % direct)
-check("Ni prikazanih ocen", not any("rating" in json.dumps(f) for f in films.values()))
+check("Ni prikazanih ocen tretjih virov", not any(f.get("audience") for f in films.values()))
 check("Povzetki", True, "%d filmov s povzetkom, %d označenih za ročno preverjanje" % (
     sum(1 for f in films.values() if f.get("summary")), sum(1 for f in films.values() if f.get("summary_status") == "preveri")))
 site_txt = json.dumps(P, ensure_ascii=False)

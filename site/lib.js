@@ -336,7 +336,7 @@ function cleanLuma(raw) {
   const real = (r) => !yes(r.primer);
   const priporocila = (raw.priporocila || []).filter(real)
     .filter((r) => r.film_id && yes(r.aktivno))
-    .map((r) => ({ film_id: String(r.film_id).trim(), komentar: r.komentar || "", vrstni_red: Number(r.vrstni_red) || 999 }))
+    .map((r) => ({ film_id: String(r.film_id).trim(), komentar: r.komentar || "", vrstni_red: Number(r.vrstni_red) || 999, videla: yes(r.videla_sva) }))
     .sort((a, b) => a.vrstni_red - b.vrstni_red);
   const skupne = (raw.skupne || []).filter(real)
     .filter((r) => r.screening_id && yes(r.gremo))
@@ -344,11 +344,18 @@ function cleanLuma(raw) {
   const pridruzeni = (raw.pridruzeni || []).filter(real)
     .filter((r) => r.screening_id && r.vzdevek && yes(r.objavi))
     .map((r) => ({ screening_id: String(r.screening_id).trim(), vzdevek: r.vzdevek.slice(0, 40) }));
-  return { priporocila, skupne, pridruzeni };
+  // Ziherce: ocene (gledalci + kritiki), festivali (nagrade), starejsi (preverjene klasike)
+  const RAZLOGI = ["ocene", "festivali", "starejsi"];
+  const ziherce = (raw.ziherce || []).filter(real)
+    .filter((r) => r.film_id && yes(r.aktivno))
+    .map((r) => ({ film_id: String(r.film_id).trim(), razlog: norm(r.razlog).replace(/ /g, ""), nagrada: r.nagrada || "", vrstni_red: Number(r.vrstni_red) || 999 }))
+    .filter((r) => RAZLOGI.includes(r.razlog))
+    .sort((a, b) => a.vrstni_red - b.vrstni_red);
+  return { priporocila, skupne, pridruzeni, ziherce };
 }
 
 export async function loadLuma() {
-  let snapshot = { priporocila: [], skupne: [], pridruzeni: [] };
+  let snapshot = { priporocila: [], skupne: [], pridruzeni: [], ziherce: [] };
   try {
     const r = await fetch("data/luma.json", { cache: "no-cache" });
     if (r.ok) snapshot = await r.json();
@@ -365,8 +372,11 @@ export async function loadLuma() {
         if (!r.ok || !/csv/.test(r.headers.get("content-type") || "")) throw new Error(key + " " + r.status);
         return parseCsv(await r.text());
       };
-      const [priporocila, skupne, pridruzeni] = await Promise.all([get("priporocila"), get("skupne"), get("pridruzeni")]);
-      return { ...cleanLuma({ priporocila, skupne, pridruzeni }), live: true };
+      const [priporocila, skupne, pridruzeni, ziherce] = await Promise.all([
+        get("priporocila"), get("skupne"), get("pridruzeni"),
+        (published ? csv.ziherce : tabs.ziherce) ? get("ziherce") : Promise.resolve(snapshot.ziherce || []),
+      ]);
+      return { ...cleanLuma({ priporocila, skupne, pridruzeni, ziherce }), live: true };
     } catch (e) {
       console.warn("LuMa Sheet ni dosegljiv, uporabljam data/luma.json:", e);
     }

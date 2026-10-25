@@ -14,7 +14,7 @@ Samodejno: `python3 scripts/check.py`
 - ✅ **Povezave za vstopnice** — 1 projekcij brez neposredne povezave (gumb vodi na uradne informacije o vstopnicah)
 - ✅ **Vrstni red povezav IMDb → LIFFe → Metacritic → Letterboxd**
 - ✅ **IMDb povezave v pravilni obliki** — 98 neposrednih (preverjen režiser), ostalo iskanje ali sklop
-- ✅ **Ni prikazanih ocen**
+- ✅ **Ni prikazanih ocen tretjih virov**
 - ✅ **Povzetki** — 101 filmov s povzetkom, 1 označenih za ročno preverjanje
 - ✅ **Ni testnih/demo podatkov v programu**
 - ✅ **LuMa posnetek ne vsebuje testnih vrstic** — 3 resničnih vrstic
