@@ -42,7 +42,7 @@ Zahtevnost: S = do ure, M = nekaj ur, L = dan ali več.
 - **Zakaj je problem:** čipi s termini so nad povezavo kartice, zato klik nanje ne odpre ničesar (preverjeno v brskalniku). Uporabnik, ki želi »ta termin«, ostane brez odziva.
 - **Načelo:** Nielsen 1 (vidnost stanja), 4 (doslednost); affordance.
 - **Resnost:** 3
-- **Rešitev:** klik na termin odpre predogled filma in označi ter pokaže prav ta termin z gumbi »V moj plan«, »Vstopnice« in koledar.
+- **Rešitev:** klik na termin odpre predogled filma in označi ter pokaže prav ta termin z gumbi »V moj koledar«, »Vstopnice« in koledar.
 - **Učinek:** od kartice do izbranega termina je en klik, brez iskanja.
 - **Zahtevnost:** S · **Status:** izvedeno
 
@@ -155,7 +155,7 @@ Zahtevnost: S = do ure, M = nekaj ur, L = dan ali več.
 - **Predogled filma:** zapre se z X, Escape, klikom na ozadje ali gumbom Nazaj; fokus gre v okno in se vrne na kartico; položaj seznama ostane. Vsak film ima tudi svojo povezavo `#/film/ID`.
 - **»Imam prost čas«:** izračuna konec projekcije iz uradnega trajanja in skrije filme, ki se izidejo prepozno.
 - **Moj LIFFe:** prekrivanja, zamenjava termina, izvoz .ics v Europe/Ljubljana, deljenje plana s povezavo brez osebnih podatkov, opozorilo na odstranjene projekcije.
-- **Ločitev »Zanima me« (srček) in »V moj plan« (termin).**
+- **Ločitev »Zanima me« (srček) in »V moj koledar« (termin).**
 - **Iskanje** po slovenskem, angleškem, izvirnem naslovu in režiserju, tudi brez šumnikov.
 - **Kartice:** slika, naslov, režija, država, leto, trajanje; opis za gumbom »Opis«; srček 44 × 44 px.
 - **Prazna stanja z dejanji, stanje nalaganja in sporočilo ob napaki.**
@@ -164,7 +164,7 @@ Zahtevnost: S = do ure, M = nekaj ur, L = dan ali več.
 
 ## Hipoteze (preveriti z uporabniki)
 
-1. Ali novi obiskovalci razumejo razliko med srčkom (»Zanima me«) in »V moj plan«? Test: 5 oseb, naloga »shrani film, ki te zanima, in nato izberi termin«.
+1. Ali novi obiskovalci razumejo razliko med srčkom (»Zanima me«) in »V moj koledar«? Test: 5 oseb, naloga »shrani film, ki te zanima, in nato izberi termin«.
 2. Ali je ime »Ziherce« razumljivo tistim, ki besede ne poznajo? Podnaslov pomaga; preveriti s 3–5 ljudmi izven kluba.
 3. Ali je »Imam prost čas« dovolj viden kot zavihek v Odkrij filme ali ga ljudje najdejo le s prve strani?
 4. Ali bi odkrivanje po razpoloženju res skrajšalo izbiro (glej spodaj)?
