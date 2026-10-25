@@ -586,6 +586,7 @@ function filmCard(f, hitIds, { extra = "", reviews = false } = {}) {
         <h3 class="card-title">${t.main}</h3>
         ${t.alt ? `<p class="alt-title">${t.alt}</p>` : ""}
         <p class="meta">${metaLine(f)}</p>
+        ${f.summary ? `<p class="card-sum">${esc(f.summary)}</p>` : ""}
         ${extra}
       </div>
     </a>

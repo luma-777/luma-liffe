@@ -562,3 +562,5 @@ html.modal-open { overflow: hidden; }
 .card-body .reviews + .card-terms { margin-top: 10px; }
 .grid.grid-wide { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
 @media (max-width: 560px) { .grid.grid-wide { grid-template-columns: 1fr; } }
+/* kratek opis na kartici (dva stavka, v celoti) */
+.card-sum { font-size: .9rem; line-height: 1.45; color: var(--ink-2); margin-top: 6px; }
