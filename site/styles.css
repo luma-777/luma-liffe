@@ -515,13 +515,14 @@ html.modal-open { overflow: hidden; }
 .award svg { width: 14px; height: 14px; margin-top: 2px; flex: none; }
 .seen { display: inline-flex; font-size: .74rem; font-weight: 700; border-radius: 99px; padding: 2px 9px; background: var(--paper-2); color: var(--ink-2); vertical-align: middle; font-family: var(--sans); letter-spacing: 0; text-transform: none; }
 .seen.yes { background: #d9efed; color: var(--teal-ink); }
-.zswitch { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+.zswitch { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
 .zopt { display: grid; gap: 2px; padding: 12px 16px; border: 2px solid var(--ink); border-radius: var(--radius); background: #fffdf8; text-decoration: none; }
 .zopt b { display: inline-flex; align-items: center; gap: 7px; font-size: 1rem; }
 .zopt b svg { width: 17px; height: 17px; }
-.zopt span { font-size: .86rem; color: var(--ink-2); }
+.zopt .zh { font-size: .86rem; color: var(--ink-2); }
+.zopt .zs { display: none; }
 .zopt[aria-current] { background: var(--ink); color: var(--paper); }
-.zopt[aria-current] span { color: #d8d1c2; }
+.zopt[aria-current] .zh { color: #d8d1c2; }
 .zhint { display: flex; gap: 8px; align-items: flex-start; color: var(--ink-2); font-size: .95rem; margin-bottom: 14px; max-width: 70ch; }
 .zhint svg { width: 18px; height: 18px; margin-top: 2px; flex: none; }
 .zfew { margin-top: 18px; }
@@ -542,6 +543,22 @@ html.modal-open { overflow: hidden; }
 @media (max-width: 560px) {
   .zswitch { gap: 8px; }
   .zopt { padding: 10px 12px; }
-  .zopt b { font-size: .9rem; line-height: 1.2; }
-  .zopt span { display: none; }
+  .zopt { padding: 10px 6px; text-align: center; }
+  .zopt b { font-size: .92rem; line-height: 1.2; justify-content: center; flex-direction: column; gap: 4px; }
+  .zopt .zh, .zopt .zl { display: none; }
+  .zopt .zs { display: inline; }
 }
+
+/* povezave na odzive publike in kritikov (kartice Ziherc) */
+.reviews { position: relative; z-index: 2; margin-top: 2px; padding-top: 10px; border-top: 1px dashed var(--line-2); display: grid; gap: 7px; }
+.reviews-label { font-size: .78rem; font-weight: 700; color: var(--ink-2); }
+.reviews-links { display: flex; flex-wrap: wrap; gap: 5px; }
+.rv { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; padding: 4px 9px; border-radius: 99px; font-size: .78rem; font-weight: 700; text-decoration: none; border: 1.5px solid var(--ink); background: #fffdf8; color: var(--ink); white-space: nowrap; }
+.rv svg { width: 10px; height: 10px; }
+.rv:hover { transform: translateY(-1px); }
+.rv-imdb { background: #f5c518; border-color: #b18c00; }
+.rv-letterboxd { background: #202830; border-color: #202830; color: #fff; }
+.rv.search { border-style: dashed; }
+.card-body .reviews + .card-terms { margin-top: 10px; }
+.grid.grid-wide { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
+@media (max-width: 560px) { .grid.grid-wide { grid-template-columns: 1fr; } }

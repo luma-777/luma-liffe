@@ -60,8 +60,12 @@ jobs:
         run: |
           git config user.name "LuMa robot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/liffe.json data/links.json data/spremembe.md site/data docs/kontrolni_seznam.md
+          # posnetek Sheeta (site/data/luma.json) gre samo v objavo, ne v repozitorij – tako ni konfliktov
+          git add data/liffe.json data/links.json data/spremembe.md site/data/program.json docs/kontrolni_seznam.md
           git diff --cached --quiet || git commit -m "Samodejna posodobitev podatkov" && git push || true
+
+      - name: Oznaka različice (osveži predpomnilnik brskalnikov)
+        run: sed -i "s/?v=dev/?v=${GITHUB_SHA::7}/g" site/index.html
 
       - uses: actions/upload-pages-artifact@v3
         with:

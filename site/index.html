@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=dev">
 </head>
 <body>
   <a class="skip" href="#main">Na vsebino</a>
@@ -90,6 +90,8 @@
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <noscript><p class="noscript">Za delovanje vodiča je potreben JavaScript. Uradni program najdete na <a href="https://urnik.liffe.si/urnik.aspx">urnik.liffe.si</a>.</p></noscript>
-  <script type="module" src="app.js"></script>
+  <!-- ?v=dev ob objavi zamenja oznaka različice, da brskalnik ne meša stare in nove kode -->
+  <script type="importmap">{"imports": {"./lib.js": "./lib.js?v=dev", "./config.js": "./config.js?v=dev"}}</script>
+  <script type="module" src="app.js?v=dev"></script>
 </body>
 </html>

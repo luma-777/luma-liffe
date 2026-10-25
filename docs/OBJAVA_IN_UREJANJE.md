@@ -28,8 +28,8 @@ Nastavitev (narejeno 21. 10. 2026):
 Urejanje (brez kode):
 - **ID-ji**: odpri stran z `?urednik` na koncu, npr. `…/#/film/3926?urednik`. Pri filmu se izpiše `film_id`, pri vsakem
   terminu `screening_id` z gumbom »kopiraj«. Uredniški način velja do zaprtja zavihka.
-- `luma_priporocila` (na strani »Ziherce → LuMa izbor«): `film_id`, `aktivno` = DA, `komentar`, `vrstni_red`,
-  `videla_sva` = DA (film sta že videla) ali NE (»Na radarju«).
+- `luma_priporocila` (oznaka »LuMa priporoča« na karticah, komentar v predogledu filma): `film_id`, `aktivno` = DA,
+  `komentar`, `vrstni_red`, `videla_sva` = DA (film sta že videla) ali NE (»Na radarju«).
 - `luma_skupne_projekcije`: `screening_id`, `gremo` = DA, `povabilo`, neobvezno `zbirno_mesto` in `prijava_url`.
 - `luma_potrjeni_pridruzeni`: samo pregledani vzdevki z izrecnim soglasjem, `objavi` = DA.
 - Vrstice s `primer` = DA se nikoli ne prikažejo. Stolpci »za lažje branje« so le zate.

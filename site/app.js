@@ -215,7 +215,7 @@ function viewHome() {
     <p class="hero-lede">Več kot sto filmov, kup projekcij in ziher kaj dobrega zate. Malo pobrskaj, najdi svoj film, sestavi plan ali pa poglej, kaj je zamikalo naju. Če se ujamemo v isti dvorani, še toliko boljše. <span aria-hidden="true">🍿</span></p>
     <div class="hero-cta">
       <a class="btn btn-mustard" href="#/odkrij">Grem po film! <span aria-hidden="true">↗</span></a>
-      <a class="btn btn-paper" href="#/ziherce?pogled=luma">Kaj gledata LuMa? <span aria-hidden="true">👀</span></a>
+      <a class="btn btn-paper" href="#/skupaj">Kaj gledata LuMa? <span aria-hidden="true">👀</span></a>
     </div>
   </section>
   <div class="entries">
@@ -231,11 +231,11 @@ function viewHome() {
       <p>Po naslovu, režiserju, sekciji, dnevu ali dvorani.</p>
       <span class="go">Vseh ${P.films.length} filmov ${ic("arrow")}</span>
     </a>
-    <a class="entry e-teal" href="#/ziherce?pogled=luma">
+    <a class="entry e-teal" href="#/skupaj">
       ${ic("eye", "entry-motif")}
       <h2>Kaj gleda LuMa?</h2>
-      <p>${recs.length ? `${recs.length} ${plural(recs.length, "film", "filma", "filmi", "filmov")} v najinem izboru` : "Najin izbor"}${tg.length ? ` in ${tg.length} ${plural(tg.length, "skupni ogled", "skupna ogleda", "skupni ogledi", "skupnih ogledov")}` : " in skupni ogledi"}.</p>
-      <span class="go">Poglej izbor ${ic("arrow")}</span>
+      <p>${tg.length ? `${tg.length} ${plural(tg.length, "projekcija", "projekciji", "projekcije", "projekcij")}, na ${plural(tg.length, "katero", "kateri", "katere", "katere")} greva – pridruži se.` : "Projekcije, na katere greva – pridruži se."}</p>
+      <span class="go">Z LuMa v kino ${ic("arrow")}</span>
     </a>
   </div>
   <p class="stats" aria-label="Festival v številkah">
@@ -244,7 +244,7 @@ function viewHome() {
 
   <section class="section">
     <div class="section-head"><div><p class="kicker">${ic("star")} Ne veš, kje začet?</p><h2>Ziherce</h2></div><a class="btn btn-ghost btn-small" href="#/ziherce">Vse ziherce</a></div>
-    ${zihercaList("ocene").length ? `<div class="grid">${zihercaList("ocene").slice(0, 3).map((z) => filmCard(P.filmById.get(z.film_id))).join("")}</div>`
+    ${zihercaList("ocene").length ? `<div class="grid grid-wide">${zihercaList("ocene").slice(0, 3).map((z) => filmCard(P.filmById.get(z.film_id), null, { reviews: true })).join("")}</div>`
       : recs.length ? `<div class="grid">${recs.slice(0, 3).map(homeRec).join("")}</div>`
       : `<div class="empty empty-mini">${ic("eye", "motif")}<p><b>Najin izbor še nastaja.</b> Brskava po programu in kmalu tukaj objaviva, kaj naju je zamikalo.</p></div>`}
   </section>
@@ -275,7 +275,7 @@ function homeRec(r) {
     <a class="card-link" href="#/film/${f.id}" data-film="${f.id}">
       ${art(f)}
       <div class="card-body">
-        <span class="luma-flag">${ic("star")} LuMa izbor</span> ${seenTag(r)}
+        <span class="luma-flag">${ic("star")} LuMa priporoča</span> ${seenTag(r)}
         <h3 class="card-title">${t.main}</h3>
         ${t.alt ? `<p class="alt-title">${t.alt}</p>` : ""}
         ${r.komentar ? `<p class="rec-quote">»${esc(r.komentar)}«</p>` : `<p class="meta">${metaLine(f)}</p>`}
@@ -560,7 +560,15 @@ function noResults(hiddenLate = 0) {
   return emptyBox({ title: "Tu je tema kot v kinodvorani", text: "Za te pogoje ni nobene projekcije. Poskusi s širšim oknom ali drugim dnem.", actions: tips.join(""), motif: "eye" });
 }
 
-function filmCard(f, hitIds, { extra = "" } = {}) {
+// Povezave na odzive (vrstni red kot povsod: IMDb → Metacritic → Letterboxd); same ocene ostanejo na teh straneh.
+function reviewLinks(f) {
+  const ls = ["IMDb", "Metacritic", "Letterboxd"].map((n) => f.links.find((l) => l.site === n)).filter(Boolean);
+  if (!ls.length) return "";
+  return `<div class="reviews"><span class="reviews-label">Poglej odzive publike in kritikov</span><div class="reviews-links">${ls.map((l) =>
+    `<a class="rv rv-${l.site.toLowerCase()}${l.search ? " search" : ""}" href="${esc(l.url)}" target="_blank" rel="noopener" title="${l.search ? `Iskanje na ${l.site}` : `Film na ${l.site}`}" aria-label="${esc(l.site)}${l.search ? ", iskanje" : ""} (odpre se v novem zavihku)">${esc(l.site)} ${ic(l.search ? "search" : "ext")}</a>`).join("")}</div></div>`;
+}
+
+function filmCard(f, hitIds, { extra = "", reviews = false } = {}) {
   const t = titleBits(f);
   const ss = P.screeningsByFilm.get(f.id) || [];
   const hit = new Set(hitIds || []);
@@ -574,7 +582,7 @@ function filmCard(f, hitIds, { extra = "" } = {}) {
     <a class="card-link" href="#/film/${f.id}" data-film="${f.id}">
       ${art(f)}
       <div class="card-body">
-        ${rec ? `<span class="luma-flag">${ic("star")} LuMa izbor</span>` : ""}
+        ${rec ? `<span class="luma-flag">${ic("star")} LuMa priporoča</span>` : ""}
         <h3 class="card-title">${t.main}</h3>
         ${t.alt ? `<p class="alt-title">${t.alt}</p>` : ""}
         <p class="meta">${metaLine(f)}</p>
@@ -583,7 +591,7 @@ function filmCard(f, hitIds, { extra = "" } = {}) {
     </a>
     ${editor ? `<div class="card-body" style="padding-top:0;flex:0;position:relative;z-index:2">${idTag("film_id", f.id)}</div>` : ""}
     ${favBtn(f.id)}
-    <div class="card-body" style="padding-top:0;flex:0"><div class="card-terms">${terms}</div></div>
+    <div class="card-body" style="padding-top:0;flex:0">${reviews ? reviewLinks(f) : ""}<div class="card-terms">${terms}</div></div>
   </article>`;
 }
 
@@ -646,7 +654,7 @@ function viewFilm(id) {
       ${f.summary ? `<p class="summary">${esc(f.summary)}</p>` : f.summary_status === "preveri" ? `<div class="notice">${ic("warn")}<p>Uradni opis tega filma na LIFFe je trenutno videti napačen (enak opisu drugega filma), zato povzetka ne prikazujemo. Preveri na strani LIFFe.</p></div>` : ""}
       ${f.why ? `<div class="why"><b>Zakaj je zanimiv?</b>${esc(f.why)}</div>` : ""}
       <p><a href="${esc(f.liffe_url)}" target="_blank" rel="noopener"><b>Celoten opis na LIFFe</b> ${ic("ext")}</a> ${f.summary ? `<span class="draft">· Kratek povzetek je naš, napisan po uradnem opisu.</span>` : ""}</p>
-      ${rec ? `<div class="luma-note"><p class="kicker">${ic("star")} LuMa izbor ${seenTag(rec)}</p>${rec.komentar ? `<blockquote>${esc(rec.komentar)}</blockquote>` : ""}</div>` : ""}
+      ${rec ? `<div class="luma-note"><p class="kicker">${ic("star")} LuMa priporoča ${seenTag(rec)}</p>${rec.komentar ? `<blockquote>${esc(rec.komentar)}</blockquote>` : ""}</div>` : ""}
     </div>
 
     <section class="section">
@@ -807,10 +815,9 @@ function viewShared(params) {
 // Ziherce: uredniški izbor LuMa (Sheet »luma_ziherce«) – brez številk tretjih virov.
 // Ocene IMDb, Metascore ipd. sta pogledala sami zase; na strani je le njun izbor in vrstni red.
 const ZVIEWS = [
-  ["ocene", "people", "Ocene publike in kritikov", "Novi filmi, ki so jih gledalci in kritiki najbolje sprejeli."],
-  ["festivali", "star", "Odmevni filmi velikih festivalov", "Letošnji nagrajenci Cannesa, Benetk, Berlina, San Sebastiána, Locarna in Sundancea."],
-  ["starejsi", "film", "Starejše klasike", "Priljubljeni starejši filmi iz retrospektiv in posvetil – preverjeni, a niso festivalske novosti."],
-  ["luma", "eye", "LuMa izbor", "Najina osebna priporočila – nekatere sva že videla, druge imava na radarju."],
+  ["ocene", "people", "Ocene publike in kritikov", "Ocene", "Novi filmi, ki so jih gledalci in kritiki najbolje sprejeli."],
+  ["festivali", "star", "Odmevni filmi velikih festivalov", "Festivali", "Letošnji nagrajenci Cannesa, Benetk, Berlina, San Sebastiána, Locarna in Sundancea."],
+  ["starejsi", "film", "Starejše klasike", "Klasike", "Priljubljeni starejši filmi iz retrospektiv in posvetil – preverjeni, a niso festivalske novosti."],
 ];
 
 function zihercaList(razlog) {
@@ -818,27 +825,19 @@ function zihercaList(razlog) {
 }
 
 function viewZiherce(params) {
-  const recs = L.priporocila.filter((r) => P.filmById.has(r.film_id));
-  const avail = ZVIEWS.filter(([k]) => (k === "luma" ? recs.length : zihercaList(k).length));
+  const avail = ZVIEWS.filter(([k]) => zihercaList(k).length);
   const want = params.get("pogled");
-  const view = (avail.find(([k]) => k === want) || avail[0] || ZVIEWS[3])[0];
+  const view = (avail.find(([k]) => k === want) || avail[0] || ZVIEWS[0])[0];
   const meta = ZVIEWS.find(([k]) => k === view);
-  const sw = avail.length > 1 ? `<div class="zswitch" role="group" aria-label="Vrsta ziherc">
-      ${avail.map(([k, icon, label, hint]) => `<a href="#/ziherce?pogled=${k}" class="zopt" ${k === view ? 'aria-current="true"' : ""}><b>${ic(icon)} ${label}</b><span>${hint}</span></a>`).join("")}
+  const sw = avail.length > 1 ? `<div class="zswitch" role="group" aria-label="Vrsta ziherc" style="--n:${avail.length}">
+      ${avail.map(([k, icon, label, short, hint]) => `<a href="#/ziherce?pogled=${k}" class="zopt" ${k === view ? 'aria-current="true"' : ""}><b>${ic(icon)} <span class="zl">${label}</span><span class="zs">${short}</span></b><span class="zh">${hint}</span></a>`).join("")}
     </div>` : "";
-  let body;
-  if (view === "luma") {
-    body = recs.length ? `<div class="grid">${recs.map((r) => filmCard(P.filmById.get(r.film_id), null, {
-      extra: `<p>${seenTag(r)}</p>${r.komentar ? `<p class="rec-quote">»${esc(r.komentar)}«</p>` : ""}`,
-    })).join("")}</div>` : "";
-  } else {
-    const list = zihercaList(view);
-    body = `<div class="grid">${list.map((z) => {
-      const f = P.filmById.get(z.film_id);
-      const extra = z.nagrada ? `<p class="award">${ic("star")} ${esc(z.nagrada)}</p>` : "";
-      return filmCard(f, null, { extra });
-    }).join("")}</div>`;
-  }
+  const list = zihercaList(view);
+  const body = list.length ? `<div class="grid grid-wide">${list.map((z) => {
+    const f = P.filmById.get(z.film_id);
+    const extra = z.nagrada ? `<p class="award">${ic("star")} ${esc(z.nagrada)}</p>` : "";
+    return filmCard(f, null, { extra, reviews: true });
+  }).join("")}</div>` : "";
   const none = !avail.length ? emptyBox({ title: "Ziherce še nastajajo", text: "Brskava po programu in izbirava. Filmi bodo tu, ko jih objaviva – brez izmišljenih seznamov do takrat.", actions: `<a class="btn" href="#/odkrij">Medtem: brskaj po filmih</a>`, motif: "eye" }) : "";
   const note = view === "ocene" ? `<p class="small muted" style="margin-top:14px">Izbrala sva jih po ocenah gledalcev in kritikov (IMDb, Metacritic), ki sva jih pregledala sama. Ocen ne objavljamo – pri vsakem filmu je povezava, kjer jih vidiš.</p>`
     : view === "festivali" ? `<p class="small muted" style="margin-top:14px">Nagrade so preverjene v uradnih opisih LIFFe in poročilih festivalov.</p>` : "";
@@ -851,7 +850,7 @@ function viewZiherce(params) {
   </section>
   ${sw}
   <div class="section" style="margin-top:22px">
-    ${avail.length ? `<p class="zhint">${ic(meta[1])} ${esc(meta[3])}</p>` : ""}
+    ${avail.length ? `<p class="zhint">${ic(meta[1])} ${esc(meta[4])}</p>` : ""}
     ${body}${none}${note}
   </div>`;
 }
@@ -994,7 +993,7 @@ function filmModalHtml(f) {
     </div>
     ${f.summary ? `<p class="summary">${esc(f.summary)}</p>` : f.summary_status === "preveri" ? `<div class="notice">${ic("warn")}<p>Uradni opis na LIFFe je videti napačen, zato povzetka ne prikazujemo.</p></div>` : ""}
     ${f.why ? `<div class="why"><b>Zakaj je zanimiv?</b>${esc(f.why)}</div>` : ""}
-    ${rec ? `<div class="luma-note"><p class="kicker">${ic("star")} LuMa izbor ${seenTag(rec)}</p>${rec.komentar ? `<blockquote>${esc(rec.komentar)}</blockquote>` : ""}</div>` : ""}
+    ${rec ? `<div class="luma-note"><p class="kicker">${ic("star")} LuMa priporoča ${seenTag(rec)}</p>${rec.komentar ? `<blockquote>${esc(rec.komentar)}</blockquote>` : ""}</div>` : ""}
     <p><a href="${esc(f.liffe_url)}" target="_blank" rel="noopener"><b>Preberi celoten opis na LIFFu</b> ${ic("ext")}</a></p>
     <h3 class="modal-h">Projekcije v Ljubljani</h3>
     ${ss.length ? `<div class="screens">${ss.map((s) => screenCard(s)).join("")}</div>` : `<p class="muted">Ni projekcij v Ljubljani.</p>`}
