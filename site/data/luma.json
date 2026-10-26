@@ -1,6 +1,6 @@
 {
  "_opomba": "Posnetek LuMa Google Sheeta (scripts/fetch_luma.py).",
- "updated_at": "2026-10-26T04:59+00:00",
+ "updated_at": "2026-10-26T18:34+00:00",
  "priporocila": [
   {
    "film_id": "3926",
@@ -34,6 +34,8 @@
    "povabilo": "PRIMER – to ni resničen skupni ogled.",
    "zbirno_mesto": "",
    "prijava_url": "",
+   "vrsta": "",
+   "sedeza": "",
    "primer": "DA"
   },
   {
@@ -42,6 +44,8 @@
    "povabilo": "Greva pogledat film, ki je letos v San Sebastianu dobil glavno nagrado.",
    "zbirno_mesto": "",
    "prijava_url": "",
+   "vrsta": "6",
+   "sedeza": "7, 8",
    "primer": ""
   },
   {
@@ -50,6 +54,8 @@
    "povabilo": "",
    "zbirno_mesto": "",
    "prijava_url": "",
+   "vrsta": "5",
+   "sedeza": "7, 8",
    "primer": ""
   },
   {
@@ -58,6 +64,8 @@
    "povabilo": "",
    "zbirno_mesto": "",
    "prijava_url": "",
+   "vrsta": "9",
+   "sedeza": "15 levo, 16 desno",
    "primer": ""
   },
   {
@@ -66,6 +74,8 @@
    "povabilo": "",
    "zbirno_mesto": "",
    "prijava_url": "",
+   "vrsta": "7",
+   "sedeza": "8, 9",
    "primer": ""
   },
   {
@@ -74,6 +84,8 @@
    "povabilo": "",
    "zbirno_mesto": "",
    "prijava_url": "",
+   "vrsta": "10",
+   "sedeza": "11, 12 — levo",
    "primer": ""
   },
   {
@@ -82,6 +94,8 @@
    "povabilo": "",
    "zbirno_mesto": "",
    "prijava_url": "",
+   "vrsta": "5",
+   "sedeza": "3, 4",
    "primer": ""
   },
   {
@@ -90,6 +104,8 @@
    "povabilo": "",
    "zbirno_mesto": "",
    "prijava_url": "",
+   "vrsta": "5",
+   "sedeza": "8, 9",
    "primer": ""
   }
  ],

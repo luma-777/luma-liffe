@@ -687,6 +687,7 @@ a.seg-btn { text-decoration: none; color: inherit; }
 .c-mustard { --bg: var(--mustard); }
 .c-pink { --bg: var(--pink); }
 .c-teal { --bg: var(--teal); }
+.c-aqua { --bg: #2fd8c2; } /* svetla, vesela turkizna; temno besedilo nad 8 : 1 */
 .c-coral { --bg: #f4775f; } /* temno besedilo 6,2 : 1 */
 .c-blue { --bg: #4fb8d8; } /* zelenkasto modra; temno besedilo 7,4 : 1 */
 .c-paper { --bg: var(--paper-3); }
@@ -778,3 +779,6 @@ a.seg-btn { text-decoration: none; color: inherit; }
 .term-luma { display: inline-flex; vertical-align: -2px; margin-right: 4px; padding: 1px 4px; border-radius: 99px; background: var(--pink); }
 .term-luma svg { width: 12px; height: 12px; }
 .mi-meta .with-luma { margin-left: 0; }
+.tg-seats { display: flex; align-items: center; gap: 6px; font-size: .88rem; color: var(--ink-2); }
+.tg-seats svg { width: 15px; height: 15px; color: var(--ink-3); flex: none; }
+.tg-seats b { color: var(--ink); }

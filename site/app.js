@@ -1029,6 +1029,7 @@ function tgCard(r) {
       <p class="tg-time">${tr.start}${tr.end ? `–${tr.end}` : ""} · ${esc(venueShort(s.venue))}</p>
       <h3 class="tg-title"><a href="#/film/${f.id}" data-film="${f.id}" data-sid="${s.id}">${titleBits(f, { withAlt: false }).main}</a></h3>
       ${r.povabilo ? `<p class="tg-invite">${esc(r.povabilo)}</p>` : ""}
+      ${r.vrsta || r.sedeza ? `<p class="tg-seats">${ic("ticket")}<span>Sediva ${r.vrsta ? `v <b>${esc(r.vrsta)}. vrsti</b>` : ""}${r.vrsta && r.sedeza ? ", " : ""}${r.sedeza ? `sedeža <b>${esc(r.sedeza)}</b>` : ""}</span></p>` : ""}
       ${r.zbirno_mesto ? `<p class="small"><b>Dobimo se:</b> ${esc(r.zbirno_mesto)}</p>` : ""}
       ${joined.length ? `<div class="joined"><span class="muted" style="background:none;padding:0">Pridružijo se:</span>${joined.map((j) => `<span>${esc(j.vzdevek)}</span>`).join("")}</div>` : ""}
       ${past ? `<p class="small muted">Ta projekcija je že mimo.</p>` : `<div class="tg-actions">
@@ -1063,7 +1064,7 @@ function viewTogether() {
     .sort((a, b) => { const x = P.screeningById.get(a.screening_id), y = P.screeningById.get(b.screening_id); return (x.date + x.time).localeCompare(y.date + y.time); });
   const unknown = L.skupne.length - rows.length;
   return `
-  ${banner({ c: "teal", icon: "people", kicker: "Vabljeni v kino z nama", title: "Z LuMa v kino", lede: "Natanko te projekcije bova obiskala. Če ti termin ustreza, pridi zraven in se lahko malo podružimo pred ali po filmu. Vstopnico kupi vsak sam." })}
+  ${banner({ c: "aqua", icon: "people", kicker: "Vabljeni v kino z nama", title: "Z LuMa v kino", lede: "Natanko te projekcije bova obiskala. Če ti termin ustreza, pridi zraven in se lahko malo podružimo pred ali po filmu. Vstopnico kupi vsak sam." })}
   <div class="section">
     ${rows.length ? `<div class="together">${rows.map(tgCard).join("")}</div>` : !lumaReady ? lumaWait() : emptyBox({ title: "Skupni ogledi še niso razpisani", text: "Ko izbereva projekcije, na katere greva, bodo tukaj – z datumom, uro, dvorano in povabilom.", actions: `<a class="btn" href="#/ziherce">Ziherce</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "people" })}
     ${unknown ? `<p class="small muted" style="margin-top:12px">${unknown} ${plural(unknown, "vrstica se ne ujema", "vrstici se ne ujemata", "vrstice se ne ujemajo", "vrstic se ne ujema")} z nobeno projekcijo (preveri screening_id v Sheetu ali morebitno spremembo termina).</p>` : ""}

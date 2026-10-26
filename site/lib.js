@@ -385,7 +385,7 @@ function cleanLuma(raw) {
     .sort((a, b) => a.vrstni_red - b.vrstni_red);
   const skupne = (raw.skupne || []).filter(real)
     .filter((r) => r.screening_id && yes(r.gremo))
-    .map((r) => ({ screening_id: String(r.screening_id).trim(), povabilo: r.povabilo || "", prijava_url: r.prijava_url || "", zbirno_mesto: r.zbirno_mesto || "" }));
+    .map((r) => ({ screening_id: String(r.screening_id).trim(), povabilo: r.povabilo || "", prijava_url: r.prijava_url || "", zbirno_mesto: r.zbirno_mesto || "", vrsta: String(r.vrsta || "").trim(), sedeza: String(r.sedeza || "").trim() }));
   const pridruzeni = (raw.pridruzeni || []).filter(real)
     .filter((r) => r.screening_id && r.vzdevek && yes(r.objavi))
     .map((r) => ({ screening_id: String(r.screening_id).trim(), vzdevek: r.vzdevek.slice(0, 40) }));

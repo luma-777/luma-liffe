@@ -32,7 +32,7 @@ TABS = {"priporocila": "luma_priporocila", "skupne": "luma_skupne_projekcije", "
 # Javno gredo samo ti stolpci – vse drugo (npr. opombe) ostane v Sheetu.
 KEEP = {
     "priporocila": ["film_id", "aktivno", "komentar", "vrstni_red", "videla_sva", "primer"],
-    "skupne": ["screening_id", "gremo", "povabilo", "zbirno_mesto", "prijava_url", "primer"],
+    "skupne": ["screening_id", "gremo", "povabilo", "zbirno_mesto", "prijava_url", "vrsta", "sedeza", "primer"],
     "pridruzeni": ["screening_id", "vzdevek", "objavi", "primer"],
     "ziherce": ["film_id", "razlog", "nagrada", "vrstni_red", "aktivno", "primer"],
 }
