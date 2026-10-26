@@ -268,7 +268,7 @@ function viewHome() {
 
   <section class="section">
     <div class="section-head"><div><p class="kicker">${ic("star")} Ne veš, kje začet?</p><h2>Ziherce</h2><p class="section-lede">${ZIHERCE_IS}</p></div><a class="btn btn-ghost btn-small" href="#/ziherce">Vse ziherce</a></div>
-    ${zihercaList("ocene").length ? `<div class="grid grid-wide">${zihercaList("ocene").slice(0, 3).map((z) => filmCard(P.filmById.get(z.film_id), null, { reviews: true })).join("")}</div>`
+    ${zihercaList("ocene").length ? `<div class="grid grid-wide">${zihercaList("ocene").slice(0, 3).map((z) => filmCard(P.filmById.get(z.film_id), null, { reviews: true, zih: false })).join("")}</div>`
       : recs.length ? `<div class="grid">${recs.slice(0, 3).map(homeRec).join("")}</div>`
       : !lumaReady ? lumaWait()
       : `<div class="empty empty-mini">${ic("eye", "motif")}<p><b>Najin izbor še nastaja.</b> Brskava po programu in kmalu tukaj objaviva, kaj naju je zamikalo.</p></div>`}
@@ -607,7 +607,11 @@ function reviewLinks(f) {
     `<a class="rv rv-${l.site.toLowerCase()}${l.search ? " search" : ""}" href="${esc(l.url)}" target="_blank" rel="noopener" title="${l.search ? `Iskanje na ${l.site}` : `Film na ${l.site}`}" aria-label="${esc(l.site)}${l.search ? ", iskanje" : ""} (odpre se v novem zavihku)">${esc(l.site)} ${ic(l.search ? "search" : "ext")}</a>`).join("")}</div></div>`;
 }
 
-function filmCard(f, hitIds, { extra = "", reviews = false } = {}) {
+// Ali gre LuMa na kakšno projekcijo filma / ali je film med Zihercami
+const lumaGoesFilm = (fid) => L.skupne.some((r) => { const s = P.screeningById.get(r.screening_id); return s && s.film_id === fid; });
+const isZiherca = (fid) => L.ziherce.some((z) => z.film_id === fid);
+
+function filmCard(f, hitIds, { extra = "", reviews = false, zih = true } = {}) {
   const t = titleBits(f);
   const ss = P.screeningsByFilm.get(f.id) || [];
   const hit = new Set(hitIds || []);
@@ -615,15 +619,15 @@ function filmCard(f, hitIds, { extra = "", reviews = false } = {}) {
   const terms = ss.map((s) => {
     const cls = store.inPlan(s.id) ? "planned" : hit.has(s.id) && screeningFilterActive() ? "hit" : "";
     const [wd, ...dm] = dayShort(s.date).split(" ");
-    const label = `${dayLong(s.date)}, ${fmtMin(startMin(s))}, ${venueShort(s.venue)}`;
-    return `<a class="term ${cls}" href="#/film/${f.id}" data-film="${f.id}" data-sid="${s.id}" title="${esc(venueLabel(P.venueById.get(s.venue)))}" aria-label="${esc(`${label}${cls === "planned" ? ", v tvojem planu" : ""} – odpri termin`)}"><b>${esc(wd)}</b> ${esc(dm.join(" "))} · ${fmtMin(startMin(s))} · ${esc(venueShort(s.venue))}</a>`;
+    const label = `${dayLong(s.date)}, ${fmtMin(startMin(s))}, ${venueShort(s.venue)}${lumaGoes(s.id) ? ", gre tudi LuMa" : ""}`;
+    return `<a class="term ${cls}" href="#/film/${f.id}" data-film="${f.id}" data-sid="${s.id}" title="${esc(venueLabel(P.venueById.get(s.venue)))}" aria-label="${esc(`${label}${cls === "planned" ? ", v tvojem planu" : ""} – odpri termin`)}">${lumaGoes(s.id) ? `<span class="term-luma" title="Na to projekcijo greva midva">${ic("people")}</span>` : ""}<b>${esc(wd)}</b> ${esc(dm.join(" "))} · ${fmtMin(startMin(s))} · ${esc(venueShort(s.venue))}</a>`;
   }).join("");
   return `
   <article class="card">
     <a class="card-link" href="#/film/${f.id}" data-film="${f.id}">
       ${art(f)}
       <div class="card-body">
-        ${rec ? `<span class="luma-flag">${ic("star")} LuMa priporoča</span>` : ""}
+        ${rec || lumaGoesFilm(f.id) || (zih && isZiherca(f.id)) ? `<span class="card-flags">${rec ? `<span class="luma-flag">${ic("star")} LuMa priporoča</span>` : ""}${lumaGoesFilm(f.id) ? `<span class="tag-goes">${ic("people")} LuMa gre gledat</span>` : ""}${zih && isZiherca(f.id) ? `<span class="tag-zih">${ic("check")} Ziherca</span>` : ""}</span>` : ""}
         <h3 class="card-title">${t.main}</h3>
         ${t.alt ? `<p class="alt-title">${t.alt}</p>` : ""}
         <p class="meta">${metaLine(f)}</p>
@@ -815,7 +819,7 @@ function viewMine(params) {
         <span class="mi-time"><b>${r.start}</b>${r.end ? `<small>do ${r.end}</small>` : ""}</span>
         <span class="mi-main">
           <a class="mi-title" href="#/film/${f.id}" data-film="${f.id}" data-sid="${s.id}">${esc(f.title_sl)}</a>
-          <span class="mi-meta">${esc(venueShort(s.venue))}${tix ? ticketTag(s.id) : ""}${cl ? `<span class="mrow-clash">${ic("warn")} prekrivanje</span>` : ""}</span>
+          <span class="mi-meta">${esc(venueShort(s.venue))}${lumaGoes(s.id) ? `<span class="with-luma">${ic("people")} gre tudi LuMa</span>` : ""}${tix ? ticketTag(s.id) : ""}${cl ? `<span class="mrow-clash">${ic("warn")} prekrivanje</span>` : ""}</span>
         </span>
         ${calButtons(s, f)}
       </li>`;
@@ -991,7 +995,7 @@ function viewZiherce(params) {
   const body = list.length ? `<div class="grid grid-wide">${list.map((z) => {
     const f = P.filmById.get(z.film_id);
     const extra = z.nagrada ? `<p class="award">${ic("star")} ${esc(z.nagrada)}</p>` : "";
-    return filmCard(f, null, { extra, reviews: true });
+    return filmCard(f, null, { extra, reviews: true, zih: false });
   }).join("")}</div>` : "";
   const none = !avail.length && !lumaReady ? lumaWait() : !avail.length ? emptyBox({ title: "Ziherce še nastajajo", text: "Brskava po programu in izbirava. Filmi bodo tu, ko jih objaviva – brez izmišljenih seznamov do takrat.", actions: `<a class="btn" href="#/odkrij">Medtem: brskaj po filmih</a>`, motif: "eye" }) : "";
   // Kako je seznam nastal: nad seznamom, da je logika jasna, preden začneš brati.

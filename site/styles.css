@@ -769,3 +769,12 @@ a.seg-btn { text-decoration: none; color: inherit; }
 .sw-ticket { background: var(--teal); border: 2px solid var(--ink); color: var(--ink) !important; }
 .sw-clash { background: var(--mustard); border: 2px solid var(--rust-ink); color: var(--rust-ink) !important; }
 .sw-ghost { border: 1.5px dashed var(--ink-3); background: #fffdf8; }
+/* oznake na kartici: LuMa priporoča · LuMa gre gledat · Ziherca */
+.card-flags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 2px; }
+.tag-goes, .tag-zih { display: inline-flex; align-items: center; gap: 5px; font-size: .78rem; font-weight: 700; border-radius: 99px; padding: 2px 9px; width: max-content; color: var(--ink); }
+.tag-goes { background: var(--pink); }
+.tag-zih { background: #fffdf8; border: 1.5px solid var(--ink); padding: 1px 8px; }
+.tag-goes svg, .tag-zih svg { width: 13px; height: 13px; }
+.term-luma { display: inline-flex; vertical-align: -2px; margin-right: 4px; padding: 1px 4px; border-radius: 99px; background: var(--pink); }
+.term-luma svg { width: 12px; height: 12px; }
+.mi-meta .with-luma { margin-left: 0; }
