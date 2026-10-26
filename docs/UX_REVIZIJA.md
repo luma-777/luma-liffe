@@ -158,6 +158,12 @@ Zahtevnost: S = do ure, M = nekaj ur, L = dan ali več.
 ### 22. Glave zavihkov niso bile enotne
 - **Rešitev:** vsi zavihki imajo enako barvno glavo v LuMa slogu (nadvrstica, naslov, uvod, motiv): Odkrij filme gorčična, Ziherce rožnata, Zanima me lososova, Moj LIFFe sivkasta, Z LuMa v kino turkizna; Deljen LIFFe in O strani enako. Status: izvedeno.
 
+### 23. Zanima me in Moj LIFFe sta bila ločena zavihka
+- **Rešitev (26. 10. 2026):** ena stran **Moj LIFFe** z dvema jasno ločenima sekcijama: »Moj plan« (privzeto koledar; po želji preprost seznam s samo uro, naslovom in dvorano) in »Zanima me – še brez termina« (kompaktne vrstice; klik odpre predogled s termini). Termini v planu so gorčični, termini z vstopnico zeleno-modri (ciljno stanje). Navigacija ima spet štiri zavihke; `#/zanima` vodi v Moj LIFFe. Status: izvedeno.
+
+### 24. Z LuMa v kino je bil preobremenjen
+- **Rešitev:** skupni ogledi so kompaktne vrstice po datumu (dan, ura in dvorana, naslov, »Pridem tudi jaz«, »Dodaj v moj LIFFe plan«, »Vstopnice«); povabilo se pokaže le, če je vpisano; »Vstopnico kupi vsak sam« je napisano enkrat zgoraj. Na prvi strani so trije naslednji skupni ogledi. Status: izvedeno.
+
 ## Kar deluje dobro (namenoma ohranjeno)
 
 - **Stanje v naslovu (URL):** filtri, iskanje, razvrščanje in pogled so v povezavi; deliti jih je mogoče, osvežitev jih ohrani.

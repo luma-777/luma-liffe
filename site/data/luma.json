@@ -1,6 +1,6 @@
 {
  "_opomba": "Posnetek LuMa Google Sheeta (scripts/fetch_luma.py).",
- "updated_at": "2026-10-25T10:38+00:00",
+ "updated_at": "2026-10-26T04:59+00:00",
  "priporocila": [
   {
    "film_id": "3926",
@@ -37,22 +37,63 @@
    "primer": "DA"
   },
   {
+   "screening_id": "t227267",
+   "gremo": "DA",
+   "povabilo": "Greva pogledat film, ki je letos v San Sebastianu dobil glavno nagrado.",
+   "zbirno_mesto": "",
+   "prijava_url": "",
+   "primer": ""
+  },
+  {
+   "screening_id": "t227111",
+   "gremo": "DA",
+   "povabilo": "",
+   "zbirno_mesto": "",
+   "prijava_url": "",
+   "primer": ""
+  },
+  {
+   "screening_id": "t227206",
+   "gremo": "DA",
+   "povabilo": "",
+   "zbirno_mesto": "",
+   "prijava_url": "",
+   "primer": ""
+  },
+  {
+   "screening_id": "t227395",
+   "gremo": "DA",
+   "povabilo": "",
+   "zbirno_mesto": "",
+   "prijava_url": "",
+   "primer": ""
+  },
+  {
    "screening_id": "t227220",
    "gremo": "DA",
-   "povabilo": "Greva na Minotavra – pridruži se nama v Linhartovi dvorani!",
+   "povabilo": "",
+   "zbirno_mesto": "",
+   "prijava_url": "",
+   "primer": ""
+  },
+  {
+   "screening_id": "t227414",
+   "gremo": "DA",
+   "povabilo": "",
+   "zbirno_mesto": "",
+   "prijava_url": "",
+   "primer": ""
+  },
+  {
+   "screening_id": "t227418",
+   "gremo": "DA",
+   "povabilo": "",
    "zbirno_mesto": "",
    "prijava_url": "",
    "primer": ""
   }
  ],
- "pridruzeni": [
-  {
-   "screening_id": "t227379",
-   "vzdevek": "PrimerVzdevek",
-   "objavi": "NE",
-   "primer": "DA"
-  }
- ],
+ "pridruzeni": [],
  "ziherce": [
   {
    "film_id": "3926",
