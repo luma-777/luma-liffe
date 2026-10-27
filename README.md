@@ -3,7 +3,7 @@
 Neuradni festivalski vodič LuMa film kluba za 37. LIFFe (Ljubljana, 11.–22. 11. 2026).
 Statična stran brez strežnika in brez računov: vsi filmi in ljubljanske projekcije, filter »Imam prost čas«,
 »Moj LIFFe« (plan izbranih terminov kot koledar s pavzami ali preprost seznam, z lastno oznako »Imam vstopnico«, in filmi s srčkom, ki še nimajo termina), opozorila na prekrivanja, izvoz v koledar (.ics ali Google, z oznako, kaj je že izvoženo), deljenje plana s povezavo,
-predogled filma v oknu, »Ziherce« (ocene publike in kritikov, festivalski nagrajenci, starejše klasike – s povezavami na odzive) in »Z LuMa v kino« s prijavami.
+predogled filma v oknu, »Ziherce« (ocene publike in kritikov, festivalski nagrajenci, starejše klasike – s povezavami na odzive) in »Z LuMa na LIFFe« s prijavami.
 
 ## Struktura
 

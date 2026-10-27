@@ -62,7 +62,7 @@
         <a href="#/odkrij" data-nav="odkrij"><svg aria-hidden="true"><use href="#i-compass"/></svg><span>Odkrij filme</span></a>
         <a href="#/ziherce" data-nav="luma"><svg aria-hidden="true"><use href="#i-star"/></svg><span>Ziherce</span></a>
         <a href="#/moj" data-nav="moj"><svg aria-hidden="true"><use href="#i-cal"/></svg><span>Moj LIFFe</span><b class="badge" id="plan-badge" hidden></b></a>
-        <a href="#/skupaj" data-nav="skupaj"><svg aria-hidden="true"><use href="#i-people"/></svg><span>Z LuMa v kino</span></a>
+        <a href="#/skupaj" data-nav="skupaj"><svg aria-hidden="true"><use href="#i-people"/></svg><span>Z LuMa na LIFFe</span></a>
       </nav>
     </div>
   </header>
@@ -94,5 +94,9 @@
   <!-- ?v=dev ob objavi zamenja oznaka različice, da brskalnik ne meša stare in nove kode -->
   <script type="importmap">{"imports": {"./lib.js": "./lib.js?v=dev", "./config.js": "./config.js?v=dev"}}</script>
   <script type="module" src="app.js?v=dev"></script>
+  <!-- GoatCounter: šteje oglede brez piškotkov in osebnih podatkov. Ker stran uporablja povezave z #,
+       se šteje pot zavihka (npr. /odkrij, /film/3961) brez iskalnih nizov in parametrov. -->
+  <script>window.goatcounter = { path: function () { return "/" + location.hash.replace(/^#\/?/, "").split("?")[0]; } };</script>
+  <script data-goatcounter="https://lumaliffe.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

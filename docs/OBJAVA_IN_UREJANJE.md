@@ -67,6 +67,12 @@ Stolpci: `film_id`, `naslov` (za lažje branje), `razlog`, `nagrada`, `vrstni_re
   (zasebna tabela *LIFFe 2026 – vsi filmi, IMDb in Metascore*, zavihek »Predlog Ziherc«), na stran gre le vajin izbor.
 - Uredniški Sheet je objavljen v celoti: **vsak nov zavihek je takoj javen**. Zasebnih podatkov vanj ne dodajaj.
 
+## 3b. Število obiskov (GoatCounter)
+
+Statistika je na https://lumaliffe.goatcounter.com (prijava z vajinim računom). Šteje se brez piškotkov in brez osebnih
+podatkov: ogled posameznega zavihka (npr. `/odkrij`, `/moj`, `/skupaj`) in vsak odprt film (`/film/3961`). Iskalni nizi,
+filtri in deljene povezave se ne pošiljajo. Ogledi z `localhost` se ne štejejo.
+
 ## 4. Kaj je preverjeno in kakšne so omejitve
 
 - **Program**: urnik.liffe.si nima API-ja; `robots.txt` ne prepoveduje dostopa. Uvoz je vljuden (ena zahteva naenkrat,

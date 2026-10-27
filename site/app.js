@@ -187,7 +187,15 @@ function render(soft = false) {
     if (h1) { h1.setAttribute("tabindex", "-1"); h1.focus({ preventScroll: true }); }
   }
   prevHash = key;
+  if (!softRendering && navCount > 1) countView(); // prvi ogled prešteje GoatCounter sam ob nalaganju
   document.title = r ? ($main.querySelector("h1")?.textContent?.trim() || "LuMa × LIFFe 2026") + " · LuMa × LIFFe 2026" : "LIFFe: Manj brskanja, več kina · LuMa × LIFFe 2026";
+}
+
+// GoatCounter (glej index.html): pot zavihka brez parametrov; predogled filma šteje kot /film/ID
+function countView(path) {
+  try {
+    if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: path || "/" + location.hash.replace(/^#\/?/, "").split("?")[0] });
+  } catch (_) {}
 }
 
 function afterRender(r) {
@@ -275,7 +283,7 @@ function viewHome() {
   </section>
 
   <section class="section">
-    <div class="section-head"><div><p class="kicker">${ic("people")} Skupni ogledi</p><h2>Z LuMa v kino</h2><p class="section-lede"><b>Vabljeni v kino z nama!</b> Na te projekcije greva midva – če ti termin ustreza, pridi zraven in se malo podružimo pred ali po filmu.</p></div>${tg.length ? `<a class="btn btn-ghost btn-small" href="#/skupaj">Vsi skupni ogledi</a>` : ""}</div>
+    <div class="section-head"><div><p class="kicker">${ic("people")} Skupni ogledi</p><h2>Z LuMa na LIFFe</h2><p class="section-lede"><b>Vabljeni v kino z nama!</b> Na te projekcije greva midva – če ti termin ustreza, pridi zraven in se malo podružimo pred ali po filmu.</p></div>${tg.length ? `<a class="btn btn-ghost btn-small" href="#/skupaj">Vsi skupni ogledi</a>` : ""}</div>
     ${tgNext.length ? `<div class="together">${tgNext.slice(0, 3).map(tgCard).join("")}</div>`
       : !lumaReady ? lumaWait()
       : `<div class="empty empty-mini">${ic("people", "motif")}<p><b>Skupni ogledi še niso razpisani.</b> Ko izbereva projekcije, na katere greva, bodo tukaj – s povabilom, da se pridružiš.</p></div>`}
@@ -1064,7 +1072,7 @@ function viewTogether() {
     .sort((a, b) => { const x = P.screeningById.get(a.screening_id), y = P.screeningById.get(b.screening_id); return (x.date + x.time).localeCompare(y.date + y.time); });
   const unknown = L.skupne.length - rows.length;
   return `
-  ${banner({ c: "aqua", icon: "people", kicker: "Vabljeni v kino z nama", title: "Z LuMa v kino", lede: "Natanko te projekcije bova obiskala. Če ti termin ustreza, pridi zraven in se lahko malo podružimo pred ali po filmu. Vstopnico kupi vsak sam." })}
+  ${banner({ c: "aqua", icon: "people", kicker: "Vabljeni v kino z nama", title: "Z LuMa na LIFFe", lede: "Natanko te projekcije bova obiskala. Če ti termin ustreza, pridi zraven in se lahko malo podružimo pred ali po filmu. Vstopnico kupi vsak sam." })}
   <div class="section">
     ${rows.length ? `<div class="together">${rows.map(tgCard).join("")}</div>` : !lumaReady ? lumaWait() : emptyBox({ title: "Skupni ogledi še niso razpisani", text: "Ko izbereva projekcije, na katere greva, bodo tukaj – z datumom, uro, dvorano in povabilom.", actions: `<a class="btn" href="#/ziherce">Ziherce</a><a class="btn btn-ghost" href="#/odkrij">Brskaj po filmih</a>`, motif: "people" })}
     ${unknown ? `<p class="small muted" style="margin-top:12px">${unknown} ${plural(unknown, "vrstica se ne ujema", "vrstici se ne ujemata", "vrstice se ne ujemajo", "vrstic se ne ujema")} z nobeno projekcijo (preveri screening_id v Sheetu ali morebitno spremembo termina).</p>` : ""}
@@ -1094,14 +1102,14 @@ function viewAbout() {
       <li>Za Moj LIFFe ne potrebuješ računa. Izbire ostanejo v tvojem brskalniku (localStorage) in ne pridejo do nas.</li>
       <li>Deljena povezava vsebuje samo ID-je projekcij in filmov – nobenih imen ali e-naslovov.</li>
       <li>»Pridem tudi jaz« pošlje ime ali vzdevek v najin Google obrazec. Javno ga pokaževa le, če to izrecno označiš, in šele po ročnem pregledu. Odgovori obrazca niso javni.</li>
-      <li>Pisave nalaga Google Fonts; stran ne uporablja analitike ali piškotkov za sledenje.</li>
+      <li>Obiske šteje <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a>, brez piškotkov in brez osebnih podatkov: vidiva le, koliko ogledov ima posamezen zavihek ali film, ne pa, kdo si ali kaj si izbral/-a. Pisave nalaga Google Fonts.</li>
     </ul>
     <h2>Kako uporabljati</h2>
     <ul>
       <li><b>Imam prost čas</b>: izberi dan in okno, npr. petek od 18.00 do 22.30. »Konec« je izračunan iz uradnega trajanja; uvodov, pogovorov in poti med dvoranami ne poznamo.</li>
       <li><b>Srček</b> = film te zanima. <b>Dodaj v moj LIFFe plan</b> = izbran konkreten termin. Oboje najdeš v <b>Mojem LIFFu</b>: termine v koledarju (ali kot seznam), filme brez termina pod »Zanima me«. To nista rezervaciji.</li>
       <li><b>Moj LIFFe</b> pokaže prekrivanja in pavze med filmi, prost dan, oznako »Imam vstopnico«, izvoz v Apple, Google ali Outlook koledar in deljenje s povezavo.</li>
-      <li><b>Ziherce</b> so filmi z dobrimi možnostmi, da ti bodo všeč; <b>Z LuMa v kino</b> so projekcije, na katere greva midva – pridruži se.</li>
+      <li><b>Ziherce</b> so filmi z dobrimi možnostmi, da ti bodo všeč; <b>Z LuMa na LIFFe</b> so projekcije, na katere greva midva – pridruži se.</li>
     </ul>
   </div>`;
 }
@@ -1173,6 +1181,7 @@ function openFilm(id, opener, sid) {
     history.pushState({ lumaModal: id }, "", location.href); // »Nazaj« na telefonu zapre predogled
   }
   $modal.scrollTop = 0;
+  countView(`/film/${id}`);
   modalPicked = sid || null;
   const scr = sid && $modal.querySelector(`.screen[data-sid="${sid}"]`);
   if (scr) {
@@ -1534,7 +1543,7 @@ async function boot() {
   updateBadge();
   try { const h = sessionStorage.getItem("luma-odkrij"); if (h && h.startsWith("#/odkrij")) rememberDiscover(h); } catch (_) {}
   render();
-  window.addEventListener("hashchange", render);
+  window.addEventListener("hashchange", () => render()); // brez argumenta: dogodek ni »tiha« osvežitev
   // LuMa podatki pridejo naknadno: najprej posnetek s strežnika strani, nato sveže iz Sheeta.
   const same = (a, b) => ["priporocila", "skupne", "pridruzeni", "ziherce"].every((k) => JSON.stringify(a[k]) === JSON.stringify(b[k]));
   const live = await loadLuma((snap) => { L = snap; lumaReady = true; render(true); });
