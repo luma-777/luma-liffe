@@ -6,7 +6,7 @@ import {
 } from "./lib.js";
 
 let P = null; // uradni program
-let L = { priporocila: [], skupne: [], pridruzeni: [], ziherce: [] }; // LuMa uredniški podatki
+let L = { priporocila: [], skupne: [], pridruzeni: [], ziherce: [], opombe: [] }; // LuMa uredniški podatki
 let lumaReady = false; // dokler LuMa podatki ne pridejo, ne kažemo »še nastaja«
 const lumaWait = () => `<p class="luma-wait" role="status">${ic("reel", "spin")}<span>Nalagam najin izbor …</span></p>`;
 const $main = document.getElementById("main");
@@ -53,6 +53,16 @@ function toast(msg) {
 const lumaRec = (filmId) => L.priporocila.find((r) => r.film_id === filmId);
 const seenTag = (rec) => rec ? `<span class="seen ${rec.videla ? "yes" : ""}">${rec.videla ? "Videla sva" : "Na radarju"}</span>` : "";
 const lumaGoes = (sid) => L.skupne.find((r) => r.screening_id === sid);
+// opomba LuMa k projekciji (Sheet »luma_opombe_projekcij«); »piši nama« vodi v sporočilo na Instagramu
+const lumaTip = (sid) => (L.opombe || []).find((r) => r.screening_id === sid);
+function tipHtml(sid, compact = false) {
+  const t = lumaTip(sid);
+  if (!t) return "";
+  const ig = (CONFIG.club && CONFIG.club.instagram || "").replace(/^@/, "");
+  const msg = esc(t.besedilo).replace(/[Pp]iši nama/, (m) => ig ? `<a href="https://ig.me/m/${encodeURIComponent(ig)}" target="_blank" rel="noopener">${m}</a>` : m);
+  return compact ? `<span class="tip-tag" title="${esc(t.besedilo)}">${ic("warn")} ${esc(t.oznaka || "Opomba")}</span>`
+    : `<p class="luma-tip">${ic("warn")}<span>${t.oznaka ? `<b>${esc(t.oznaka)}.</b> ` : ""}${msg}</span></p>`;
+}
 
 function titleBits(f, { withAlt = true } = {}) {
   const alt = f.title_en || f.title_orig;
@@ -627,8 +637,8 @@ function filmCard(f, hitIds, { extra = "", reviews = false, zih = true } = {}) {
   const terms = ss.map((s) => {
     const cls = store.inPlan(s.id) ? "planned" : hit.has(s.id) && screeningFilterActive() ? "hit" : "";
     const [wd, ...dm] = dayShort(s.date).split(" ");
-    const label = `${dayLong(s.date)}, ${fmtMin(startMin(s))}, ${venueShort(s.venue)}${lumaGoes(s.id) ? ", gre tudi LuMa" : ""}`;
-    return `<a class="term ${cls}" href="#/film/${f.id}" data-film="${f.id}" data-sid="${s.id}" title="${esc(venueLabel(P.venueById.get(s.venue)))}" aria-label="${esc(`${label}${cls === "planned" ? ", v tvojem planu" : ""} – odpri termin`)}">${lumaGoes(s.id) ? `<span class="term-luma" title="Na to projekcijo greva midva">${ic("people")}</span>` : ""}<b>${esc(wd)}</b> ${esc(dm.join(" "))} · ${fmtMin(startMin(s))} · ${esc(venueShort(s.venue))}</a>`;
+    const label = `${dayLong(s.date)}, ${fmtMin(startMin(s))}, ${venueShort(s.venue)}${lumaGoes(s.id) ? ", gre tudi LuMa" : ""}${lumaTip(s.id) ? `, ${lumaTip(s.id).oznaka || "opomba"}` : ""}`;
+    return `<a class="term ${cls}" href="#/film/${f.id}" data-film="${f.id}" data-sid="${s.id}" title="${esc(venueLabel(P.venueById.get(s.venue)))}" aria-label="${esc(`${label}${cls === "planned" ? ", v tvojem planu" : ""} – odpri termin`)}">${lumaGoes(s.id) ? `<span class="term-luma" title="Na to projekcijo greva midva">${ic("people")}</span>` : ""}<b>${esc(wd)}</b> ${esc(dm.join(" "))} · ${fmtMin(startMin(s))} · ${esc(venueShort(s.venue))}${lumaTip(s.id) ? ` · <span class="term-tip">${esc(lumaTip(s.id).oznaka || "opomba")}</span>` : ""}</a>`;
   }).join("");
   return `
   <article class="card">
@@ -685,7 +695,7 @@ function rowHtml(s, fit = null) {
     <div class="row-time"><b>${r.start}</b>${r.end ? `<span>do ${r.end}</span>` : `<span>konec ni znan</span>`}</div>
     <div class="row-main">
       <a class="row-title" href="#/film/${f.id}" data-film="${f.id}">${t.main}</a>${goes ? `<span class="with-luma">${ic("people")} z LuMa</span>` : ""}
-      <p class="row-sub">${esc(venueShort(s.venue))} · ${esc(f.section)}${f.runtime ? ` · ${f.runtime} min` : ""}</p>
+      <p class="row-sub">${esc(venueShort(s.venue))} · ${esc(f.section)}${f.runtime ? ` · ${f.runtime} min` : ""}</p>${tipHtml(s.id)}
       ${fitHtml}${idTag("screening_id", s.id)}
     </div>
     <div class="row-actions">${planBtn(s.id)}</div>
@@ -755,6 +765,7 @@ function screenCard(s) {
     <div>
       <p class="screen-when">${esc(dayLong(s.date))}, ${r.start}${r.end ? ` <span class="muted">– ${r.end}</span>` : ""}${goes ? `<a class="with-luma" href="#/skupaj">${ic("people")} gre tudi LuMa</a>` : ""}</p>
       <p class="screen-where">${esc(venueLabel(v))} · <a href="${esc(v.map_url)}" target="_blank" rel="noopener">zemljevid</a></p>
+      ${tipHtml(s.id)}
       ${idTag("screening_id", s.id)}
     </div>
     <div class="screen-actions">
@@ -827,7 +838,7 @@ function viewMine(params) {
         <span class="mi-time"><b>${r.start}</b>${r.end ? `<small>do ${r.end}</small>` : ""}</span>
         <span class="mi-main">
           <a class="mi-title" href="#/film/${f.id}" data-film="${f.id}" data-sid="${s.id}">${esc(f.title_sl)}</a>
-          <span class="mi-meta">${esc(venueShort(s.venue))}${lumaGoes(s.id) ? `<span class="with-luma">${ic("people")} gre tudi LuMa</span>` : ""}${tix ? ticketTag(s.id) : ""}${cl ? `<span class="mrow-clash">${ic("warn")} prekrivanje</span>` : ""}</span>
+          <span class="mi-meta">${esc(venueShort(s.venue))}${tipHtml(s.id, true)}${lumaGoes(s.id) ? `<span class="with-luma">${ic("people")} gre tudi LuMa</span>` : ""}${tix ? ticketTag(s.id) : ""}${cl ? `<span class="mrow-clash">${ic("warn")} prekrivanje</span>` : ""}</span>
         </span>
         ${calButtons(s, f)}
       </li>`;
@@ -1090,7 +1101,7 @@ function viewAbout() {
     <h2>Od kod so podatki</h2>
     <ul>
       <li>Filmi, sekcije, trajanja in projekcije: uradni program na <a href="${esc(P.source.films)}">urnik.liffe.si</a>, uvožen ${esc(fmtStamp(P.source.imported_at))}. Vsaka projekcija je preverjena tudi v <a href="${esc(P.source.schedule)}">uradnem urniku</a>.</li>
-      <li>Prikazujemo samo fizične projekcije v Ljubljani (${P.venues.map((v) => esc(v.name)).join(", ")}). Izpuščenih je ${n.excluded_screenings_outside_ljubljana} projekcij v Mariboru, Celju in Novem mestu ter spletni (VOD) program${n.excluded_films.length ? ` (${n.excluded_films.map((x) => esc(x.title_sl)).join(", ")})` : ""}.</li>
+      <li>Prikazujemo samo fizične projekcije v Ljubljani (${P.venues.map((v) => esc(v.name)).join(", ")}). Izpuščenih je ${n.excluded_screenings_outside_ljubljana} projekcij v Mariboru, Celju, Novem mestu in Cerknici ter spletni (VOD) program${n.excluded_films.length ? ` (${n.excluded_films.map((x) => esc(x.title_sl)).join(", ")})` : ""}.</li>
       <li>Kratki povzetki so naši, napisani po uradnih opisih; celoten opis je vedno na strani LIFFe. »Zakaj je zanimiv?« navaja le dejstva iz uradnega opisa (npr. nagrade).</li>
       <li>Povezave na IMDb in Letterboxd so potrjene prek IMDb identifikatorja (ujemanje naslova, leta in režiserja v uradnem IMDb naboru podatkov). Kjer ujemanja ni bilo mogoče potrditi, je povezava iskanje in je tako označena. Metacritic je vedno iskanje.</li>
       <li>Fotografije filmov so uradne slike LIFFe oziroma distributerjev filmov.</li>

@@ -2,14 +2,13 @@
 """
 LuMa × LIFFe 2026 — uvoz uradnega programa.
 
-Vir: https://urnik.liffe.si/filmi.aspx  (seznam filmov, stabilni idF)
-     https://urnik.liffe.si/Film.aspx?ln=sl&idF=…  (podatki + projekcije)
-     https://urnik.liffe.si/urnik.aspx  (samo za navzkrižno preverjanje)
+Vir: uradni programski vmesnik nove strani urnika (oktober 2026)
+     https://urnik.liffe.si/api/program        ves program: filmi, sekcije, dvorane, projekcije (z ID vstopnic)
+     https://urnik.liffe.si/api/filmi/<idF>    podrobnosti filma: trajanje, jezik, podnapisi, uradni opis
 
-robots.txt na urnik.liffe.si ne vsebuje nobene prepovedi (Disallow) in nobenih
-content-signal vrednosti. Kljub temu zajemamo vljudno: ena zahteva naenkrat,
-premor med zahtevami, surov HTML se shrani v .cache, tako da ponovni zagon
-z --offline ne obremenjuje strežnika.
+robots.txt na urnik.liffe.si dovoljuje vse (Allow: /). Zajemamo vljudno: ena zahteva naenkrat,
+premor med zahtevami, odgovori se shranijo v .cache, tako da ponovni zagon z --offline ne
+obremenjuje strežnika. Če vmesnik vrne premalo filmov, uvoz NE prepiše obstoječih podatkov.
 
 Izhod:
   data/liffe.json           javni podatki (brez celotnih uradnih opisov)
@@ -30,6 +29,7 @@ import os
 import re
 import sys
 import time
+import urllib.parse
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -58,7 +58,9 @@ VENUES = {
     "Maribox": {"id": "maribox", "name": "Maribox", "place": "", "city": "Maribor"},
     "KCJT Novo mesto": {"id": "kcjt", "name": "KCJT Novo mesto", "place": "", "city": "Novo mesto"},
     "Mali Union Celje": {"id": "union-celje", "name": "Mali Union Celje", "place": "", "city": "Celje"},
+    "KD Cerknica": {"id": "kd-cerknica", "name": "KD Cerknica", "place": "", "city": "Cerknica"},
 }
+MIN_FILMS = 50  # varovalka: manj filmov pomeni, da je vmesnik spremenjen ali nedosegljiv
 
 # Uradna imena sekcij, kot jih uporablja LIFFe (slovensko, lepše zapisano).
 SECTION_NAMES = {
@@ -98,7 +100,7 @@ def text(s):
 
 def fetch(path, offline):
     os.makedirs(CACHE, exist_ok=True)
-    fn = os.path.join(CACHE, re.sub(r"[^\w.=-]+", "_", path) + ".html")
+    fn = os.path.join(CACHE, re.sub(r"[^\w.=-]+", "_", path) + (".json" if path.startswith("api/") else ".html"))
     if offline:
         if not os.path.exists(fn):
             raise SystemExit("ni v .cache: %s (zaženi brez --offline)" % path)
@@ -120,126 +122,23 @@ def fetch(path, offline):
     return body
 
 
-def label(doc, lid):
-    m = re.search(r'id="%s"[^>]*>(.*?)</span>' % re.escape(lid), doc, re.S)
-    if not m or text(m.group(1)).strip(" /,") == "":
-        return None  # LIFFe za manjkajoče vrednosti izpiše »/«
-    return m.group(1)
+def fetch_json(path, offline):
+    return json.loads(fetch(path, offline))
 
 
-def parse_list(doc):
-    """Seznam filmov: idF, slovenski naslov, izvirni naslov, sekcija, sličica."""
-    films = []
-    for block in re.split(r'<div class="container-fluid"', doc):
-        m = re.search(r'idF=(\d+)&amp;url=filmi', block)
-        if not m or "css-crka" not in block:
-            continue
-        sec = re.search(r'sekcijaDiv">\s*<a[^>]*>([^<]*)</a>', block)
-        films.append({
-            "id": m.group(1),
-            "section_raw": text(sec.group(1)) if sec else "",
-        })
-    seen, out = set(), []
-    for f in films:
-        if f["id"] not in seen:
-            seen.add(f["id"])
-            out.append(f)
-    return out
-
-
-DATE_RE = re.compile(r"(\d{1,2})\.(\d{1,2})\.(\d{4})")
-
-
-def parse_film(fid, doc):
-    title_sl = text(label(doc, "Label1"))
-    title_orig = text(label(doc, "Label2"))
-    title_en = text(label(doc, "Label3"))
-    section_raw = text(label(doc, "Label4"))
-    country_year = text(label(doc, "Label5"))
-    runtime_raw = text(label(doc, "Label6"))
-    director = text(label(doc, "Label7")).strip(" ,")
-    language = text(label(doc, "Label12"))
-    subtitles = text(label(doc, "Label13"))
-    desc_html = label(doc, "Label15") or ""
-
-    year = None
-    countries = country_year
-    m = re.search(r",?\s*((?:18|19|20)\d{2})\s*$", country_year)
-    if m:
-        year = int(m.group(1))
-        countries = country_year[: m.start()]
-    countries = [c.strip() for c in countries.split(",") if c.strip()]
-
-    runtime = None
-    m = re.search(r"(\d{1,3})\s*min", runtime_raw)
-    if m:
-        runtime = int(m.group(1))
-
-    img = re.search(r'<img src="(https://liffe\.si/images/movies/[^"]+)" id="slika"', doc)
-
-    # Uradni opis: prvi krepki stavek je uradni »logline«, ostalo sinopsis.
-    lead = ""
-    mb = re.search(r"(?s)<b>(.*?)</b>", desc_html)
-    if mb:
-        lead = text(mb.group(1))
-    full_desc = text(desc_html)
-
-    screenings = []
-    for m in re.finditer(r'Repeater1_ctl(\d+)_Label1">([^<]*)</span>(.*?)(?=Repeater1_ctl\d+_Label1"|</table>)', doc, re.S):
-        chunk = m.group(3)
-        d = DATE_RE.search(m.group(2))
-        t = re.search(r'_Label3">\s*(\d{1,2}):(\d{2})', chunk)
-        v = re.search(r'_Label4">([^<]*)</span>', chunk)
-        tk = re.search(r"basket\.php5\?action=add&amp;id=(\d+)", chunk)
-        if not (d and t and v):
-            continue
-        date = "%04d-%02d-%02d" % (int(d.group(3)), int(d.group(2)), int(d.group(1)))
-        time_ = "%02d:%s" % (int(t.group(1)), t.group(2))
-        screenings.append({
-            "date": date,
-            "time": time_,
-            "venue_raw": text(v.group(1)),
-            "ticket_id": tk.group(1) if tk else None,
-        })
-
-    vod = "storitev VOD za izbrani film ni omogočena" not in doc
-
+def api_film(fid, offline):
+    """Podrobnosti filma iz api/filmi/<idF>: trajanje, jezik, podnapisi, uradni opis."""
+    d = fetch_json("api/filmi/%s" % fid, offline)
+    sl = d.get("sl") or {}
+    body = sl.get("body") or []
+    lead = next((p.get("t", "") for p in body if p.get("b")), "")
     return {
-        "id": fid,
-        "title_sl": title_sl,
-        "title_en": title_en,
-        "title_orig": title_orig,
-        "section_raw": section_raw,
-        "director": director,
-        "countries": countries,
-        "year": year,
-        "runtime": runtime,
-        "language": language,
-        "subtitles": subtitles,
-        "image": img.group(1) if img else None,
-        "lead": lead,
-        "full_desc": full_desc,
-        "screenings": screenings,
-        "vod": vod,
+        "runtime": (d.get("common") or {}).get("length") or None,
+        "language": re.sub(r"\s*,\s*", ", ", (sl.get("language") or "").strip(" /")) or None,
+        "subtitles": (sl.get("subtitles") or "").strip(" /") or None,
+        "lead": text(lead),
+        "full_desc": "\n\n".join(text(p.get("t", "")) for p in body if p.get("t")),
     }
-
-
-def parse_urnik(doc):
-    """Urnik za navzkrižno preverjanje: množica (idF, datum, ura, dvorana)."""
-    out = set()
-    cur_date = None
-    for block in re.split(r'<div class="container-fluid"', doc):
-        h = re.search(r"<h3>[^<]*?(\d{1,2}\.\d{1,2}\.\d{4})</h3>", block)
-        if h:
-            d = DATE_RE.search(h.group(1))
-            cur_date = "%04d-%02d-%02d" % (int(d.group(3)), int(d.group(2)), int(d.group(1)))
-            continue
-        m = re.search(r"idF=(\d+)&amp;url=urnik", block)
-        t = re.search(r'datum-ura">\s*<span[^>]*>\s*(\d{1,2}):(\d{2})', block)
-        v = re.search(r'dvorana">\s*<span[^>]*>([^<]*)</span>', block)
-        if m and t and v and cur_date:
-            out.add((m.group(1), cur_date, "%02d:%s" % (int(t.group(1)), t.group(2)), text(v.group(1))))
-    return out
 
 
 def clean_title(s):
@@ -250,18 +149,42 @@ def build(offline=False):
     now = dt.datetime.now(dt.timezone.utc).astimezone()
     warnings = []
 
-    listing = parse_list(fetch("filmi.aspx?ln=sl", offline))
-    print("filmov na seznamu: %d" % len(listing))
+    prog = fetch_json("api/program", offline)
+    listing = prog.get("films") or []
+    print("filmov v programu: %d" % len(listing))
+    if len(listing) < MIN_FILMS:
+        raise SystemExit("Vmesnik LIFFe je vrnil le %d filmov – podatkov ne prepišem. Preveri https://urnik.liffe.si/api/program" % len(listing))
+    sec_by_id = {x["id"]: (x.get("name") or {}).get("sl", "") for x in prog.get("sections", [])}
+    venue_by_id = {x["id"]: (x.get("name") or {}).get("sl", "") for x in prog.get("venues", [])}
+    by_film = {}
+    for s in prog.get("screenings", []):
+        by_film.setdefault(str(s["film"]), []).append(s)
 
     films, screenings, opisi = [], [], {}
     out_of_scope = []
     for i, item in enumerate(listing, 1):
-        fid = item["id"]
-        doc = fetch("Film.aspx?ln=sl&idF=%s" % fid, offline)
-        f = parse_film(fid, doc)
+        fid = str(item["id"])
+        det = api_film(fid, offline)
+        title, dirs, ctr = item.get("title") or {}, item.get("directors") or {}, item.get("countries") or {}
+        year = re.search(r"(18|19|20)\d{2}", str(item.get("year") or ""))
+        f = {
+            "title_sl": title.get("sl") or "", "title_en": title.get("en") or "", "title_orig": item.get("original") or "",
+            "director": (dirs.get("sl") or "").strip(" ,"),
+            "countries": [c.strip() for c in (ctr.get("sl") or "").split(",") if c.strip()],
+            "year": int(year.group(0)) if year else None,
+            "image": urllib.parse.unquote(item.get("imageLarge") or item.get("image") or "") or None,
+            "vod": bool(item.get("vod")),
+            "screenings": [], **det,
+        }
+        for s in sorted(by_film.get(fid, []), key=lambda x: (x["date"], x["time"])):
+            if s.get("status", "scheduled") != "scheduled":
+                warnings.append("Projekcija %s (film %s, %s %s) ima status »%s« – izpuščeno" % (s["id"], fid, s["date"], s["time"], s.get("status")))
+                continue
+            f["screenings"].append({"date": s["date"], "time": s["time"][:5], "venue_raw": venue_by_id.get(s["venue"], str(s["venue"])),
+                                    "ticket_id": str(s["ticket"]) if s.get("ticket") else None})
         print("  [%3d/%d] %s — %s (%d projekcij)" % (i, len(listing), fid, f["title_sl"], len(f["screenings"])))
 
-        sec_key = (f["section_raw"] or item["section_raw"]).strip().upper()
+        sec_key = sec_by_id.get(item.get("section"), "").strip().upper()
         section = SECTION_NAMES.get(sec_key)
         if not section:
             section = sec_key.title()
@@ -277,8 +200,6 @@ def build(offline=False):
             if v["city"] != "Ljubljana":
                 out_of_scope.append((fid, s["date"], s["time"], v["name"]))
                 continue
-            if not (FESTIVAL["start"] <= s["date"] <= FESTIVAL["end"]):
-                warnings.append("Projekcija izven festivalskih datumov: film %s %s" % (fid, s["date"]))
             if s["ticket_id"]:
                 sid = "t" + s["ticket_id"]
             else:
@@ -332,22 +253,13 @@ def build(offline=False):
     if dup:
         warnings.append("Podvojeni ID-ji projekcij: %s" % ", ".join(sorted(dup)))
 
-    # Navzkrižno preverjanje z urnikom
-    try:
-        urnik = parse_urnik(fetch("urnik.aspx?ln=sl", offline))
-        name_of = {v["id"]: v["name"] for v in VENUES.values()}
-        ours = {(s["film_id"], s["date"], s["time"], name_of[s["venue"]]) for s in screenings}
-        urnik_lj = {u for u in urnik if VENUES.get(u[3], {}).get("city") == "Ljubljana"}
-        only_film = ours - urnik_lj
-        only_urnik = urnik_lj - ours
-        for x in sorted(only_film):
-            warnings.append("Na strani filma, ne pa v urniku: %s" % (x,))
-        for x in sorted(only_urnik):
-            warnings.append("V urniku, ne pa na strani filma: %s" % (x,))
-        print("urnik: %d ljubljanskih vrstic, ujemanje s stranmi filmov: %s"
-              % (len(urnik_lj), "DA" if not (only_film or only_urnik) else "NE"))
-    except SystemExit as e:
-        warnings.append("Urnik ni bil preverjen: %s" % e)
+    # Festivalski dnevi v Ljubljani (uradni začetek lahko vključuje projekcije drugje, npr. v Cerknici)
+    if screenings:
+        lj_dates = sorted(x["date"] for x in screenings)
+        FESTIVAL["start"], FESTIVAL["end"] = lj_dates[0], lj_dates[-1]
+    fest = prog.get("festival") or {}
+    if fest.get("start") and (fest.get("start"), fest.get("end")) != (FESTIVAL["start"], FESTIVAL["end"]):
+        print("uradni festival %s–%s, v Ljubljani %s–%s" % (fest.get("start"), fest.get("end"), FESTIVAL["start"], FESTIVAL["end"]))
 
     lj_films = [f for f in films if f["ljubljana"]]
     used_venues = sorted({s["venue"] for s in screenings})
@@ -364,7 +276,7 @@ def build(offline=False):
         "festival": {"name": "37. Ljubljanski mednarodni filmski festival", "short": "LIFFe 2026",
                      "start": FESTIVAL["start"], "end": FESTIVAL["end"], "timezone": "Europe/Ljubljana",
                      "url": "https://www.liffe.si/sl/", "tickets_url": "https://www.liffe.si/sl/vstopnice/vstopnice"},
-        "source": {"films": BASE + "filmi.aspx", "schedule": BASE + "urnik.aspx",
+        "source": {"films": BASE + "filmi.aspx", "schedule": BASE + "urnik.aspx", "api": BASE + "api/program",
                    "imported_at": now.isoformat(timespec="minutes")},
         "venues": venues,
         "sections": sections,

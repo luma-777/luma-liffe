@@ -14,7 +14,7 @@ site/                 objavljena stran (HTML, CSS, JS – brez build koraka)
   data/luma.json      posnetek LuMa Sheeta (rezerva)
   img/s, img/l        fotografije filmov (640 px za kartice, 960 px za predogled)
 scripts/
-  import_liffe.py     uvoz z urnik.liffe.si (samo Ljubljana) + zaznavanje sprememb
+  import_liffe.py     uvoz iz uradnega vmesnika urnik.liffe.si/api (samo Ljubljana) + zaznavanje sprememb
   match_imdb.py       preverjene povezave IMDb/Letterboxd (uradni IMDb dataset, brez scrapinga)
   build.py            združi vse v site/data/program.json
   fetch_images.py     uradne fotografije LIFFe → site/img (samo macOS, lokalno)

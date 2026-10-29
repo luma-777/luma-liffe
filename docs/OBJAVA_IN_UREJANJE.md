@@ -31,6 +31,7 @@ Urejanje (brez kode):
 - `luma_priporocila` (oznaka »LuMa priporoča« na karticah, komentar v predogledu filma): `film_id`, `aktivno` = DA,
   `komentar`, `vrstni_red`, `videla_sva` = DA (film sta že videla) ali NE (»Na radarju«).
 - `luma_skupne_projekcije`: `screening_id`, `gremo` = DA, `povabilo`, neobvezno `zbirno_mesto`, `prijava_url`, `vrsta` in `sedeza` (npr. `5` in `7, 8` – na strani piše »Sediva v 5. vrsti, sedeža 7, 8«).
+- `luma_opombe_projekcij`: kratka opomba k projekciji – `screening_id`, `oznaka` (npr. »Razprodano«), `besedilo`, `aktivno` = DA. Besedi »piši nama« v besedilu postaneta povezava na sporočilo na Instagramu (@lumafilmklub). Opomba se pokaže v predogledu filma, v seznamu terminov in na kartici.
 - `luma_potrjeni_pridruzeni`: samo pregledani vzdevki z izrecnim soglasjem, `objavi` = DA.
 - Vrstice s `primer` = DA se nikoli ne prikažejo. Stolpci »za lažje branje« so le zate.
 
@@ -75,7 +76,7 @@ filtri in deljene povezave se ne pošiljajo. Ogledi z `localhost` se ne štejejo
 
 ## 4. Kaj je preverjeno in kakšne so omejitve
 
-- **Program**: urnik.liffe.si nima API-ja; `robots.txt` ne prepoveduje dostopa. Uvoz je vljuden (ena zahteva naenkrat,
+- **Program**: uvoz bere uradni programski vmesnik nove strani urnika (`urnik.liffe.si/api/program` in `api/filmi/<idF>`); `robots.txt` dovoljuje dostop. Uvoz je vljuden (ena zahteva naenkrat, premor, predpomnjenje) in teče enkrat dnevno. Če vmesnik vrne premalo filmov, uvoz obstoječih podatkov ne prepiše. Uradnih opisov ne objavljamo – samo naše kratke povzetke in povezavo.
   premor, predpomnjenje) in teče enkrat dnevno. Uradnih opisov ne objavljamo – samo naše kratke povzetke in povezavo.
 - **Ljubljana**: mesto vsake dvorane je preverjeno na liffe.si/prizorišča. Neznana dvorana se ne prikaže, dokler je ne
   dodaš v `VENUES` v `scripts/import_liffe.py` (uvoz te opozori).

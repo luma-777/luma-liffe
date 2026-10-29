@@ -28,13 +28,14 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site", "data", "luma.json")
 TABS = {"priporocila": "luma_priporocila", "skupne": "luma_skupne_projekcije", "pridruzeni": "luma_potrjeni_pridruzeni",
-        "ziherce": "luma_ziherce"}
+        "ziherce": "luma_ziherce", "opombe": "luma_opombe_projekcij"}
 # Javno gredo samo ti stolpci – vse drugo (npr. opombe) ostane v Sheetu.
 KEEP = {
     "priporocila": ["film_id", "aktivno", "komentar", "vrstni_red", "videla_sva", "primer"],
     "skupne": ["screening_id", "gremo", "povabilo", "zbirno_mesto", "prijava_url", "vrsta", "sedeza", "primer"],
     "pridruzeni": ["screening_id", "vzdevek", "objavi", "primer"],
     "ziherce": ["film_id", "razlog", "nagrada", "vrstni_red", "aktivno", "primer"],
+    "opombe": ["screening_id", "oznaka", "besedilo", "aktivno", "primer"],
 }
 
 

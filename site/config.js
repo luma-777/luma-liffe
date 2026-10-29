@@ -19,6 +19,7 @@ export const CONFIG = {
       skupne: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiu_vyDoPj_2cpXRphRlZDGbcmfZ0mR7OnMFrfCVVtKO5kthiL9UM7r_hBdomeKVjtpEdb08pedqI8/pub?gid=450507378&single=true&output=csv",
       pridruzeni: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiu_vyDoPj_2cpXRphRlZDGbcmfZ0mR7OnMFrfCVVtKO5kthiL9UM7r_hBdomeKVjtpEdb08pedqI8/pub?gid=775650030&single=true&output=csv",
       ziherce: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiu_vyDoPj_2cpXRphRlZDGbcmfZ0mR7OnMFrfCVVtKO5kthiL9UM7r_hBdomeKVjtpEdb08pedqI8/pub?gid=515001&single=true&output=csv",
+      opombe: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTiu_vyDoPj_2cpXRphRlZDGbcmfZ0mR7OnMFrfCVVtKO5kthiL9UM7r_hBdomeKVjtpEdb08pedqI8/pub?gid=515002&single=true&output=csv",
     },
     sheetId: "",
     tabs: {
@@ -26,6 +27,7 @@ export const CONFIG = {
       skupne: "luma_skupne_projekcije",
       pridruzeni: "luma_potrjeni_pridruzeni",
       ziherce: "luma_ziherce",
+      opombe: "luma_opombe_projekcij",
     },
   },
 

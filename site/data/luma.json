@@ -1,6 +1,6 @@
 {
  "_opomba": "Posnetek LuMa Google Sheeta (scripts/fetch_luma.py).",
- "updated_at": "2026-10-26T18:34+00:00",
+ "updated_at": "2026-10-29T16:35+00:00",
  "priporocila": [
   {
    "film_id": "3926",
@@ -380,6 +380,15 @@
    "razlog": "starejsi",
    "nagrada": "",
    "vrstni_red": "8",
+   "aktivno": "DA",
+   "primer": ""
+  }
+ ],
+ "opombe": [
+  {
+   "screening_id": "t227207",
+   "oznaka": "Razprodano",
+   "besedilo": "Vstopnic ni več? Piši nama – morda poznava koga, ki svojo prodaja.",
    "aktivno": "DA",
    "primer": ""
   }

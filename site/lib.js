@@ -396,12 +396,16 @@ function cleanLuma(raw) {
     .map((r) => ({ film_id: String(r.film_id).trim(), razlog: norm(r.razlog).replace(/ /g, ""), nagrada: r.nagrada || "", vrstni_red: Number(r.vrstni_red) || 999 }))
     .filter((r) => RAZLOGI.includes(r.razlog))
     .sort((a, b) => a.vrstni_red - b.vrstni_red);
-  return { priporocila, skupne, pridruzeni, ziherce };
+  // Opombe k posameznim projekcijam (npr. »Razprodano – piši nama«)
+  const opombe = (raw.opombe || []).filter(real)
+    .filter((r) => r.screening_id && yes(r.aktivno) && (r.oznaka || r.besedilo))
+    .map((r) => ({ screening_id: String(r.screening_id).trim(), oznaka: String(r.oznaka || "").trim(), besedilo: String(r.besedilo || "").trim() }));
+  return { priporocila, skupne, pridruzeni, ziherce, opombe };
 }
 
 // onSnapshot: posnetek z istega strežnika pride takoj, Sheet (sveže) nekoliko pozneje.
 export async function loadLuma(onSnapshot) {
-  let snapshot = { priporocila: [], skupne: [], pridruzeni: [], ziherce: [] };
+  let snapshot = { priporocila: [], skupne: [], pridruzeni: [], ziherce: [], opombe: [] };
   try {
     const r = await fetch("data/luma.json", { cache: "no-cache" });
     if (r.ok) snapshot = await r.json();
@@ -419,11 +423,12 @@ export async function loadLuma(onSnapshot) {
         if (!r.ok || !/csv/.test(r.headers.get("content-type") || "")) throw new Error(key + " " + r.status);
         return parseCsv(await r.text());
       };
-      const [priporocila, skupne, pridruzeni, ziherce] = await Promise.all([
+      const [priporocila, skupne, pridruzeni, ziherce, opombe] = await Promise.all([
         get("priporocila"), get("skupne"), get("pridruzeni"),
         (published ? csv.ziherce : tabs.ziherce) ? get("ziherce") : Promise.resolve(snapshot.ziherce || []),
+        (published ? csv.opombe : tabs.opombe) ? get("opombe").catch(() => snapshot.opombe || []) : Promise.resolve(snapshot.opombe || []),
       ]);
-      return { ...cleanLuma({ priporocila, skupne, pridruzeni, ziherce }), live: true };
+      return { ...cleanLuma({ priporocila, skupne, pridruzeni, ziherce, opombe }), live: true };
     } catch (e) {
       console.warn("LuMa Sheet ni dosegljiv, uporabljam data/luma.json:", e);
     }

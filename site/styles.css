@@ -782,3 +782,10 @@ a.seg-btn { text-decoration: none; color: inherit; }
 .tg-seats { display: flex; align-items: center; gap: 6px; font-size: .88rem; color: var(--ink-2); }
 .tg-seats svg { width: 15px; height: 15px; color: var(--ink-3); flex: none; }
 .tg-seats b { color: var(--ink); }
+/* opomba LuMa k projekciji (npr. razprodano – piši nama) */
+.luma-tip { display: flex; gap: 6px; align-items: flex-start; margin-top: 6px; padding: 6px 10px; border-radius: 10px; background: #fdecc8; font-size: .86rem; color: var(--ink); }
+.luma-tip svg { width: 15px; height: 15px; flex: none; margin-top: 2px; color: var(--warn); }
+.luma-tip a { font-weight: 700; color: var(--ink); }
+.tip-tag { display: inline-flex; align-items: center; gap: 4px; font-size: .76rem; font-weight: 700; color: var(--warn); }
+.tip-tag svg { width: 12px; height: 12px; }
+.term-tip { font-weight: 700; color: var(--warn); }

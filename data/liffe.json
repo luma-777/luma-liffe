@@ -11,9 +11,10 @@
  "source": {
   "films": "https://urnik.liffe.si/filmi.aspx",
   "schedule": "https://urnik.liffe.si/urnik.aspx",
-  "imported_at": "2026-10-26T04:55+00:00",
-  "checksum": "5ff675db2076",
-  "changed_at": "2026-10-23T04:52+00:00"
+  "api": "https://urnik.liffe.si/api/program",
+  "imported_at": "2026-10-29T01:38+01:00",
+  "checksum": "c61ba1f57a9d",
+  "changed_at": "2026-10-29T01:38+01:00"
  },
  "venues": [
   {
@@ -76,6 +77,164 @@
  ],
  "films": [
   {
+   "id": "3920",
+   "title_sl": "Dnevnik sobarice",
+   "title_en": "Diary of a Chambermaid",
+   "title_orig": "Le journal d'une femme de chambre",
+   "title_en_raw": "Diary of a Chambermaid",
+   "title_orig_raw": "Le journal d'une femme de chambre",
+   "section": "Kralji in kraljice",
+   "director": "Radu Jude",
+   "countries": [
+    "Romunija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 94,
+   "language": "romunščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Diary_of_Chambermaid_RaduJude.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3920",
+   "screening_ids": [
+    "t227420",
+    "t227212",
+    "t227403",
+    "t227276"
+   ]
+  },
+  {
+   "id": "3921",
+   "title_sl": "Kraljica morja",
+   "title_en": "Queen at Sea",
+   "title_orig": null,
+   "title_en_raw": "Queen at Sea",
+   "title_orig_raw": "Queen at Sea",
+   "section": "Predpremiere",
+   "director": "Lance Hammer",
+   "countries": [
+    "VB",
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 121,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Queen_at_Sea_Lance_Hammer.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3921",
+   "screening_ids": [
+    "t227203",
+    "t227334",
+    "t227444"
+   ]
+  },
+  {
+   "id": "3922",
+   "title_sl": "Rumena pisma",
+   "title_en": "Yellow Letters",
+   "title_orig": "Gelbe Briefe",
+   "title_en_raw": "Yellow Letters",
+   "title_orig_raw": "Gelbe Briefe",
+   "section": "Predpremiere",
+   "director": "Ilker Çatak",
+   "countries": [
+    "Turčija",
+    "Nemčija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 127,
+   "language": "turščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Yellow.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3922",
+   "screening_ids": [
+    "t227385",
+    "t227290",
+    "t227215",
+    "t227402"
+   ]
+  },
+  {
+   "id": "3923",
+   "title_sl": "Heysel 85",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Heysel 85",
+   "title_orig_raw": "Heysel 85",
+   "section": "Predpremiere",
+   "director": "Teodora Ana Mihai",
+   "countries": [
+    "Belgija",
+    "Nizozemska",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 91,
+   "language": "francoščina, nemščina, italijanščina, angleščina, nizo",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Heysel_85_Teodora_AnaMihai.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3923",
+   "screening_ids": [
+    "t227238",
+    "t227391",
+    "t227430",
+    "t227416"
+   ]
+  },
+  {
+   "id": "3924",
+   "title_sl": "Najbolj osamljen človek v mestu",
+   "title_en": "The Loneliest Man in Town",
+   "title_orig": null,
+   "title_en_raw": "The Loneliest Man in Town",
+   "title_orig_raw": "The Loneliest Man in Town",
+   "section": "Fokus: Avstrija",
+   "director": "Tizza Covi, Rainer Frimmel",
+   "countries": [
+    "Avstrija"
+   ],
+   "year": 2026,
+   "runtime": 86,
+   "language": "nemščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Loneliest_Man_in_Town_Tizza_Covi_Rainer_Frimmel.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3924",
+   "screening_ids": [
+    "t227426",
+    "t227247",
+    "t227406"
+   ]
+  },
+  {
+   "id": "3925",
+   "title_sl": "Usodni sekret",
+   "title_en": "Flush",
+   "title_orig": null,
+   "title_en_raw": "Flush",
+   "title_orig_raw": "Flush",
+   "section": "Ekstravaganca",
+   "director": "Grégory Morin",
+   "countries": [
+    "Francija"
+   ],
+   "year": 2025,
+   "runtime": 70,
+   "language": "francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Flush.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3925",
+   "screening_ids": [
+    "t227268",
+    "t227325"
+   ]
+  },
+  {
    "id": "3926",
    "title_sl": "17",
    "title_en": null,
@@ -104,56 +263,84 @@
    ]
   },
   {
-   "id": "3973",
-   "title_sl": "3 tedne pozneje",
-   "title_en": "3 Weeks After",
-   "title_orig": "3 nedelje posle",
-   "title_en_raw": "3 Weeks After",
-   "title_orig_raw": "3 nedelje posle",
-   "section": "Panorama",
-   "director": "Miroslav Terzić",
+   "id": "3927",
+   "title_sl": "Ljubica",
+   "title_en": "Honey Bunny",
+   "title_orig": "Koke",
+   "title_en_raw": "Honey Bunny",
+   "title_orig_raw": "Koke",
+   "section": "Perspektive",
+   "director": "Igor Jelinović",
    "countries": [
-    "Srbija",
-    "Bolgarija",
     "Hrvaška",
-    "Italija",
-    "Luksemburg"
+    "Srbija"
    ],
    "year": 2026,
-   "runtime": 96,
-   "language": "srbščina",
+   "runtime": 97,
+   "language": "hrvaščina",
    "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/3_Weeks_After.jpg",
+   "image": "https://liffe.si/images/movies/HoneyBunny_IgorJelinović.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3973",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3927",
    "screening_ids": [
-    "t227423",
-    "t227291"
+    "t227299",
+    "t227315",
+    "t227270"
    ]
   },
   {
-   "id": "3941",
-   "title_sl": "Atlas vesolja",
-   "title_en": "Atlas of the Universe",
-   "title_orig": "Atlasul Universului",
-   "title_en_raw": "Atlas of the Universe",
-   "title_orig_raw": "Atlasul Universului",
-   "section": "Kinobalon",
-   "director": "Paul Negoescu",
+   "id": "3928",
+   "title_sl": "Sramota in denar",
+   "title_en": "Shame and Money",
+   "title_orig": null,
+   "title_en_raw": "Shame and Money",
+   "title_orig_raw": "Shame and Money",
+   "section": "Panorama",
+   "director": "Visar Morina",
    "countries": [
-    "Romunija",
-    "Bolgarija"
+    "Kosovo",
+    "Albanija",
+    "Slovenija",
+    "Severna Makedonija",
+    "N"
    ],
    "year": 2026,
-   "runtime": 85,
-   "language": "romunščina, madžarščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Atlas_of_the_Universe.jpg",
+   "runtime": 129,
+   "language": "albanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Shame_and_Money_Visar_Morina.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3941",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3928",
    "screening_ids": [
-    "t227245",
-    "t227297"
+    "t227253",
+    "t227307",
+    "t227412"
+   ]
+  },
+  {
+   "id": "3929",
+   "title_sl": "Počitnice v džungli",
+   "title_en": "Born in the Jungle",
+   "title_orig": "Tajemství džungle",
+   "title_en_raw": "Born in the Jungle",
+   "title_orig_raw": "Tajemství džungle",
+   "section": "Kinobalon",
+   "director": "Edmunds Jansons",
+   "countries": [
+    "Latvija",
+    "Poljska",
+    "Češka rep."
+   ],
+   "year": 2026,
+   "runtime": 73,
+   "language": "latvijščina",
+   "subtitles": "slovenska sinhronizacija",
+   "image": "https://liffe.si/images/movies/Born_in_the_Jungle.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3929",
+   "screening_ids": [
+    "t227322",
+    "t227277"
    ]
   },
   {
@@ -185,133 +372,197 @@
    ]
   },
   {
-   "id": "4002",
-   "title_sl": "Bunker",
-   "title_en": null,
-   "title_orig": null,
-   "title_en_raw": "Bunker",
-   "title_orig_raw": "Bunker",
-   "section": "Predpremiere",
-   "director": "Florian Zeller",
+   "id": "3931",
+   "title_sl": "Skrivnostni paket",
+   "title_en": "The Mystery Package",
+   "title_orig": "Mysteriepakken",
+   "title_en_raw": "The Mystery Package",
+   "title_orig_raw": "Mysteriepakken",
+   "section": "Kinobalon",
+   "director": "Silje Evensmo Jacobsen",
    "countries": [
-    "Francija",
-    "Španija"
+    "Norveška"
    ],
-   "year": 2026,
-   "runtime": 126,
-   "language": "angleščina, španščina",
+   "year": 2025,
+   "runtime": 80,
+   "language": "norveščina",
    "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Bunker_Zeller.jpg",
+   "image": "https://liffe.si/images/movies/Mystery_Package.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4002",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3931",
    "screening_ids": [
-    "t227341",
-    "t227227",
-    "t227234"
+    "t227292",
+    "t227279"
    ]
   },
   {
-   "id": "3942",
-   "title_sl": "Človek s petimi baloni",
-   "title_en": "The Man with the Balloons",
-   "title_orig": "L'uomo dei cinque palloni",
-   "title_en_raw": "The Man with the Balloons",
-   "title_orig_raw": "L'uomo dei cinque palloni",
+   "id": "3932",
+   "title_sl": "Pritožba št. 713317",
+   "title_en": "Complaint No. 713317",
+   "title_orig": "Shakwa raqam 713317",
+   "title_en_raw": "Complaint No. 713317",
+   "title_orig_raw": "Shakwa raqam 713317",
+   "section": "Panorama",
+   "director": "Yasser Shafiey",
+   "countries": [
+    "Egipt"
+   ],
+   "year": 2025,
+   "runtime": 80,
+   "language": "arabščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Complaint_No713317.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3932",
+   "screening_ids": [
+    "t227236",
+    "t227427"
+   ]
+  },
+  {
+   "id": "3933",
+   "title_sl": "Goli goli",
+   "title_en": "Truly Naked",
+   "title_orig": null,
+   "title_en_raw": "Truly Naked",
+   "title_orig_raw": "Truly Naked",
+   "section": "Jadranska mreža",
+   "director": "Muriel d'Ansembourg",
+   "countries": [
+    "Nizozemska",
+    "Belgija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 102,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Truly_Naked_Muriel_Ansembourg.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3933",
+   "screening_ids": [
+    "t227439",
+    "t227275"
+   ]
+  },
+  {
+   "id": "3934",
+   "title_sl": "Moj prijatelj Barry",
+   "title_en": "Barry & Me",
+   "title_orig": "Mein Freund Barry",
+   "title_en_raw": "Barry & Me",
+   "title_orig_raw": "Mein Freund Barry",
+   "section": "Kinobalon",
+   "director": "Markus Welter",
+   "countries": [
+    "Švica",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 97,
+   "language": "nemščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Barry_Me_Welter.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3934",
+   "screening_ids": [
+    "t227273",
+    "t227328"
+   ]
+  },
+  {
+   "id": "3935",
+   "title_sl": "Običajni osumljenci",
+   "title_en": "Big Deal on Madonna Street",
+   "title_orig": "I soliti ignoti",
+   "title_en_raw": "Big Deal on Madonna Street",
+   "title_orig_raw": "I soliti ignoti",
    "section": "Retro: Commedia all'italiana",
-   "director": "Marco Ferreri",
+   "director": "Mario Monicelli",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1958,
+   "runtime": 106,
+   "language": "italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Big_Deal_on_Madonna_Street_rik.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3935",
+   "screening_ids": [
+    "t227347"
+   ]
+  },
+  {
+   "id": "3936",
+   "title_sl": "Ločitev po italijansko",
+   "title_en": "Divorce Italian Style",
+   "title_orig": "Divorzio all'italiana",
+   "title_en_raw": "Divorce Italian Style",
+   "title_orig_raw": "Divorzio all'italiana",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Pietro Germi",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1961,
+   "runtime": 104,
+   "language": "italijanščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/DivorceItalianStyle_rik.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3936",
+   "screening_ids": [
+    "t227371"
+   ]
+  },
+  {
+   "id": "3937",
+   "title_sl": "Vdovec",
+   "title_en": "The Widower",
+   "title_orig": "Il vedovo",
+   "title_en_raw": "The Widower",
+   "title_orig_raw": "Il vedovo",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Dino Risi",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1959,
+   "runtime": 100,
+   "language": "italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Widower_Risi_1959.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3937",
+   "screening_ids": [
+    "t227349",
+    "t227362"
+   ]
+  },
+  {
+   "id": "3938",
+   "title_sl": "Federalist",
+   "title_en": "The Fascist",
+   "title_orig": "Il federale",
+   "title_en_raw": "The Fascist",
+   "title_orig_raw": "Il federale",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Luciano Salce",
    "countries": [
     "Italija",
     "Francija"
    ],
-   "year": 1965,
-   "runtime": 85,
-   "language": "italijanščina",
+   "year": 1961,
+   "runtime": 102,
+   "language": "italijanščina, nemščina",
    "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Man_with_the_Balloons_Ferreri.jpg",
+   "image": "https://liffe.si/images/movies/Fascist_LucianoSalce.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3942",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3938",
    "screening_ids": [
-    "t227357",
-    "t227377"
-   ]
-  },
-  {
-   "id": "3968",
-   "title_sl": "Dekle noči",
-   "title_en": "Girl in the Night",
-   "title_orig": null,
-   "title_en_raw": "Girl in the Night",
-   "title_orig_raw": "Dekle noči",
-   "section": "Predpremiere",
-   "director": "Luka Marčetić",
-   "countries": [
-    "Slovenija"
-   ],
-   "year": 2026,
-   "runtime": 94,
-   "language": "slovenščina",
-   "subtitles": "angleščina",
-   "image": "https://liffe.si/images/movies/Dekle_noci_Marcectic.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3968",
-   "screening_ids": [
-    "t227207",
-    "t227295",
-    "t227445"
-   ]
-  },
-  {
-   "id": "3977",
-   "title_sl": "Divji konj številka devet",
-   "title_en": "Wild Horse Nine",
-   "title_orig": null,
-   "title_en_raw": "Wild Horse Nine",
-   "title_orig_raw": "Wild Horse Nine",
-   "section": "Predpremiere",
-   "director": "Martin McDonagh",
-   "countries": [
-    "VB",
-    "ZDA",
-    "Čile"
-   ],
-   "year": 2026,
-   "runtime": 117,
-   "language": "angleščina, španščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Wild_Horse_Nine.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3977",
-   "screening_ids": [
-    "t227114",
-    "t227209",
-    "t227333"
-   ]
-  },
-  {
-   "id": "3920",
-   "title_sl": "Dnevnik sobarice",
-   "title_en": "Diary of a Chambermaid",
-   "title_orig": "Le journal d'une femme de chambre",
-   "title_en_raw": "Diary of a Chambermaid",
-   "title_orig_raw": "Le journal d'une femme de chambre",
-   "section": "Kralji in kraljice",
-   "director": "Radu Jude",
-   "countries": [
-    "Romunija",
-    "Francija"
-   ],
-   "year": 2026,
-   "runtime": 94,
-   "language": "romunščina, francoščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Diary_of_Chambermaid_RaduJude.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3920",
-   "screening_ids": [
-    "t227420",
-    "t227212",
-    "t227403",
-    "t227276"
+    "t227352",
+    "t227365"
    ]
   },
   {
@@ -340,57 +591,758 @@
    ]
   },
   {
-   "id": "3994",
-   "title_sl": "Do konca dneva",
-   "title_en": "Until the Day Ends",
-   "title_orig": "Do kraja dana",
-   "title_en_raw": "Until the Day Ends",
-   "title_orig_raw": "Do kraja dana",
-   "section": "Predpremiere",
-   "director": "Jelena Maksimović",
+   "id": "3940",
+   "title_sl": "Kronovizor",
+   "title_en": "Chronovisor",
+   "title_orig": null,
+   "title_en_raw": "Chronovisor",
+   "title_orig_raw": "Chronovisor",
+   "section": "Perspektive",
+   "director": "Kevin Walker, Jack Auen",
    "countries": [
-    "Srbija",
-    "Hrvaška",
-    "Slovenija",
-    "Bolgarija",
-    "Črna gora"
+    "ZDA"
    ],
    "year": 2026,
-   "runtime": 91,
-   "language": "srbščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Do_kraja_dana_Jelena_Maksimovic.jpg",
+   "runtime": 99,
+   "language": "angleščina, nemščina, italijanščina, francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Chronovisor.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3994",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3940",
    "screening_ids": [
-    "t227239",
-    "t227389",
-    "t227300"
+    "t227243",
+    "t227448"
    ]
   },
   {
-   "id": "4013",
-   "title_sl": "Dobrodošli v Hope",
-   "title_en": "Hope",
-   "title_orig": "Hopeu",
-   "title_en_raw": "Hope",
-   "title_orig_raw": "Hopeu",
-   "section": "Ekstravaganca",
-   "director": "Na Hong-jin",
+   "id": "3941",
+   "title_sl": "Atlas vesolja",
+   "title_en": "Atlas of the Universe",
+   "title_orig": "Atlasul Universului",
+   "title_en_raw": "Atlas of the Universe",
+   "title_orig_raw": "Atlasul Universului",
+   "section": "Kinobalon",
+   "director": "Paul Negoescu",
    "countries": [
-    "Južna Koreja"
+    "Romunija",
+    "Bolgarija"
    ],
    "year": 2026,
-   "runtime": 160,
-   "language": "korejščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Hope_Na_Hongjin.jpg",
+   "runtime": 85,
+   "language": "romunščina, madžarščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Atlas_of_the_Universe.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4013",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3941",
    "screening_ids": [
-    "t227336",
-    "t227226",
-    "t227452"
+    "t227245",
+    "t227297"
+   ]
+  },
+  {
+   "id": "3942",
+   "title_sl": "Človek s petimi baloni",
+   "title_en": "The Man with the Balloons",
+   "title_orig": "L'uomo dei cinque palloni",
+   "title_en_raw": "The Man with the Balloons",
+   "title_orig_raw": "L'uomo dei cinque palloni",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Marco Ferreri",
+   "countries": [
+    "Italija",
+    "Francija"
+   ],
+   "year": 1965,
+   "runtime": 85,
+   "language": "italijanščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Man_with_the_Balloons_Ferreri.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3942",
+   "screening_ids": [
+    "t227357",
+    "t227377"
+   ]
+  },
+  {
+   "id": "3943",
+   "title_sl": "Ljubosumnost po italijansko",
+   "title_en": "Jealousy, Italian Style",
+   "title_orig": "Dramma della gelosia",
+   "title_en_raw": "Jealousy, Italian Style",
+   "title_orig_raw": "Dramma della gelosia",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Ettore Scola",
+   "countries": [
+    "Italija",
+    "Španija"
+   ],
+   "year": 1970,
+   "runtime": 107,
+   "language": "italijanščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Jealousy_Italian_Style_Scola.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3943",
+   "screening_ids": [
+    "t227353",
+    "t227375"
+   ]
+  },
+  {
+   "id": "3944",
+   "title_sl": "Mimi kovinar",
+   "title_en": "The Seduction of Mimi",
+   "title_orig": "Mimi metallurgico ferito nell'onore",
+   "title_en_raw": "The Seduction of Mimi",
+   "title_orig_raw": "Mimi metallurgico ferito nell'onore",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Lina Wertmüller",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1972,
+   "runtime": 121,
+   "language": "italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Mimi_metallurgico_ferito_nellONORE.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3944",
+   "screening_ids": [
+    "t227355",
+    "t227374"
+   ]
+  },
+  {
+   "id": "3945",
+   "title_sl": "Ljudska romanca",
+   "title_en": "Come Home and Meet My Wife",
+   "title_orig": "Romanzo popolare",
+   "title_en_raw": "Come Home and Meet My Wife",
+   "title_orig_raw": "Romanzo popolare",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Mario Monicelli",
+   "countries": [
+    "Italija"
+   ],
+   "year": 1974,
+   "runtime": 106,
+   "language": "italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Come_Home_andMeet_My_Wife_Romanzo_popolare_Monicelli_rik.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3945",
+   "screening_ids": [
+    "t227367",
+    "t227378"
+   ]
+  },
+  {
+   "id": "3946",
+   "title_sl": "London",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "London",
+   "title_orig_raw": "London",
+   "section": "Perspektive",
+   "director": "Sebastian Brameshuber",
+   "countries": [
+    "Avstrija"
+   ],
+   "year": 2026,
+   "runtime": 122,
+   "language": "nemščina, romunščina, angleščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/London_Sebastian_Brameshuber.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3946",
+   "screening_ids": [
+    "t227242",
+    "t227301"
+   ]
+  },
+  {
+   "id": "3947",
+   "title_sl": "Kokoš",
+   "title_en": "Hen",
+   "title_orig": "Kota",
+   "title_en_raw": "Hen",
+   "title_orig_raw": "Kota",
+   "section": "Jadranska mreža",
+   "director": "György Pálfi",
+   "countries": [
+    "Madžarska",
+    "Grčija",
+    "Nemčija"
+   ],
+   "year": 2025,
+   "runtime": 96,
+   "language": "grščina, italijanščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Hen_György_Pálfi.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3947",
+   "screening_ids": [
+    "t227240",
+    "t227438"
+   ]
+  },
+  {
+   "id": "3948",
+   "title_sl": "Pomlad",
+   "title_en": "Only Beautiful Things to Look At",
+   "title_orig": "Prameň",
+   "title_en_raw": "Only Beautiful Things to Look At",
+   "title_orig_raw": "Prameň",
+   "section": "Jadranska mreža",
+   "director": "Ivan Ostrochovsky",
+   "countries": [
+    "Slovaška",
+    "Češka rep.",
+    "Madžarska"
+   ],
+   "year": 2026,
+   "runtime": 88,
+   "language": "slovaščina, češčina, madžarščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Only_Beautiful_Things_to_LookAt.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3948",
+   "screening_ids": [
+    "t227318",
+    "t227281"
+   ]
+  },
+  {
+   "id": "3949",
+   "title_sl": "Umazan denar za bele noči",
+   "title_en": "Black Money for White Nights",
+   "title_orig": "Černi pari za beli nošti",
+   "title_en_raw": "Black Money for White Nights",
+   "title_orig_raw": "Černi pari za beli nošti",
+   "section": "Jadranska mreža",
+   "director": "Kristina Grozeva, Petar Valčanov",
+   "countries": [
+    "Bolgarija",
+    "Grčija"
+   ],
+   "year": 2025,
+   "runtime": 95,
+   "language": "bolgarščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Black_Money_forWhite_Nights.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3949",
+   "screening_ids": [
+    "t227112",
+    "t227257"
+   ]
+  },
+  {
+   "id": "3950",
+   "title_sl": "Made in EU",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Made in EU",
+   "title_orig_raw": "Made in EU",
+   "section": "Jadranska mreža",
+   "director": "Stephan Komandarev",
+   "countries": [
+    "Bolgarija",
+    "Češka rep.",
+    "Nemčija"
+   ],
+   "year": 2025,
+   "runtime": 102,
+   "language": "bolgarščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Made_in_EU_Komandarev.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3950",
+   "screening_ids": [
+    "t227443",
+    "t227271"
+   ]
+  },
+  {
+   "id": "3951",
+   "title_sl": "Strelec",
+   "title_en": "Gunman",
+   "title_orig": "Gatillero",
+   "title_en_raw": "Gunman",
+   "title_orig_raw": "Gatillero",
+   "section": "Panorama",
+   "director": "Cris Tapia Marchiori",
+   "countries": [
+    "Argentina"
+   ],
+   "year": 2025,
+   "runtime": 80,
+   "language": "španščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Gunman_Gatillero.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3951",
+   "screening_ids": [
+    "t227294",
+    "t227441"
+   ]
+  },
+  {
+   "id": "3952",
+   "title_sl": "Odpelji me domov",
+   "title_en": "Take Me Home",
+   "title_orig": null,
+   "title_en_raw": "Take Me Home",
+   "title_orig_raw": "Take Me Home",
+   "section": "Perspektive",
+   "director": "Liz Sargent",
+   "countries": [
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 91,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Take_Me_Home_LizSargent.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3952",
+   "screening_ids": [
+    "t227113",
+    "t227306"
+   ]
+  },
+  {
+   "id": "3953",
+   "title_sl": "Nedelje",
+   "title_en": "Sundays",
+   "title_orig": "Los domingos",
+   "title_en_raw": "Sundays",
+   "title_orig_raw": "Los domingos",
+   "section": "Panorama",
+   "director": "Alauda Ruiz de Azúa",
+   "countries": [
+    "Španija",
+    "Francija"
+   ],
+   "year": 2025,
+   "runtime": 115,
+   "language": "španščina, baskovščina, angleščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Sundays_Alauda_Ruiz_de_Azua.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3953",
+   "screening_ids": [
+    "t227433",
+    "t227229"
+   ]
+  },
+  {
+   "id": "3954",
+   "title_sl": "Psička",
+   "title_en": "La perra",
+   "title_orig": null,
+   "title_en_raw": "La perra",
+   "title_orig_raw": "La perra",
+   "section": "Panorama",
+   "director": "Dominga Sotomayor",
+   "countries": [
+    "Čile",
+    "Brazilija"
+   ],
+   "year": 2026,
+   "runtime": 112,
+   "language": "španščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/La_perra_Dominga_Sotomayor.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3954",
+   "screening_ids": [
+    "t227437",
+    "t227310"
+   ]
+  },
+  {
+   "id": "3955",
+   "title_sl": "Taljenje",
+   "title_en": "Melt",
+   "title_orig": null,
+   "title_en_raw": "Melt",
+   "title_orig_raw": "Melt",
+   "section": "Jadranska mreža",
+   "director": "Nikolaus Geyrhalter",
+   "countries": [
+    "Avstrija"
+   ],
+   "year": 2025,
+   "runtime": 127,
+   "language": "nemščina, francoščina, japonščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Melt_NikolausGeyrhalter.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3955",
+   "screening_ids": [
+    "t227317",
+    "t227376"
+   ]
+  },
+  {
+   "id": "3956",
+   "title_sl": "Krvava grofica",
+   "title_en": "The Blood Countess",
+   "title_orig": "Die Blutgräfin",
+   "title_en_raw": "The Blood Countess",
+   "title_orig_raw": "Die Blutgräfin",
+   "section": "Fokus: Avstrija",
+   "director": "Ulrike Ottinger",
+   "countries": [
+    "Avstrija",
+    "Luksemburg",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 118,
+   "language": "nemščina, ruščina, francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Blood_Countess_Ulrike_Ottinger.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3956",
+   "screening_ids": [
+    "t227303",
+    "t227264"
+   ]
+  },
+  {
+   "id": "3957",
+   "title_sl": "Eksplozivna vrsta",
+   "title_en": "Too Many Beasts",
+   "title_orig": "L'Espece explosive",
+   "title_en_raw": "Too Many Beasts",
+   "title_orig_raw": "L'Espece explosive",
+   "section": "Perspektive",
+   "director": "Sarah Arnold",
+   "countries": [
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 95,
+   "language": "francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Too_Many_Beasts_Sarah_Arnold.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3957",
+   "screening_ids": [
+    "t227237",
+    "t227285",
+    "t227254"
+   ]
+  },
+  {
+   "id": "3958",
+   "title_sl": "Vidim stavbe padati kot strele",
+   "title_en": "I See Buildings Fall Like Lightning",
+   "title_orig": null,
+   "title_en_raw": "I See Buildings Fall Like Lightning",
+   "title_orig_raw": "I See Buildings Fall Like Lightning",
+   "section": "Kralji in kraljice",
+   "director": "Clio Barnard",
+   "countries": [
+    "VB"
+   ],
+   "year": 2026,
+   "runtime": 109,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/I_See_BuildingsFall_LikeLightning_Barnard.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3958",
+   "screening_ids": [
+    "t227283",
+    "t227225",
+    "t227407",
+    "t227418"
+   ]
+  },
+  {
+   "id": "3959",
+   "title_sl": "Rose",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Rose",
+   "title_orig_raw": "Rose",
+   "section": "Fokus: Avstrija",
+   "director": "Markus Schleinzer",
+   "countries": [
+    "Avstrija",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 94,
+   "language": "nemščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Rose_Markus_Schleinzer.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3959",
+   "screening_ids": [
+    "t227205",
+    "t227258",
+    "t227330"
+   ]
+  },
+  {
+   "id": "3960",
+   "title_sl": "Nenadoma",
+   "title_en": "All of a Sudden",
+   "title_orig": "Soudain",
+   "title_en_raw": "All of a Sudden",
+   "title_orig_raw": "Soudain",
+   "section": "Predpremiere",
+   "director": "Ryusuke Hamaguchi",
+   "countries": [
+    "Japonska",
+    "Francija",
+    "Nemčija",
+    "Belgija"
+   ],
+   "year": 2026,
+   "runtime": 196,
+   "language": "japonščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/All_of_a_Sudden_Hamaguchi.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3960",
+   "screening_ids": [
+    "t227284",
+    "t227260",
+    "t227404",
+    "t227409"
+   ]
+  },
+  {
+   "id": "3961",
+   "title_sl": "Minotaver",
+   "title_en": "Minotaur",
+   "title_orig": null,
+   "title_en_raw": "Minotaur",
+   "title_orig_raw": "Minotaur",
+   "section": "Predpremiere",
+   "director": "Andrej Zvjagincev",
+   "countries": [
+    "Francija",
+    "Latvija",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 135,
+   "language": "ruščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Minotaur_Zvjagincev.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3961",
+   "screening_ids": [
+    "t227116",
+    "t227218",
+    "t227220"
+   ]
+  },
+  {
+   "id": "3962",
+   "title_sl": "Soumsoum, noč zvezd",
+   "title_en": "Soumsoum, the Night of the Stars",
+   "title_orig": "Soumsoum, la nuit des astres",
+   "title_en_raw": "Soumsoum, the Night of the Stars",
+   "title_orig_raw": "Soumsoum, la nuit des astres",
+   "section": "Panorama",
+   "director": "Mahamat-Saleh Haroun",
+   "countries": [
+    "Čad",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 101,
+   "language": "arabščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Soumsoum_the_Night_of_the_Stars_Mahamat_SalehHaroun.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3962",
+   "screening_ids": [
+    "t227447",
+    "t227415",
+    "t227278"
+   ]
+  },
+  {
+   "id": "3963",
+   "title_sl": "Seks in smrt v najstniškem taboru",
+   "title_en": "Teenage Sex And Death At Camp Miasma",
+   "title_orig": null,
+   "title_en_raw": "Teenage Sex And Death At Camp Miasma",
+   "title_orig_raw": "Teenage Sex And Death At Camp Miasma",
+   "section": "Ekstravaganca",
+   "director": "Jane Schoenbrun",
+   "countries": [
+    "ZDA",
+    "Kanada"
+   ],
+   "year": 2026,
+   "runtime": 105,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Teenage_Sex_and_Death_at_Camp_Miasma_Schoenbrunn.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3963",
+   "screening_ids": [
+    "t227429",
+    "t227332",
+    "t227228"
+   ]
+  },
+  {
+   "id": "3964",
+   "title_sl": "Tipični Phil",
+   "title_en": "Full Phil",
+   "title_orig": null,
+   "title_en_raw": "Full Phil",
+   "title_orig_raw": "Full Phil",
+   "section": "Ekstravaganca",
+   "director": "Quentin Dupieux",
+   "countries": [
+    "Francija",
+    "Belgija",
+    "Luksemburg"
+   ],
+   "year": 2026,
+   "runtime": 78,
+   "language": "angleščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Full_PhilDupieux.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3964",
+   "screening_ids": [
+    "t227422",
+    "t227431",
+    "t227272"
+   ]
+  },
+  {
+   "id": "3965",
+   "title_sl": "Ženska s pokrajino",
+   "title_en": "Landscape with a Woman",
+   "title_orig": "Žena s krajolikom",
+   "title_en_raw": "Landscape with a Woman",
+   "title_orig_raw": "Žena s krajolikom",
+   "section": "Posvečeno: Ivica Matić",
+   "director": "Ivica Matić",
+   "countries": [
+    "Jugoslavija",
+    "BiH"
+   ],
+   "year": 1976,
+   "runtime": 66,
+   "language": "bosanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/LandscapeWithWoman.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3965",
+   "screening_ids": [
+    "t227555"
+   ]
+  },
+  {
+   "id": "3966",
+   "title_sl": "Propad hiše Usher",
+   "title_en": "The Fall of the House of Usher",
+   "title_orig": "La chute de la maison Usher",
+   "title_en_raw": "The Fall of the House of Usher",
+   "title_orig_raw": "La chute de la maison Usher",
+   "section": "Kino-integral",
+   "director": "Jean Epstein",
+   "countries": [
+    "Francija"
+   ],
+   "year": 1928,
+   "runtime": 72,
+   "language": "francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Fall_of_theHouse_ Usher_Epstein.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3966",
+   "screening_ids": [
+    "t227152"
+   ]
+  },
+  {
+   "id": "3967",
+   "title_sl": "Rojstni dan",
+   "title_en": "Happy Birthday",
+   "title_orig": null,
+   "title_en_raw": "Happy Birthday",
+   "title_orig_raw": "Happy Birthday",
+   "section": "Kinobalon",
+   "director": "Sarah Goher",
+   "countries": [
+    "Egipt"
+   ],
+   "year": 2025,
+   "runtime": 91,
+   "language": "arabščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/HappyBirthday_SarahGoher.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3967",
+   "screening_ids": [
+    "t227250",
+    "t227324"
+   ]
+  },
+  {
+   "id": "3968",
+   "title_sl": "Dekle noči",
+   "title_en": "Girl in the Night",
+   "title_orig": null,
+   "title_en_raw": "Girl in the Night",
+   "title_orig_raw": "Dekle noči",
+   "section": "Predpremiere",
+   "director": "Luka Marčetić",
+   "countries": [
+    "Slovenija"
+   ],
+   "year": 2026,
+   "runtime": 94,
+   "language": "slovenščina",
+   "subtitles": "angleščina",
+   "image": "https://liffe.si/images/movies/Dekle_noci_Marcectic.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3968",
+   "screening_ids": [
+    "t227207",
+    "t227295",
+    "t227445"
+   ]
+  },
+  {
+   "id": "3969",
+   "title_sl": "Vse, kar je narobe s tabo",
+   "title_en": "Everything That's Wrong With You",
+   "title_orig": null,
+   "title_en_raw": "Everything That's Wrong With You",
+   "title_orig_raw": "Vse, kar je narobe s tabo",
+   "section": "Perspektive",
+   "director": "Urša Menart",
+   "countries": [
+    "Slovenija"
+   ],
+   "year": 2026,
+   "runtime": 97,
+   "language": "slovenščina, nemščina",
+   "subtitles": null,
+   "image": "https://liffe.si/images/movies/Vse_kar_je_narobe_s_tabo_Menart.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3969",
+   "screening_ids": [
+    "t227210",
+    "t227298",
+    "t227414"
    ]
   },
   {
@@ -421,192 +1373,593 @@
    ]
   },
   {
-   "id": "3957",
-   "title_sl": "Eksplozivna vrsta",
-   "title_en": "Too Many Beasts",
-   "title_orig": "L'Espece explosive",
-   "title_en_raw": "Too Many Beasts",
-   "title_orig_raw": "L'Espece explosive",
-   "section": "Perspektive",
-   "director": "Sarah Arnold",
+   "id": "3971",
+   "title_sl": "Junija me ne bo več",
+   "title_en": "I'll Be Gone in June",
+   "title_orig": null,
+   "title_en_raw": "I'll Be Gone in June",
+   "title_orig_raw": "I'll Be Gone in June",
+   "section": "Panorama",
+   "director": "Katharina Rivilis",
    "countries": [
+    "Nemčija",
+    "Švica",
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 125,
+   "language": "nemščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/I_ll_BeGone_in_June_Rivilis.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3971",
+   "screening_ids": [
+    "t227286",
+    "t227392",
+    "t227296",
+    "t227399"
+   ]
+  },
+  {
+   "id": "3972",
+   "title_sl": "Ostrina Sence",
+   "title_en": "The Shadow's Edge",
+   "title_orig": "Bu feng zhui ying",
+   "title_en_raw": "The Shadow's Edge",
+   "title_orig_raw": "Bu feng zhui ying",
+   "section": "Ekstravaganca",
+   "director": "Larry Yang",
+   "countries": [
+    "Hongkong",
+    "Kitajska"
+   ],
+   "year": 2025,
+   "runtime": 141,
+   "language": "mandarinščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Shadows_Edge.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3972",
+   "screening_ids": [
+    "t227211",
+    "t227451"
+   ]
+  },
+  {
+   "id": "3973",
+   "title_sl": "3 tedne pozneje",
+   "title_en": "3 Weeks After",
+   "title_orig": "3 nedelje posle",
+   "title_en_raw": "3 Weeks After",
+   "title_orig_raw": "3 nedelje posle",
+   "section": "Panorama",
+   "director": "Miroslav Terzić",
+   "countries": [
+    "Srbija",
+    "Bolgarija",
+    "Hrvaška",
+    "Italija",
+    "Luksemburg"
+   ],
+   "year": 2026,
+   "runtime": 96,
+   "language": "srbščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/3_Weeks_After.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3973",
+   "screening_ids": [
+    "t227423",
+    "t227291"
+   ]
+  },
+  {
+   "id": "3974",
+   "title_sl": "Pustolovščina iz sanj",
+   "title_en": "The Dreamed Adventure",
+   "title_orig": "Das Geträumte Abenteuer",
+   "title_en_raw": "The Dreamed Adventure",
+   "title_orig_raw": "Das Geträumte Abenteuer",
+   "section": "Kralji in kraljice",
+   "director": "Valeska Grisebach",
+   "countries": [
+    "Nemčija",
+    "Bolgarija",
+    "Francija",
+    "Avstrija"
+   ],
+   "year": 2026,
+   "runtime": 167,
+   "language": "nemščina, bolgarščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/DreamedAdventure_Grisebach.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3974",
+   "screening_ids": [
+    "t227382",
+    "t227288",
+    "t227302"
+   ]
+  },
+  {
+   "id": "3975",
+   "title_sl": "Očetnjava",
+   "title_en": "Fatherland",
+   "title_orig": "Ojczyzna",
+   "title_en_raw": "Fatherland",
+   "title_orig_raw": "Ojczyzna",
+   "section": "Predpremiere",
+   "director": "Pawel Pawlikowski",
+   "countries": [
+    "Poljska",
+    "Nemčija",
+    "Italija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 82,
+   "language": "nemščina, ruščina, francoščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/FatherlandPawlikowaki.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3975",
+   "screening_ids": [
+    "t227393",
+    "t227213",
+    "t227408",
+    "t227329"
+   ]
+  },
+  {
+   "id": "3976",
+   "title_sl": "Rdeče skale",
+   "title_en": "Red Rocks",
+   "title_orig": "Les Roches rouges",
+   "title_en_raw": "Red Rocks",
+   "title_orig_raw": "Les Roches rouges",
+   "section": "Kralji in kraljice",
+   "director": "Bruno Dumont",
+   "countries": [
+    "Francija",
+    "Portugalska",
+    "Italija",
+    "Španija",
+    "Katar"
+   ],
+   "year": 2026,
+   "runtime": 90,
+   "language": "francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Red_Rocks_Dumont.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3976",
+   "screening_ids": [
+    "t227201",
+    "t227398",
+    "t227405",
+    "t227320"
+   ]
+  },
+  {
+   "id": "3977",
+   "title_sl": "Divji konj številka devet",
+   "title_en": "Wild Horse Nine",
+   "title_orig": null,
+   "title_en_raw": "Wild Horse Nine",
+   "title_orig_raw": "Wild Horse Nine",
+   "section": "Predpremiere",
+   "director": "Martin McDonagh",
+   "countries": [
+    "VB",
+    "ZDA",
+    "Čile"
+   ],
+   "year": 2026,
+   "runtime": 117,
+   "language": "angleščina, španščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Wild_Horse_Nine.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3977",
+   "screening_ids": [
+    "t227114",
+    "t227209",
+    "t227333"
+   ]
+  },
+  {
+   "id": "3978",
+   "title_sl": "Nezvesta žena",
+   "title_en": "The Unfaithful Wife",
+   "title_orig": "La femme infidele",
+   "title_en_raw": "The Unfaithful Wife",
+   "title_orig_raw": "La femme infidele",
+   "section": "Kralji in kraljice",
+   "director": "Claude Chabrol",
+   "countries": [
+    "Francija",
+    "Italija"
+   ],
+   "year": 1969,
+   "runtime": 98,
+   "language": "francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Unfaithful_Wife_Chabrol.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3978",
+   "screening_ids": [
+    "t227344",
+    "t227262"
+   ]
+  },
+  {
+   "id": "3979",
+   "title_sl": "Ulja",
+   "title_en": "Ulya",
+   "title_orig": null,
+   "title_en_raw": "Ulya",
+   "title_orig_raw": "Ulya",
+   "section": "Panorama",
+   "director": "Viesturs Kairišs",
+   "countries": [
+    "Latvija",
+    "Litva",
+    "Estonija",
+    "Poljska"
+   ],
+   "year": 2026,
+   "runtime": 102,
+   "language": "latvijščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Ulya_Kairišs.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3979",
+   "screening_ids": [
+    "t227436",
+    "t227269",
+    "t227327"
+   ]
+  },
+  {
+   "id": "3980",
+   "title_sl": "Ti ne sodiš sem",
+   "title_en": "You Don't Belong Here",
+   "title_orig": "Nu e locul tau aici",
+   "title_en_raw": "You Don't Belong Here",
+   "title_orig_raw": "Nu e locul tau aici",
+   "section": "Panorama",
+   "director": "Florin Serban",
+   "countries": [
+    "Romunija"
+   ],
+   "year": 2026,
+   "runtime": 154,
+   "language": "romunščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/You_Dont_Belong_Here_Serban.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3980",
+   "screening_ids": [
+    "t227304",
+    "t227259"
+   ]
+  },
+  {
+   "id": "3981",
+   "title_sl": "Virus patološke dobrote",
+   "title_en": "The Virus of Pathological Kindness",
+   "title_orig": null,
+   "title_en_raw": "The Virus of Pathological Kindness",
+   "title_orig_raw": "Virus patološke dobrote",
+   "section": "Predpremiere",
+   "director": "Predrag Ličina",
+   "countries": [
+    "Srbija",
+    "Hrvaška",
+    "Slovenija",
+    "BiH"
+   ],
+   "year": 2026,
+   "runtime": 99,
+   "language": "srbščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Virus_patološke_dobrote.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3981",
+   "screening_ids": [
+    "t227206",
+    "t227432"
+   ]
+  },
+  {
+   "id": "3982",
+   "title_sl": "Kanček svetlobe",
+   "title_en": "A Bit of Light",
+   "title_orig": "Kami nour",
+   "title_en_raw": "A Bit of Light",
+   "title_orig_raw": "Kami nour",
+   "section": "Panorama",
+   "director": "Ali Asgari",
+   "countries": [
+    "Iran",
+    "Turčija",
+    "Italija",
+    "Kanada",
+    "Švica"
+   ],
+   "year": 2026,
+   "runtime": 87,
+   "language": "perzijščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/A_Bit_of_Light_Asgari.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3982",
+   "screening_ids": [
+    "t227384",
+    "t227428",
+    "t227222",
+    "t227417"
+   ]
+  },
+  {
+   "id": "3983",
+   "title_sl": "Lov na ljudi",
+   "title_en": "Manhunt",
+   "title_orig": null,
+   "title_en_raw": "Manhunt",
+   "title_orig_raw": "Manhunt",
+   "section": "Perspektive",
+   "director": "Wayne Wapeemukwa",
+   "countries": [
+    "Kanada"
+   ],
+   "year": 2026,
+   "runtime": 103,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Manhunt_WayneWapeemukwa.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3983",
+   "screening_ids": [
+    "t227241",
+    "t227246",
+    "t227449"
+   ]
+  },
+  {
+   "id": "3984",
+   "title_sl": "Mila Marija",
+   "title_en": "Mila/Maria",
+   "title_orig": "Mila/Marija",
+   "title_en_raw": "Mila/Maria",
+   "title_orig_raw": "Mila/Marija",
+   "section": "Predpremiere",
+   "director": "Andrina Mračnikar",
+   "countries": [
+    "Avstrija",
+    "Slovenija",
+    "Grčija"
+   ],
+   "year": 2026,
+   "runtime": 110,
+   "language": "slovenščina, nemščina, angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Mila_Marija_AndrinaMračnikar.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3984",
+   "screening_ids": [
+    "t227221",
+    "t227316"
+   ]
+  },
+  {
+   "id": "3985",
+   "title_sl": "Rdeči hangar",
+   "title_en": "The Red Hangar",
+   "title_orig": "Hangar rojo",
+   "title_en_raw": "The Red Hangar",
+   "title_orig_raw": "Hangar rojo",
+   "section": "Perspektive",
+   "director": "Juan Pablo Sallato",
+   "countries": [
+    "Čile",
+    "Argentina",
+    "Italija"
+   ],
+   "year": 2026,
+   "runtime": 83,
+   "language": "španščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Red_Hangar_Juan_Pablo_Sallato.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3985",
+   "screening_ids": [
+    "t227380",
+    "t227251",
+    "t227314"
+   ]
+  },
+  {
+   "id": "3986",
+   "title_sl": "Male stvari",
+   "title_en": "Small Things",
+   "title_orig": null,
+   "title_en_raw": "Small Things",
+   "title_orig_raw": "Male stvari",
+   "section": "Kralji in kraljice",
+   "director": "Zvonimir Jurić",
+   "countries": [
+    "Hrvaška",
+    "Slovenija",
+    "Srbija"
+   ],
+   "year": 2026,
+   "runtime": 80,
+   "language": "hrvaščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Small_Things_Zvonimir_Jurić.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3986",
+   "screening_ids": [
+    "t227287",
+    "t227263"
+   ]
+  },
+  {
+   "id": "3987",
+   "title_sl": "Zelene oči",
+   "title_en": "The Green Eyes",
+   "title_orig": "Les Yeux Verts",
+   "title_en_raw": "The Green Eyes",
+   "title_orig_raw": "Les Yeux Verts",
+   "section": "Perspektive",
+   "director": "Fanny Liatard, Jérémy Trouilh",
+   "countries": [
+    "Francija",
+    "Švedska",
+    "Belgija"
+   ],
+   "year": 2026,
+   "runtime": 84,
+   "language": "arabščina, francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/GreenEyes_FannyLiatard.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3987",
+   "screening_ids": [
+    "t227381",
+    "t227396",
+    "t227305",
+    "t227265"
+   ]
+  },
+  {
+   "id": "3988",
+   "title_sl": "Vsi imajo radi Billa Evansa",
+   "title_en": "Everybody Digs Bill Evans",
+   "title_orig": null,
+   "title_en_raw": "Everybody Digs Bill Evans",
+   "title_orig_raw": "Everybody Digs Bill Evans",
+   "section": "Kralji in kraljice",
+   "director": "Grant Gee",
+   "countries": [
+    "VB",
+    "Irska"
+   ],
+   "year": 2026,
+   "runtime": 102,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Everybody_Digs_Bill_EvansGrantGee.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3988",
+   "screening_ids": [
+    "t227252",
+    "t227340",
+    "t227326"
+   ]
+  },
+  {
+   "id": "3989",
+   "title_sl": "Udarni termin",
+   "title_en": "Primetime",
+   "title_orig": null,
+   "title_en_raw": "Primetime",
+   "title_orig_raw": "Primetime",
+   "section": "Predpremiere",
+   "director": "Lance Oppenheim",
+   "countries": [
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 110,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Primetime_Oppenheim.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3989",
+   "screening_ids": [
+    "t227335",
+    "t227224",
+    "t227231"
+   ]
+  },
+  {
+   "id": "3990",
+   "title_sl": "La Gradiva",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "La Gradiva",
+   "title_orig_raw": "La Gradiva",
+   "section": "Predpremiere",
+   "director": "Marine Atlan",
+   "countries": [
+    "Francija",
+    "Italija"
+   ],
+   "year": 2026,
+   "runtime": 145,
+   "language": "francoščina, italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/La_gradiva.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3990",
+   "screening_ids": [
+    "t227289",
+    "t227395",
+    "t227411"
+   ]
+  },
+  {
+   "id": "3991",
+   "title_sl": "Papirnati tiger",
+   "title_en": "Paper Tiger",
+   "title_orig": null,
+   "title_en_raw": "Paper Tiger",
+   "title_orig_raw": "Paper Tiger",
+   "section": "Kralji in kraljice",
+   "director": "James Gray",
+   "countries": [
+    "ZDA",
+    "Brazilija",
+    "Italija"
+   ],
+   "year": 2026,
+   "runtime": 115,
+   "language": "angleščina, ruščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Paper_Tiger_Gray.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3991",
+   "screening_ids": [
+    "t227208",
+    "t227339",
+    "t227230"
+   ]
+  },
+  {
+   "id": "3992",
+   "title_sl": "Mož, ki ga ljubim",
+   "title_en": "The Man I Love",
+   "title_orig": null,
+   "title_en_raw": "The Man I Love",
+   "title_orig_raw": "The Man I Love",
+   "section": "Kralji in kraljice",
+   "director": "Ira Sachs",
+   "countries": [
+    "ZDA",
     "Francija"
    ],
    "year": 2026,
    "runtime": 95,
-   "language": "francoščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Too_Many_Beasts_Sarah_Arnold.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3957",
-   "screening_ids": [
-    "t227237",
-    "t227285",
-    "t227254"
-   ]
-  },
-  {
-   "id": "4018",
-   "title_sl": "Evropa na kratko - 1. sklop",
-   "title_en": "Evrope in Short - 1. Program",
-   "title_orig": null,
-   "title_en_raw": "Evrope in Short - 1. Program",
-   "title_orig_raw": null,
-   "section": "Evropa na kratko",
-   "director": null,
-   "countries": [],
-   "year": null,
-   "runtime": 103,
-   "language": null,
-   "subtitles": "slovenščina,angleščina",
-   "image": "https://liffe.si/images/movies/Cosmonauts.png",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4018",
-   "screening_ids": [
-    "t227356"
-   ]
-  },
-  {
-   "id": "4019",
-   "title_sl": "Evropa na kratko - 2. sklop",
-   "title_en": "Evrope in Short - 2. Program",
-   "title_orig": null,
-   "title_en_raw": "Evrope in Short - 2. Program",
-   "title_orig_raw": null,
-   "section": "Evropa na kratko",
-   "director": null,
-   "countries": [],
-   "year": null,
-   "runtime": 101,
-   "language": null,
-   "subtitles": "slovenščina,angleščina",
-   "image": "https://liffe.si/images/movies/Winter_in_March.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4019",
-   "screening_ids": [
-    "t227360"
-   ]
-  },
-  {
-   "id": "4020",
-   "title_sl": "Evropa na kratko - 3. sklop",
-   "title_en": "Evrope in Short - 3. Program",
-   "title_orig": null,
-   "title_en_raw": "Evrope in Short - 3. Program",
-   "title_orig_raw": null,
-   "section": "Evropa na kratko",
-   "director": null,
-   "countries": [],
-   "year": null,
-   "runtime": 110,
-   "language": null,
-   "subtitles": "slovenščina,angleščina",
-   "image": "https://liffe.si/images/movies/Shadows.png",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4020",
-   "screening_ids": [
-    "t227363"
-   ]
-  },
-  {
-   "id": "4011",
-   "title_sl": "Fackham Hall",
-   "title_en": null,
-   "title_orig": null,
-   "title_en_raw": "Fackham Hall",
-   "title_orig_raw": "Fackham Hall",
-   "section": "Panorama",
-   "director": "Jim O'Hanlon",
-   "countries": [
-    "VB"
-   ],
-   "year": 2025,
-   "runtime": 97,
    "language": "angleščina",
    "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/FackhamHall.jpg",
+   "image": "https://liffe.si/images/movies/Man_I_Love_IraSachs.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4011",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3992",
    "screening_ids": [
-    "t227450",
-    "t227232",
-    "t227233"
-   ]
-  },
-  {
-   "id": "3938",
-   "title_sl": "Federalist",
-   "title_en": "The Fascist",
-   "title_orig": "Il federale",
-   "title_en_raw": "The Fascist",
-   "title_orig_raw": "Il federale",
-   "section": "Retro: Commedia all'italiana",
-   "director": "Luciano Salce",
-   "countries": [
-    "Italija",
-    "Francija"
-   ],
-   "year": 1961,
-   "runtime": 102,
-   "language": "italijanščina, nemščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Fascist_LucianoSalce.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3938",
-   "screening_ids": [
-    "t227352",
-    "t227365"
-   ]
-  },
-  {
-   "id": "4017",
-   "title_sl": "Furijaste",
-   "title_en": "Furies",
-   "title_orig": null,
-   "title_en_raw": "Furies",
-   "title_orig_raw": "Furies",
-   "section": "Panorama",
-   "director": "Rami Kodeih",
-   "countries": [
-    "Libanon",
-    "Brazilija"
-   ],
-   "year": 2026,
-   "runtime": 132,
-   "language": "arabščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Furies.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4017",
-   "screening_ids": [
-    "t227424",
-    "t227216"
-   ]
-  },
-  {
-   "id": "3933",
-   "title_sl": "Goli goli",
-   "title_en": "Truly Naked",
-   "title_orig": null,
-   "title_en_raw": "Truly Naked",
-   "title_orig_raw": "Truly Naked",
-   "section": "Jadranska mreža",
-   "director": "Muriel d'Ansembourg",
-   "countries": [
-    "Nizozemska",
-    "Belgija",
-    "Francija"
-   ],
-   "year": 2026,
-   "runtime": 102,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Truly_Naked_Muriel_Ansembourg.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3933",
-   "screening_ids": [
-    "t227439",
-    "t227275"
+    "t227434",
+    "t227223"
    ]
   },
   {
@@ -639,31 +1992,243 @@
    ]
   },
   {
-   "id": "3923",
-   "title_sl": "Heysel 85",
-   "title_en": null,
-   "title_orig": null,
-   "title_en_raw": "Heysel 85",
-   "title_orig_raw": "Heysel 85",
+   "id": "3994",
+   "title_sl": "Do konca dneva",
+   "title_en": "Until the Day Ends",
+   "title_orig": "Do kraja dana",
+   "title_en_raw": "Until the Day Ends",
+   "title_orig_raw": "Do kraja dana",
    "section": "Predpremiere",
-   "director": "Teodora Ana Mihai",
+   "director": "Jelena Maksimović",
    "countries": [
-    "Belgija",
-    "Nizozemska",
-    "Nemčija"
+    "Srbija",
+    "Hrvaška",
+    "Slovenija",
+    "Bolgarija",
+    "Črna gora"
    ],
    "year": 2026,
    "runtime": 91,
-   "language": "francoščina, nemščina, italijanščina, angleščina, nizo",
+   "language": "srbščina",
    "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Heysel_85_Teodora_AnaMihai.jpg",
+   "image": "https://liffe.si/images/movies/Do_kraja_dana_Jelena_Maksimovic.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3923",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3994",
    "screening_ids": [
-    "t227238",
-    "t227391",
-    "t227430",
-    "t227416"
+    "t227239",
+    "t227389",
+    "t227300"
+   ]
+  },
+  {
+   "id": "3995",
+   "title_sl": "Včasih čutim žalost, drugič upor",
+   "title_en": "Sometimes Sadness, Sometimes Rebellion",
+   "title_orig": "A veces me entra tristeza, otras veces rebelión",
+   "title_en_raw": "Sometimes Sadness, Sometimes Rebellion",
+   "title_orig_raw": "A veces me entra tristeza, otras veces rebelión",
+   "section": "Panorama",
+   "director": "Maria Aparicio",
+   "countries": [
+    "Argentina",
+    "Španija"
+   ],
+   "year": 2026,
+   "runtime": 100,
+   "language": "španščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Sometimes_Sadness_SometimesRebellion.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3995",
+   "screening_ids": [
+    "t227440",
+    "t227321",
+    "t227280"
+   ]
+  },
+  {
+   "id": "3996",
+   "title_sl": "Zgodilo se bo nocoj",
+   "title_en": "It Will Happen Tonight",
+   "title_orig": "Succedera questa notte",
+   "title_en_raw": "It Will Happen Tonight",
+   "title_orig_raw": "Succedera questa notte",
+   "section": "Predpremiere",
+   "director": "Nanni Moretti",
+   "countries": [
+    "Italija",
+    "Španija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 103,
+   "language": "italijanščina, francoščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/It_Will_Happen_Tonight_Moretti.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3996",
+   "screening_ids": [
+    "t227383",
+    "t227400",
+    "t227219",
+    "t227319"
+   ]
+  },
+  {
+   "id": "3997",
+   "title_sl": "Poglej nazaj",
+   "title_en": "Look Back",
+   "title_orig": "Rukku Bakku",
+   "title_en_raw": "Look Back",
+   "title_orig_raw": "Rukku Bakku",
+   "section": "Kralji in kraljice",
+   "director": "Hirokazu Kore-eda",
+   "countries": [
+    "Japonska"
+   ],
+   "year": 2026,
+   "runtime": 100,
+   "language": "japonščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/LookBack_Kore-eda.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3997",
+   "screening_ids": [
+    "t227282",
+    "t227202",
+    "t227397",
+    "t227413"
+   ]
+  },
+  {
+   "id": "3998",
+   "title_sl": "Neznanka",
+   "title_en": "Woman Unknown",
+   "title_orig": "Kvinde Ukendt",
+   "title_en_raw": "Woman Unknown",
+   "title_orig_raw": "Kvinde Ukendt",
+   "section": "Predpremiere",
+   "director": "May el-Toukhy",
+   "countries": [
+    "Danska",
+    "Švedska",
+    "Latvija"
+   ],
+   "year": 2026,
+   "runtime": 124,
+   "language": "danščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Woman_Unknown_May_el_Toukhy.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3998",
+   "screening_ids": [
+    "t227214",
+    "f3998-20261117-1600-kino-siska",
+    "t227313"
+   ]
+  },
+  {
+   "id": "3999",
+   "title_sl": "Zvesta vojakinja",
+   "title_en": "A Good Little Soldier",
+   "title_orig": "Un bon petit soldat",
+   "title_en_raw": "A Good Little Soldier",
+   "title_orig_raw": "Un bon petit soldat",
+   "section": "Predpremiere",
+   "director": "Stéphane Brizé",
+   "countries": [
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 102,
+   "language": "francoščina, italijanščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/A_GoodLittleSoldier_Brize.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3999",
+   "screening_ids": [
+    "t227419",
+    "t227204",
+    "t227394",
+    "t227401"
+   ]
+  },
+  {
+   "id": "4000",
+   "title_sl": "Tabloid",
+   "title_en": "Ink",
+   "title_orig": null,
+   "title_en_raw": "Ink",
+   "title_orig_raw": "Ink",
+   "section": "Predpremiere",
+   "director": "Danny Boyle",
+   "countries": [
+    "VB",
+    "Francija",
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 116,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Ink_DannyBoyle.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4000",
+   "screening_ids": [
+    "t227217",
+    "t227442",
+    "t227342"
+   ]
+  },
+  {
+   "id": "4001",
+   "title_sl": "Isabel",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Isabel",
+   "title_orig_raw": "Isabel",
+   "section": "Panorama",
+   "director": "Gabe Klinger",
+   "countries": [
+    "Brazilija",
+    "Francija"
+   ],
+   "year": 2026,
+   "runtime": 85,
+   "language": "portugalščina, angleščina, francoščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Isabel_Klinger.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4001",
+   "screening_ids": [
+    "t227255",
+    "t227312"
+   ]
+  },
+  {
+   "id": "4002",
+   "title_sl": "Bunker",
+   "title_en": null,
+   "title_orig": null,
+   "title_en_raw": "Bunker",
+   "title_orig_raw": "Bunker",
+   "section": "Predpremiere",
+   "director": "Florian Zeller",
+   "countries": [
+    "Francija",
+    "Španija"
+   ],
+   "year": 2026,
+   "runtime": 126,
+   "language": "angleščina, španščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Bunker_Zeller.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4002",
+   "screening_ids": [
+    "t227341",
+    "t227227",
+    "t227234"
    ]
   },
   {
@@ -704,7 +2269,7 @@
    "section": "Posvečeno: Paweł Pawlikowski",
    "director": "Paweł Pawlikowski",
    "countries": [],
-   "year": null,
+   "year": 2013,
    "runtime": 82,
    "language": "poljščina, latinščina, francoščina",
    "subtitles": "slovenščina",
@@ -717,136 +2282,126 @@
    ]
   },
   {
-   "id": "4001",
-   "title_sl": "Isabel",
-   "title_en": null,
-   "title_orig": null,
-   "title_en_raw": "Isabel",
-   "title_orig_raw": "Isabel",
-   "section": "Panorama",
-   "director": "Gabe Klinger",
+   "id": "4005",
+   "title_sl": "Ženska iz petega okrožja",
+   "title_en": "The Woman in the Fifth",
+   "title_orig": "La femme du 5eme",
+   "title_en_raw": "The Woman in the Fifth",
+   "title_orig_raw": "La femme du 5eme",
+   "section": "Posvečeno: Paweł Pawlikowski",
+   "director": "Paweł Pawlikowski",
    "countries": [
-    "Brazilija",
+    "Francija",
+    "Poljska",
+    "VB"
+   ],
+   "year": 2011,
+   "runtime": 84,
+   "language": "angleščina, francoščina, poljščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Woman_from_the_Fifth_Pawel_Pawlikowski.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4005",
+   "screening_ids": [
+    "t227554"
+   ]
+  },
+  {
+   "id": "4006",
+   "title_sl": "Moje poletje ljubezni",
+   "title_en": "My Summer of Love",
+   "title_orig": null,
+   "title_en_raw": "My Summer of Love",
+   "title_orig_raw": "My Summer of Love",
+   "section": "Posvečeno: Paweł Pawlikowski",
+   "director": "Paweł Pawlikowski",
+   "countries": [
+    "VB"
+   ],
+   "year": 2004,
+   "runtime": 87,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/My_Summer_of_Love_Pawel_Pawlikowski.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4006",
+   "screening_ids": [
+    "t227346",
+    "t227370"
+   ]
+  },
+  {
+   "id": "4007",
+   "title_sl": "Zadnje zatočišče",
+   "title_en": "Last Resort",
+   "title_orig": null,
+   "title_en_raw": "Last Resort",
+   "title_orig_raw": "Last Resort",
+   "section": "Posvečeno: Paweł Pawlikowski",
+   "director": "Paweł Pawlikowski",
+   "countries": [
+    "VB"
+   ],
+   "year": 2000,
+   "runtime": 73,
+   "language": "angleščina, ruščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Last_Resort_Pawel_Pawlikowski.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4007",
+   "screening_ids": [
+    "t227345",
+    "t227368"
+   ]
+  },
+  {
+   "id": "4008",
+   "title_sl": "Nevarni ovinki",
+   "title_en": "The Easy Life",
+   "title_orig": "Il sorpasso",
+   "title_en_raw": "The Easy Life",
+   "title_orig_raw": "Il sorpasso",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Dino Risi",
+   "countries": [
+    "Italija",
     "Francija"
    ],
    "year": 2026,
-   "runtime": 85,
-   "language": "portugalščina, angleščina, francoščina",
+   "runtime": 108,
+   "language": "italijanščina, nemščina, angleščina",
    "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Isabel_Klinger.jpg",
+   "image": "https://liffe.si/images/movies/EasyLife_Il_sorpasso_Dino_Risi.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4001",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4008",
    "screening_ids": [
-    "t227255",
-    "t227312"
+    "t227350",
+    "t227366"
    ]
   },
   {
-   "id": "4021",
-   "title_sl": "Ivica Matić - kratki filmi",
-   "title_en": "Ivica Matić - short films",
-   "title_orig": null,
-   "title_en_raw": "Ivica Matić - short films",
-   "title_orig_raw": "Ivica Matić - kratki filmi",
-   "section": "Posvečeno: Ivica Matić",
-   "director": "Ivica Matić",
+   "id": "4009",
+   "title_sl": "Pošasti",
+   "title_en": "The Monsters",
+   "title_orig": "I mostri",
+   "title_en_raw": "The Monsters",
+   "title_orig_raw": "I mostri",
+   "section": "Retro: Commedia all'italiana",
+   "director": "Dino Risi",
    "countries": [
-    "Jugoslavija",
-    "BiH"
-   ],
-   "year": null,
-   "runtime": 35,
-   "language": "srbohrvaščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/matic.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4021",
-   "screening_ids": [
-    "t227359"
-   ]
-  },
-  {
-   "id": "3971",
-   "title_sl": "Junija me ne bo več",
-   "title_en": "I'll Be Gone in June",
-   "title_orig": null,
-   "title_en_raw": "I'll Be Gone in June",
-   "title_orig_raw": "I'll Be Gone in June",
-   "section": "Panorama",
-   "director": "Katharina Rivilis",
-   "countries": [
-    "Nemčija",
-    "Švica",
-    "ZDA"
-   ],
-   "year": 2026,
-   "runtime": 125,
-   "language": "nemščina, angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/I_ll_BeGone_in_June_Rivilis.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3971",
-   "screening_ids": [
-    "t227286",
-    "t227392",
-    "t227296",
-    "t227399"
-   ]
-  },
-  {
-   "id": "3982",
-   "title_sl": "Kanček svetlobe",
-   "title_en": "A Bit of Light",
-   "title_orig": "Kami nour",
-   "title_en_raw": "A Bit of Light",
-   "title_orig_raw": "Kami nour",
-   "section": "Panorama",
-   "director": "Ali Asgari",
-   "countries": [
-    "Iran",
-    "Turčija",
     "Italija",
-    "Kanada",
-    "Švica"
+    "Francija"
    ],
-   "year": 2026,
-   "runtime": 87,
-   "language": "perzijščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/A_Bit_of_Light_Asgari.jpg",
+   "year": 1963,
+   "runtime": 120,
+   "language": "italijanščina",
+   "subtitles": "angleščina,slovenščina",
+   "image": "https://liffe.si/images/movies/Monsters_DinoRisi.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3982",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4009",
    "screening_ids": [
-    "t227384",
-    "t227428",
-    "t227222",
-    "t227417"
-   ]
-  },
-  {
-   "id": "3947",
-   "title_sl": "Kokoš",
-   "title_en": "Hen",
-   "title_orig": "Kota",
-   "title_en_raw": "Hen",
-   "title_orig_raw": "Kota",
-   "section": "Jadranska mreža",
-   "director": "György Pálfi",
-   "countries": [
-    "Madžarska",
-    "Grčija",
-    "Nemčija"
-   ],
-   "year": 2025,
-   "runtime": 96,
-   "language": "grščina, italijanščina, angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Hen_György_Pálfi.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3947",
-   "screening_ids": [
-    "t227240",
-    "t227438"
+    "t227354",
+    "t227372"
    ]
   },
   {
@@ -873,430 +2428,79 @@
    ]
   },
   {
-   "id": "3921",
-   "title_sl": "Kraljica morja",
-   "title_en": "Queen at Sea",
-   "title_orig": null,
-   "title_en_raw": "Queen at Sea",
-   "title_orig_raw": "Queen at Sea",
-   "section": "Predpremiere",
-   "director": "Lance Hammer",
-   "countries": [
-    "VB",
-    "ZDA"
-   ],
-   "year": 2026,
-   "runtime": 121,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Queen_at_Sea_Lance_Hammer.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3921",
-   "screening_ids": [
-    "t227203",
-    "t227334",
-    "t227444"
-   ]
-  },
-  {
-   "id": "3940",
-   "title_sl": "Kronovizor",
-   "title_en": "Chronovisor",
-   "title_orig": null,
-   "title_en_raw": "Chronovisor",
-   "title_orig_raw": "Chronovisor",
-   "section": "Perspektive",
-   "director": "Kevin Walker, Jack Auen",
-   "countries": [
-    "ZDA"
-   ],
-   "year": 2026,
-   "runtime": 99,
-   "language": "angleščina, nemščina, italijanščina, francoščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Chronovisor.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3940",
-   "screening_ids": [
-    "t227243",
-    "t227448"
-   ]
-  },
-  {
-   "id": "3956",
-   "title_sl": "Krvava grofica",
-   "title_en": "The Blood Countess",
-   "title_orig": "Die Blutgräfin",
-   "title_en_raw": "The Blood Countess",
-   "title_orig_raw": "Die Blutgräfin",
-   "section": "Fokus: Avstrija",
-   "director": "Ulrike Ottinger",
-   "countries": [
-    "Avstrija",
-    "Luksemburg",
-    "Nemčija"
-   ],
-   "year": 2026,
-   "runtime": 118,
-   "language": "nemščina, ruščina, francoščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Blood_Countess_Ulrike_Ottinger.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3956",
-   "screening_ids": [
-    "t227303",
-    "t227264"
-   ]
-  },
-  {
-   "id": "3990",
-   "title_sl": "La Gradiva",
+   "id": "4011",
+   "title_sl": "Fackham Hall",
    "title_en": null,
    "title_orig": null,
-   "title_en_raw": "La Gradiva",
-   "title_orig_raw": "La Gradiva",
-   "section": "Predpremiere",
-   "director": "Marine Atlan",
-   "countries": [
-    "Francija",
-    "Italija"
-   ],
-   "year": 2026,
-   "runtime": 145,
-   "language": "francoščina, italijanščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/La_gradiva.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3990",
-   "screening_ids": [
-    "t227289",
-    "t227395",
-    "t227411"
-   ]
-  },
-  {
-   "id": "3927",
-   "title_sl": "Ljubica",
-   "title_en": "Honey Bunny",
-   "title_orig": "Koke",
-   "title_en_raw": "Honey Bunny",
-   "title_orig_raw": "Koke",
-   "section": "Perspektive",
-   "director": "Igor Jelinović",
-   "countries": [
-    "Hrvaška",
-    "Srbija"
-   ],
-   "year": 2026,
-   "runtime": 97,
-   "language": "hrvaščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/HoneyBunny_IgorJelinović.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3927",
-   "screening_ids": [
-    "t227299",
-    "t227315",
-    "t227270"
-   ]
-  },
-  {
-   "id": "3943",
-   "title_sl": "Ljubosumnost po italijansko",
-   "title_en": "Jealousy, Italian Style",
-   "title_orig": "Dramma della gelosia",
-   "title_en_raw": "Jealousy, Italian Style",
-   "title_orig_raw": "Dramma della gelosia",
-   "section": "Retro: Commedia all'italiana",
-   "director": "Ettore Scola",
-   "countries": [
-    "Italija",
-    "Španija"
-   ],
-   "year": 1970,
-   "runtime": 107,
-   "language": "italijanščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Jealousy_Italian_Style_Scola.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3943",
-   "screening_ids": [
-    "t227353",
-    "t227375"
-   ]
-  },
-  {
-   "id": "3945",
-   "title_sl": "Ljudska romanca",
-   "title_en": "Come Home and Meet My Wife",
-   "title_orig": "Romanzo popolare",
-   "title_en_raw": "Come Home and Meet My Wife",
-   "title_orig_raw": "Romanzo popolare",
-   "section": "Retro: Commedia all'italiana",
-   "director": "Mario Monicelli",
-   "countries": [
-    "Italija"
-   ],
-   "year": 1974,
-   "runtime": 106,
-   "language": "italijanščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Come_Home_andMeet_My_Wife_Romanzo_popolare_Monicelli_rik.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3945",
-   "screening_ids": [
-    "t227367",
-    "t227378"
-   ]
-  },
-  {
-   "id": "3936",
-   "title_sl": "Ločitev po italijansko",
-   "title_en": "Divorce Italian Style",
-   "title_orig": "Divorzio all'italiana",
-   "title_en_raw": "Divorce Italian Style",
-   "title_orig_raw": "Divorzio all'italiana",
-   "section": "Retro: Commedia all'italiana",
-   "director": "Pietro Germi",
-   "countries": [
-    "Italija"
-   ],
-   "year": 1961,
-   "runtime": 104,
-   "language": "italijanščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/DivorceItalianStyle_rik.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3936",
-   "screening_ids": [
-    "t227371"
-   ]
-  },
-  {
-   "id": "3946",
-   "title_sl": "London",
-   "title_en": null,
-   "title_orig": null,
-   "title_en_raw": "London",
-   "title_orig_raw": "London",
-   "section": "Perspektive",
-   "director": "Sebastian Brameshuber",
-   "countries": [
-    "Avstrija"
-   ],
-   "year": 2026,
-   "runtime": 122,
-   "language": "nemščina, romunščina, angleščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/London_Sebastian_Brameshuber.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3946",
-   "screening_ids": [
-    "t227242",
-    "t227301"
-   ]
-  },
-  {
-   "id": "3983",
-   "title_sl": "Lov na ljudi",
-   "title_en": "Manhunt",
-   "title_orig": null,
-   "title_en_raw": "Manhunt",
-   "title_orig_raw": "Manhunt",
-   "section": "Perspektive",
-   "director": "Wayne Wapeemukwa",
-   "countries": [
-    "Kanada"
-   ],
-   "year": 2026,
-   "runtime": 103,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Manhunt_WayneWapeemukwa.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3983",
-   "screening_ids": [
-    "t227241",
-    "t227246",
-    "t227449"
-   ]
-  },
-  {
-   "id": "3950",
-   "title_sl": "Made in EU",
-   "title_en": null,
-   "title_orig": null,
-   "title_en_raw": "Made in EU",
-   "title_orig_raw": "Made in EU",
-   "section": "Jadranska mreža",
-   "director": "Stephan Komandarev",
-   "countries": [
-    "Bolgarija",
-    "Češka rep.",
-    "Nemčija"
-   ],
-   "year": 2025,
-   "runtime": 102,
-   "language": "bolgarščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Made_in_EU_Komandarev.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3950",
-   "screening_ids": [
-    "t227443",
-    "t227271"
-   ]
-  },
-  {
-   "id": "3986",
-   "title_sl": "Male stvari",
-   "title_en": "Small Things",
-   "title_orig": null,
-   "title_en_raw": "Small Things",
-   "title_orig_raw": "Male stvari",
-   "section": "Kralji in kraljice",
-   "director": "Zvonimir Jurić",
-   "countries": [
-    "Hrvaška",
-    "Slovenija",
-    "Srbija"
-   ],
-   "year": 2026,
-   "runtime": 80,
-   "language": "hrvaščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Small_Things_Zvonimir_Jurić.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3986",
-   "screening_ids": [
-    "t227287",
-    "t227263"
-   ]
-  },
-  {
-   "id": "3984",
-   "title_sl": "Mila Marija",
-   "title_en": "Mila/Maria",
-   "title_orig": "Mila/Marija",
-   "title_en_raw": "Mila/Maria",
-   "title_orig_raw": "Mila/Marija",
-   "section": "Predpremiere",
-   "director": "Andrina Mračnikar",
-   "countries": [
-    "Avstrija",
-    "Slovenija",
-    "Grčija"
-   ],
-   "year": 2026,
-   "runtime": 110,
-   "language": "slovenščina, nemščina, angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Mila_Marija_AndrinaMračnikar.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3984",
-   "screening_ids": [
-    "t227221",
-    "t227316"
-   ]
-  },
-  {
-   "id": "3944",
-   "title_sl": "Mimi kovinar",
-   "title_en": "The Seduction of Mimi",
-   "title_orig": "Mimi metallurgico ferito nell'onore",
-   "title_en_raw": "The Seduction of Mimi",
-   "title_orig_raw": "Mimi metallurgico ferito nell'onore",
-   "section": "Retro: Commedia all'italiana",
-   "director": "Lina Wertmüller",
-   "countries": [
-    "Italija"
-   ],
-   "year": 1972,
-   "runtime": 121,
-   "language": "italijanščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Mimi_metallurgico_ferito_nellONORE.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3944",
-   "screening_ids": [
-    "t227355",
-    "t227374"
-   ]
-  },
-  {
-   "id": "3961",
-   "title_sl": "Minotaver",
-   "title_en": "Minotaur",
-   "title_orig": null,
-   "title_en_raw": "Minotaur",
-   "title_orig_raw": "Minotaur",
-   "section": "Predpremiere",
-   "director": "Andrej Zvjagincev",
-   "countries": [
-    "Francija",
-    "Latvija",
-    "Nemčija"
-   ],
-   "year": 2026,
-   "runtime": 135,
-   "language": "ruščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Minotaur_Zvjagincev.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3961",
-   "screening_ids": [
-    "t227116",
-    "t227218",
-    "t227220"
-   ]
-  },
-  {
-   "id": "3934",
-   "title_sl": "Moj prijatelj Barry",
-   "title_en": "Barry & Me",
-   "title_orig": "Mein Freund Barry",
-   "title_en_raw": "Barry & Me",
-   "title_orig_raw": "Mein Freund Barry",
-   "section": "Kinobalon",
-   "director": "Markus Welter",
-   "countries": [
-    "Švica",
-    "Nemčija"
-   ],
-   "year": 2026,
-   "runtime": 97,
-   "language": "nemščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Barry_Me_Welter.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3934",
-   "screening_ids": [
-    "t227273",
-    "t227328"
-   ]
-  },
-  {
-   "id": "4006",
-   "title_sl": "Moje poletje ljubezni",
-   "title_en": "My Summer of Love",
-   "title_orig": null,
-   "title_en_raw": "My Summer of Love",
-   "title_orig_raw": "My Summer of Love",
-   "section": "Posvečeno: Paweł Pawlikowski",
-   "director": "Paweł Pawlikowski",
+   "title_en_raw": "Fackham Hall",
+   "title_orig_raw": "Fackham Hall",
+   "section": "Panorama",
+   "director": "Jim O'Hanlon",
    "countries": [
     "VB"
    ],
-   "year": 2004,
-   "runtime": 87,
+   "year": 2025,
+   "runtime": 97,
    "language": "angleščina",
    "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/My_Summer_of_Love_Pawel_Pawlikowski.jpg",
+   "image": "https://liffe.si/images/movies/FackhamHall.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4006",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4011",
    "screening_ids": [
-    "t227346",
-    "t227370"
+    "t227450",
+    "t227232",
+    "t227233"
+   ]
+  },
+  {
+   "id": "4012",
+   "title_sl": "Vsakič",
+   "title_en": "Everytime",
+   "title_orig": null,
+   "title_en_raw": "Everytime",
+   "title_orig_raw": "Everytime",
+   "section": "Fokus: Avstrija",
+   "director": "Sandra Wollner",
+   "countries": [
+    "Avstrija",
+    "Nemčija"
+   ],
+   "year": 2026,
+   "runtime": 119,
+   "language": "nemščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Everytime_Wollner.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4012",
+   "screening_ids": [
+    "t227111",
+    "t227309",
+    "t227410"
+   ]
+  },
+  {
+   "id": "4013",
+   "title_sl": "Dobrodošli v Hope",
+   "title_en": "Hope",
+   "title_orig": "Hopeu",
+   "title_en_raw": "Hope",
+   "title_orig_raw": "Hopeu",
+   "section": "Ekstravaganca",
+   "director": "Na Hong-jin",
+   "countries": [
+    "Južna Koreja"
+   ],
+   "year": 2026,
+   "runtime": 160,
+   "language": "korejščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/Hope_Na_Hongjin.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4013",
+   "screening_ids": [
+    "t227336",
+    "t227226",
+    "t227452"
    ]
   },
   {
@@ -1327,187 +2531,6 @@
    ]
   },
   {
-   "id": "3992",
-   "title_sl": "Mož, ki ga ljubim",
-   "title_en": "The Man I Love",
-   "title_orig": null,
-   "title_en_raw": "The Man I Love",
-   "title_orig_raw": "The Man I Love",
-   "section": "Kralji in kraljice",
-   "director": "Ira Sachs",
-   "countries": [
-    "ZDA",
-    "Francija"
-   ],
-   "year": 2026,
-   "runtime": 95,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Man_I_Love_IraSachs.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3992",
-   "screening_ids": [
-    "t227434",
-    "t227223"
-   ]
-  },
-  {
-   "id": "3924",
-   "title_sl": "Najbolj osamljen človek v mestu",
-   "title_en": "The Loneliest Man in Town",
-   "title_orig": null,
-   "title_en_raw": "The Loneliest Man in Town",
-   "title_orig_raw": "The Loneliest Man in Town",
-   "section": "Fokus: Avstrija",
-   "director": "Tizza Covi, Rainer Frimmel",
-   "countries": [
-    "Avstrija"
-   ],
-   "year": 2026,
-   "runtime": 86,
-   "language": "nemščina, angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Loneliest_Man_in_Town_Tizza_Covi_Rainer_Frimmel.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3924",
-   "screening_ids": [
-    "t227426",
-    "t227247",
-    "t227406"
-   ]
-  },
-  {
-   "id": "3953",
-   "title_sl": "Nedelje",
-   "title_en": "Sundays",
-   "title_orig": "Los domingos",
-   "title_en_raw": "Sundays",
-   "title_orig_raw": "Los domingos",
-   "section": "Panorama",
-   "director": "Alauda Ruiz de Azúa",
-   "countries": [
-    "Španija",
-    "Francija"
-   ],
-   "year": 2025,
-   "runtime": 115,
-   "language": "španščina, baskovščina, angleščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Sundays_Alauda_Ruiz_de_Azua.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3953",
-   "screening_ids": [
-    "t227433",
-    "t227229"
-   ]
-  },
-  {
-   "id": "3960",
-   "title_sl": "Nenadoma",
-   "title_en": "All of a Sudden",
-   "title_orig": "Soudain",
-   "title_en_raw": "All of a Sudden",
-   "title_orig_raw": "Soudain",
-   "section": "Predpremiere",
-   "director": "Ryusuke Hamaguchi",
-   "countries": [
-    "Japonska",
-    "Francija",
-    "Nemčija",
-    "Belgija"
-   ],
-   "year": 2026,
-   "runtime": 196,
-   "language": "japonščina, francoščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/All_of_a_Sudden_Hamaguchi.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3960",
-   "screening_ids": [
-    "t227284",
-    "t227260",
-    "t227404",
-    "t227409"
-   ]
-  },
-  {
-   "id": "4008",
-   "title_sl": "Nevarni ovinki",
-   "title_en": "The Easy Life",
-   "title_orig": "Il sorpasso",
-   "title_en_raw": "The Easy Life",
-   "title_orig_raw": "Il sorpasso",
-   "section": "Retro: Commedia all'italiana",
-   "director": "Dino Risi",
-   "countries": [
-    "Italija",
-    "Francija"
-   ],
-   "year": 2026,
-   "runtime": 108,
-   "language": "italijanščina, nemščina, angleščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/EasyLife_Il_sorpasso_Dino_Risi.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4008",
-   "screening_ids": [
-    "t227350",
-    "t227366"
-   ]
-  },
-  {
-   "id": "3998",
-   "title_sl": "Neznanka",
-   "title_en": "Woman Unknown",
-   "title_orig": "Kvinde Ukendt",
-   "title_en_raw": "Woman Unknown",
-   "title_orig_raw": "Kvinde Ukendt",
-   "section": "Predpremiere",
-   "director": "May el-Toukhy",
-   "countries": [
-    "Danska",
-    "Švedska",
-    "Latvija"
-   ],
-   "year": 2026,
-   "runtime": 124,
-   "language": "danščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Woman_Unknown_May_el_Toukhy.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3998",
-   "screening_ids": [
-    "t227214",
-    "f3998-20261117-1600-kino-siska",
-    "t227313"
-   ]
-  },
-  {
-   "id": "3978",
-   "title_sl": "Nezvesta žena",
-   "title_en": "The Unfaithful Wife",
-   "title_orig": "La femme infidele",
-   "title_en_raw": "The Unfaithful Wife",
-   "title_orig_raw": "La femme infidele",
-   "section": "Kralji in kraljice",
-   "director": "Claude Chabrol",
-   "countries": [
-    "Francija",
-    "Italija"
-   ],
-   "year": 1969,
-   "runtime": 98,
-   "language": "francoščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Unfaithful_Wife_Chabrol.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3978",
-   "screening_ids": [
-    "t227344",
-    "t227262"
-   ]
-  },
-  {
    "id": "4015",
    "title_sl": "Nežna, ljubeča skrb",
    "title_en": "Tender Loving Care",
@@ -1531,1009 +2554,6 @@
     "t227338",
     "t227267",
     "t227235"
-   ]
-  },
-  {
-   "id": "3935",
-   "title_sl": "Običajni osumljenci",
-   "title_en": "Big Deal on Madonna Street",
-   "title_orig": "I soliti ignoti",
-   "title_en_raw": "Big Deal on Madonna Street",
-   "title_orig_raw": "I soliti ignoti",
-   "section": "Retro: Commedia all'italiana",
-   "director": "Mario Monicelli",
-   "countries": [
-    "Italija"
-   ],
-   "year": 1958,
-   "runtime": 106,
-   "language": "italijanščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Big_Deal_on_Madonna_Street_rik.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3935",
-   "screening_ids": [
-    "t227347"
-   ]
-  },
-  {
-   "id": "3975",
-   "title_sl": "Očetnjava",
-   "title_en": "Fatherland",
-   "title_orig": "Ojczyzna",
-   "title_en_raw": "Fatherland",
-   "title_orig_raw": "Ojczyzna",
-   "section": "Predpremiere",
-   "director": "Pawel Pawlikowski",
-   "countries": [
-    "Poljska",
-    "Nemčija",
-    "Italija",
-    "Francija"
-   ],
-   "year": 2026,
-   "runtime": 82,
-   "language": "nemščina, ruščina, francoščina, angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/FatherlandPawlikowaki.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3975",
-   "screening_ids": [
-    "t227393",
-    "t227213",
-    "t227408",
-    "t227329"
-   ]
-  },
-  {
-   "id": "3952",
-   "title_sl": "Odpelji me domov",
-   "title_en": "Take Me Home",
-   "title_orig": null,
-   "title_en_raw": "Take Me Home",
-   "title_orig_raw": "Take Me Home",
-   "section": "Perspektive",
-   "director": "Liz Sargent",
-   "countries": [
-    "ZDA"
-   ],
-   "year": 2026,
-   "runtime": 91,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Take_Me_Home_LizSargent.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3952",
-   "screening_ids": [
-    "t227113",
-    "t227306"
-   ]
-  },
-  {
-   "id": "3972",
-   "title_sl": "Ostrina Sence",
-   "title_en": "The Shadow's Edge",
-   "title_orig": "Bu feng zhui ying",
-   "title_en_raw": "The Shadow's Edge",
-   "title_orig_raw": "Bu feng zhui ying",
-   "section": "Ekstravaganca",
-   "director": "Larry Yang",
-   "countries": [
-    "Hongkong",
-    "Kitajska"
-   ],
-   "year": 2025,
-   "runtime": 141,
-   "language": "mandarinščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Shadows_Edge.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3972",
-   "screening_ids": [
-    "t227211",
-    "t227451"
-   ]
-  },
-  {
-   "id": "3991",
-   "title_sl": "Papirnati tiger",
-   "title_en": "Paper Tiger",
-   "title_orig": null,
-   "title_en_raw": "Paper Tiger",
-   "title_orig_raw": "Paper Tiger",
-   "section": "Kralji in kraljice",
-   "director": "James Gray",
-   "countries": [
-    "ZDA",
-    "Brazilija",
-    "Italija"
-   ],
-   "year": 2026,
-   "runtime": 115,
-   "language": "angleščina, ruščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Paper_Tiger_Gray.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3991",
-   "screening_ids": [
-    "t227208",
-    "t227339",
-    "t227230"
-   ]
-  },
-  {
-   "id": "3929",
-   "title_sl": "Počitnice v džungli",
-   "title_en": "Born in the Jungle",
-   "title_orig": "Tajemství džungle",
-   "title_en_raw": "Born in the Jungle",
-   "title_orig_raw": "Tajemství džungle",
-   "section": "Kinobalon",
-   "director": "Edmunds Jansons",
-   "countries": [
-    "Latvija",
-    "Poljska",
-    "Češka rep."
-   ],
-   "year": 2026,
-   "runtime": 73,
-   "language": "latvijščina",
-   "subtitles": "slovenska sinhronizacija",
-   "image": "https://liffe.si/images/movies/Born_in_the_Jungle.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3929",
-   "screening_ids": [
-    "t227322",
-    "t227277"
-   ]
-  },
-  {
-   "id": "3997",
-   "title_sl": "Poglej nazaj",
-   "title_en": "Look Back",
-   "title_orig": "Rukku Bakku",
-   "title_en_raw": "Look Back",
-   "title_orig_raw": "Rukku Bakku",
-   "section": "Kralji in kraljice",
-   "director": "Hirokazu Kore-eda",
-   "countries": [
-    "Japonska"
-   ],
-   "year": 2026,
-   "runtime": 100,
-   "language": "japonščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/LookBack_Kore-eda.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3997",
-   "screening_ids": [
-    "t227282",
-    "t227202",
-    "t227397",
-    "t227413"
-   ]
-  },
-  {
-   "id": "3948",
-   "title_sl": "Pomlad",
-   "title_en": "Only Beautiful Things to Look At",
-   "title_orig": "Prameň",
-   "title_en_raw": "Only Beautiful Things to Look At",
-   "title_orig_raw": "Prameň",
-   "section": "Jadranska mreža",
-   "director": "Ivan Ostrochovsky",
-   "countries": [
-    "Slovaška",
-    "Češka rep.",
-    "Madžarska"
-   ],
-   "year": 2026,
-   "runtime": 88,
-   "language": "slovaščina, češčina, madžarščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Only_Beautiful_Things_to_LookAt.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3948",
-   "screening_ids": [
-    "t227318",
-    "t227281"
-   ]
-  },
-  {
-   "id": "4009",
-   "title_sl": "Pošasti",
-   "title_en": "The Monsters",
-   "title_orig": "I mostri",
-   "title_en_raw": "The Monsters",
-   "title_orig_raw": "I mostri",
-   "section": "Retro: Commedia all'italiana",
-   "director": "Dino Risi",
-   "countries": [
-    "Italija",
-    "Francija"
-   ],
-   "year": 1963,
-   "runtime": 120,
-   "language": "italijanščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Monsters_DinoRisi.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4009",
-   "screening_ids": [
-    "t227354",
-    "t227372"
-   ]
-  },
-  {
-   "id": "3932",
-   "title_sl": "Pritožba št. 713317",
-   "title_en": "Complaint No. 713317",
-   "title_orig": "Shakwa raqam 713317",
-   "title_en_raw": "Complaint No. 713317",
-   "title_orig_raw": "Shakwa raqam 713317",
-   "section": "Panorama",
-   "director": "Yasser Shafiey",
-   "countries": [
-    "Egipt"
-   ],
-   "year": 2025,
-   "runtime": 80,
-   "language": "arabščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Complaint_No713317.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3932",
-   "screening_ids": [
-    "t227236",
-    "t227427"
-   ]
-  },
-  {
-   "id": "3966",
-   "title_sl": "Propad hiše Usher",
-   "title_en": "The Fall of the House of Usher",
-   "title_orig": "La chute de la maison Usher",
-   "title_en_raw": "The Fall of the House of Usher",
-   "title_orig_raw": "La chute de la maison Usher",
-   "section": "Kino-integral",
-   "director": "Jean Epstein",
-   "countries": [
-    "Francija"
-   ],
-   "year": 1928,
-   "runtime": 72,
-   "language": "francoščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Fall_of_theHouse_ Usher_Epstein.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3966",
-   "screening_ids": [
-    "t227152"
-   ]
-  },
-  {
-   "id": "3954",
-   "title_sl": "Psička",
-   "title_en": "La perra",
-   "title_orig": null,
-   "title_en_raw": "La perra",
-   "title_orig_raw": "La perra",
-   "section": "Panorama",
-   "director": "Dominga Sotomayor",
-   "countries": [
-    "Čile",
-    "Brazilija"
-   ],
-   "year": 2026,
-   "runtime": 112,
-   "language": "španščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/La_perra_Dominga_Sotomayor.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3954",
-   "screening_ids": [
-    "t227437",
-    "t227310"
-   ]
-  },
-  {
-   "id": "3974",
-   "title_sl": "Pustolovščina iz sanj",
-   "title_en": "The Dreamed Adventure",
-   "title_orig": "Das Geträumte Abenteuer",
-   "title_en_raw": "The Dreamed Adventure",
-   "title_orig_raw": "Das Geträumte Abenteuer",
-   "section": "Kralji in kraljice",
-   "director": "Valeska Grisebach",
-   "countries": [
-    "Nemčija",
-    "Bolgarija",
-    "Francija",
-    "Avstrija"
-   ],
-   "year": 2026,
-   "runtime": 167,
-   "language": "nemščina, bolgarščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/DreamedAdventure_Grisebach.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3974",
-   "screening_ids": [
-    "t227382",
-    "t227288",
-    "t227302"
-   ]
-  },
-  {
-   "id": "3976",
-   "title_sl": "Rdeče skale",
-   "title_en": "Red Rocks",
-   "title_orig": "Les Roches rouges",
-   "title_en_raw": "Red Rocks",
-   "title_orig_raw": "Les Roches rouges",
-   "section": "Kralji in kraljice",
-   "director": "Bruno Dumont",
-   "countries": [
-    "Francija",
-    "Portugalska",
-    "Italija",
-    "Španija",
-    "Katar"
-   ],
-   "year": 2026,
-   "runtime": 90,
-   "language": "francoščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Red_Rocks_Dumont.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3976",
-   "screening_ids": [
-    "t227201",
-    "t227398",
-    "t227405",
-    "t227320"
-   ]
-  },
-  {
-   "id": "3985",
-   "title_sl": "Rdeči hangar",
-   "title_en": "The Red Hangar",
-   "title_orig": "Hangar rojo",
-   "title_en_raw": "The Red Hangar",
-   "title_orig_raw": "Hangar rojo",
-   "section": "Perspektive",
-   "director": "Juan Pablo Sallato",
-   "countries": [
-    "Čile",
-    "Argentina",
-    "Italija"
-   ],
-   "year": 2026,
-   "runtime": 83,
-   "language": "španščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Red_Hangar_Juan_Pablo_Sallato.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3985",
-   "screening_ids": [
-    "t227380",
-    "t227251",
-    "t227314"
-   ]
-  },
-  {
-   "id": "3967",
-   "title_sl": "Rojstni dan",
-   "title_en": "Happy Birthday",
-   "title_orig": null,
-   "title_en_raw": "Happy Birthday",
-   "title_orig_raw": "Happy Birthday",
-   "section": "Kinobalon",
-   "director": "Sarah Goher",
-   "countries": [
-    "Egipt"
-   ],
-   "year": 2025,
-   "runtime": 91,
-   "language": "arabščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/HappyBirthday_SarahGoher.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3967",
-   "screening_ids": [
-    "t227250",
-    "t227324"
-   ]
-  },
-  {
-   "id": "3959",
-   "title_sl": "Rose",
-   "title_en": null,
-   "title_orig": null,
-   "title_en_raw": "Rose",
-   "title_orig_raw": "Rose",
-   "section": "Fokus: Avstrija",
-   "director": "Markus Schleinzer",
-   "countries": [
-    "Avstrija",
-    "Nemčija"
-   ],
-   "year": 2026,
-   "runtime": 94,
-   "language": "nemščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Rose_Markus_Schleinzer.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3959",
-   "screening_ids": [
-    "t227205",
-    "t227258",
-    "t227330"
-   ]
-  },
-  {
-   "id": "3922",
-   "title_sl": "Rumena pisma",
-   "title_en": "Yellow Letters",
-   "title_orig": "Gelbe Briefe",
-   "title_en_raw": "Yellow Letters",
-   "title_orig_raw": "Gelbe Briefe",
-   "section": "Predpremiere",
-   "director": "Ilker Çatak",
-   "countries": [
-    "Turčija",
-    "Nemčija",
-    "Francija"
-   ],
-   "year": 2026,
-   "runtime": 127,
-   "language": "turščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Yellow.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3922",
-   "screening_ids": [
-    "t227385",
-    "t227290",
-    "t227215",
-    "t227402"
-   ]
-  },
-  {
-   "id": "3963",
-   "title_sl": "Seks in smrt v najstniškem taboru",
-   "title_en": "Teenage Sex And Death At Camp Miasma",
-   "title_orig": null,
-   "title_en_raw": "Teenage Sex And Death At Camp Miasma",
-   "title_orig_raw": "Teenage Sex And Death At Camp Miasma",
-   "section": "Ekstravaganca",
-   "director": "Jane Schoenbrun",
-   "countries": [
-    "ZDA",
-    "Kanada"
-   ],
-   "year": 2026,
-   "runtime": 105,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Teenage_Sex_and_Death_at_Camp_Miasma_Schoenbrunn.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3963",
-   "screening_ids": [
-    "t227429",
-    "t227332",
-    "t227228"
-   ]
-  },
-  {
-   "id": "3931",
-   "title_sl": "Skrivnostni paket",
-   "title_en": "The Mystery Package",
-   "title_orig": "Mysteriepakken",
-   "title_en_raw": "The Mystery Package",
-   "title_orig_raw": "Mysteriepakken",
-   "section": "Kinobalon",
-   "director": "Silje Evensmo Jacobsen",
-   "countries": [
-    "Norveška"
-   ],
-   "year": 2025,
-   "runtime": 80,
-   "language": "norveščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Mystery_Package.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3931",
-   "screening_ids": [
-    "t227292",
-    "t227279"
-   ]
-  },
-  {
-   "id": "3962",
-   "title_sl": "Soumsoum, noč zvezd",
-   "title_en": "Soumsoum, the Night of the Stars",
-   "title_orig": "Soumsoum, la nuit des astres",
-   "title_en_raw": "Soumsoum, the Night of the Stars",
-   "title_orig_raw": "Soumsoum, la nuit des astres",
-   "section": "Panorama",
-   "director": "Mahamat-Saleh Haroun",
-   "countries": [
-    "Čad",
-    "Francija"
-   ],
-   "year": 2026,
-   "runtime": 101,
-   "language": "arabščina, francoščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Soumsoum_the_Night_of_the_Stars_Mahamat_SalehHaroun.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3962",
-   "screening_ids": [
-    "t227447",
-    "t227415",
-    "t227278"
-   ]
-  },
-  {
-   "id": "3928",
-   "title_sl": "Sramota in denar",
-   "title_en": "Shame and Money",
-   "title_orig": null,
-   "title_en_raw": "Shame and Money",
-   "title_orig_raw": "Shame and Money",
-   "section": "Panorama",
-   "director": "Visar Morina",
-   "countries": [
-    "Kosovo",
-    "Albanija",
-    "Slovenija",
-    "Severna Makedonija",
-    "N"
-   ],
-   "year": 2026,
-   "runtime": 129,
-   "language": "albanščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Shame_and_Money_Visar_Morina.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3928",
-   "screening_ids": [
-    "t227253",
-    "t227307",
-    "t227412"
-   ]
-  },
-  {
-   "id": "3951",
-   "title_sl": "Strelec",
-   "title_en": "Gunman",
-   "title_orig": "Gatillero",
-   "title_en_raw": "Gunman",
-   "title_orig_raw": "Gatillero",
-   "section": "Panorama",
-   "director": "Cris Tapia Marchiori",
-   "countries": [
-    "Argentina"
-   ],
-   "year": 2025,
-   "runtime": 80,
-   "language": "španščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Gunman_Gatillero.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3951",
-   "screening_ids": [
-    "t227294",
-    "t227441"
-   ]
-  },
-  {
-   "id": "4000",
-   "title_sl": "Tabloid",
-   "title_en": "Ink",
-   "title_orig": null,
-   "title_en_raw": "Ink",
-   "title_orig_raw": "Ink",
-   "section": "Predpremiere",
-   "director": "Danny Boyle",
-   "countries": [
-    "VB",
-    "Francija",
-    "ZDA"
-   ],
-   "year": 2026,
-   "runtime": 116,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Ink_DannyBoyle.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4000",
-   "screening_ids": [
-    "t227217",
-    "t227442",
-    "t227342"
-   ]
-  },
-  {
-   "id": "3955",
-   "title_sl": "Taljenje",
-   "title_en": "Melt",
-   "title_orig": null,
-   "title_en_raw": "Melt",
-   "title_orig_raw": "Melt",
-   "section": "Jadranska mreža",
-   "director": "Nikolaus Geyrhalter",
-   "countries": [
-    "Avstrija"
-   ],
-   "year": 2025,
-   "runtime": 127,
-   "language": "nemščina, francoščina, japonščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Melt_NikolausGeyrhalter.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3955",
-   "screening_ids": [
-    "t227317",
-    "t227376"
-   ]
-  },
-  {
-   "id": "3980",
-   "title_sl": "Ti ne sodiš sem",
-   "title_en": "You Don't Belong Here",
-   "title_orig": "Nu e locul tau aici",
-   "title_en_raw": "You Don't Belong Here",
-   "title_orig_raw": "Nu e locul tau aici",
-   "section": "Panorama",
-   "director": "Florin Serban",
-   "countries": [
-    "Romunija"
-   ],
-   "year": 2026,
-   "runtime": 154,
-   "language": "romunščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/You_Dont_Belong_Here_Serban.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3980",
-   "screening_ids": [
-    "t227304",
-    "t227259"
-   ]
-  },
-  {
-   "id": "3964",
-   "title_sl": "Tipični Phil",
-   "title_en": "Full Phil",
-   "title_orig": null,
-   "title_en_raw": "Full Phil",
-   "title_orig_raw": "Full Phil",
-   "section": "Ekstravaganca",
-   "director": "Quentin Dupieux",
-   "countries": [
-    "Francija",
-    "Belgija",
-    "Luksemburg"
-   ],
-   "year": 2026,
-   "runtime": 78,
-   "language": "angleščina, francoščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Full_PhilDupieux.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3964",
-   "screening_ids": [
-    "t227422",
-    "t227431",
-    "t227272"
-   ]
-  },
-  {
-   "id": "3989",
-   "title_sl": "Udarni termin",
-   "title_en": "Primetime",
-   "title_orig": null,
-   "title_en_raw": "Primetime",
-   "title_orig_raw": "Primetime",
-   "section": "Predpremiere",
-   "director": "Lance Oppenheim",
-   "countries": [
-    "ZDA"
-   ],
-   "year": 2026,
-   "runtime": 110,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Primetime_Oppenheim.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3989",
-   "screening_ids": [
-    "t227335",
-    "t227224",
-    "t227231"
-   ]
-  },
-  {
-   "id": "3979",
-   "title_sl": "Ulja",
-   "title_en": "Ulya",
-   "title_orig": null,
-   "title_en_raw": "Ulya",
-   "title_orig_raw": "Ulya",
-   "section": "Panorama",
-   "director": "Viesturs Kairišs",
-   "countries": [
-    "Latvija",
-    "Litva",
-    "Estonija",
-    "Poljska"
-   ],
-   "year": 2026,
-   "runtime": 102,
-   "language": "latvijščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Ulya_Kairišs.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3979",
-   "screening_ids": [
-    "t227436",
-    "t227269",
-    "t227327"
-   ]
-  },
-  {
-   "id": "3949",
-   "title_sl": "Umazan denar za bele noči",
-   "title_en": "Black Money for White Nights",
-   "title_orig": "Černi pari za beli nošti",
-   "title_en_raw": "Black Money for White Nights",
-   "title_orig_raw": "Černi pari za beli nošti",
-   "section": "Jadranska mreža",
-   "director": "Kristina Grozeva, Petar Valčanov",
-   "countries": [
-    "Bolgarija",
-    "Grčija"
-   ],
-   "year": 2025,
-   "runtime": 95,
-   "language": "bolgarščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Black_Money_forWhite_Nights.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3949",
-   "screening_ids": [
-    "t227112",
-    "t227257"
-   ]
-  },
-  {
-   "id": "3925",
-   "title_sl": "Usodni sekret",
-   "title_en": "Flush",
-   "title_orig": null,
-   "title_en_raw": "Flush",
-   "title_orig_raw": "Flush",
-   "section": "Ekstravaganca",
-   "director": "Grégory Morin",
-   "countries": [
-    "Francija"
-   ],
-   "year": 2025,
-   "runtime": 70,
-   "language": "francoščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Flush.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3925",
-   "screening_ids": [
-    "t227268",
-    "t227325"
-   ]
-  },
-  {
-   "id": "3995",
-   "title_sl": "Včasih čutim žalost, drugič upor",
-   "title_en": "Sometimes Sadness, Sometimes Rebellion",
-   "title_orig": "A veces me entra tristeza, otras veces rebelión",
-   "title_en_raw": "Sometimes Sadness, Sometimes Rebellion",
-   "title_orig_raw": "A veces me entra tristeza, otras veces rebelión",
-   "section": "Panorama",
-   "director": "Maria Aparicio",
-   "countries": [
-    "Argentina",
-    "Španija"
-   ],
-   "year": 2026,
-   "runtime": 100,
-   "language": "španščina",
-   "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/Sometimes_Sadness_SometimesRebellion.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3995",
-   "screening_ids": [
-    "t227440",
-    "t227321",
-    "t227280"
-   ]
-  },
-  {
-   "id": "3937",
-   "title_sl": "Vdovec",
-   "title_en": "The Widower",
-   "title_orig": "Il vedovo",
-   "title_en_raw": "The Widower",
-   "title_orig_raw": "Il vedovo",
-   "section": "Retro: Commedia all'italiana",
-   "director": "Dino Risi",
-   "countries": [
-    "Italija"
-   ],
-   "year": 1959,
-   "runtime": 100,
-   "language": "italijanščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Widower_Risi_1959.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3937",
-   "screening_ids": [
-    "t227349",
-    "t227362"
-   ]
-  },
-  {
-   "id": "3958",
-   "title_sl": "Vidim stavbe padati kot strele",
-   "title_en": "I See Buildings Fall Like Lightning",
-   "title_orig": null,
-   "title_en_raw": "I See Buildings Fall Like Lightning",
-   "title_orig_raw": "I See Buildings Fall Like Lightning",
-   "section": "Kralji in kraljice",
-   "director": "Clio Barnard",
-   "countries": [
-    "VB"
-   ],
-   "year": 2026,
-   "runtime": 109,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/I_See_BuildingsFall_LikeLightning_Barnard.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3958",
-   "screening_ids": [
-    "t227283",
-    "t227225",
-    "t227407",
-    "t227418"
-   ]
-  },
-  {
-   "id": "3981",
-   "title_sl": "Virus patološke dobrote",
-   "title_en": "The Virus of Pathological Kindness",
-   "title_orig": null,
-   "title_en_raw": "The Virus of Pathological Kindness",
-   "title_orig_raw": "Virus patološke dobrote",
-   "section": "Predpremiere",
-   "director": "Predrag Ličina",
-   "countries": [
-    "Srbija",
-    "Hrvaška",
-    "Slovenija",
-    "BiH"
-   ],
-   "year": 2026,
-   "runtime": 99,
-   "language": "srbščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Virus_patološke_dobrote.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3981",
-   "screening_ids": [
-    "t227206",
-    "t227432"
-   ]
-  },
-  {
-   "id": "4012",
-   "title_sl": "Vsakič",
-   "title_en": "Everytime",
-   "title_orig": null,
-   "title_en_raw": "Everytime",
-   "title_orig_raw": "Everytime",
-   "section": "Fokus: Avstrija",
-   "director": "Sandra Wollner",
-   "countries": [
-    "Avstrija",
-    "Nemčija"
-   ],
-   "year": 2026,
-   "runtime": 119,
-   "language": "nemščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Everytime_Wollner.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4012",
-   "screening_ids": [
-    "t227111",
-    "t227309",
-    "t227410"
-   ]
-  },
-  {
-   "id": "3969",
-   "title_sl": "Vse, kar je narobe s tabo",
-   "title_en": "Everything That's Wrong With You",
-   "title_orig": null,
-   "title_en_raw": "Everything That's Wrong With You",
-   "title_orig_raw": "Vse, kar je narobe s tabo",
-   "section": "Perspektive",
-   "director": "Urša Menart",
-   "countries": [
-    "Slovenija"
-   ],
-   "year": 2026,
-   "runtime": 97,
-   "language": "slovenščina, nemščina",
-   "subtitles": null,
-   "image": "https://liffe.si/images/movies/Vse_kar_je_narobe_s_tabo_Menart.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3969",
-   "screening_ids": [
-    "t227210",
-    "t227298",
-    "t227414"
-   ]
-  },
-  {
-   "id": "3988",
-   "title_sl": "Vsi imajo radi Billa Evansa",
-   "title_en": "Everybody Digs Bill Evans",
-   "title_orig": null,
-   "title_en_raw": "Everybody Digs Bill Evans",
-   "title_orig_raw": "Everybody Digs Bill Evans",
-   "section": "Kralji in kraljice",
-   "director": "Grant Gee",
-   "countries": [
-    "VB",
-    "Irska"
-   ],
-   "year": 2026,
-   "runtime": 102,
-   "language": "angleščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Everybody_Digs_Bill_EvansGrantGee.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3988",
-   "screening_ids": [
-    "t227252",
-    "t227340",
-    "t227326"
-   ]
-  },
-  {
-   "id": "4007",
-   "title_sl": "Zadnje zatočišče",
-   "title_en": "Last Resort",
-   "title_orig": null,
-   "title_en_raw": "Last Resort",
-   "title_orig_raw": "Last Resort",
-   "section": "Posvečeno: Paweł Pawlikowski",
-   "director": "Paweł Pawlikowski",
-   "countries": [
-    "VB"
-   ],
-   "year": 2000,
-   "runtime": 73,
-   "language": "angleščina, ruščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Last_Resort_Pawel_Pawlikowski.jpg",
-   "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4007",
-   "screening_ids": [
-    "t227345",
-    "t227368"
    ]
   },
   {
@@ -2562,134 +2582,115 @@
    ]
   },
   {
-   "id": "3987",
-   "title_sl": "Zelene oči",
-   "title_en": "The Green Eyes",
-   "title_orig": "Les Yeux Verts",
-   "title_en_raw": "The Green Eyes",
-   "title_orig_raw": "Les Yeux Verts",
-   "section": "Perspektive",
-   "director": "Fanny Liatard, Jérémy Trouilh",
+   "id": "4017",
+   "title_sl": "Furijaste",
+   "title_en": "Furies",
+   "title_orig": null,
+   "title_en_raw": "Furies",
+   "title_orig_raw": "Furies",
+   "section": "Panorama",
+   "director": "Rami Kodeih",
    "countries": [
-    "Francija",
-    "Švedska",
-    "Belgija"
+    "Libanon",
+    "Brazilija"
    ],
    "year": 2026,
-   "runtime": 84,
-   "language": "arabščina, francoščina",
+   "runtime": 132,
+   "language": "arabščina",
    "subtitles": "angleščina,slovenščina",
-   "image": "https://liffe.si/images/movies/GreenEyes_FannyLiatard.jpg",
+   "image": "https://liffe.si/images/movies/Furies.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3987",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4017",
    "screening_ids": [
-    "t227381",
-    "t227396",
-    "t227305",
-    "t227265"
+    "t227424",
+    "t227216"
    ]
   },
   {
-   "id": "3996",
-   "title_sl": "Zgodilo se bo nocoj",
-   "title_en": "It Will Happen Tonight",
-   "title_orig": "Succedera questa notte",
-   "title_en_raw": "It Will Happen Tonight",
-   "title_orig_raw": "Succedera questa notte",
-   "section": "Predpremiere",
-   "director": "Nanni Moretti",
-   "countries": [
-    "Italija",
-    "Španija",
-    "Francija"
-   ],
+   "id": "4018",
+   "title_sl": "Evropa na kratko - 1. sklop",
+   "title_en": "Evrope in Short - 1. Program",
+   "title_orig": null,
+   "title_en_raw": "Evrope in Short - 1. Program",
+   "title_orig_raw": null,
+   "section": "Evropa na kratko",
+   "director": null,
+   "countries": [],
    "year": 2026,
    "runtime": 103,
-   "language": "italijanščina, francoščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/It_Will_Happen_Tonight_Moretti.jpg",
+   "language": null,
+   "subtitles": "slovenščina,angleščina",
+   "image": "https://liffe.si/images/movies/Cosmonauts.png",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3996",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4018",
    "screening_ids": [
-    "t227383",
-    "t227400",
-    "t227219",
-    "t227319"
+    "t227356"
    ]
   },
   {
-   "id": "3999",
-   "title_sl": "Zvesta vojakinja",
-   "title_en": "A Good Little Soldier",
-   "title_orig": "Un bon petit soldat",
-   "title_en_raw": "A Good Little Soldier",
-   "title_orig_raw": "Un bon petit soldat",
-   "section": "Predpremiere",
-   "director": "Stéphane Brizé",
-   "countries": [
-    "Francija"
-   ],
+   "id": "4019",
+   "title_sl": "Evropa na kratko - 2. sklop",
+   "title_en": "Evrope in Short - 2. Program",
+   "title_orig": null,
+   "title_en_raw": "Evrope in Short - 2. Program",
+   "title_orig_raw": null,
+   "section": "Evropa na kratko",
+   "director": null,
+   "countries": [],
    "year": 2026,
-   "runtime": 102,
-   "language": "francoščina, italijanščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/A_GoodLittleSoldier_Brize.jpg",
+   "runtime": 101,
+   "language": null,
+   "subtitles": "slovenščina,angleščina",
+   "image": "https://liffe.si/images/movies/Winter_in_March.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3999",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4019",
    "screening_ids": [
-    "t227419",
-    "t227204",
-    "t227394",
-    "t227401"
+    "t227360"
    ]
   },
   {
-   "id": "4005",
-   "title_sl": "Ženska iz petega okrožja",
-   "title_en": "The Woman in the Fifth",
-   "title_orig": "La femme du 5eme",
-   "title_en_raw": "The Woman in the Fifth",
-   "title_orig_raw": "La femme du 5eme",
-   "section": "Posvečeno: Paweł Pawlikowski",
-   "director": "Paweł Pawlikowski",
-   "countries": [
-    "Francija",
-    "Poljska",
-    "VB"
-   ],
-   "year": 2011,
-   "runtime": 84,
-   "language": "angleščina, francoščina, poljščina",
-   "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/Woman_from_the_Fifth_Pawel_Pawlikowski.jpg",
+   "id": "4020",
+   "title_sl": "Evropa na kratko - 3. sklop",
+   "title_en": "Evrope in Short - 3. Program",
+   "title_orig": null,
+   "title_en_raw": "Evrope in Short - 3. Program",
+   "title_orig_raw": null,
+   "section": "Evropa na kratko",
+   "director": null,
+   "countries": [],
+   "year": 2026,
+   "runtime": 110,
+   "language": null,
+   "subtitles": "slovenščina,angleščina",
+   "image": "https://liffe.si/images/movies/Shadows.png",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4005",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4020",
    "screening_ids": [
-    "t227554"
+    "t227363"
    ]
   },
   {
-   "id": "3965",
-   "title_sl": "Ženska s pokrajino",
-   "title_en": "Landscape with a Woman",
-   "title_orig": "Žena s krajolikom",
-   "title_en_raw": "Landscape with a Woman",
-   "title_orig_raw": "Žena s krajolikom",
+   "id": "4021",
+   "title_sl": "Ivica Matić - kratki filmi",
+   "title_en": "Ivica Matić - short films",
+   "title_orig": null,
+   "title_en_raw": "Ivica Matić - short films",
+   "title_orig_raw": "Ivica Matić - kratki filmi",
    "section": "Posvečeno: Ivica Matić",
    "director": "Ivica Matić",
    "countries": [
     "Jugoslavija",
     "BiH"
    ],
-   "year": 1976,
-   "runtime": 66,
-   "language": "bosanščina",
+   "year": null,
+   "runtime": 35,
+   "language": "srbohrvaščina",
    "subtitles": "slovenščina",
-   "image": "https://liffe.si/images/movies/LandscapeWithWoman.jpg",
+   "image": "https://liffe.si/images/movies/matic.jpg",
    "vod": false,
-   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3965",
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4021",
    "screening_ids": [
-    "t227555"
+    "t227359"
    ]
   }
  ],
@@ -4734,10 +4735,9 @@
     "title_sl": "VOD - filmi Urše Menart"
    }
   ],
-  "screenings_outside_ljubljana": 38
+  "screenings_outside_ljubljana": 39
  },
  "warnings": [
-  "Neznana dvorana »KD Cerknica« (film 3930, 2026-11-10 17:00) — izpuščeno, preveri ročno",
   "Film 4022 (VOD - filmi Urše Menart) nima podatka o trajanju"
  ]
 }
