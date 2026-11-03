@@ -2,23 +2,23 @@
 
 Samodejno: `python3 scripts/check.py`
 
-- ✅ **Število filmov / projekcij / dvoran** — 102 / 254 / 7
+- ✅ **Število filmov / projekcij / dvoran** — 103 / 255 / 7
 - ✅ **Nobena projekcija izven Ljubljane** — izločenih: 39 (Maribor, Celje, Novo mesto)
 - ✅ **Vse projekcije v festivalskih dneh**
 - ✅ **Edinstveni ID-ji projekcij**
 - ✅ **Vsaka projekcija ima obstoječ film**
-- ✅ **Filmi z več termini** — 92 filmov, npr. Dnevnik sobarice (4 terminov)
+- ✅ **Filmi z več termini** — 93 filmov, npr. Dnevnik sobarice (4 terminov)
 - ✅ **Enak slovenski naslov, različna filma (ločena ID-ja)** — Dnevnik sobarice: 3920 (Radu Jude, 2026), 3939 (Luis Bunuel, 1964)
 - ✅ **Filmi brez trajanja (stran to pošteno pove)** — nobenega – vsi imajo uradno trajanje
 - ✅ **Ista dvorana: projekcija se začne pred koncem prejšnje** — 0 primerov (pričakovano 0; če ne, preveri trajanje ali uvode)
 - ✅ **Povezave za vstopnice** — 1 projekcij brez neposredne povezave (gumb vodi na uradne informacije o vstopnicah)
 - ✅ **Vrstni red povezav IMDb → LIFFe → Metacritic → Letterboxd**
-- ✅ **IMDb povezave v pravilni obliki** — 98 neposrednih (preverjen režiser), ostalo iskanje ali sklop
+- ✅ **IMDb povezave v pravilni obliki** — 99 neposrednih (preverjen režiser), ostalo iskanje ali sklop
 - ✅ **Ni prikazanih ocen tretjih virov**
 - ✅ **Povzetki** — 101 filmov s povzetkom, 1 označenih za ročno preverjanje
 - ✅ **Ni testnih/demo podatkov v programu**
 - ✅ **LuMa posnetek ne vsebuje testnih vrstic** — 9 resničnih vrstic
-- ✅ **Uvoz podatkov** — uvoženo 2026-11-02T05:20+00:00, zadnja sprememba 2026-10-29T01:38+01:00
+- ✅ **Uvoz podatkov** — uvoženo 2026-11-03T05:13+00:00, zadnja sprememba 2026-11-03T05:13+00:00
 
 ## Ročno preverjeno v brskalniku
 

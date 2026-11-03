@@ -12,9 +12,9 @@
   "films": "https://urnik.liffe.si/filmi.aspx",
   "schedule": "https://urnik.liffe.si/urnik.aspx",
   "api": "https://urnik.liffe.si/api/program",
-  "imported_at": "2026-11-02T05:20+00:00",
-  "checksum": "c61ba1f57a9d",
-  "changed_at": "2026-10-29T01:38+01:00"
+  "imported_at": "2026-11-03T05:13+00:00",
+  "checksum": "2c2847a73eee",
+  "changed_at": "2026-11-03T05:13+00:00"
  },
  "venues": [
   {
@@ -1827,8 +1827,7 @@
    "vod": false,
    "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3987",
    "screening_ids": [
-    "t227381",
-    "t227396",
+    "t227613",
     "t227305",
     "t227265"
    ]
@@ -2692,6 +2691,30 @@
    "screening_ids": [
     "t227359"
    ]
+  },
+  {
+   "id": "4023",
+   "title_sl": "Vse lahko vidiš",
+   "title_en": "You Can See Everything",
+   "title_orig": null,
+   "title_en_raw": "You Can See Everything",
+   "title_orig_raw": "You Can See Everything",
+   "section": "Predpremiere",
+   "director": "Lance Oppenheim, Nathan Fielder",
+   "countries": [
+    "ZDA"
+   ],
+   "year": 2026,
+   "runtime": 174,
+   "language": "angleščina",
+   "subtitles": "slovenščina",
+   "image": "https://liffe.si/images/movies/You_Can_See_Everything.jpg",
+   "vod": false,
+   "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=4023",
+   "screening_ids": [
+    "t227615",
+    "t227616"
+   ]
   }
  ],
  "screenings": [
@@ -2742,14 +2765,6 @@
    "time": "17:00",
    "venue": "kino-bezigrad",
    "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227113"
-  },
-  {
-   "id": "t227381",
-   "film_id": "3987",
-   "date": "2026-11-11",
-   "time": "18:10",
-   "venue": "agrft",
-   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227381"
   },
   {
    "id": "t227282",
@@ -3184,12 +3199,28 @@
    "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227292"
   },
   {
+   "id": "t227615",
+   "film_id": "4023",
+   "date": "2026-11-14",
+   "time": "11:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227615"
+  },
+  {
    "id": "t227245",
    "film_id": "3941",
    "date": "2026-11-14",
    "time": "14:30",
    "venue": "cd-kosovelova",
    "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227245"
+  },
+  {
+   "id": "t227613",
+   "film_id": "3987",
+   "date": "2026-11-14",
+   "time": "14:50",
+   "venue": "kinoteka",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227613"
   },
   {
    "id": "t227392",
@@ -3446,14 +3477,6 @@
    "time": "18:40",
    "venue": "kino-siska",
    "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227332"
-  },
-  {
-   "id": "t227396",
-   "film_id": "3987",
-   "date": "2026-11-15",
-   "time": "18:45",
-   "venue": "agrft",
-   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227396"
   },
   {
    "id": "t227214",
@@ -4574,6 +4597,14 @@
    "time": "11:00",
    "venue": "cd-kosovelova",
    "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227277"
+  },
+  {
+   "id": "t227616",
+   "film_id": "4023",
+   "date": "2026-11-22",
+   "time": "11:00",
+   "venue": "cd-linhartova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227616"
   },
   {
    "id": "t227327",
