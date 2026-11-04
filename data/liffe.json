@@ -12,9 +12,9 @@
   "films": "https://urnik.liffe.si/filmi.aspx",
   "schedule": "https://urnik.liffe.si/urnik.aspx",
   "api": "https://urnik.liffe.si/api/program",
-  "imported_at": "2026-11-03T05:13+00:00",
-  "checksum": "2c2847a73eee",
-  "changed_at": "2026-11-03T05:13+00:00"
+  "imported_at": "2026-11-04T05:17+00:00",
+  "checksum": "5353142fadb0",
+  "changed_at": "2026-11-04T05:17+00:00"
  },
  "venues": [
   {
@@ -1330,7 +1330,9 @@
    "section": "Perspektive",
    "director": "Urša Menart",
    "countries": [
-    "Slovenija"
+    "Slovenija",
+    "Nemčija",
+    "Srbija"
    ],
    "year": 2026,
    "runtime": 97,
@@ -1564,7 +1566,8 @@
    "screening_ids": [
     "t227114",
     "t227209",
-    "t227333"
+    "t227333",
+    "t227620"
    ]
   },
   {
@@ -4461,6 +4464,14 @@
    "time": "10:00",
    "venue": "kinodvor",
    "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227322"
+  },
+  {
+   "id": "t227620",
+   "film_id": "3977",
+   "date": "2026-11-21",
+   "time": "11:00",
+   "venue": "cd-kosovelova",
+   "ticket_url": "https://vstopnice.cd-cc.si/tickets/basket.php5?action=add&id=227620"
   },
   {
    "id": "t227323",

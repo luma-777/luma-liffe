@@ -2,7 +2,7 @@
 
 Samodejno: `python3 scripts/check.py`
 
-- ✅ **Število filmov / projekcij / dvoran** — 103 / 255 / 7
+- ✅ **Število filmov / projekcij / dvoran** — 103 / 256 / 7
 - ✅ **Nobena projekcija izven Ljubljane** — izločenih: 39 (Maribor, Celje, Novo mesto)
 - ✅ **Vse projekcije v festivalskih dneh**
 - ✅ **Edinstveni ID-ji projekcij**
@@ -18,7 +18,7 @@ Samodejno: `python3 scripts/check.py`
 - ✅ **Povzetki** — 101 filmov s povzetkom, 1 označenih za ročno preverjanje
 - ✅ **Ni testnih/demo podatkov v programu**
 - ✅ **LuMa posnetek ne vsebuje testnih vrstic** — 9 resničnih vrstic
-- ✅ **Uvoz podatkov** — uvoženo 2026-11-03T05:13+00:00, zadnja sprememba 2026-11-03T05:13+00:00
+- ✅ **Uvoz podatkov** — uvoženo 2026-11-04T05:17+00:00, zadnja sprememba 2026-11-04T05:17+00:00
 
 ## Ročno preverjeno v brskalniku
 
