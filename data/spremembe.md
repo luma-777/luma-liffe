@@ -1,6 +1,6 @@
-# Spremembe ob uvozu 2026-11-04T05:17+00:00
+# Spremembe ob uvozu 2026-11-05T05:18+00:00
 
-- + nova projekcija t227620: film 3977 2026-11-21 11:00 cd-kosovelova
+- Brez sprememb.
 
 ## Opozorila
 
