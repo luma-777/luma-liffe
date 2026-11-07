@@ -18,7 +18,7 @@ Samodejno: `python3 scripts/check.py`
 - ✅ **Povzetki** — 101 filmov s povzetkom, 1 označenih za ročno preverjanje
 - ✅ **Ni testnih/demo podatkov v programu**
 - ✅ **LuMa posnetek ne vsebuje testnih vrstic** — 9 resničnih vrstic
-- ✅ **Uvoz podatkov** — uvoženo 2026-11-06T05:17+00:00, zadnja sprememba 2026-11-04T05:17+00:00
+- ✅ **Uvoz podatkov** — uvoženo 2026-11-07T05:08+00:00, zadnja sprememba 2026-11-04T05:17+00:00
 
 ## Ročno preverjeno v brskalniku
 
