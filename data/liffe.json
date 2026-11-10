@@ -12,9 +12,9 @@
   "films": "https://urnik.liffe.si/filmi.aspx",
   "schedule": "https://urnik.liffe.si/urnik.aspx",
   "api": "https://urnik.liffe.si/api/program",
-  "imported_at": "2026-11-09T05:24+00:00",
-  "checksum": "5353142fadb0",
-  "changed_at": "2026-11-04T05:17+00:00"
+  "imported_at": "2026-11-10T05:12+00:00",
+  "checksum": "bec0b64fe54d",
+  "changed_at": "2026-11-10T05:12+00:00"
  },
  "venues": [
   {
@@ -436,7 +436,7 @@
    "year": 2026,
    "runtime": 102,
    "language": "angleščina",
-   "subtitles": "slovenščina",
+   "subtitles": "slovenščina,angleščina",
    "image": "https://liffe.si/images/movies/Truly_Naked_Muriel_Ansembourg.jpg",
    "vod": false,
    "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3933",
@@ -780,7 +780,7 @@
    "language": "grščina, italijanščina, angleščina",
    "subtitles": "slovenščina",
    "image": "https://liffe.si/images/movies/Hen_György_Pálfi.jpg",
-   "vod": false,
+   "vod": true,
    "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3947",
    "screening_ids": [
     "t227240",
@@ -829,7 +829,7 @@
    "year": 2025,
    "runtime": 95,
    "language": "bolgarščina",
-   "subtitles": "angleščina,slovenščina",
+   "subtitles": "slovenščina",
    "image": "https://liffe.si/images/movies/Black_Money_forWhite_Nights.jpg",
    "vod": false,
    "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3949",
@@ -977,7 +977,7 @@
    "year": 2025,
    "runtime": 127,
    "language": "nemščina, francoščina, japonščina",
-   "subtitles": "angleščina,slovenščina",
+   "subtitles": "slovenščina",
    "image": "https://liffe.si/images/movies/Melt_NikolausGeyrhalter.jpg",
    "vod": false,
    "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3955",
@@ -1081,7 +1081,7 @@
    "language": "nemščina",
    "subtitles": "slovenščina",
    "image": "https://liffe.si/images/movies/Rose_Markus_Schleinzer.jpg",
-   "vod": false,
+   "vod": true,
    "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3959",
    "screening_ids": [
     "t227205",
@@ -1615,7 +1615,7 @@
    "language": "latvijščina",
    "subtitles": "slovenščina",
    "image": "https://liffe.si/images/movies/Ulya_Kairišs.jpg",
-   "vod": false,
+   "vod": true,
    "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3979",
    "screening_ids": [
     "t227436",
