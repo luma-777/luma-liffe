@@ -1,7 +1,3 @@
-# Spremembe ob uvozu 2026-11-10T05:12+00:00
+# Spremembe ob uvozu 2026-11-11T05:17+00:00
 
 - Brez sprememb.
-
-## Opozorila
-
-- Film 4022 (VOD - filmi Urše Menart) nima podatka o trajanju

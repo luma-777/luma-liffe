@@ -12,7 +12,7 @@
   "films": "https://urnik.liffe.si/filmi.aspx",
   "schedule": "https://urnik.liffe.si/urnik.aspx",
   "api": "https://urnik.liffe.si/api/program",
-  "imported_at": "2026-11-10T05:12+00:00",
+  "imported_at": "2026-11-11T05:17+00:00",
   "checksum": "bec0b64fe54d",
   "changed_at": "2026-11-10T05:12+00:00"
  },
@@ -4774,12 +4774,18 @@
   "films_without_ljubljana_screening": [
    {
     "id": "4022",
-    "title_sl": "VOD - filmi Urše Menart"
+    "title_sl": "VOD - filmi Urše Menart (Primer: Vain)"
+   },
+   {
+    "id": "4024",
+    "title_sl": "VOD - filmi Urše Menart (Pokemon je za froce )"
+   },
+   {
+    "id": "4025",
+    "title_sl": "VOD - filmi Urše Menart (Kaj pa Mojca?)"
    }
   ],
   "screenings_outside_ljubljana": 39
  },
- "warnings": [
-  "Film 4022 (VOD - filmi Urše Menart) nima podatka o trajanju"
- ]
+ "warnings": []
 }
