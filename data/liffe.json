@@ -12,9 +12,9 @@
   "films": "https://urnik.liffe.si/filmi.aspx",
   "schedule": "https://urnik.liffe.si/urnik.aspx",
   "api": "https://urnik.liffe.si/api/program",
-  "imported_at": "2026-11-16T05:43+00:00",
-  "checksum": "bec0b64fe54d",
-  "changed_at": "2026-11-10T05:12+00:00"
+  "imported_at": "2026-11-17T05:17+00:00",
+  "checksum": "3ec47e97366e",
+  "changed_at": "2026-11-17T05:17+00:00"
  },
  "venues": [
   {
@@ -953,7 +953,7 @@
    "year": 2026,
    "runtime": 112,
    "language": "španščina",
-   "subtitles": "angleščina,slovenščina",
+   "subtitles": "slovenščina",
    "image": "https://liffe.si/images/movies/La_perra_Dominga_Sotomayor.jpg",
    "vod": false,
    "liffe_url": "https://urnik.liffe.si/Film.aspx?ln=sl&idF=3954",
