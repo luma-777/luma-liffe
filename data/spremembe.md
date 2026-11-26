@@ -1,3 +1,3 @@
-# Spremembe ob uvozu 2026-11-25T14:33+00:00
+# Spremembe ob uvozu 2026-11-26T13:59+00:00
 
 - Brez sprememb.
